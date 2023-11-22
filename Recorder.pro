@@ -78,7 +78,7 @@ INCLUDEPATH += $$PWD/third-party/headers/mpp \
 
 LIBS += -L$$PWD/third-party/prebuilt/linux_arm32 \
         -ldrm -lrockchip_mpp -lrockchip_vpu \
-        -lavformat -lavcodec -lavutil -lswscale
+        -lavformat -lavcodec -lavutil -lswscale -lswresample
 
 
 # Default rules for deployment.
