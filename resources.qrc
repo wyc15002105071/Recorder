@@ -1,29 +1,11 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/icons/capture.png</file>
-        <file>resources/icons/cature_clicked.png</file>
-        <file>resources/icons/not_push.png</file>
-        <file>resources/icons/pciture_clicked.png</file>
-        <file>resources/icons/picture.png</file>
-        <file>resources/icons/push.png</file>
-        <file>resources/icons/pushing.png</file>
-        <file>resources/icons/record.png</file>
-        <file>resources/icons/record_clicked.png</file>
-        <file>resources/icons/record_pause.png</file>
-        <file>resources/icons/record_pause_clicked.png</file>
-        <file>resources/icons/record_pause_disabled.png</file>
-        <file>resources/icons/record_stop.png</file>
-        <file>resources/icons/record_stop_clicked.png</file>
-        <file>resources/icons/record_stop_clicked1.png</file>
-        <file>resources/icons/record_stop_disabled.png</file>
-        <file>resources/icons/setting.png</file>
-        <file>resources/icons/setting_clicked.png</file>
-        <file>resources/icons/video.png</file>
-        <file>resources/icons/video_clicked.png</file>
         <file>resources/shaders/fragment.sh</file>
         <file>resources/shaders/vertex.sh</file>
-        <file>resources/icons/push_clicked.png</file>
-        <file>resources/icons/back.png</file>
-        <file>resources/icons/recording.png</file>
+        <file>resources/icons/capture.png</file>
+        <file>resources/icons/picture.png</file>
+        <file>resources/icons/record.png</file>
+        <file>resources/icons/share.png</file>
+        <file>resources/icons/video.png</file>
     </qresource>
 </RCC>

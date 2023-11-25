@@ -25,6 +25,7 @@ SOURCES += \
     common/observer.cpp \
     listeners/key_listener.cpp \
     main.cpp \
+    main_task.cpp \
     main_widget.cpp \
     media/hwencoder.cpp \
     media/media_utils.cpp \
@@ -45,9 +46,11 @@ HEADERS += \
     allocators/allocator_service.h \
     allocators/drm_allocator.h \
     common/Mutex.h \
+    common/common.h \
     common/log.h \
     common/observer.h \
     listeners/key_listener.h \
+    main_task.h \
     main_widget.h \
     media/hwencoder.h \
     media/media_utils.h \

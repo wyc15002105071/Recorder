@@ -2,6 +2,8 @@
 #define MAINWIDGET_H
 
 #include <QWidget>
+#include <QPushButton>
+#include <QResizeEvent>
 #include "log.h"
 #include "media_utils.h"
 #include "v4l2_device.h"
@@ -9,6 +11,7 @@
 #include "widgets/viewer/imageviewer.h"
 #include "widgets/viewer/videoviewer.h"
 #include "widgets/setting_widget.h"
+#include "common/common.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
@@ -21,26 +24,33 @@ class MainWidget : public QWidget
 public:
     MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
-
+    virtual void resizeEvent(QResizeEvent *event);
 private:
     Ui::MainWidget *ui;
 
     V4L2Device v4l2_device;
 //    std::shared_ptr<RecordTimerWidget>mRecordTimerWidget;
-    std::shared_ptr<ImageViewer> mImageViewer;
-    std::shared_ptr<VideoViewer> mVideoViewer;
-    std::shared_ptr<SettingWidget> mSettingWidget;
+    sp<ImageViewer> mImageViewer;
+    sp<VideoViewer> mVideoViewer;
+    sp<SettingWidget> mSettingWidget;
+
+    sp<QWidget> mVideoWidget;
+    sp<QWidget> mMenuWidget;
+    sp<VideoWidget>mRenderWidget;
+
+//    QWidget* mVideoWidget;
+//    QWidget* mMenuWidget;
+
 public slots:
     void captureClicked();
     void recordChecked(bool checked);
     void recordStopClicked();
-    void pushChecked(bool checked);
     void pictureFileClicked();
     void videoFileClicked();
     void settingClicked();
 
 private:
-    void initWidgets();
+    void initWidgets(QResizeEvent *event);
 
 };
 #endif // MAINWIDGET_H

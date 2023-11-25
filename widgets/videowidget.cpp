@@ -162,12 +162,6 @@ void VideoWidget::paintGL()
         else if(mBo[mCurrentPreviewIndex].fourcc == DRM_FORMAT_NV12 || mBo[mCurrentPreviewIndex].fourcc == DRM_FORMAT_NV21) {
             glUniform1i(glGetUniformLocation(mProgram, "tex1"),1);
             glUniform1i(glGetUniformLocation(mProgram, "s_TextureFmt"),0);
-
-            static int count = 0;
-            if(count < 10)
-                fwrite(mBo[mCurrentPreviewIndex].vir_addr,1,mBo[mCurrentPreviewIndex].buf_size,inFile);
-            count++;
-
             updateTexture(0,mBo[mCurrentPreviewIndex].width,mBo[mCurrentPreviewIndex].height,(uchar *)mBo[mCurrentPreviewIndex].vir_addr,GL_LUMINANCE);
 
             updateTexture(1,mBo[mCurrentPreviewIndex].width/2,mBo[mCurrentPreviewIndex].height/2,(uchar *)mBo[mCurrentPreviewIndex].vir_addr+mBo[mCurrentPreviewIndex].width*mBo[mCurrentPreviewIndex].height,GL_LUMINANCE_ALPHA);
