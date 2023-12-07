@@ -10,7 +10,6 @@
 #include <stdlib.h>
 #include <sys/select.h>
 #include "widgets/videowidget.h"
-#include "hwencoder.h"
 #include "mediarecorder.h"
 
 class VideoInputDevice : public RThread
@@ -46,7 +45,6 @@ private:
 
     int32_t       mDeviceFd;
     VideoWidget  *mVideoWidget;
-    HwEncoder    *mHwEncoder;
     bool          mIsEncoding;
     bool          mVideoEosFlag;
 

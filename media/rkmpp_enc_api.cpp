@@ -1,6 +1,7 @@
 #include "rkmpp_enc_api.h"
 #include "common/log.h"
 #include "media/mediautils.h"
+#include "mpp_common.h"
 
 #define MODULE_TAG "RKHWEncApi"
 

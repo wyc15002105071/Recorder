@@ -13,5 +13,14 @@
         <file>resources/icons/top_right.png</file>
         <file>resources/icons/rect.png</file>
         <file>resources/icons/record_stop.png</file>
+        <file>resources/icons/last.png</file>
+        <file>resources/icons/loading.gif</file>
+        <file>resources/icons/next.png</file>
+        <file>resources/icons/not_select.png</file>
+        <file>resources/icons/pause.png</file>
+        <file>resources/icons/play.png</file>
+        <file>resources/icons/selected.png</file>
+        <file>resources/icons/select_mode.png</file>
+        <file>resources/icons/back.png</file>
     </qresource>
 </RCC>

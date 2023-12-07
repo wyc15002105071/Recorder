@@ -16,6 +16,11 @@ BaseWidget::BaseWidget(QWidget *parent, VideoInputDevice *input_Device):
     ui->setupUi(this);
 }
 
+void BaseWidget::closeEvent(QCloseEvent *event)
+{
+    emit onClosed();
+}
+
 BaseWidget::~BaseWidget()
 {
     delete ui;
@@ -24,6 +29,5 @@ BaseWidget::~BaseWidget()
 void BaseWidget::open()
 {
     this->show();
-
     emit onOpened();
 }

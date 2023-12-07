@@ -2,7 +2,7 @@
 #define VIDEOVIEWER_H
 
 #include <QWidget>
-#include "abstractviewer.h"
+#include "baseviewer.h"
 #include "videoframereader.h"
 #include "videoplayer.h"
 
@@ -10,7 +10,7 @@ namespace Ui {
 class VideoViewer;
 }
 
-class VideoViewer : public AbStractViewer
+class VideoViewer : public BaseViewer
 {
     Q_OBJECT
 

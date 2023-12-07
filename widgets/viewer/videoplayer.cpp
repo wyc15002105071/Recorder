@@ -7,7 +7,7 @@
 using namespace std;
 
 VideoPlayer::VideoPlayer(QWidget *parent) :
-    QWidget(parent)
+    BaseWidget(parent)
     ,ui(new Ui::VideoPlayer)
     ,mPlayer(shared_ptr<QMediaPlayer>(new QMediaPlayer))
 {

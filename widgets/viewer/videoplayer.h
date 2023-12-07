@@ -5,12 +5,13 @@
 #include <QMediaPlayer>
 #include <memory>
 #include <QVideoWidget>
+#include "basewidget.h"
 
 namespace Ui {
 class VideoPlayer;
 }
 
-class VideoPlayer : public QWidget
+class VideoPlayer : public BaseWidget
 {
     Q_OBJECT
 

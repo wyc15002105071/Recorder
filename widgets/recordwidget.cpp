@@ -30,7 +30,7 @@ void RecordWidget::onRecordBtnToggled(bool toggled)
         if(mVideoInputDevice) {
             mVideoInputDevice->stopRecord();
         }
-        emit onClosed();
+
         this->close();
     }
 }

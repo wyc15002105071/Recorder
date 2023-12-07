@@ -6,56 +6,267 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>613</width>
-    <height>464</height>
+    <width>830</width>
+    <height>453</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#video_list{
+   <string notr="true">#VideoViewer {
+	background-color: rgb(29, 32, 41);
+}
+#video_list{
    color:rgba(255, 255, 255, 1);
 	border:0px;
 	outline:none;
+   
+	background-color: rgb(29, 32, 41);
 }
 
 #video_list::item::selected{
 color:rgba(51, 51, 51, 1);
-background-color: rgb(221, 237, 234, 1);
+background-color: rgba(57, 63, 77, 1);
+}
+
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="top" native="true">
+     <property name="styleSheet">
+      <string notr="true">#top {
+	background-color: rgb(39, 42, 51);
+}
+
+QPushButton {
+   border-radius:8px;
+	color: rgb(225, 227, 240);
+	background-color: rgba(57, 63, 77, 1);
+}
+
+QPushButton::pressed{
+   border-radius:8px;
+	color: rgb(225, 227, 240);
+	background-color: rgba(24, 144, 255, 1);
 }
 
 #back_btn{
-	
+   background-color:transparent;
 	border-image: url(:/resources/icons/back.png);
+}
+
+#back_btn::clicked{
+   background-color:transparent;
+	border-image: url(:/resources/icons/back.png);
+}
+
+#selectMode_btn {
+	image: url(:/resources/icons/select_mode.png);
+	background-color: rgba(57, 63, 77, 1);
+   border-radius:8px;
+}
+#selectMode_btn::checked {
+	image: url(:/resources/icons/select_mode.png);
+	background-color: rgba(24, 144, 255, 1);
+   border-radius:8px;
 }</string>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QWidget" name="top" native="true">
+     </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item alignment="Qt::AlignLeft">
        <widget class="QPushButton" name="back_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>42</width>
-          <height>35</height>
+          <width>28</width>
+          <height>48</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>42</width>
-          <height>35</height>
+          <width>28</width>
+          <height>48</height>
          </size>
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>拷贝选中视频</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>拷贝所有视频</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>删除选中视频</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>删除所有视频</string>
         </property>
        </widget>
       </item>
@@ -71,6 +282,28 @@ background-color: rgb(221, 237, 234, 1);
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="selectMode_btn">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>60</width>
+          <height>60</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -112,25 +345,9 @@ background-color: rgb(221, 237, 234, 1);
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>video_list</sender>
-   <signal>itemDoubleClicked(QListWidgetItem*)</signal>
-   <receiver>VideoViewer</receiver>
-   <slot>itemDoubleClicked(QListWidgetItem*)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>393</x>
-     <y>174</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>821</x>
-     <y>217</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>itemDoubleClicked(QListWidgetItem*)</slot>
+  <slot>onItemPressed(QListWidgetItem*)</slot>
  </slots>
 </ui>

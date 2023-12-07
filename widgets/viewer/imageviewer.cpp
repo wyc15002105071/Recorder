@@ -3,13 +3,12 @@
 #include <QLabel>
 
 ImageViewer::ImageViewer(QWidget *parent) :
-    AbStractViewer(parent),
-    ui(new Ui::ImageViewer)
+    BaseViewer(parent),
+    ui(new Ui::ImageViewer),
+    mImageBrowser(sp<ImageBrowser>(new ImageBrowser()))
 {
     ui->setupUi(this);
     mFileType = FILE_TYPE_IMAGE;
-
-    connect(ui->back_btn,SIGNAL(clicked()),this,SLOT(close()));
 }
 
 ImageViewer::~ImageViewer()
@@ -20,7 +19,7 @@ ImageViewer::~ImageViewer()
 void ImageViewer::open()
 {
     findAllFiles(IMAGES_SAVE_DIR);
-
+    ui->image_list->clear();
     for(int i = 0;i<mFileList.size();i++) {
         QListWidgetItem *item = new QListWidgetItem;
         QPixmap file_icon;
@@ -37,7 +36,15 @@ void ImageViewer::open()
         ui->image_list->addItem(item);
         ui->image_list->setItemWidget(item,image_label);
     }
-
+//    showFullScreen();
     show();
-    showFullScreen();
+}
+
+void ImageViewer::onItemClicked(QListWidgetItem *item)
+{
+    int current_index = ui->image_list->currentRow();
+
+    if(mImageBrowser) {
+        mImageBrowser->open(mFileList,current_index);
+    }
 }

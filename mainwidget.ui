@@ -236,13 +236,29 @@ border-radius: 40px;
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>picture_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWidget</receiver>
+   <slot>onPictureFileClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>574</x>
+     <y>434</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>892</x>
+     <y>385</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onCaptureClicked()</slot>
   <slot>onRecordClicked()</slot>
   <slot>recordStopClicked()</slot>
   <slot>pushChecked(bool)</slot>
-  <slot>pictureFileClicked()</slot>
+  <slot>onPictureFileClicked()</slot>
   <slot>onVideoFileClicked()</slot>
   <slot>settingClicked()</slot>
  </slots>

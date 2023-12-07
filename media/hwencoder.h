@@ -1,11 +1,13 @@
 #ifndef HWENCODER_H
 #define HWENCODER_H
 
+extern "C" {
 #include "rk_mpi.h"
 #include "mpp_mem.h"
 #include "mpp_common.h"
 #include "mpp_log.h"
 #include "mpp_env.h"
+}
 #include "rthread.h"
 #include "muxer.h"
 #include <memory>

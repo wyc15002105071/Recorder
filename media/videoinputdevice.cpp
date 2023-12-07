@@ -10,7 +10,6 @@ using namespace std;
 VideoInputDevice::VideoInputDevice()
     :mDeviceFd(0)
     ,mVideoWidget(nullptr)
-    ,mHwEncoder(nullptr)
     ,mIsEncoding(false)
     ,mVideoEosFlag(false)
     ,mRecorder(sp<MediaRecorder>(new MediaRecorder))
@@ -324,8 +323,8 @@ void VideoInputDevice::stopTask()
         wait(QUIT_TIMEOUT);
     }
 
-    if(mHwEncoder) {
-        mHwEncoder->stopTask();
+    if(mRecorder) {
+        mRecorder->stopTask();
     }
 
 }

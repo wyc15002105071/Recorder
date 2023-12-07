@@ -1,19 +1,19 @@
-#ifndef ABSTRACTVIEWER_H
-#define ABSTRACTVIEWER_H
+#ifndef BASEVIEWER_H
+#define BASEVIEWER_H
 
 #include <QWidget>
 #include <QList>
-#include "media/mediautils.h"
-class AbStractViewer : public QWidget
+#include "basewidget.h"
+
+class BaseViewer : public BaseWidget
 {
 public:
-    AbStractViewer(QWidget *parent = nullptr);
+    BaseViewer(QWidget *parent = nullptr);
 
-    virtual void open(){}
     virtual void findAllFiles(const char *dir);
 
 protected:
-    QList<QString>mFileList;
+    QList<QString> mFileList;
 
     typedef enum {
         FILE_TYPE_IMAGE,
@@ -23,4 +23,4 @@ protected:
     FileType mFileType;
 };
 
-#endif // ABSTRACTVIEWER_H
+#endif // BASEVIEWER_H

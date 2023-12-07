@@ -1,14 +1,14 @@
-#include "abstractviewer.h"
+#include "baseviewer.h"
 #include <QFile>
 #include <QDir>
-AbStractViewer::AbStractViewer(QWidget *parent)
-    :QWidget(parent)
+BaseViewer::BaseViewer(QWidget *parent)
+    :BaseWidget(parent)
 {
-    showFullScreen();
+    setWindowState(Qt::WindowFullScreen);
     close();
 }
 
-void AbStractViewer::findAllFiles(const char *dir)
+void BaseViewer::findAllFiles(const char *dir)
 {
     QDir file_dir(dir);
     if(!file_dir.exists())

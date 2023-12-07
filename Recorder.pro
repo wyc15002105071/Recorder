@@ -39,7 +39,8 @@ SOURCES += \
     media/videoinputdevice.cpp \
     widgets/recordwidget.cpp \
     widgets/setting_widget.cpp \
-    widgets/viewer/abstractviewer.cpp \
+    widgets/viewer/baseviewer.cpp \
+    widgets/viewer/imagebrowser.cpp \
     widgets/viewer/imageviewer.cpp \
     widgets/record_timer_widget.cpp \
     widgets/videowidget.cpp \
@@ -69,7 +70,8 @@ HEADERS += \
     media/videoinputdevice.h \
     widgets/recordwidget.h \
     widgets/setting_widget.h \
-    widgets/viewer/abstractviewer.h \
+    widgets/viewer/baseviewer.h \
+    widgets/viewer/imagebrowser.h \
     widgets/viewer/imageviewer.h \
     widgets/record_timer_widget.h \
     widgets/videowidget.h \
@@ -81,6 +83,7 @@ FORMS += \
     mainwidget.ui \
     widgets/recordwidget.ui \
     widgets/settingwidget.ui \
+    widgets/viewer/imagebrowser.ui \
     widgets/viewer/imageviewer.ui \
     widgets/recordtimerwidget.ui \
     widgets/viewer/videoplayer.ui \

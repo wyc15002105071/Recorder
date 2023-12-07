@@ -1,13 +1,12 @@
 #include "videoviewer.h"
 #include "ui_videoviewer.h"
 #include <QLabel>
-#include "thumbnail_utils.h"
 #include <QLabel>
 
 using namespace std;
 
 VideoViewer::VideoViewer(QWidget *parent) :
-    AbStractViewer(parent),
+    BaseViewer(parent),
     ui(new Ui::VideoViewer)
     ,mVideoFrameReader(VideoFrameReader::Instance())
     ,mPlayer(shared_ptr<VideoPlayer>(new VideoPlayer))

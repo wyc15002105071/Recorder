@@ -50,7 +50,7 @@ public slots:
 
     void recordChecked(bool checked);
     void recordStopClicked();
-    void pictureFileClicked();
+    void onPictureFileClicked();
     void onVideoFileClicked();
     void settingClicked();
 

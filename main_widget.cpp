@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include "mpp_common.h"
 
 #define MODULE_TAG "MainWidget"
 
@@ -118,7 +119,7 @@ void MainWidget::recordStopClicked()
 //    ui->record_timer_widget->stop();
 }
 
-void MainWidget::pictureFileClicked()
+void MainWidget::onPictureFileClicked()
 {
     mImageViewer->open();
 }
