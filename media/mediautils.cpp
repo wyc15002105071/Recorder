@@ -1,4 +1,4 @@
-#include "media_utils.h"
+#include "mediautils.h"
 #include <memory>
 #include "log.h"
 
@@ -7,6 +7,19 @@ using namespace std;
 #define MAX_NODE_COUNT 1024
 shared_ptr<char>nodes[MAX_NODE_COUNT];
 static int video_node_count = 0;
+
+string fcc2s(__u32 val)
+{
+    std::string s;
+
+    s += val & 0x7f;
+    s += (val >> 8) & 0x7f;
+    s += (val >> 16) & 0x7f;
+    s += (val >> 24) & 0x7f;
+    if (val & (1U << 31))
+        s += "-BE";
+    return s;
+}
 
 int printFps(const char *TAG)
 {
@@ -22,7 +35,13 @@ int printFps(const char *TAG)
     gettimeofday(&current_time, NULL);
     strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", localtime(&current_time.tv_sec));
     inFrameCount++;
-    if (!(inFrameCount & 0x1F)) {
+
+    struct timeval now;
+    gettimeofday(&now, NULL);
+    inNowUs = (long)now.tv_sec * 1000000 + (long)now.tv_usec;
+    inDiff = inNowUs - inLastFpsTimeUs;
+
+    if (!(inFrameCount & 0x1F) && inDiff > 2000000) {
         struct timeval now;
         gettimeofday(&now, NULL);
         inNowUs = (long)now.tv_sec * 1000000 + (long)now.tv_usec;

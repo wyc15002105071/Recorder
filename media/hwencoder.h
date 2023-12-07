@@ -114,7 +114,7 @@ private:
 
     MpiEncData *mEncData = nullptr;
     MppPollType timeout = MPP_POLL_BLOCK;
-    MppBuffer buffer[4];
+    MppBuffer mBuffer[4];
 private:
     void init_ctx(int width,int height,int fmt);
     MPP_RET mpp_enc_cfg_setup();

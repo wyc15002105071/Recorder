@@ -1,7 +1,7 @@
-#ifndef V4L2_DEVICE_H
-#define V4L2_DEVICE_H
+#ifndef VIDEOINPUTDEVICE_H
+#define VIDEOINPUTDEVICE_H
 
-#include "media_utils.h"
+#include "mediautils.h"
 #include "rthread.h"
 #include <sys/ioctl.h>
 #include <sys/mman.h>
@@ -11,37 +11,51 @@
 #include <sys/select.h>
 #include "widgets/videowidget.h"
 #include "hwencoder.h"
+#include "mediarecorder.h"
 
-class V4L2Device : public RThread
+class VideoInputDevice : public RThread
 {
 public:
-    V4L2Device();
-    ~V4L2Device();
-    virtual void run();
 #define MAX_BUF_CNT 4
 #define FMT_NUM_PLANES 1
-    bool init_device(bool is_hdmi_in);
+    VideoInputDevice();
+    ~VideoInputDevice();
+    virtual void run();
+
     virtual void stopTask();
-    void startEnc();
-    void stopEnc();
 
-    void setVideoWidget(VideoWidget *video_widget) { mVideoWidget = std::move(video_widget);};
+    bool    initDevice(bool is_hdmi_in);
+    void    deinit();
+    void    startRecord();
+    void    stopRecord();
+    void    setVideoWidget(VideoWidget *video_widget) { mVideoWidget = std::move(video_widget);};
 private:
-    int mDeviceFd;
-    VideoWidget *mVideoWidget;
-    HwEncoder *mHwEncoder;
-    struct v4l2_plane mPlanes[MAX_BUF_CNT];
-    struct v4l2_buffer mBufferArray[MAX_BUF_CNT];
+    typedef struct DmaBufferObject{
+        int32_t     buf_fd;
+        int32_t     buf_size;
+        void       *vir_addr;
+        int32_t     width;
+        int32_t     height;
+    } DmaBufferObject_t;
 
-    bool mIsEncoding;
+    typedef struct StreamInfo{
+        int32_t     width;
+        int32_t     height;
+        uint32_t    format;
+    } StreamInfo_t;
 
-    typedef struct {
-        int buf_fd;
-        int buf_size;
-        void *vir_addr;
-    } BufferObject;
+    int32_t       mDeviceFd;
+    VideoWidget  *mVideoWidget;
+    HwEncoder    *mHwEncoder;
+    bool          mIsEncoding;
+    bool          mVideoEosFlag;
 
-    BufferObject mBo[MAX_BUF_CNT];
+    sp<MediaRecorder>   mRecorder;
+    struct v4l2_plane   mPlanes[MAX_BUF_CNT];
+    struct v4l2_buffer  mBufferArray[MAX_BUF_CNT];
+
+    StreamInfo      mStreamInfo;
+    DmaBufferObject mDmaBo[MAX_BUF_CNT];
 };
 
-#endif // V4L2DEVICE_H
+#endif // VIDEOINPUTDEVICE_H

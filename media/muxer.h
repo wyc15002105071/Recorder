@@ -6,7 +6,7 @@
 #include <memory>
 #include <list>
 #include "rthread.h"
-#include "media_utils.h"
+#include "mediautils.h"
 
 extern "C" {
 #include "libavcodec/avcodec.h"

@@ -33,20 +33,11 @@ void HwEncoder::run()
         mLock.lock();
         if(mCurrBufIndex < 0) {
             mLock.unlock();
-            msleep(10);
+            msleep(1);
             continue;
         }
-        MppBufferInfo info;
-        MppBuffer buffer;
-        memset(&info, 0, sizeof(MppBufferInfo));
-        info.type = MPP_BUFFER_TYPE_EXT_DMA;
-        info.fd =  buf_fd;
-        info.size = buf_size & 0x07ffffff;
-        info.index = (buf_size & 0xf8000000) >> 27;
-        mpp_buffer_import(&buffer, &info);
-
-        mpp_frame_set_buffer(frame, buffer);
-        mpp_buffer_put(buffer);
+        mpp_frame_set_buffer(frame, mBuffer[mCurrBufIndex]);
+        mpp_buffer_put(mBuffer[mCurrBufIndex]);
         mpp_frame_set_width(frame, p->width);
         mpp_frame_set_height(frame, p->height);
         mpp_frame_set_hor_stride(frame, p->hor_stride);
@@ -182,7 +173,7 @@ void HwEncoder::import_buf(int buf_fd, int buf_size, int index)
     info.fd =  buf_fd;
     info.size = buf_size & 0x07ffffff;
     info.index = (buf_size & 0xf8000000) >> 27;
-    mpp_buffer_import(&buffer[index], &info);
+    mpp_buffer_import(&mBuffer[index], &info);
 }
 
 void HwEncoder::createHwEncoder(int width, int height, int fmt)

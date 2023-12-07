@@ -7,5 +7,11 @@
         <file>resources/icons/record.png</file>
         <file>resources/icons/share.png</file>
         <file>resources/icons/video.png</file>
+        <file>resources/icons/bottom_left.png</file>
+        <file>resources/icons/bottom_right.png</file>
+        <file>resources/icons/top_left.png</file>
+        <file>resources/icons/top_right.png</file>
+        <file>resources/icons/rect.png</file>
+        <file>resources/icons/record_stop.png</file>
     </qresource>
 </RCC>

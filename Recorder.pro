@@ -21,6 +21,7 @@ SOURCES += \
     allocators/allocator.cpp \
     allocators/allocator_service.cpp \
     allocators/drm_allocator.cpp \
+    basewidget.cpp \
     common/log.cpp \
     common/observer.cpp \
     listeners/key_listener.cpp \
@@ -28,11 +29,15 @@ SOURCES += \
     main_task.cpp \
     main_widget.cpp \
     media/hwencoder.cpp \
-    media/media_utils.cpp \
     common/rthread.cpp \
+    media/mediamuxer.cpp \
+    media/mediarecorder.cpp \
+    media/mediautils.cpp \
     media/muxer.cpp \
-    media/v4l2_device.cpp \
+    media/rkmpp_enc_api.cpp \
     media/videoframereader.cpp \
+    media/videoinputdevice.cpp \
+    widgets/recordwidget.cpp \
     widgets/setting_widget.cpp \
     widgets/viewer/abstractviewer.cpp \
     widgets/viewer/imageviewer.cpp \
@@ -45,6 +50,7 @@ HEADERS += \
     allocators/allocator.h \
     allocators/allocator_service.h \
     allocators/drm_allocator.h \
+    basewidget.h \
     common/Mutex.h \
     common/common.h \
     common/log.h \
@@ -53,12 +59,15 @@ HEADERS += \
     main_task.h \
     main_widget.h \
     media/hwencoder.h \
-    media/media_utils.h \
     common/rthread.h \
+    media/mediamuxer.h \
+    media/mediarecorder.h \
+    media/mediautils.h \
     media/muxer.h \
-    media/thumbnail_utils.h \
-    media/v4l2_device.h \
+    media/rkmpp_enc_api.h \
     media/videoframereader.h \
+    media/videoinputdevice.h \
+    widgets/recordwidget.h \
     widgets/setting_widget.h \
     widgets/viewer/abstractviewer.h \
     widgets/viewer/imageviewer.h \
@@ -68,7 +77,9 @@ HEADERS += \
     widgets/viewer/videoviewer.h
 
 FORMS += \
+    basewidget.ui \
     mainwidget.ui \
+    widgets/recordwidget.ui \
     widgets/settingwidget.ui \
     widgets/viewer/imageviewer.ui \
     widgets/recordtimerwidget.ui \

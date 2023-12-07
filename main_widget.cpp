@@ -18,17 +18,6 @@ MainWidget::MainWidget(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowState(Qt::WindowFullScreen);
-//    showFullScreen();
-//    v4l2_device.setVideoWidget(ui->openGLWidget);
-//    bool success = v4l2_device.init_device(1);
-
-
-//    initWidgets();
-
-//    v4l2_device.start();
-//    QTimer *timer = new QTimer;
-//    timer->start(2000);
-//    connect(timer,SIGNAL(timeout()),this,SLOT(close()));
 }
 
 MainWidget::~MainWidget()
@@ -36,23 +25,33 @@ MainWidget::~MainWidget()
     delete ui;
 }
 
-void MainWidget::initWidgets(QResizeEvent *event)
+void MainWidget::initWidgets()
 {
-    if(!mVideoWidget) {
-        mVideoWidget = sp<QWidget>(ui->video_widget);
-        if(!mRenderWidget)
-            mRenderWidget = sp<VideoWidget>(new VideoWidget(ui->video_widget));
+    if(!mVideoWidget_Container) {
+        mVideoWidget_Container = sp<QWidget>(ui->videowidget_container);
+        if(!mVideoWidget) {
+            mVideoWidget = sp<VideoWidget>(new VideoWidget(ui->videowidget_container));
+            connect(mVideoWidget.get(),SIGNAL(onVideoWidgetCreated()),this,SLOT(onCreateTask()),Qt::UniqueConnection);
+        }
     }
     if(!mMenuWidget)
         mMenuWidget = sp<QWidget>(ui->menu_widget);
 
-    mVideoWidget->resize(event->size());
+    mVideoWidget->resize(this->size());
     mVideoWidget->move(0,0);
 
-    mRenderWidget->setGeometry(mVideoWidget->geometry());
+    mVideoWidget_Container->setGeometry(mVideoWidget->geometry());
 
-    mMenuWidget->setFixedWidth(event->size().width());
-    mMenuWidget->move(0,event->size().height()-mMenuWidget->height());
+    mMenuWidget->setFixedWidth(this->size().width());
+    mMenuWidget->move(0,this->size().height()-mMenuWidget->height());
+
+    if(!mRecordWidget) {
+        mRecordWidget = sp<RecordWidget>(new RecordWidget(this,&mInputDevice));
+        connect(mRecordWidget.get(),&RecordWidget::onClosed,this,[=]{ if(mMenuWidget) mMenuWidget->show(); },Qt::UniqueConnection);
+    }
+
+    mRecordWidget->setGeometry(this->rect());
+    mRecordWidget->close();
 
     if (access(IMAGES_SAVE_DIR, F_OK)) {
         mkdir(IMAGES_SAVE_DIR);
@@ -65,30 +64,49 @@ void MainWidget::initWidgets(QResizeEvent *event)
 
 void MainWidget::resizeEvent(QResizeEvent *event)
 {
-    initWidgets(event);
+    initWidgets();
 }
 
-void MainWidget::captureClicked()
+void MainWidget::destroy()
 {
-//    char time_str[50] = {0};
-//    getCurentTime(time_str,NULL);
-//    char file_name[50] = {0};
-//    char file_save_path[50] = {0};
-//    sprintf(file_name,"%s.jpg",time_str);
-//    sprintf(file_save_path,"%s/%s",IMAGES_SAVE_DIR,file_name);
-//    QPixmap pix_map = ui->openGLWidget->grab();
-//    pix_map.save(file_save_path);
-//    ui->openGLWidget->showSnapShotEffect();
+
+}
+
+void MainWidget::onCaptureClicked()
+{
+    char time_str[50] = {0};
+    getCurentTime(time_str,NULL);
+    char file_name[50] = {0};
+    char file_save_path[50] = {0};
+    sprintf(file_name,"%s.jpg",time_str);
+    sprintf(file_save_path,"%s/%s",IMAGES_SAVE_DIR,file_name);
+    RLOGD("capture file path is %s",file_save_path);
+    if(mVideoWidget) {
+        QPixmap pix_map = mVideoWidget->grab();
+        mVideoWidget->showSnapShotEffect();
+        pix_map.save(file_save_path);
+    }
+}
+
+void MainWidget::onRecordClicked()
+{
+    RLOGD("ready to open record widget");
+    if(mRecordWidget) {
+        mMenuWidget->close();
+        mRecordWidget->open();
+    }
+
+//    static bool isenc = false;
+//    isenc = !isenc;
+//    if(isenc)
+//        mInputDevice.startRecord();
+//    else
+//        mInputDevice.stopRecord();
 }
 
 void MainWidget::recordChecked(bool checked)
 {
-//    if(checked) {
-//        v4l2_device.startEnc();
-//        ui->record->setEnabled(false);
-//        ui->record_stop->setEnabled(true);
-//        ui->record_timer_widget->start();
-//    }
+
 }
 
 void MainWidget::recordStopClicked()
@@ -103,17 +121,21 @@ void MainWidget::recordStopClicked()
 void MainWidget::pictureFileClicked()
 {
     mImageViewer->open();
-    mImageViewer->showFullScreen();
 }
 
-void MainWidget::videoFileClicked()
+void MainWidget::onVideoFileClicked()
 {
     mVideoViewer->open();
-    mVideoViewer->showFullScreen();
 }
 
 void MainWidget::settingClicked()
 {
     mSettingWidget->show();
-    mSettingWidget->showFullScreen();
+}
+
+void MainWidget::onCreateTask()
+{
+    mInputDevice.setVideoWidget(mVideoWidget.get());
+    mInputDevice.initDevice(1);
+    mInputDevice.start();
 }

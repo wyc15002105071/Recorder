@@ -23,7 +23,7 @@
 
 }</string>
   </property>
-  <widget class="QWidget" name="video_widget" native="true">
+  <widget class="QWidget" name="videowidget_container" native="true">
    <property name="geometry">
     <rect>
      <x>9</x>
@@ -187,14 +187,63 @@ border-radius: 40px;
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>record_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWidget</receiver>
+   <slot>onCaptureClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>424</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-25</x>
+     <y>417</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>capture_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWidget</receiver>
+   <slot>onRecordClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>295</x>
+     <y>434</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-56</x>
+     <y>387</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>video_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWidget</receiver>
+   <slot>onVideoFileClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>739</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>909</x>
+     <y>437</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
-  <slot>captureClicked()</slot>
-  <slot>recordChecked(bool)</slot>
+  <slot>onCaptureClicked()</slot>
+  <slot>onRecordClicked()</slot>
   <slot>recordStopClicked()</slot>
   <slot>pushChecked(bool)</slot>
   <slot>pictureFileClicked()</slot>
-  <slot>videoFileClicked()</slot>
+  <slot>onVideoFileClicked()</slot>
   <slot>settingClicked()</slot>
  </slots>
 </ui>

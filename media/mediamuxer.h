@@ -1,12 +1,12 @@
-#ifndef MUXER_H
-#define MUXER_H
+#ifndef MEDIAMUXER_H
+#define MEDIAMUXER_H
 
 #include "rk_mpi.h"
 #include "mpp_mem.h"
 #include <memory>
 #include <list>
 #include "rthread.h"
-#include "media_utils.h"
+#include "mediautils.h"
 
 extern "C" {
 #include "libavcodec/avcodec.h"
@@ -14,10 +14,10 @@ extern "C" {
 #include "libavutil/avutil.h"
 }
 
-class Muxer:public RThread
+class MediaMuxer:public RThread
 {
 public:
-    Muxer();
+    MediaMuxer();
     virtual void run();
     void createMuxCtx(int width,int height,VIDEO_ENCODE_TYPE video_type,int framerate,MppPacket hdr_pkt);
     void sendPacket(MppPacket packet);

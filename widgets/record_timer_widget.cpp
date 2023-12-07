@@ -29,7 +29,6 @@ void RecordTimerWidget::stop()
     if(mTimer->isActive())
         mTimer->stop();
     mSec = mMin = mHour = 0;
-    ui->recording_flag->setChecked(false);
     ui->record_time_str->setText("00:00:00");
     close();
 }
@@ -55,6 +54,5 @@ void RecordTimerWidget::start()
 {
     mSec = mMin = mHour = 0;
     mTimer->start(1000);
-    ui->recording_flag->setChecked(true);
     show();
 }

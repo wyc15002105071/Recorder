@@ -5,13 +5,14 @@
 #include <QPushButton>
 #include <QResizeEvent>
 #include "log.h"
-#include "media_utils.h"
-#include "v4l2_device.h"
+#include "mediautils.h"
+#include "videoinputdevice.h"
 #include "widgets/record_timer_widget.h"
 #include "widgets/viewer/imageviewer.h"
 #include "widgets/viewer/videoviewer.h"
 #include "widgets/setting_widget.h"
 #include "common/common.h"
+#include "widgets/recordwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
@@ -25,32 +26,37 @@ public:
     MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
     virtual void resizeEvent(QResizeEvent *event);
+
+    void destroy();
 private:
     Ui::MainWidget *ui;
 
-    V4L2Device v4l2_device;
-//    std::shared_ptr<RecordTimerWidget>mRecordTimerWidget;
-    sp<ImageViewer> mImageViewer;
-    sp<VideoViewer> mVideoViewer;
-    sp<SettingWidget> mSettingWidget;
+    VideoInputDevice    mInputDevice;
+    sp<ImageViewer>     mImageViewer;
+    sp<VideoViewer>     mVideoViewer;
+    sp<SettingWidget>   mSettingWidget;
 
-    sp<QWidget> mVideoWidget;
-    sp<QWidget> mMenuWidget;
-    sp<VideoWidget>mRenderWidget;
+    sp<QWidget>      mVideoWidget_Container;
+    sp<QWidget>      mMenuWidget;
+    sp<VideoWidget>  mVideoWidget;
+    sp<RecordWidget> mRecordWidget;
 
 //    QWidget* mVideoWidget;
 //    QWidget* mMenuWidget;
 
 public slots:
-    void captureClicked();
+    void onCaptureClicked();
+    void onRecordClicked();
+
     void recordChecked(bool checked);
     void recordStopClicked();
     void pictureFileClicked();
-    void videoFileClicked();
+    void onVideoFileClicked();
     void settingClicked();
 
+    void onCreateTask();
 private:
-    void initWidgets(QResizeEvent *event);
+    void initWidgets();
 
 };
 #endif // MAINWIDGET_H

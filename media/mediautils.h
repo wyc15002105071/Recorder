@@ -45,5 +45,6 @@ int getVideoNodesCount(const char* directory);
 void getVideoNodesInfo(std::vector<VideoNodeInfo> &infos);
 int printFps(const char *TAG);
 void getCurentTime(char *str,const char *format);
+std::string fcc2s(__u32 val);
 
-#endif // MEDIA_UTILS_H
+#endif // MEDIAUTILS_H

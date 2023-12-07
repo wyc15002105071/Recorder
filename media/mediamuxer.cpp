@@ -1,4 +1,4 @@
-#include "muxer.h"
+#include "mediamuxer.h"
 #include "log.h"
 
 using namespace std;
@@ -9,13 +9,13 @@ static double r2d(AVRational r)
     return r.den == 0 ? 0 : (double)r.num / (double)r.den;
 }
 
-Muxer::Muxer():
+MediaMuxer::MediaMuxer():
     mMuxCtx(nullptr)
 {
 
 }
 
-void Muxer::run()
+void MediaMuxer::run()
 {
     char suffix[10] = {0};
     char file_name[100] = {0};
@@ -42,7 +42,7 @@ void Muxer::run()
         strcpy(suffix,"mp4");
     }
 
-    getCurentTime(time_str,NULL);
+    getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
 
     sprintf(file_name,"%s/%s.%s",VIDEOS_SAVE_DIR,time_str,suffix);
     avformat_alloc_output_context2(&out_ctx,nullptr,suffix,file_name);
@@ -52,7 +52,6 @@ void Muxer::run()
 
     AVStream *stream = avformat_new_stream(out_ctx, nullptr);
     int video_stream=stream->index;
-    RLOGD("video stream is %d",video_stream);
     AVCodecParameters *codecpar = stream[video_stream].codecpar;
     codecpar->codec_type = AVMEDIA_TYPE_VIDEO;
     if(mMuxCtx->video_type == VIDEO_ENCODE_TYPE_AVC)
@@ -76,7 +75,7 @@ void Muxer::run()
 
     AVDictionary*dict=nullptr;
     ret = avformat_write_header(out_ctx, nullptr);
-    RLOGD("framerate is %d",framerate);
+    RLOGD("Muxer Thread start");
     while(!mThreadExit) {
         mLock.lock();
         if(mPackets.size() <= 0) {
@@ -97,7 +96,6 @@ void Muxer::run()
         pkt->stream_index = video_stream;
         pkt->data = (uint8_t *)data;
         pkt->size = len;
-
         int64_t calc_duration = (double)AV_TIME_BASE / av_q2d(out_ctx->streams[video_stream]->r_frame_rate);
         pkt->pts = (double)(pts*calc_duration) / (double)(av_q2d(out_ctx->streams[video_stream]->time_base)*AV_TIME_BASE);
         pkt->dts = pkt->pts;
@@ -112,11 +110,10 @@ void Muxer::run()
 //        }
         av_packet_unref(pkt);
         av_packet_free(&pkt);
+        mpp_packet_deinit(&packet);
 
         mPackets.pop_front();
         mLock.unlock();
-        mpp_packet_deinit(&packet);
-
         if(eos)
             break;
     }
@@ -125,20 +122,9 @@ void Muxer::run()
     av_write_trailer(out_ctx);
     avio_closep(&out_ctx->pb);
     avformat_free_context(out_ctx);
-
-    for(int i = 0;i<mPackets.size();i++) {
-        MppPacket packet = mPackets.front();
-
-        mPackets.pop_front();
-        mpp_packet_deinit(&packet);
-    }
-
-    if(mMuxCtx->hdr_pkt) {
-        mpp_packet_deinit(&mMuxCtx->hdr_pkt);
-    }
 }
 
-void Muxer::createMuxCtx(int width, int height, VIDEO_ENCODE_TYPE video_type, int framerate,MppPacket hdr_pkt)
+void MediaMuxer::createMuxCtx(int width, int height, VIDEO_ENCODE_TYPE video_type, int framerate,MppPacket hdr_pkt)
 {
     mMuxCtx = shared_ptr<MuxContext>(new MuxContext);
     mMuxCtx->width      = width;
@@ -149,10 +135,11 @@ void Muxer::createMuxCtx(int width, int height, VIDEO_ENCODE_TYPE video_type, in
 
     mpp_packet_copy_init(&mMuxCtx->hdr_pkt,hdr_pkt);
     RLOGD("create mux ctx width:%d,height:%d,videotype:%d,framerate:%d",width,height,video_type,framerate);
+    mpp_packet_deinit(&hdr_pkt);
 
 }
 
-void Muxer::sendPacket(MppPacket packet)
+void MediaMuxer::sendPacket(MppPacket packet)
 {
     mLock.lock();
     if(!mMuxCtx->need_mux && !mMuxCtx->need_push) {
@@ -166,7 +153,7 @@ void Muxer::sendPacket(MppPacket packet)
     mLock.unlock();
 }
 
-void Muxer::setMux(bool need_mux,MUX_FILE_TYPE file_type)
+void MediaMuxer::setMux(bool need_mux,MUX_FILE_TYPE file_type)
 {
     mLock.lock();
     mMuxCtx->need_mux = need_mux;
@@ -174,7 +161,7 @@ void Muxer::setMux(bool need_mux,MUX_FILE_TYPE file_type)
     mLock.unlock();
 }
 
-void Muxer::setPush(bool need_push,MUX_PUSH_TYPE push_type)
+void MediaMuxer::setPush(bool need_push,MUX_PUSH_TYPE push_type)
 {
     mLock.lock();
     mMuxCtx->need_push = need_push;
@@ -182,7 +169,7 @@ void Muxer::setPush(bool need_push,MUX_PUSH_TYPE push_type)
     mLock.unlock();
 }
 
-bool Muxer::startTask()
+bool MediaMuxer::startTask()
 {
     mThreadExit = false;
     start();
@@ -190,13 +177,14 @@ bool Muxer::startTask()
     return true;
 }
 
-void Muxer::stopTask()
+void MediaMuxer::stopTask()
 {
+    mLock.lock();
     mThreadExit = true;
     if(isRunning()) {
-        quit();
         wait(QUIT_TIMEOUT);
     }
+    RLOGD("Muxer Thread finish");
     for(int i = 0;i<mPackets.size();i++) {
         MppPacket packet = mPackets.front();
 
@@ -207,4 +195,5 @@ void Muxer::stopTask()
     if(mMuxCtx->hdr_pkt) {
         mpp_packet_deinit(&mMuxCtx->hdr_pkt);
     }
+    mLock.unlock();
 }

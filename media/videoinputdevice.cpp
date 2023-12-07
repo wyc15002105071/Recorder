@@ -1,45 +1,34 @@
-#include "v4l2_device.h"
+#include "videoinputdevice.h"
 #include "log.h"
 #include <vector>
 #include "drm_fourcc.h"
 
 using namespace std;
 
-#define MODULE_TAG "V4L2Device"
+#define MODULE_TAG "VideoInputDevice"
 
-static string fcc2s(__u32 val)
-{
-    std::string s;
-
-    s += val & 0x7f;
-    s += (val >> 8) & 0x7f;
-    s += (val >> 16) & 0x7f;
-    s += (val >> 24) & 0x7f;
-    if (val & (1U << 31))
-        s += "-BE";
-    return s;
-}
-
-V4L2Device::V4L2Device()
+VideoInputDevice::VideoInputDevice()
     :mDeviceFd(0)
     ,mVideoWidget(nullptr)
     ,mHwEncoder(nullptr)
+    ,mIsEncoding(false)
+    ,mVideoEosFlag(false)
+    ,mRecorder(sp<MediaRecorder>(new MediaRecorder))
 {
 
 }
 
-V4L2Device::~V4L2Device()
+VideoInputDevice::~VideoInputDevice()
 {
-    stopTask();
+    deinit();
 
-    if(mHwEncoder) {
-        mHwEncoder->stopTask();
-        delete mHwEncoder;
-        mHwEncoder = nullptr;
+    stopTask();
+    if(mRecorder) {
+        mRecorder->stopTask();
     }
 }
 
-void V4L2Device::run()
+void VideoInputDevice::run()
 {
     while(!mThreadExit) {
         for (int i = 0; i < MAX_BUF_CNT; i++ ) {
@@ -48,8 +37,8 @@ void V4L2Device::run()
             struct timeval tv;
             FD_ZERO(&fds);
             FD_SET(mDeviceFd, &fds);
-            tv.tv_sec = 1;
-            tv.tv_usec = 0;
+            tv.tv_sec   = 1;
+            tv.tv_usec  = 0;
             ts = select(mDeviceFd + 1, &fds, NULL, NULL, &tv);
 
             if(ts == 0) {
@@ -57,6 +46,7 @@ void V4L2Device::run()
                 continue;
             }
             mLock.lock();
+
             if (ioctl(mDeviceFd, VIDIOC_DQBUF, &mBufferArray[i]) == -1) {
                 RLOGE("DQBUF failed");
                 mLock.unlock();
@@ -71,12 +61,15 @@ void V4L2Device::run()
             if(mVideoWidget)
                 mVideoWidget->PrepareUpdate(mBufferArray[i].index);
             if(mIsEncoding) {
-                if(mHwEncoder) {
-                    mHwEncoder->prepareSendframe(mBufferArray[i].index,
-                                                 mBufferArray[i].m.planes[0].m.fd,
-                                                 mBo[i].buf_size,
-                                                 mBo[i].vir_addr);
+                if(mRecorder) {
+                    mRecorder->sendVideoFrame(mDmaBo[i].buf_fd,mDmaBo[i].buf_size,
+                                              mDmaBo[i].width,mDmaBo[i].height,false);
                 }
+            } else if(mVideoEosFlag) {
+                mRecorder->sendVideoFrame(mDmaBo[i].buf_fd,mDmaBo[i].buf_size,
+                                          mDmaBo[i].width,mDmaBo[i].height,true);
+                RLOGD("Send eos");
+                mVideoEosFlag = false;
             }
 
             if (V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE == mBufferArray[i].type)
@@ -95,20 +88,30 @@ void V4L2Device::run()
     }
 }
 
-void V4L2Device::startEnc()
+void VideoInputDevice::startRecord()
 {
-    if(!mHwEncoder->startTask())
-        return;
+    mLock.lock();
+    if(mRecorder) {
+        mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC);
+        mRecorder->startTask();
+    }
+    mVideoEosFlag = false;
     mIsEncoding = true;
+    mLock.unlock();
 }
 
-void V4L2Device::stopEnc()
+void VideoInputDevice::stopRecord()
 {
-    mHwEncoder->stopTask();
+    mLock.lock();
+    if(mRecorder) {
+        mRecorder->stopTask();
+    }
+    mVideoEosFlag = true;
     mIsEncoding = false;
+    mLock.unlock();
 }
 
-bool V4L2Device::init_device(bool is_hdmi_in)
+bool VideoInputDevice::initDevice(bool is_hdmi_in)
 {
     int count = getVideoNodesCount("/dev");
     RLOGD("video node count is %d",count);
@@ -150,29 +153,29 @@ bool V4L2Device::init_device(bool is_hdmi_in)
         return false;
     }
 
-    is_multiplanar = caps.capabilities & (V4L2_CAP_VIDEO_CAPTURE_MPLANE |
-                                          V4L2_CAP_VIDEO_M2M_MPLANE |
-                                          V4L2_CAP_VIDEO_OUTPUT_MPLANE);
-    int vidcap_buftype = is_multiplanar ? V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE :
-                                          V4L2_BUF_TYPE_VIDEO_CAPTURE;
-    int vidout_buftype = is_multiplanar ? V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE :
-                                          V4L2_BUF_TYPE_VIDEO_OUTPUT;
+    is_multiplanar      = caps.capabilities & (V4L2_CAP_VIDEO_CAPTURE_MPLANE |
+                                               V4L2_CAP_VIDEO_M2M_MPLANE |
+                                               V4L2_CAP_VIDEO_OUTPUT_MPLANE);
+    int vidcap_buftype  = is_multiplanar ? V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE :
+                                           V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    int vidout_buftype  = is_multiplanar ? V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE :
+                                           V4L2_BUF_TYPE_VIDEO_OUTPUT;
 
-    int buftype = 0;
+    int buf_type = 0;
     if(!is_multiplanar) {
         if(caps.capabilities & V4L2_CAP_VIDEO_CAPTURE) {
-            buftype = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+            buf_type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
         }else if(caps.capabilities & V4L2_CAP_VIDEO_OUTPUT) {
-            buftype = V4L2_BUF_TYPE_VIDEO_OUTPUT;
+            buf_type = V4L2_BUF_TYPE_VIDEO_OUTPUT;
         }
     }else {
         if(caps.capabilities & V4L2_CAP_VIDEO_CAPTURE_MPLANE) {
-            buftype = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
+            buf_type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
         }else if(caps.capabilities & V4L2_CAP_VIDEO_OUTPUT_MPLANE) {
-            buftype = V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE;
+            buf_type = V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE;
         }
     }
-    if(buftype == 0) {
+    if(buf_type == 0) {
         RLOGE("buf type is unkown");
         close(mDeviceFd);
         return false;
@@ -180,7 +183,7 @@ bool V4L2Device::init_device(bool is_hdmi_in)
 
     struct v4l2_format format;
     memset(&format, 0, sizeof(struct v4l2_format));
-    format.type = buftype;
+    format.type = buf_type;
     if (ioctl(mDeviceFd, VIDIOC_G_FMT, &format) == -1) {
         RLOGE("unable to get fmt");
         close(mDeviceFd);
@@ -192,9 +195,9 @@ bool V4L2Device::init_device(bool is_hdmi_in)
     // 请求缓冲区
     struct v4l2_requestbuffers req;
     memset(&req, 0, sizeof(struct v4l2_requestbuffers));
-    req.count = MAX_BUF_CNT; // 请根据需要调整缓冲区数量
-    req.type = buftype;
-    req.memory = V4L2_MEMORY_DMABUF;
+    req.count   = MAX_BUF_CNT; // 请根据需要调整缓冲区数量
+    req.type    = buf_type;
+    req.memory  = V4L2_MEMORY_MMAP;
 
     if (ioctl(mDeviceFd, VIDIOC_REQBUFS, &req) == -1) {
         RLOGE("VIDIOC_REQBUFS failed");
@@ -204,71 +207,25 @@ bool V4L2Device::init_device(bool is_hdmi_in)
 
     RLOGD("VIDIOC_REQBUFS success!");
 
-    if(mVideoWidget) {
-        int fmt = DRM_FORMAT_RGB888;
-        const char *pixel_fmt = fcc2s(format.fmt.pix.pixelformat).c_str();
-        if(!strcmp(pixel_fmt,"BGR3") ||  !strcmp(pixel_fmt,"RGB3")) {
-            fmt = DRM_FORMAT_RGB888;
-        }
-        else if(!strcmp(pixel_fmt,"NV12")) {
-            fmt = DRM_FORMAT_NV12;
-        }
-        else if(!strcmp(pixel_fmt,"NV21")) {
-            fmt = DRM_FORMAT_NV21;
-        }
-        else if(!strcmp(pixel_fmt,"NV16")) {
-            fmt = DRM_FORMAT_NV16;
-        }
-        mVideoWidget->allocBuffers(format.fmt.pix.width,format.fmt.pix.height
-                                   ,fmt,is_hdmi_in?1:0,1,MAX_BUF_CNT);
-    }
-
-    {
-        int fmt = MPP_FMT_RGB888;
-        const char *pixel_fmt = fcc2s(format.fmt.pix.pixelformat).c_str();
-        if(!strcmp(pixel_fmt,"BGR3")) {
-            fmt = MPP_FMT_BGR888;
-        }
-        else if(!strcmp(pixel_fmt,"RGB3")) {
-            fmt = MPP_FMT_BGR888;
-        }
-        else if(!strcmp(pixel_fmt,"NV12")) {
-            fmt = MPP_FMT_YUV420SP;
-        }
-        else if(!strcmp(pixel_fmt,"NV21")) {
-            fmt = MPP_FMT_YUV420SP;
-        }
-        else if(!strcmp(pixel_fmt,"NV16")) {
-            fmt = MPP_FMT_YUV422SP;
-        }
-        if(!mHwEncoder) {
-            mHwEncoder = new HwEncoder;
-        }
-        mHwEncoder->createHwEncoder(format.fmt.pix.width,format.fmt.pix.height,fmt);
-    }
+    memset(&mStreamInfo,0,sizeof(StreamInfo));
+    mStreamInfo.width = format.fmt.pix.width;
+    mStreamInfo.height = format.fmt.pix.height;
+    mStreamInfo.format = format.fmt.pix.pixelformat;
 
     {
         for (int i = 0; i < MAX_BUF_CNT; i++) {
-
             int buf_fd = 0,buf_size = 0;
             void *addr = nullptr;
-            if(mVideoWidget) {
-                mVideoWidget->getBufferInfo(buf_fd,buf_size,&addr,i);
-                mBo[i].vir_addr = addr;
-                mBo[i].buf_fd = buf_fd;
-                mBo[i].buf_size = buf_size;
-            }
-//            if(hw_encoder)
-//                hw_encoder->import_buf(buf_fd,buf_size,i);
+            memset(&mDmaBo[i],0,sizeof(DmaBufferObject));
             memset(&mPlanes[i], 0, sizeof(struct v4l2_plane));
             memset(&mBufferArray[i], 0, sizeof(struct v4l2_buffer));
 
-            mBufferArray[i].index = i;
-            mBufferArray[i].type = buftype;
-            mBufferArray[i].memory = V4L2_MEMORY_DMABUF;//V4L2_MEMORY_DMABUF V4L2_MEMORY_MMAP;
+            mBufferArray[i].index   = i;
+            mBufferArray[i].type    = buf_type;
+            mBufferArray[i].memory  = V4L2_MEMORY_MMAP;//V4L2_MEMORY_DMABUF V4L2_MEMORY_MMAP;
             if (caps.capabilities & V4L2_CAP_VIDEO_CAPTURE_MPLANE) {
-                mBufferArray[i].m.planes = &mPlanes[i];
-                mBufferArray[i].length = FMT_NUM_PLANES;
+                mBufferArray[i].m.planes    = &mPlanes[i];
+                mBufferArray[i].length      = FMT_NUM_PLANES;
             }
 
             int ret = ioctl(mDeviceFd, VIDIOC_QUERYBUF, &mBufferArray[i]);
@@ -279,14 +236,48 @@ bool V4L2Device::init_device(bool is_hdmi_in)
             }
             RLOGD("VIDIOC_QUERYBUF success!");
 
-            if (caps.capabilities & V4L2_CAP_VIDEO_CAPTURE_MPLANE) {
-                for (int j=0; j<FMT_NUM_PLANES; j++) {
-                    //mHinNodeInfo->bufferArray[i].m.planes[j].m.fd = mSidebandWindow->getBufferHandleFd(mHinNodeInfo->buffer_handle_poll[i]);
-                    mBufferArray[i].m.planes[j].m.fd = buf_fd;
-                    mBufferArray[i].m.planes[j].length = 0;
-                    mBufferArray[i].m.planes[j].data_offset = 0;
-                }
+            if (V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE == buf_type) {
+                // tmp_buffers[n_buffers].length = buf.m.planes[0].length;
+                mDmaBo[i].buf_size = mBufferArray[i].m.planes[0].length;
+                mDmaBo[i].vir_addr =
+                        mmap(NULL /* start anywhere */,
+                             mBufferArray[i].m.planes[0].length,
+                        PROT_READ | PROT_WRITE /* required */,
+                        MAP_SHARED /* recommended */,
+                        mDeviceFd, mBufferArray[i].m.planes[0].m.mem_offset);
+            } else {
+                mDmaBo[i].buf_size = mBufferArray[i].length;
+                mDmaBo[i].vir_addr =
+                        mmap(NULL /* start anywhere */,
+                             mBufferArray[i].length,
+                             PROT_READ | PROT_WRITE /* required */,
+                             MAP_SHARED /* recommended */,
+                             mDeviceFd, mBufferArray[i].m.offset);
             }
+            if (MAP_FAILED == mDmaBo[i].vir_addr) {
+                RLOGE("ERROR: Failed to map device frame buffers\n");
+                continue;
+            }
+
+            struct v4l2_exportbuffer expbuf = (struct v4l2_exportbuffer) {0} ;
+            expbuf.type = buf_type;
+            expbuf.index = i;
+            expbuf.flags = O_CLOEXEC;
+            if (ioctl(mDeviceFd, VIDIOC_EXPBUF, &expbuf) < 0) {
+                RLOGE("get dma buf failed\n");
+                continue;
+            }
+
+            RLOGD("get dmabuf %d",expbuf.fd);
+            mDmaBo[i].buf_fd    = expbuf.fd;
+            mDmaBo[i].width     = format.fmt.pix.width;
+            mDmaBo[i].height    = format.fmt.pix.height;
+
+            if(mVideoWidget) {
+                mVideoWidget->importDmaBuffer(i,mDmaBo[i].buf_fd,mDmaBo[i].width,mDmaBo[i].height
+                                              ,mStreamInfo.format,mDmaBo[i].buf_size,mDmaBo[i].vir_addr);
+            }
+
             ret = ioctl(mDeviceFd, VIDIOC_QBUF, &mBufferArray[i]);
             if (ret < 0) {
                 RLOGE("VIDIOC_QBUF Failed, error: %s\n", strerror(errno));
@@ -295,9 +286,9 @@ bool V4L2Device::init_device(bool is_hdmi_in)
 
             RLOGD("VIDIOC_QBUF %d success!",i);
         }
-
     }
-    enum v4l2_buf_type type = (v4l2_buf_type)buftype;
+
+    enum v4l2_buf_type type = (v4l2_buf_type)buf_type;
     if (ioctl(mDeviceFd, VIDIOC_STREAMON, &type) == -1) {
         perror("无法启动视频流");
         close(mDeviceFd);
@@ -309,7 +300,23 @@ bool V4L2Device::init_device(bool is_hdmi_in)
     return true;
 }
 
-void V4L2Device::stopTask()
+void VideoInputDevice::deinit()
+{
+    if(mDeviceFd < 0)
+        return;
+    int buf_type = mBufferArray[0].type;
+    ioctl(mDeviceFd,VIDIOC_STREAMOFF,&buf_type);
+
+    for(int i=0;i<MAX_BUF_CNT;i++) {
+        ioctl(mDeviceFd, VIDIOC_QUERYBUF, &mBufferArray[i]);
+        munmap(mDmaBo[i].vir_addr, mDmaBo[i].buf_size);
+        close(mDmaBo[i].buf_fd);
+    }
+
+    close(mDeviceFd);
+}
+
+void VideoInputDevice::stopTask()
 {
     mThreadExit = true;
     if(isRunning()) {
