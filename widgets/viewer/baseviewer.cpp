@@ -3,6 +3,7 @@
 #include <QDir>
 BaseViewer::BaseViewer(QWidget *parent)
     :BaseWidget(parent)
+    ,mSelectMode(false)
 {
     setWindowState(Qt::WindowFullScreen);
     close();
@@ -20,8 +21,9 @@ void BaseViewer::findAllFiles(const char *dir)
         nameFilter<<"*.mp4"<<"*.mkv"<<"*.avi";
 
     mFileList.clear();
-    for(auto image_file:file_dir.entryList(nameFilter))
+    for(auto file:file_dir.entryList(nameFilter))
     {
-        mFileList.append(QString(dir)+"/"+image_file);
+        mFileList.append(QString(dir)+"/"+file);
+        mFileNameList.append(file);
     }
 }

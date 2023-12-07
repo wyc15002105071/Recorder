@@ -41,10 +41,12 @@ typedef struct _VideoNodeInfo {
     int capabilities;
 }VideoNodeInfo;
 
-int getVideoNodesCount(const char* directory);
+int  getVideoNodesCount(const char* directory);
 void getVideoNodesInfo(std::vector<VideoNodeInfo> &infos);
-int printFps(const char *TAG);
+int  printFps(const char *TAG);
 void getCurentTime(char *str,const char *format);
 std::string fcc2s(__u32 val);
+std::string convertSecondToTime(int64_t seconds);
+std::string convertMillisecondsToTime(long long milliseconds);
 
 #endif // MEDIAUTILS_H

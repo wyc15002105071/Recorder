@@ -38,7 +38,8 @@ public slots:
 private:
     VideoFrameReader();
 signals:
-    void Icon_image_available(QList<QImage>);
+    void imagesAvailable(QList<QImage> image_list);
+    void imageAvailable(QImage image);
 private:
     QMediaPlayer *mp_ = nullptr;
     VideoSurface *vs_ = nullptr;

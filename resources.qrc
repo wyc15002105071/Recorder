@@ -22,5 +22,6 @@
         <file>resources/icons/selected.png</file>
         <file>resources/icons/select_mode.png</file>
         <file>resources/icons/back.png</file>
+        <file>resources/icons/broken.png</file>
     </qresource>
 </RCC>

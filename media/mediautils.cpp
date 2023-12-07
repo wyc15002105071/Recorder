@@ -1,6 +1,7 @@
 #include "mediautils.h"
 #include <memory>
 #include "log.h"
+#include <math.h>
 
 using namespace std;
 #define MODULE_TAG "MediaUtils"
@@ -129,4 +130,40 @@ void getCurentTime(char *str,const char *format)
     strftime(time_str, sizeof(time_str), str_fmt, localtime(&current_time.tv_sec));
 
     strcpy(str,time_str);
+}
+
+string convertSecondToTime(int64_t seconds)
+{
+    char time_str[100] = {0};
+
+    int hours, minutes, secs;
+
+    // 计算小时、分钟和秒数
+    hours = seconds / 3600;
+    seconds %= 3600;
+    minutes = seconds / 60;
+    seconds %= 60;
+    secs = seconds;
+
+    sprintf(time_str,"%02d:%02d:%02d",hours,minutes,secs);
+
+    return string(time_str);
+}
+
+string convertMillisecondsToTime(long long milliseconds)
+{
+    char time_str[100] = {0};
+    long long seconds = ceil((double)milliseconds / (double)1000); // 将毫秒转换为秒
+    int hours, minutes, secs;
+
+    // 计算小时、分钟和秒数
+    hours = seconds / 3600;
+    seconds %= 3600;
+    minutes = seconds / 60;
+    seconds %= 60;
+    secs = seconds;
+
+    sprintf(time_str,"%02d:%02d:%02d",hours,minutes,secs);
+
+    return string(time_str);
 }

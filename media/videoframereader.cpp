@@ -102,7 +102,6 @@ void VideoFrameReader::ProcessFrame(QVideoFrame &frame)
         unique_lock<mutex>lock(mux_);
         mp_->pause();
         frame.map(QAbstractVideoBuffer::ReadOnly);
-        //        QImage recvImage(frame.bits(), frame.width(), frame.height(), QVideoFrame::imageFormatFromPixelFormat(frame.pixelFormat()));
         QImage recvImage(frame.width(), frame.height(), QVideoFrame::imageFormatFromPixelFormat(frame.pixelFormat()));
 
         for(int i = 0;i<frame.height();i++)
@@ -113,16 +112,14 @@ void VideoFrameReader::ProcessFrame(QVideoFrame &frame)
         icon_imgs_.push_back(recvImage);
         if(!recvImage.isNull())
         {
-            //recvImage.save(QString("./images/%1.jpg").arg(rand()), "JPG");
-
+            imageAvailable(recvImage);
         }
         frame.unmap();
         if(curentIndex_ >= videos_.size())
         {
-
             mp_->stop();
             mp_->setMedia(QUrl());
-            emit Icon_image_available(icon_imgs_);
+            imagesAvailable(icon_imgs_);
             return;
         }
         //mp_->setVideoOutput(vs_);

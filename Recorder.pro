@@ -44,6 +44,8 @@ SOURCES += \
     widgets/viewer/imageviewer.cpp \
     widgets/record_timer_widget.cpp \
     widgets/videowidget.cpp \
+    widgets/viewer/listwidgetitem.cpp \
+    widgets/viewer/selectionicon.cpp \
     widgets/viewer/videoplayer.cpp \
     widgets/viewer/videoviewer.cpp
 
@@ -75,6 +77,8 @@ HEADERS += \
     widgets/viewer/imageviewer.h \
     widgets/record_timer_widget.h \
     widgets/videowidget.h \
+    widgets/viewer/listwidgetitem.h \
+    widgets/viewer/selectionicon.h \
     widgets/viewer/videoplayer.h \
     widgets/viewer/videoviewer.h
 
@@ -86,6 +90,8 @@ FORMS += \
     widgets/viewer/imagebrowser.ui \
     widgets/viewer/imageviewer.ui \
     widgets/recordtimerwidget.ui \
+    widgets/viewer/listwidgetitem.ui \
+    widgets/viewer/selectionicon.ui \
     widgets/viewer/videoplayer.ui \
     widgets/viewer/videoviewer.ui
 

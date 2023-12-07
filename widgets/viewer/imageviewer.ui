@@ -380,6 +380,9 @@ QPushButton::pressed{
      <property name="batchSize">
       <number>101</number>
      </property>
+     <property name="itemAlignment">
+      <set>Qt::AlignHCenter</set>
+     </property>
     </widget>
    </item>
   </layout>
@@ -418,8 +421,25 @@ QPushButton::pressed{
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>selectMode_btn</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ImageViewer</receiver>
+   <slot>onSelectModeToggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>743</x>
+     <y>44</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>861</x>
+     <y>45</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onItemClicked(QListWidgetItem*)</slot>
+  <slot>onSelectModeToggled(bool)</slot>
  </slots>
 </ui>

@@ -16,6 +16,7 @@ class ImageViewer : public BaseViewer
 
 public:
     explicit ImageViewer(QWidget *parent = nullptr);
+    virtual void showEvent(QShowEvent *event);
     ~ImageViewer();
     virtual void open();
 private:
@@ -24,6 +25,7 @@ private:
 
 public slots:
     void onItemClicked(QListWidgetItem *item);
+    void onSelectModeToggled(bool toggled);
 };
 
 #endif // IMAGEVIEWER_H
