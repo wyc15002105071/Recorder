@@ -13,6 +13,8 @@
 #include "widgets/setting_widget.h"
 #include "common/common.h"
 #include "widgets/recordwidget.h"
+#include "utils/fileutils.h"
+#include "widgets/viewer/progressviewer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
@@ -40,9 +42,6 @@ private:
     sp<QWidget>      mMenuWidget;
     sp<VideoWidget>  mVideoWidget;
     sp<RecordWidget> mRecordWidget;
-
-//    QWidget* mVideoWidget;
-//    QWidget* mMenuWidget;
 
 public slots:
     void onCaptureClicked();

@@ -13,16 +13,6 @@ SelectionIcon::~SelectionIcon()
     delete ui;
 }
 
-void SelectionIcon::setSelectable(bool selectable)
-{
-    if(selectable) {
-        this->show();
-    } else {
-        ui->selection_btn->setChecked(false);
-        this->close();
-    }
-}
-
 void SelectionIcon::setSelected(bool selected)
 {
     ui->selection_btn->setChecked(selected);

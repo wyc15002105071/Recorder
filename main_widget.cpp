@@ -76,7 +76,7 @@ void MainWidget::destroy()
 void MainWidget::onCaptureClicked()
 {
     char time_str[50] = {0};
-    getCurentTime(time_str,NULL);
+    getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
     char file_name[50] = {0};
     char file_save_path[50] = {0};
     sprintf(file_name,"%s.jpg",time_str);

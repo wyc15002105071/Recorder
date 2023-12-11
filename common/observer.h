@@ -4,21 +4,33 @@
 #include "Mutex.h"
 #include "list"
 
-typedef void* OBSERVERDATA;
+typedef enum Result{
+    RET_SUCCESS = 0,
+    RET_FAILURE = -1
+} Result_t;
+
+typedef struct NotifyData {
+    void    *data;
+    Result  result;
+    bool    finish;
+    int     flags;
+}NotifyData_t;
 
 class Observer
 {
 public:
     Observer();
-    virtual void update(OBSERVERDATA data){}
+    virtual void update(NotifyData data){}
 
     void attach(Observer *obs);
     void detach(Observer *obs);
-    void notify(OBSERVERDATA data);
+    void notify(NotifyData data);
+
     ~Observer();
+
 private:
     std::list<Observer *>mObservers;
-    Mutex mLock;
+    Mutex mMutex;
 };
 
 #endif // OBSERVER_H

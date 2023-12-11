@@ -17,6 +17,7 @@ public:
     explicit BaseWidget(QWidget *parent = nullptr);
     explicit BaseWidget(QWidget *parent,VideoInputDevice *input_Device);
     virtual void closeEvent(QCloseEvent *event);
+    virtual void showEvent(QShowEvent *event);
     ~BaseWidget();
 
     virtual void open();
@@ -30,6 +31,11 @@ protected:
 signals:
     void onOpened();
     void onClosed();
+
+
+public slots:
+    virtual void onHasOpened() {}
+    virtual void onHasClosed() {}
 };
 
 #endif // BASEWIDGET_H

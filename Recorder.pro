@@ -21,7 +21,6 @@ SOURCES += \
     allocators/allocator.cpp \
     allocators/allocator_service.cpp \
     allocators/drm_allocator.cpp \
-    basewidget.cpp \
     common/log.cpp \
     common/observer.cpp \
     listeners/key_listener.cpp \
@@ -37,14 +36,20 @@ SOURCES += \
     media/rkmpp_enc_api.cpp \
     media/videoframereader.cpp \
     media/videoinputdevice.cpp \
+    utils/fileutils.cpp \
+    utils/storageutils.cpp \
+    widgets/basewidget.cpp \
     widgets/recordwidget.cpp \
     widgets/setting_widget.cpp \
     widgets/viewer/baseviewer.cpp \
+    widgets/viewer/diskselectionitem.cpp \
+    widgets/viewer/diskselectionwidget.cpp \
     widgets/viewer/imagebrowser.cpp \
     widgets/viewer/imageviewer.cpp \
     widgets/record_timer_widget.cpp \
     widgets/videowidget.cpp \
     widgets/viewer/listwidgetitem.cpp \
+    widgets/viewer/progressviewer.cpp \
     widgets/viewer/selectionicon.cpp \
     widgets/viewer/videoplayer.cpp \
     widgets/viewer/videoviewer.cpp
@@ -53,7 +58,6 @@ HEADERS += \
     allocators/allocator.h \
     allocators/allocator_service.h \
     allocators/drm_allocator.h \
-    basewidget.h \
     common/Mutex.h \
     common/common.h \
     common/log.h \
@@ -70,27 +74,36 @@ HEADERS += \
     media/rkmpp_enc_api.h \
     media/videoframereader.h \
     media/videoinputdevice.h \
+    utils/fileutils.h \
+    utils/storageutils.h \
+    widgets/basewidget.h \
     widgets/recordwidget.h \
     widgets/setting_widget.h \
     widgets/viewer/baseviewer.h \
+    widgets/viewer/diskselectionitem.h \
+    widgets/viewer/diskselectionwidget.h \
     widgets/viewer/imagebrowser.h \
     widgets/viewer/imageviewer.h \
     widgets/record_timer_widget.h \
     widgets/videowidget.h \
     widgets/viewer/listwidgetitem.h \
+    widgets/viewer/progressviewer.h \
     widgets/viewer/selectionicon.h \
     widgets/viewer/videoplayer.h \
     widgets/viewer/videoviewer.h
 
 FORMS += \
-    basewidget.ui \
     mainwidget.ui \
+    widgets/basewidget.ui \
     widgets/recordwidget.ui \
     widgets/settingwidget.ui \
+    widgets/viewer/diskselectionitem.ui \
+    widgets/viewer/diskselectionwidget.ui \
     widgets/viewer/imagebrowser.ui \
     widgets/viewer/imageviewer.ui \
     widgets/recordtimerwidget.ui \
     widgets/viewer/listwidgetitem.ui \
+    widgets/viewer/progressviewer.ui \
     widgets/viewer/selectionicon.ui \
     widgets/viewer/videoplayer.ui \
     widgets/viewer/videoviewer.ui
@@ -99,7 +112,8 @@ INCLUDEPATH += $$PWD/third-party/headers/mpp \
                $$PWD/third-party/headers/drm \
                $$PWD/third-party/headers/ffmpeg \
 
-LIBS += -L$$PWD/third-party/prebuilt/linux_arm32 \
+LIBS += -ludev \
+        -L$$PWD/third-party/prebuilt/linux_arm32 \
         -ldrm -lrockchip_mpp -lrockchip_vpu \
         -lavformat -lavcodec -lavutil -lswscale -lswresample
 

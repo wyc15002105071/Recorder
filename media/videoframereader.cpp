@@ -63,7 +63,7 @@ VideoFrameReader::VideoFrameReader()
     mp_  = new QMediaPlayer;
     vs_ = new VideoSurface();
     connect(vs_, SIGNAL(frameAvailable(QVideoFrame &)), this, SLOT(ProcessFrame(QVideoFrame &)), Qt::QueuedConnection);
-
+    connect(mp_,SIGNAL(error(QMediaPlayer::Error)),this,SLOT(onError(QMediaPlayer::Error)));
 }
 
 void VideoFrameReader::showFirstFrame(QList<QString> videos)
@@ -85,11 +85,18 @@ void VideoFrameReader::showFirstFrame(QList<QString> videos)
         mp_->setVideoOutput(vs_);
         is_first = false;
     }
-    QString video = "file://"+videos_[curentIndex_++];
+    QString video = "file://"+videos_[curentIndex_];
     mp_->setMedia(QUrl(video));
     mp_->setMuted(true);
     mp_->play();
 
+}
+
+void VideoFrameReader::stop()
+{
+    if(mp_) {
+        mp_->stop();
+    }
 }
 
 void VideoFrameReader::ProcessFrame(QVideoFrame &frame)
@@ -113,8 +120,11 @@ void VideoFrameReader::ProcessFrame(QVideoFrame &frame)
         if(!recvImage.isNull())
         {
             imageAvailable(recvImage);
+        } else {
+            imageAvailable(QImage());
         }
         frame.unmap();
+        curentIndex_++;
         if(curentIndex_ >= videos_.size())
         {
             mp_->stop();
@@ -122,14 +132,33 @@ void VideoFrameReader::ProcessFrame(QVideoFrame &frame)
             imagesAvailable(icon_imgs_);
             return;
         }
-        //mp_->setVideoOutput(vs_);
+
         if(videos_.size() <= 0)
             return;
         mp_->stop();
-        mp_->setMedia(QUrl("file://"+videos_[curentIndex_++]));
+        mp_->setMedia(QUrl("file://"+videos_[curentIndex_]));
         mp_->setMuted(true);
         mp_->play();
         count = 0;
     }
 
+}
+
+void VideoFrameReader::onError(QMediaPlayer::Error error)
+{
+    emit imageAvailable(QImage());
+    curentIndex_++;
+    if(curentIndex_ >= videos_.size())
+    {
+        mp_->stop();
+        mp_->setMedia(QUrl());
+        imagesAvailable(icon_imgs_);
+        return;
+    }
+    if(videos_.size() <= 0)
+        return;
+    mp_->stop();
+    mp_->setMedia(QUrl("file://"+videos_[curentIndex_]));
+    mp_->setMuted(true);
+    mp_->play();
 }

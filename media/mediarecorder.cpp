@@ -53,16 +53,10 @@ void MediaRecorder::run()
                 RLOGD("IDR frame produced");
             }
             frameIndex++;
-//            if(!test_file)
-//                test_file = fopen("/userdata/test.bin","wb");
             mMediaMuxer->sendPacket(encOut.packet);
-//            void *data = mpp_packet_get_data(encOut.packet);
-//            fwrite(data,1,encOut.size,test_file);
-//            encOut.release();
             if(encOut.eos) {
                 RLOGD("recieve output eos");
                 mRecordState = REC_STATE_STOPING;
-//                mVideoEncoder->drain();
                 break;
             }
         }

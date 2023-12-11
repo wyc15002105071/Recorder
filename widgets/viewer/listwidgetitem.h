@@ -28,6 +28,7 @@ private:
     Ui::ListWidgetItem *ui;
 
     sp<SelectionIcon> mSelectionIcon;
+    bool mSelectable;
 };
 
 #endif // LISTWIDGETITEM_H

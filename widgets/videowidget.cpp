@@ -187,7 +187,6 @@ void VideoWidget::paintGL()
         glClear(GL_COLOR_BUFFER_BIT);
         mMtx.unlock();
         return;
-
     }else {
         if(mUseExternalOES) {
             glUniform1i(glGetUniformLocation(mProgram, "s_TextureFmt"),8);
@@ -210,7 +209,7 @@ void VideoWidget::paintGL()
     }
     glDrawArrays(GL_TRIANGLE_STRIP,0,4);
     mMtx.unlock();
-    usleep(1*500);
+    usleep(1*300);
     glFinish();
 //    if(mUseExternalOES) {
 //        eglDestroyImageKHR(eglGetCurrentDisplay(), mEGLimage[mBufId]);

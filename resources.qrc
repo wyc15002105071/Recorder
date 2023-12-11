@@ -23,5 +23,6 @@
         <file>resources/icons/select_mode.png</file>
         <file>resources/icons/back.png</file>
         <file>resources/icons/broken.png</file>
+        <file>resources/icons/udisk.png</file>
     </qresource>
 </RCC>

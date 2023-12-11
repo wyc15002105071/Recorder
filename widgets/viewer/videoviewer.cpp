@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QMovie>
 #include "listwidgetitem.h"
+#include "utils/storageutils.h"
 
 #define MODULE_TAG "VideoViewer"
 using namespace std;
@@ -18,26 +19,28 @@ VideoViewer::VideoViewer(QWidget *parent) :
     mFileType = FILE_TYPE_VIDEO;
 
     connect(mVideoFrameReader,SIGNAL(imageAvailable(QImage)),this,SLOT(onUpdateIcon(QImage)));
+    connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)));
 //    connect(mVideoFrameReader,SIGNAL(imagesAvailable(QList<QImage>)),this,SLOT(onImageIconsAvailable(QList<QImage>)));
 }
 
 VideoViewer::~VideoViewer()
 {
+    ui->video_list->clear();
     delete ui;
 }
 
-void VideoViewer::showEvent(QShowEvent *event)
+void VideoViewer::onHasOpened()
 {
     ui->video_list->clear();
     mIconHasUpdated = 0;
     static QMovie movie(":/resources/icons/loading.gif");
-    int count = mFileList.count();
+    int count = mFilePathList.count();
     for(int i = 0;i < count;i++) {
         QListWidgetItem *item = new QListWidgetItem;
         item->setSizeHint(QSize(ICON_WIDTH,ICON_HEIGHT));
         ui->video_list->addItem(item);
         ListWidgetItem *custom_item = new ListWidgetItem;
-        custom_item->setAlignment(Qt::AlignHCenter);
+        custom_item->setAlignment(Qt::AlignCenter);
         movie.setScaledSize(QSize(item->sizeHint().width() / 3,item->sizeHint().height() / 3));
         custom_item->setMovie(&movie);
 
@@ -45,8 +48,24 @@ void VideoViewer::showEvent(QShowEvent *event)
         movie.start();
     }
 
-    mVideoFrameReader = VideoFrameReader::Instance();
-    mVideoFrameReader->showFirstFrame(mFileList);
+    if(!mVideoFrameReader)
+        mVideoFrameReader = VideoFrameReader::Instance();
+    mVideoFrameReader->showFirstFrame(mFilePathList);
+    if(mProgressViewer) {
+        mProgressViewer->close();
+    }
+}
+
+void VideoViewer::onHasClosed()
+{
+    if(!mVideoFrameReader)
+        mVideoFrameReader = VideoFrameReader::Instance();
+    mVideoFrameReader->stop();
+    if(mDiskSelectionWidget)
+        mDiskSelectionWidget->close();
+    mSelectMode = false;
+    ui->selectMode_btn->setChecked(mSelectMode);
+
 }
 
 void VideoViewer::open()
@@ -65,10 +84,10 @@ void VideoViewer::onItemClicked(QListWidgetItem *item)
         item_widget->setSelected(!is_selected);
     } else {
         int index = ui->video_list->currentRow();
-        QString name = mFileList.at(index);
+        QString name = mFilePathList.at(index);
         QString video_path = "file://"+name;
         if(mPlayer)
-            mPlayer->open(mFileList,index);
+            mPlayer->open(mFilePathList,index);
     }
 }
 
@@ -81,21 +100,21 @@ void VideoViewer::onUpdateIcon(QImage image)
         item = new QListWidgetItem;
         ui->video_list->addItem(item);
     }
-    if(image.isNull())
-        item->setSizeHint(QSize(ICON_WIDTH,ICON_HEIGHT));
-    else
-    {
-        QPixmap file_icon;
-        if(image.width() > ICON_WIDTH || image.height() > ICON_HEIGHT) {
-            file_icon = QPixmap::fromImage(image.scaled(ICON_WIDTH,ICON_HEIGHT,Qt::KeepAspectRatio));//保持长宽比例缩放
-        }
-        item->setSizeHint(QSize(file_icon.width() + 20,file_icon.height() + 20));
-        ListWidgetItem *custom_item = new ListWidgetItem;
-        custom_item->setIcon(file_icon);
-        custom_item->setFileName(file_name);
-        custom_item->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-        ui->video_list->setItemWidget(item,custom_item);
+
+    QPixmap file_icon;
+    if(image.isNull()) {
+        RLOGD("thumbnail read error,use default image");
+        QImage broken_image(":/resources/icons/broken.png");
+        file_icon = QPixmap::fromImage(broken_image.scaled(ICON_WIDTH - X_OFFSET,ICON_HEIGHT - Y_OFFSET,Qt::KeepAspectRatio));
+    }else if(image.width() > ICON_WIDTH || image.height() > ICON_HEIGHT) {
+        file_icon = QPixmap::fromImage(image.scaled(ICON_WIDTH - X_OFFSET,ICON_HEIGHT - Y_OFFSET,Qt::KeepAspectRatio));//保持长宽比例缩放
     }
+    ListWidgetItem *custom_item = (ListWidgetItem *)ui->video_list->itemWidget(item);
+    custom_item->setIcon(file_icon);
+    custom_item->setFileName(file_name);
+    custom_item->setAlignment(Qt::AlignCenter);
+    item->setSizeHint(QSize(ICON_WIDTH,ICON_HEIGHT));
+    ui->video_list->setItemWidget(item,custom_item);
     mIconHasUpdated++;
 }
 
@@ -129,6 +148,7 @@ void VideoViewer::onUpdateIcons(QList<QImage> images)
 
 void VideoViewer::onSelectModeToggled(bool toggled)
 {
+    mSelectionlist.clear();
     int count = ui->video_list->count();
     if(count <= 0)
         return;
@@ -142,3 +162,96 @@ void VideoViewer::onSelectModeToggled(bool toggled)
     }
 }
 
+void VideoViewer::onCopySelectedClicked()
+{
+    mSelectionlist.clear();
+
+    for(int i = 0;i<ui->video_list->count();i++) {
+        QListWidgetItem *item = ui->video_list->item(i);
+        ListWidgetItem *item_widget = (ListWidgetItem *)ui->video_list->itemWidget(item);
+
+        if(!item_widget)
+            continue;
+        if(item_widget->isSelected()) {
+            mSelectionlist.push_back(mFilePathList.at(i));
+        }
+    }
+    mOperation = FileUtils::COPY;
+    openDiskSelection();
+}
+
+void VideoViewer::onCopyAllClicked()
+{
+    mSelectionlist.clear();
+    mOperation = FileUtils::COPY;
+    mSelectionlist = mFilePathList;
+
+    openDiskSelection();
+}
+
+void VideoViewer::onDelSelectClicked()
+{
+    mOperation = FileUtils::DELETE;
+    mSelectionlist.clear();
+    QList<QListWidgetItem*> del_list;
+    del_list.clear();
+    if(mProgressViewer) {
+        mProgressViewer->setOperation(mOperation);
+    }
+    for(int i = 0;i<ui->video_list->count();i++) {
+        QListWidgetItem *item = ui->video_list->item(i);
+        ListWidgetItem *item_widget = (ListWidgetItem *)ui->video_list->itemWidget(item);
+
+        if(!item_widget)
+            continue;
+        if(item_widget->isSelected()) {
+            mSelectionlist.push_back(mFilePathList.at(i));
+            del_list.push_back(item);
+        }
+    }
+
+    while(del_list.count() > 0) {
+        QListWidgetItem *item = del_list.front();
+
+        int row = ui->video_list->row(item);
+        ui->video_list->removeItemWidget(item);
+        ui->video_list->takeItem(row);
+        del_list.pop_front();
+
+        mFilePathList.removeAt(row);
+        mFileNameList.removeAt(row);
+    }
+
+    mFileUtils->startDelete(mSelectionlist);
+}
+
+void VideoViewer::onDelAllClicked()
+{
+    mOperation = FileUtils::DELETE;
+    if(!mVideoFrameReader)
+        mVideoFrameReader = VideoFrameReader::Instance();
+    mVideoFrameReader->stop();
+    if(mProgressViewer) {
+        mProgressViewer->setOperation(mOperation);
+    }
+    ui->video_list->clear();
+    mFileUtils->startDelete(mFilePathList);
+    mFilePathList.clear();
+    mFileNameList.clear();
+}
+
+void VideoViewer::onDiskItemClicked(int index)
+{
+    RLOGD("label:%s,nodepath:%s,mountpath:%s,filesystem:%s",mExternalStorageInfo[index].label.c_str(),
+                      mExternalStorageInfo[index].node_path.c_str(),
+                      mExternalStorageInfo[index].mount_path.c_str(),
+                      mExternalStorageInfo[index].file_system.c_str());
+    RLOGD("select count %d",mSelectionlist.count());
+    QString dst_dir = QString::fromStdString(mExternalStorageInfo[index].mount_path);
+    mFileUtils->startCopy(mSelectionlist,dst_dir);
+    if(mDiskSelectionWidget)
+        mDiskSelectionWidget->close();
+    if(mProgressViewer) {
+        mProgressViewer->setOperation(mOperation);
+    }
+}

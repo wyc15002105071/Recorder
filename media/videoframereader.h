@@ -32,9 +32,10 @@ public:
         return &vr;
     }
     void showFirstFrame(QList<QString> videos);
+    void stop();
 public slots:
     void ProcessFrame(QVideoFrame &frame);
-
+    void onError(QMediaPlayer::Error error);
 private:
     VideoFrameReader();
 signals:

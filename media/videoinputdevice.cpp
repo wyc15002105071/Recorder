@@ -31,6 +31,7 @@ void VideoInputDevice::run()
 {
     while(!mThreadExit) {
         for (int i = 0; i < MAX_BUF_CNT; i++ ) {
+            mLock.lock();
             int ts;
             fd_set fds;
             struct timeval tv;
@@ -38,13 +39,14 @@ void VideoInputDevice::run()
             FD_SET(mDeviceFd, &fds);
             tv.tv_sec   = 1;
             tv.tv_usec  = 0;
+
             ts = select(mDeviceFd + 1, &fds, NULL, NULL, &tv);
 
             if(ts == 0) {
                 RLOGE("select time out");
+                mLock.unlock();
                 continue;
             }
-            mLock.lock();
 
             if (ioctl(mDeviceFd, VIDIOC_DQBUF, &mBufferArray[i]) == -1) {
                 RLOGE("DQBUF failed");
@@ -89,25 +91,25 @@ void VideoInputDevice::run()
 
 void VideoInputDevice::startRecord()
 {
-    mLock.lock();
+//    mLock.lock();
     if(mRecorder) {
         mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC);
         mRecorder->startTask();
     }
     mVideoEosFlag = false;
     mIsEncoding = true;
-    mLock.unlock();
+//    mLock.unlock();
 }
 
 void VideoInputDevice::stopRecord()
 {
-    mLock.lock();
+//    mLock.lock();
     if(mRecorder) {
         mRecorder->stopTask();
     }
     mVideoEosFlag = true;
     mIsEncoding = false;
-    mLock.unlock();
+//    mLock.unlock();
 }
 
 bool VideoInputDevice::initDevice(bool is_hdmi_in)
@@ -326,5 +328,4 @@ void VideoInputDevice::stopTask()
     if(mRecorder) {
         mRecorder->stopTask();
     }
-
 }

@@ -20,7 +20,7 @@ VideoPlayer::VideoPlayer(QWidget *parent) :
     layout->addWidget(mVideoWidget.get());
     connect(mPlayer.get(),SIGNAL(positionChanged(qint64)),this,SLOT(updateSlider(qint64)),Qt::UniqueConnection);
     connect(mPlayer.get(),SIGNAL(durationChanged(qint64)),this,SLOT(onDurationChanged(qint64)));
-
+    connect(mPlayer.get(),SIGNAL(stateChanged(QMediaPlayer::State)),this,SLOT(onStateChanged(QMediaPlayer::State)));
     setWindowState(Qt::WindowFullScreen);
     close();
 }
@@ -78,6 +78,15 @@ void VideoPlayer::playVideo(QString file_url)
     ui->pos_slider->setValue(0);
 }
 
+void VideoPlayer::onBackClicked()
+{
+    if(mPlayer) {
+        mPlayer->stop();
+    }
+
+    this->close();
+}
+
 void VideoPlayer::onLastClicked()
 {
     int count = mUrls.count();
@@ -108,7 +117,6 @@ void VideoPlayer::updateSlider(qint64 pos)
     double pos_precent = (double)pos / (double)duration;
     int slider_value = pos_precent * (ui->pos_slider->maximum()-ui->pos_slider->minimum());
     ui->pos_slider->setValue(slider_value);
-    RLOGD("pos is %d",pos);
     ui->position->setText(QString::fromStdString(convertMillisecondsToTime(pos)));
 }
 
@@ -127,5 +135,14 @@ void VideoPlayer::onPlayChecked(bool checked)
         if(mPlayer) {
             mPlayer->play();
         }
+    }
+}
+
+void VideoPlayer::onStateChanged(QMediaPlayer::State state)
+{
+    if(state == QMediaPlayer::PausedState || state == QMediaPlayer::StoppedState) {
+        ui->play_btn->setChecked(true);
+    }else {
+        ui->play_btn->setChecked(false);
     }
 }

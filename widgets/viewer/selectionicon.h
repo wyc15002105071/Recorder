@@ -2,7 +2,7 @@
 #define SELECTIONICON_H
 
 #include <QWidget>
-#include "basewidget.h"
+#include "widgets/basewidget.h"
 
 namespace Ui {
 class SelectionIcon;
@@ -15,7 +15,7 @@ class SelectionIcon : public BaseWidget
 public:
     explicit SelectionIcon(QWidget *parent = nullptr);
     ~SelectionIcon();
-    void setSelectable(bool selectable);
+
     void setSelected(bool selected);
     bool isSelected();
 private:

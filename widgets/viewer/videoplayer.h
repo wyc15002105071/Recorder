@@ -29,11 +29,13 @@ private:
     QList<QString> mUrls;
     int mCurrentIndex;
 public slots:
+    void onBackClicked();
     void onLastClicked();
     void onNextClicked();
     void updateSlider(qint64 pos);
     void onDurationChanged(qint64 duration);
     void onPlayChecked(bool checked);
+    void onStateChanged(QMediaPlayer::State state);
 };
 
 #endif // VIDEOPLAYER_H

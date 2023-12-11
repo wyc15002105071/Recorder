@@ -4,7 +4,8 @@
 
 ListWidgetItem::ListWidgetItem(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ListWidgetItem)
+    ui(new Ui::ListWidgetItem),
+    mSelectable(false)
 {
     ui->setupUi(this);
 
@@ -62,9 +63,15 @@ void ListWidgetItem::setMovie(QMovie *movie)
 
 void ListWidgetItem::setSelectable(bool selectable)
 {
+    mSelectable = selectable;
     if(mSelectionIcon) {
-        mSelectionIcon->setSelectable(selectable);
-        mSelectionIcon->move(ui->icon->x() + ui->icon->width() - 30,ui->icon->y() + 5);
+        if(mSelectable) {
+            mSelectionIcon->show();
+            mSelectionIcon->move(ui->icon->x() + ui->icon->width() - 30,ui->icon->y() + 5);
+        } else {
+            mSelectionIcon->close();
+            mSelectionIcon->setSelected(false);
+        }
     }
 }
 

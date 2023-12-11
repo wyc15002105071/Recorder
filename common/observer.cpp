@@ -9,34 +9,40 @@ Observer::Observer()
 
 void Observer::attach(Observer *obs)
 {
-    mLock.lock();
+    mMutex.lock();
     mObservers.push_back(obs);
+    mMutex.unlock();
 }
 
 void Observer::detach(Observer *obs)
 {
-    mLock.lock();
+    mMutex.lock();
     mObservers.remove(obs);
+    mMutex.unlock();
 }
 
-void Observer::notify(OBSERVERDATA data)
+void Observer::notify(NotifyData data)
 {
-    mLock.lock();
+    mMutex.lock();
 
-    if(mObservers.size() <= 0)
+    if(mObservers.size() <= 0) {
+        mMutex.unlock();
         return;
+    }
 
     list<Observer*>::iterator it = mObservers.begin();
     while(it != mObservers.end()){
         (*it)->update(data);
         it++;
     }
+    mMutex.unlock();
 }
 
 Observer::~Observer()
 {
-    mLock.lock();
+    mMutex.lock();
     if(mObservers.size() > 0) {
         mObservers.clear();
     }
+    mMutex.unlock();
 }

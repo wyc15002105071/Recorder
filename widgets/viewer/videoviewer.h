@@ -17,20 +17,30 @@ class VideoViewer : public BaseViewer
 public:
     explicit VideoViewer(QWidget *parent = nullptr);
     ~VideoViewer();
-    virtual void showEvent(QShowEvent *event);
     virtual void open();
-private:
-    Ui::VideoViewer  *ui;
-    VideoFrameReader *mVideoFrameReader;
 
-    std::shared_ptr<VideoPlayer> mPlayer;
-
-    int mIconHasUpdated;
 public slots:
+    virtual void onHasOpened();
+    virtual void onHasClosed();
     void onItemClicked(QListWidgetItem *item);
     void onSelectModeToggled(bool toggled);
     void onUpdateIcons(QList<QImage> images);
     void onUpdateIcon(QImage image);
+
+    void onCopySelectedClicked();
+    void onCopyAllClicked();
+    void onDelSelectClicked();
+    void onDelAllClicked();
+public slots:
+    void onDiskItemClicked(int index);
+
+private:
+    Ui::VideoViewer  *ui;
+    VideoFrameReader *mVideoFrameReader;
+
+    sp<VideoPlayer> mPlayer;
+
+    int mIconHasUpdated;
 };
 
 #endif // VIDEOVIEWER_H

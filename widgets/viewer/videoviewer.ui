@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>830</width>
-    <height>453</height>
+    <width>811</width>
+    <height>505</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -147,7 +147,7 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="copy_select">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -182,7 +182,7 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="copy_all">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -217,7 +217,7 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="del_select">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -252,7 +252,7 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="del_all">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -392,7 +392,7 @@ QPushButton::pressed{
      <y>52</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-25</x>
+     <x>0</x>
      <y>58</y>
     </hint>
    </hints>
@@ -408,8 +408,72 @@ QPushButton::pressed{
      <y>49</y>
     </hint>
     <hint type="destinationlabel">
-     <x>868</x>
+     <x>810</x>
      <y>24</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>copy_all</sender>
+   <signal>clicked()</signal>
+   <receiver>VideoViewer</receiver>
+   <slot>onCopyAllClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>329</x>
+     <y>37</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>321</x>
+     <y>-35</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>del_select</sender>
+   <signal>clicked()</signal>
+   <receiver>VideoViewer</receiver>
+   <slot>onDelSelectClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>472</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>490</x>
+     <y>-36</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>del_all</sender>
+   <signal>clicked()</signal>
+   <receiver>VideoViewer</receiver>
+   <slot>onDelAllClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>599</x>
+     <y>28</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>600</x>
+     <y>-8</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>copy_select</sender>
+   <signal>clicked()</signal>
+   <receiver>VideoViewer</receiver>
+   <slot>onCopySelectedClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>145</x>
+     <y>-9</y>
     </hint>
    </hints>
   </connection>
@@ -418,5 +482,9 @@ QPushButton::pressed{
   <slot>onItemClicked(QListWidgetItem*)</slot>
   <slot>onItemPressed(QListWidgetItem*)</slot>
   <slot>onSelectModeToggled(bool)</slot>
+  <slot>onCopySelectedClicked()</slot>
+  <slot>onCopyAllClicked()</slot>
+  <slot>onDelSelectClicked()</slot>
+  <slot>onDelAllClicked()</slot>
  </slots>
 </ui>

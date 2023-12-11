@@ -437,9 +437,77 @@ QPushButton::pressed{
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>copyAll_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageViewer</receiver>
+   <slot>onCopyAllClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>290</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>273</x>
+     <y>-24</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delSelected_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageViewer</receiver>
+   <slot>onDelSelectClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>468</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>-30</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delAll_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageViewer</receiver>
+   <slot>onDelAllClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>603</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>582</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>copySelected_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageViewer</receiver>
+   <slot>onCopySelectedClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>194</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>107</x>
+     <y>-31</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onItemClicked(QListWidgetItem*)</slot>
   <slot>onSelectModeToggled(bool)</slot>
+  <slot>onCopySelectedClicked()</slot>
+  <slot>onCopyAllClicked()</slot>
+  <slot>onDelSelectClicked()</slot>
+  <slot>onDelAllClicked()</slot>
  </slots>
 </ui>

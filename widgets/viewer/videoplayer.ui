@@ -560,15 +560,15 @@ QSlider::handle:horizontal:hover {
    <sender>back_btn</sender>
    <signal>clicked()</signal>
    <receiver>VideoPlayer</receiver>
-   <slot>close()</slot>
+   <slot>onBackClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>51</x>
-     <y>55</y>
+     <x>59</x>
+     <y>34</y>
     </hint>
     <hint type="destinationlabel">
-     <x>-2</x>
-     <y>-14</y>
+     <x>-32</x>
+     <y>44</y>
     </hint>
    </hints>
   </connection>
@@ -577,5 +577,6 @@ QSlider::handle:horizontal:hover {
   <slot>onPlayChecked(bool)</slot>
   <slot>onLastClicked()</slot>
   <slot>onNextClicked()</slot>
+  <slot>onBackClicked()</slot>
  </slots>
 </ui>
