@@ -114,7 +114,7 @@ INCLUDEPATH += $$PWD/third-party/headers/mpp \
                $$PWD/third-party/headers/drm \
                $$PWD/third-party/headers/ffmpeg \
 
-LIBS += -L$(QMAKE_SYSROOT)/usr/lib -ludev \
+LIBS += -L -ludev \
         -L$$PWD/third-party/prebuilt/linux_arm32 \
         -ldrm -lrockchip_mpp -lrockchip_vpu \
         -lavformat -lavcodec -lavutil -lswscale -lswresample
