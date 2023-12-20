@@ -184,9 +184,11 @@ MPP_RET RKHWEncApi::release()
 
     if (mCtx.input_frame) {
         mpp_frame_deinit(&mCtx.input_frame);
+        mCtx.input_frame = nullptr;
     }
 
     if (mCtx.mppCtx) {
+        mCtx.api->reset(mCtx.mppCtx);
         mpp_destroy(mCtx.mppCtx);
         mCtx.mppCtx = nullptr;
     }

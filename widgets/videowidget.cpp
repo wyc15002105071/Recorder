@@ -162,6 +162,7 @@ void VideoWidget::initializeGL()
     glUseProgram(mProgram);
     glClearColor(0.0f,0.0f,0.0f,1.0f);
 
+    connect(this,SIGNAL(onStartUpdate()),this,SLOT(update()),Qt::UniqueConnection);
     onVideoWidgetCreated();
 }
 
@@ -303,8 +304,11 @@ void VideoWidget::getBufferInfo(int &buf_fd, int &buf_size,void **buf_vir_addr,i
 void VideoWidget::PrepareUpdate(int buf_index)
 {
     //    glBindTexture(GL_TEXTURE_EXTERNAL_OES, mImageTextureId[buf_index]);
+    mMtx.lock();
     mBufId = buf_index;
-    update();
+    mMtx.unlock();
+    onStartUpdate();
+//    update();
 }
 
 void VideoWidget::showSnapShotEffect()

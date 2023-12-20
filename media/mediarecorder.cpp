@@ -70,10 +70,11 @@ void MediaRecorder::run()
     if(mBufferlist.size() > 0)
         mBufferlist.clear();
 
-    RLOGD("Record Thread finish");
+    mVideoEncoder->release();
     mRecordState = REC_STATE_STOPPED;
     mThreadExit = true;
     mRecordEosFlag = false;
+    RLOGD("Record finish");
 //    if(test_file)
 //        fclose(test_file);
 }

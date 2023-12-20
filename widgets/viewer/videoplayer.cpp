@@ -127,12 +127,12 @@ void VideoPlayer::onDurationChanged(qint64 duration)
 
 void VideoPlayer::onPlayChecked(bool checked)
 {
-    if(checked) {
-        if(mPlayer) {
+    if(!checked) {
+        if(mPlayer && mPlayer->state() == QMediaPlayer::PlayingState) {
             mPlayer->pause();
         }
     } else {
-        if(mPlayer) {
+        if(mPlayer && (mPlayer->state() == QMediaPlayer::PausedState || mPlayer->state() == QMediaPlayer::StoppedState)) {
             mPlayer->play();
         }
     }
@@ -141,8 +141,8 @@ void VideoPlayer::onPlayChecked(bool checked)
 void VideoPlayer::onStateChanged(QMediaPlayer::State state)
 {
     if(state == QMediaPlayer::PausedState || state == QMediaPlayer::StoppedState) {
-        ui->play_btn->setChecked(true);
-    }else {
         ui->play_btn->setChecked(false);
+    }else if(state == QMediaPlayer::PlayingState){
+        ui->play_btn->setChecked(true);
     }
 }

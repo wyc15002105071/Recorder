@@ -65,6 +65,7 @@ private:
     Mutex        mMtx;
 signals:
     void onVideoWidgetCreated();
+    void onStartUpdate();
 };
 
 #endif // VIDEOWIDGET_H

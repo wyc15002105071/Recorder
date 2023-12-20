@@ -89,7 +89,7 @@ border-radius: 40px;
      <number>15</number>
     </property>
     <item>
-     <widget class="QPushButton" name="record_btn">
+     <widget class="QPushButton" name="capture_btn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -108,7 +108,7 @@ border-radius: 40px;
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="capture_btn">
+     <widget class="QPushButton" name="record_btn">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -192,7 +192,7 @@ border-radius: 40px;
    <sender>record_btn</sender>
    <signal>clicked()</signal>
    <receiver>MainWidget</receiver>
-   <slot>onCaptureClicked()</slot>
+   <slot>onRecordClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>104</x>
@@ -208,7 +208,7 @@ border-radius: 40px;
    <sender>capture_btn</sender>
    <signal>clicked()</signal>
    <receiver>MainWidget</receiver>
-   <slot>onRecordClicked()</slot>
+   <slot>onCaptureClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>295</x>
