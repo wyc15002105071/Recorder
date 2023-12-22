@@ -19,11 +19,11 @@ VideoInputDevice::VideoInputDevice()
 
 VideoInputDevice::~VideoInputDevice()
 {
+    stopTask();
     deinit();
 
-    stopTask();
     if(mRecorder) {
-        mRecorder->stopTask();
+       mRecorder->stopTask();
     }
 }
 
@@ -45,6 +45,7 @@ void VideoInputDevice::run()
             if(ts == 0) {
                 RLOGE("select time out");
                 mLock.unlock();
+		usleep(1*1000);
                 continue;
             }
 
@@ -85,8 +86,11 @@ void VideoInputDevice::run()
                 }
             }
             mLock.unlock();
+	    usleep(1*1000);
         }
     }
+
+    RLOGD("videi input thread exit...");
 }
 
 void VideoInputDevice::startRecord()
@@ -319,13 +323,19 @@ void VideoInputDevice::deinit()
 
 void VideoInputDevice::stopTask()
 {
-    mThreadExit = true;
     if(isRunning()) {
-        quit();
-        wait(QUIT_TIMEOUT);
+    	RLOGD("stop...");
+    	mThreadExit = true;
+    	quit();
+    	wait();
+    	deinit();
     }
-
     if(mRecorder) {
         mRecorder->stopTask();
     }
+}
+
+void VideoInputDevice::reset()
+{
+
 }

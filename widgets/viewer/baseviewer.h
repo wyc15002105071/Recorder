@@ -14,7 +14,8 @@ class BaseViewer : public BaseWidget
     Q_OBJECT
 public:
     BaseViewer(QWidget *parent = nullptr);
-    void resizeEvent(QResizeEvent *event);
+    ~BaseViewer();
+    virtual void resizeEvent(QResizeEvent *event);
     virtual void findAllFiles(const char *dir);
     void openDiskSelection();
 protected:
@@ -22,21 +23,22 @@ protected:
 #define ICON_HEIGHT 150
 #define X_OFFSET 	20
 #define Y_OFFSET 	20
+
     QList<QString> mFilePathList;
     QList<QString> mFileNameList;
     typedef enum {
         FILE_TYPE_IMAGE,
         FILE_TYPE_VIDEO,
     }FileType;
+    FileType mFileType;
 
     bool mSelectMode;
-    FileType mFileType;
+    StorageUtils *mStorageUtils;
     sp<DiskSelectionWidget> mDiskSelectionWidget;
-    sp<StorageUtils> mStorageUtils;
     sp<FileUtils> mFileUtils;
+    QVector<StorageUtils::ExternalStorageInfo> mExternalStorageInfo;
     sp<ProgressViewer> mProgressViewer;
 
-    QVector<StorageUtils::ExternalStorageInfo> mExternalStorageInfo;
     int mOperation;
     QList<QString> mSelectionlist;
 

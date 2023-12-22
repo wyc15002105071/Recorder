@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 #include "mpp_common.h"
+#include <unistd.h>
+#include <sys/types.h>          /* See NOTES */
+#include <sys/socket.h>
 
 #define MODULE_TAG "MainWidget"
 
@@ -16,6 +19,7 @@ MainWidget::MainWidget(QWidget *parent)
     , mImageViewer(sp<ImageViewer>(new ImageViewer()))
     , mVideoViewer(sp<VideoViewer>(new VideoViewer()))
     , mSettingWidget(sp<SettingWidget>(new SettingWidget()))
+    , mSignalHandler(sp<SignalHandler>(new SignalHandler(this)))
 {
     ui->setupUi(this);
     setWindowState(Qt::WindowFullScreen);
@@ -68,9 +72,28 @@ void MainWidget::resizeEvent(QResizeEvent *event)
     initWidgets();
 }
 
-void MainWidget::destroy()
+void MainWidget::quit()
 {
+    mInputDevice.stopTask();
+    if(mVideoWidget) {
+        mVideoWidget->deleteLater();
+	mVideoWidget = nullptr;
+    }
 
+    if(mImageViewer) {
+	mImageViewer->close();
+    	mImageViewer->deleteLater();
+	mImageViewer = nullptr;
+    }
+
+    if(mVideoViewer) {
+        mVideoViewer->close();
+        mVideoViewer->deleteLater();
+        mVideoViewer = nullptr;
+    }
+
+    RLOGD("exit...");
+    QApplication::quit();
 }
 
 void MainWidget::onCaptureClicked()
@@ -139,4 +162,38 @@ void MainWidget::onCreateTask()
     mInputDevice.setVideoWidget(mVideoWidget.get());
     mInputDevice.initDevice(1);
     mInputDevice.start();
+}
+
+int SignalHandler::sigintFd[2];
+SignalHandler::SignalHandler(QObject *parent)
+{
+    if (::socketpair(AF_UNIX, SOCK_STREAM, 0, sigintFd))
+       RLOGE("Couldn't create INT socketpair");
+    mSnInt = sp<QSocketNotifier>(new QSocketNotifier(sigintFd[1], QSocketNotifier::Read, this));
+    mParent = (MainWidget *)parent;
+    connect(mSnInt.get(), SIGNAL(activated(int)), this, SLOT(handleSignalInt()),Qt::UniqueConnection);
+}
+
+SignalHandler::~SignalHandler()
+{
+    disconnect(mSnInt.get(), SIGNAL(activated(int)), this, SLOT(handleSignalInt()));
+}
+
+void SignalHandler::intSignalHandler(int unused)
+{
+    char a = 1;
+    ::write(sigintFd[0], &a, sizeof(a));
+}
+
+void SignalHandler::handleSignalInt()
+{
+    mSnInt->setEnabled(false);
+    char tmp;
+    ::read(sigintFd[1], &tmp, sizeof(tmp));
+    if(mParent) {
+        MainWidget *main = (MainWidget *)mParent;
+        main->quit();
+    }
+
+    mSnInt->setEnabled(true);
 }

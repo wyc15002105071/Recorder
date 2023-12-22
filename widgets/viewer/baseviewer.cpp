@@ -5,15 +5,22 @@ BaseViewer::BaseViewer(QWidget *parent)
     :BaseWidget(parent)
     ,mSelectMode(false)
     ,mDiskSelectionWidget(sp<DiskSelectionWidget>(new DiskSelectionWidget))
-    ,mStorageUtils(sp<StorageUtils>(StorageUtils::get_instance()))
+    ,mStorageUtils(StorageUtils::get_instance())
     ,mFileUtils(sp<FileUtils>(new FileUtils))
     ,mProgressViewer(sp<ProgressViewer>(new ProgressViewer))
     ,mOperation(FileUtils::COPY)
 {
     setWindowState(Qt::WindowFullScreen);
     mFileUtils->attach(mProgressViewer.get());
-//    connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)));
+    connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)));
     close();
+}
+
+BaseViewer::~BaseViewer()
+{
+	if(mStorageUtils) {
+		mStorageUtils = nullptr;
+	}
 }
 
 void BaseViewer::resizeEvent(QResizeEvent *event)

@@ -22,6 +22,7 @@ public:
     virtual void run();
 
     virtual void stopTask();
+    virtual void reset();
 
     bool    initDevice(bool is_hdmi_in);
     void    deinit();

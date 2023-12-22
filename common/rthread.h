@@ -12,6 +12,7 @@ public:
     virtual void run(){};
     virtual bool startTask(){ return true; }
     virtual void stopTask(){}
+    virtual void reset(){}
 protected:
     bool mThreadExit;
     Mutex mLock;
