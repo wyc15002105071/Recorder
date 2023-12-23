@@ -60,7 +60,8 @@ background-color: rgb(39, 42, 51);
 }
 
 #back_btn {
-	border-image: url(:/resources/icons/back.png);
+	
+	image: url(:/resources/icons/back.png);
 }
 
 #last_btn {
@@ -80,7 +81,7 @@ background-color: rgb(39, 42, 51);
        <number>0</number>
       </property>
       <property name="leftMargin">
-       <number>0</number>
+       <number>5</number>
       </property>
       <property name="topMargin">
        <number>0</number>
@@ -92,22 +93,6 @@ background-color: rgb(39, 42, 51);
        <number>0</number>
       </property>
       <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <widget class="QPushButton" name="back_btn">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -117,18 +102,21 @@ background-color: rgb(39, 42, 51);
         </property>
         <property name="minimumSize">
          <size>
-          <width>28</width>
-          <height>48</height>
+          <width>80</width>
+          <height>60</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>28</width>
-          <height>48</height>
+          <width>80</width>
+          <height>60</height>
          </size>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -257,7 +245,7 @@ background-color: rgb(39, 42, 51);
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
+          <width>50</width>
           <height>20</height>
          </size>
         </property>

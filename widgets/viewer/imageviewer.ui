@@ -81,7 +81,7 @@ QPushButton::pressed{
 
 #back_btn{
    background-color:transparent;
-	border-image: url(:/resources/icons/back.png);
+	image: url(:/resources/icons/back.png);
 }
 
 #back_btn::clicked{
@@ -102,7 +102,7 @@ QPushButton::pressed{
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="leftMargin">
-       <number>0</number>
+       <number>5</number>
       </property>
       <property name="topMargin">
        <number>0</number>
@@ -113,22 +113,6 @@ QPushButton::pressed{
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
       <item alignment="Qt::AlignVCenter">
        <widget class="QPushButton" name="back_btn">
         <property name="sizePolicy">
@@ -139,18 +123,21 @@ QPushButton::pressed{
         </property>
         <property name="minimumSize">
          <size>
-          <width>28</width>
-          <height>48</height>
+          <width>80</width>
+          <height>60</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>28</width>
-          <height>48</height>
+          <width>80</width>
+          <height>60</height>
          </size>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
