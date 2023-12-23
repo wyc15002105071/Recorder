@@ -44,3 +44,8 @@ void RecordWidget::startRec()
     }
     ui->record_timer_widget->start();
 }
+
+void RecordWidget::onHasClosed()
+{
+    ui->record_btn->setChecked(true);
+}

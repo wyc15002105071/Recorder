@@ -26,7 +26,7 @@ public:
     void    PrepareUpdate(int buf_index);
     void    showSnapShotEffect();
     void    importDmaBuffer(int buf_id,int buf_fd,int width,int height,uint32_t format,int buf_size,void *vir_addr);
-
+    void    reset();
 private:
 #define MAX_BUF_CNT 4
     void        getEGLError(EGLint error);
@@ -62,7 +62,7 @@ private:
     Allocator   *mAllocator;
     bool         mUseExternalOES;
     FILE*        inFile;
-    Mutex        mMtx;
+    Mutex        mLock;
 signals:
     void onVideoWidgetCreated();
     void onStartUpdate();

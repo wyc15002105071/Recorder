@@ -68,6 +68,7 @@ VideoWidget::~VideoWidget()
     for(int i = 0;i < MAX_BUF_CNT;i++) {
         if (mEGLimage[i]) {
             eglDestroyImageKHR(mDisplay, mEGLimage[i]);
+            mEGLimage[i] = nullptr;
         }
     }
 
@@ -168,9 +169,9 @@ void VideoWidget::initializeGL()
 
 void VideoWidget::paintGL()
 {
-    mMtx.lock();
+    mLock.lock();
     if(mBufId < 0 || (mBo[mBufId].width < 0 || mBo[mBufId].height < 0)) {
-        mMtx.unlock();
+        mLock.unlock();
         return;
     }
 
@@ -186,7 +187,7 @@ void VideoWidget::paintGL()
         }
         glClearColor(0.5f,0.5f,0.5f,1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        mMtx.unlock();
+        mLock.unlock();
         return;
     }else {
         if(mUseExternalOES) {
@@ -209,8 +210,8 @@ void VideoWidget::paintGL()
         }
     }
     glDrawArrays(GL_TRIANGLE_STRIP,0,4);
-    mMtx.unlock();
-    usleep(1*300);
+    mLock.unlock();
+    usleep(1*350);
     glFinish();
 //    if(mUseExternalOES) {
 //        eglDestroyImageKHR(eglGetCurrentDisplay(), mEGLimage[mBufId]);
@@ -304,9 +305,9 @@ void VideoWidget::getBufferInfo(int &buf_fd, int &buf_size,void **buf_vir_addr,i
 void VideoWidget::PrepareUpdate(int buf_index)
 {
     //    glBindTexture(GL_TEXTURE_EXTERNAL_OES, mImageTextureId[buf_index]);
-    mMtx.lock();
+    mLock.lock();
     mBufId = buf_index;
-    mMtx.unlock();
+    mLock.unlock();
     onStartUpdate();
 //    update();
 }
@@ -330,6 +331,27 @@ void VideoWidget::importDmaBuffer(int buf_id, int buf_fd, int width, int height,
     mBo[buf_id].buf_size    = buf_size;
     mBo[buf_id].vir_addr    = vir_addr;
     mBo[buf_id].stride      = getStride(mBo[buf_id].width,mBo[buf_id].height,mBo[buf_id].fourcc);
+}
+
+void VideoWidget::reset()
+{
+    for(int i = 0;i<MAX_BUF_CNT;i++) {
+        memset(&mBo[i],0,sizeof(BufferObject));
+    }
+    for(int i = 0;i< MAX_BUF_CNT;i++) {
+        if (mImageTextureId[i])
+        {
+            glDeleteTextures(1, &mImageTextureId[i]);
+        }
+    }
+    for(int i = 0;i < MAX_BUF_CNT;i++) {
+        if (mEGLimage[i]) {
+            eglDestroyImageKHR(mDisplay, mEGLimage[i]);
+            mEGLimage[i] = nullptr;
+        }
+    }
+    glClearColor(0.0f,0.0f,0.0f,1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
 
 GLuint VideoWidget::CompileShader(GLenum ShaderType, const char *shaderCode)

@@ -25,8 +25,8 @@ private:
 
 public slots:
     void onRecordBtnToggled(bool toggled);
-
     void startRec();
+    virtual void onHasClosed();
 };
 
 #endif // RECORDWIDGET_H

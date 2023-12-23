@@ -7,16 +7,17 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QResizeEvent>
-#include "log.h"
-#include "mediautils.h"
-#include "videoinputdevice.h"
+#include "media/mediautils.h"
+#include "media/videoinputdevice.h"
 #include "widgets/record_timer_widget.h"
 #include "widgets/viewer/imageviewer.h"
 #include "widgets/viewer/videoviewer.h"
-#include "widgets/setting_widget.h"
+#include "widgets/menuwidget.h"
 #include "common/common.h"
+#include "common/log.h"
 #include "widgets/recordwidget.h"
 #include "widgets/viewer/progressviewer.h"
+#include "listeners/key_listener.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
@@ -35,7 +36,6 @@ public slots:
 
 private:
     static int sigintFd[2];
-
     sp<QSocketNotifier> mSnInt;
     QObject *mParent;
 };
@@ -47,6 +47,8 @@ class MainWidget : public QWidget
 public:
     MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
+    virtual void mouseMoveEvent(QMouseEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event);
     virtual void resizeEvent(QResizeEvent *event);
 
     void quit();
@@ -54,29 +56,29 @@ public:
 private:
     Ui::MainWidget *ui;
 
-    VideoInputDevice    mInputDevice;
-    sp<ImageViewer>     mImageViewer;
-    sp<VideoViewer>     mVideoViewer;
-    sp<SettingWidget>   mSettingWidget;
+    VideoInputDevice  mInputDevice;
+    KeyListener      *mKeyListener;
 
+    sp<ImageViewer>   mImageViewer;
+    sp<VideoViewer>   mVideoViewer;
     sp<QWidget>       mVideoWidget_Container;
-    sp<QWidget>       mMenuWidget;
+    sp<MenuWidget>    mMenuWidget;
     sp<VideoWidget>   mVideoWidget;
     sp<RecordWidget>  mRecordWidget;
     sp<SignalHandler> mSignalHandler;
+
+    const uint32_t    mMenuAutoHideMs = 5000;
 public slots:
-    void onCaptureClicked();
-    void onRecordClicked();
-
-    void recordChecked(bool checked);
-    void recordStopClicked();
-    void onPictureFileClicked();
-    void onVideoFileClicked();
-    void settingClicked();
-
     void onCreateTask();
+    void onHandleMenuEvent(MenuWidget::EventType type);
+    void onKeyEventHandler(KeyListener::KeyType type);
+
 private:
     void initWidgets();
-
+    void onCapture();
+    void onRecord();
+    void onPushSteam();
+    void onOpenImageBrowser();
+    void onOpenVideoBrowser();
 };
 #endif // MAINWIDGET_H

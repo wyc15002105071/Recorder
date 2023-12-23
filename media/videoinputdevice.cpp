@@ -14,7 +14,7 @@ VideoInputDevice::VideoInputDevice()
     ,mVideoEosFlag(false)
     ,mRecorder(sp<MediaRecorder>(new MediaRecorder))
 {
-
+    connect(this,SIGNAL(onNeedReset()),this,SLOT(onReset()),Qt::UniqueConnection);
 }
 
 VideoInputDevice::~VideoInputDevice()
@@ -23,12 +23,15 @@ VideoInputDevice::~VideoInputDevice()
     deinit();
 
     if(mRecorder) {
-       mRecorder->stopTask();
+        mRecorder->stopTask();
     }
+    disconnect(this,SIGNAL(onNeedReset()),this,SLOT(onReset()));
 }
 
 void VideoInputDevice::run()
 {
+    int retry = 0;
+    bool needReset = false;
     while(!mThreadExit) {
         for (int i = 0; i < MAX_BUF_CNT; i++ ) {
             mLock.lock();
@@ -45,8 +48,17 @@ void VideoInputDevice::run()
             if(ts == 0) {
                 RLOGE("select time out");
                 mLock.unlock();
-		usleep(1*1000);
-                continue;
+                retry++;
+                if(retry > 3) {
+                    RLOGD("need reset...");
+                    needReset = true;
+                    retry = 0;
+                    mThreadExit = true;
+                    break;
+                }else {
+                    usleep(1*1000);
+                    continue;
+                }
             }
 
             if (ioctl(mDeviceFd, VIDIOC_DQBUF, &mBufferArray[i]) == -1) {
@@ -86,34 +98,51 @@ void VideoInputDevice::run()
                 }
             }
             mLock.unlock();
-	    usleep(1*1000);
+            usleep(1*1000);
         }
     }
 
-    RLOGD("videi input thread exit...");
+    if(needReset) {
+        needReset = false;
+        onNeedReset();
+    }
+
+    RLOGD("video input thread exit...");
+}
+
+bool VideoInputDevice::startTask()
+{
+    mThreadExit = false;
+    start();
+    return true;
 }
 
 void VideoInputDevice::startRecord()
 {
-//    mLock.lock();
+    //    mLock.lock();
     if(mRecorder) {
         mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC);
         mRecorder->startTask();
     }
     mVideoEosFlag = false;
     mIsEncoding = true;
-//    mLock.unlock();
+    //    mLock.unlock();
 }
 
 void VideoInputDevice::stopRecord()
 {
-//    mLock.lock();
+    //    mLock.lock();
     if(mRecorder) {
         mRecorder->stopTask();
     }
     mVideoEosFlag = true;
     mIsEncoding = false;
-//    mLock.unlock();
+    //    mLock.unlock();
+}
+
+void VideoInputDevice::onReset()
+{
+    reset();
 }
 
 bool VideoInputDevice::initDevice(bool is_hdmi_in)
@@ -324,11 +353,11 @@ void VideoInputDevice::deinit()
 void VideoInputDevice::stopTask()
 {
     if(isRunning()) {
-    	RLOGD("stop...");
-    	mThreadExit = true;
-    	quit();
-    	wait();
-    	deinit();
+        RLOGD("stop...");
+        mThreadExit = true;
+        quit();
+        wait();
+        deinit();
     }
     if(mRecorder) {
         mRecorder->stopTask();
@@ -337,5 +366,11 @@ void VideoInputDevice::stopTask()
 
 void VideoInputDevice::reset()
 {
-
+    RLOGD("reset...");
+    deinit();
+    if(mVideoWidget) {
+        mVideoWidget->reset();
+    }
+    initDevice(true);
+    startTask();
 }

@@ -14,6 +14,7 @@
 
 class VideoInputDevice : public RThread
 {
+    Q_OBJECT
 public:
 #define MAX_BUF_CNT 4
 #define FMT_NUM_PLANES 1
@@ -21,6 +22,7 @@ public:
     ~VideoInputDevice();
     virtual void run();
 
+    virtual bool startTask();
     virtual void stopTask();
     virtual void reset();
 
@@ -55,6 +57,12 @@ private:
 
     StreamInfo      mStreamInfo;
     DmaBufferObject mDmaBo[MAX_BUF_CNT];
+
+signals:
+    void onNeedReset();
+
+public slots:
+    void onReset();
 };
 
 #endif // VIDEOINPUTDEVICE_H

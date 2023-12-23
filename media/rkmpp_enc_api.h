@@ -1,11 +1,11 @@
 #ifndef RKHWENCAPI_H
 #define RKHWENCAPI_H
 
+#include <stdio.h>
 #include "rk_mpi.h"
 #include "mpp_mem.h"
 #include "mpp_log.h"
 #include "mpp_env.h"
-#include "rthread.h"
 
 class RKHWEncApi
 {

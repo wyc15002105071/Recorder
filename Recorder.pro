@@ -1,4 +1,4 @@
-QT       += core gui multimedia multimediawidgets
+QT       += core gui multimedia multimediawidgets serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -35,12 +35,16 @@ SOURCES += \
     media/mediarecorder.cpp \
     media/mediautils.cpp \
     media/muxer.cpp \
+    media/rkmpp_dec_api.cpp \
     media/rkmpp_enc_api.cpp \
     media/videoframereader.cpp \
     media/videoinputdevice.cpp \
     utils/fileutils.cpp \
+    utils/serialportutils.cpp \
     utils/storageutils.cpp \
+    utils/thumbnail_utils.cpp \
     widgets/basewidget.cpp \
+    widgets/menuwidget.cpp \
     widgets/recordwidget.cpp \
     widgets/setting_widget.cpp \
     widgets/viewer/baseviewer.cpp \
@@ -73,12 +77,16 @@ HEADERS += \
     media/mediarecorder.h \
     media/mediautils.h \
     media/muxer.h \
+    media/rkmpp_dec_api.h \
     media/rkmpp_enc_api.h \
     media/videoframereader.h \
     media/videoinputdevice.h \
     utils/fileutils.h \
+    utils/serialportutils.h \
     utils/storageutils.h \
+    utils/thumbnail_utils.h \
     widgets/basewidget.h \
+    widgets/menuwidget.h \
     widgets/recordwidget.h \
     widgets/setting_widget.h \
     widgets/viewer/baseviewer.h \
@@ -97,6 +105,7 @@ HEADERS += \
 FORMS += \
     mainwidget.ui \
     widgets/basewidget.ui \
+    widgets/menuwidget.ui \
     widgets/recordwidget.ui \
     widgets/settingwidget.ui \
     widgets/viewer/diskselectionitem.ui \

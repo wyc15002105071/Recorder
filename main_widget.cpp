@@ -1,6 +1,5 @@
 #include "main_widget.h"
 #include "ui_mainwidget.h"
-#include <QTimer>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -16,9 +15,9 @@ using namespace std;
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
+    , mKeyListener(KeyListener::get_instance())
     , mImageViewer(sp<ImageViewer>(new ImageViewer()))
     , mVideoViewer(sp<VideoViewer>(new VideoViewer()))
-    , mSettingWidget(sp<SettingWidget>(new SettingWidget()))
     , mSignalHandler(sp<SignalHandler>(new SignalHandler(this)))
 {
     ui->setupUi(this);
@@ -32,6 +31,10 @@ MainWidget::~MainWidget()
 
 void MainWidget::initWidgets()
 {
+    if(!mMenuWidget) {
+        mMenuWidget = sp<MenuWidget>(new MenuWidget(this));
+        connect(mMenuWidget.get(),SIGNAL(onMenuEvent(MenuWidget::EventType)),this,SLOT(onHandleMenuEvent(MenuWidget::EventType)));
+    }
     if(!mVideoWidget_Container) {
         mVideoWidget_Container = sp<QWidget>(ui->videowidget_container);
         if(!mVideoWidget) {
@@ -39,24 +42,25 @@ void MainWidget::initWidgets()
             connect(mVideoWidget.get(),SIGNAL(onVideoWidgetCreated()),this,SLOT(onCreateTask()),Qt::UniqueConnection);
         }
     }
-    if(!mMenuWidget)
-        mMenuWidget = sp<QWidget>(ui->menu_widget);
-
-    mVideoWidget->resize(this->size());
-    mVideoWidget->move(0,0);
-
-    mVideoWidget_Container->setGeometry(mVideoWidget->geometry());
-
-    mMenuWidget->setFixedWidth(this->size().width());
-    mMenuWidget->move(0,this->size().height()-mMenuWidget->height());
 
     if(!mRecordWidget) {
         mRecordWidget = sp<RecordWidget>(new RecordWidget(this,&mInputDevice));
         connect(mRecordWidget.get(),&RecordWidget::onClosed,this,[=]{ if(mMenuWidget) mMenuWidget->show(); },Qt::UniqueConnection);
     }
 
+    mVideoWidget->resize(this->size());
+    mVideoWidget->move(0,0);
+
+    mVideoWidget_Container->setGeometry(mVideoWidget->geometry());
+
+    mMenuWidget->resize(this->size().width(),mMenuWidget->height());
+    mMenuWidget->move(0,this->size().height()-mMenuWidget->height());
+    mMenuWidget->open();
+
     mRecordWidget->setGeometry(this->rect());
     mRecordWidget->close();
+
+    connect(mKeyListener,SIGNAL(onPressed(KeyListener::KeyType)),this,SLOT(onKeyEventHandler(KeyListener::KeyType)),Qt::UniqueConnection);
 
     if (access(IMAGES_SAVE_DIR, F_OK)) {
         mkdir(IMAGES_SAVE_DIR);
@@ -72,18 +76,29 @@ void MainWidget::resizeEvent(QResizeEvent *event)
     initWidgets();
 }
 
+void MainWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    mMenuWidget->open();
+}
+
+void MainWidget::mousePressEvent(QMouseEvent *event)
+{
+    mMenuWidget->open();
+}
+
 void MainWidget::quit()
 {
     mInputDevice.stopTask();
+
     if(mVideoWidget) {
         mVideoWidget->deleteLater();
-	mVideoWidget = nullptr;
+        mVideoWidget = nullptr;
     }
 
     if(mImageViewer) {
-	mImageViewer->close();
-    	mImageViewer->deleteLater();
-	mImageViewer = nullptr;
+        mImageViewer->close();
+        mImageViewer->deleteLater();
+        mImageViewer = nullptr;
     }
 
     if(mVideoViewer) {
@@ -96,7 +111,7 @@ void MainWidget::quit()
     QApplication::quit();
 }
 
-void MainWidget::onCaptureClicked()
+void MainWidget::onCapture()
 {
     char time_str[50] = {0};
     getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
@@ -107,54 +122,39 @@ void MainWidget::onCaptureClicked()
     RLOGD("capture file path is %s",file_save_path);
     if(mVideoWidget) {
         QPixmap pix_map = mVideoWidget->grab();
-        mVideoWidget->showSnapShotEffect();
         pix_map.save(file_save_path);
+        mVideoWidget->showSnapShotEffect();
     }
 }
 
-void MainWidget::onRecordClicked()
+void MainWidget::onRecord()
 {
-    RLOGD("ready to open record widget");
     if(mRecordWidget) {
-        mMenuWidget->close();
-        mRecordWidget->open();
+        if(!mRecordWidget->isVisible()) {
+            RLOGD("ready to open record widget");
+            mMenuWidget->close();
+            mRecordWidget->open();
+        } else {
+            RLOGD("ready to close record widget");
+            mRecordWidget->close();
+            mMenuWidget->open();
+        }
     }
-
-//    static bool isenc = false;
-//    isenc = !isenc;
-//    if(isenc)
-//        mInputDevice.startRecord();
-//    else
-//        mInputDevice.stopRecord();
 }
 
-void MainWidget::recordChecked(bool checked)
+void MainWidget::onPushSteam()
 {
-
+    RLOGD("start push stream...");
 }
 
-void MainWidget::recordStopClicked()
-{
-//    v4l2_device.stopEnc();
-//    ui->record->setEnabled(true);
-//    ui->record->setChecked(false);
-//    ui->record_stop->setEnabled(false);
-//    ui->record_timer_widget->stop();
-}
-
-void MainWidget::onPictureFileClicked()
+void MainWidget::onOpenImageBrowser()
 {
     mImageViewer->open();
 }
 
-void MainWidget::onVideoFileClicked()
+void MainWidget::onOpenVideoBrowser()
 {
     mVideoViewer->open();
-}
-
-void MainWidget::settingClicked()
-{
-    mSettingWidget->show();
 }
 
 void MainWidget::onCreateTask()
@@ -162,6 +162,54 @@ void MainWidget::onCreateTask()
     mInputDevice.setVideoWidget(mVideoWidget.get());
     mInputDevice.initDevice(1);
     mInputDevice.start();
+
+    if(mKeyListener) {
+        mKeyListener->startTask();
+    }
+}
+
+void MainWidget::onHandleMenuEvent(MenuWidget::EventType type)
+{
+    switch(type) {
+    case MenuWidget::Event_Type_Capture:
+        onCapture();
+        break;
+    case MenuWidget::Event_Type_Record:
+        onRecord();
+        break;
+    case MenuWidget::Event_Type_PushStream:
+        onPushSteam();
+        break;
+    case MenuWidget::Event_Type_ImageBrowse:
+        onOpenImageBrowser();
+        break;
+    case MenuWidget::Event_Type_VideoBrowse:
+        onOpenVideoBrowser();
+        break;
+    default:
+        break;
+    }
+}
+
+void MainWidget::onKeyEventHandler(KeyListener::KeyType type)
+{
+    RLOGD("handler key event %d",type);
+    if(isTopLevel()) {
+        RLOGD("main widget is top level");
+    } else {
+        RLOGD("main widget is not top level");
+    }
+    switch (type)
+    {
+    case KeyListener::KEY_TYPE_RECORD: {
+        onRecord();
+    }break;
+    case KeyListener::KEY_TYPE_CAPTURE: {
+        onCapture();
+    }break;
+    default:
+        break;
+    }
 }
 
 int SignalHandler::sigintFd[2];
