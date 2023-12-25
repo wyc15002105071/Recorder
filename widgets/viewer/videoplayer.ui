@@ -63,6 +63,7 @@ background-color: rgb(39, 42, 51);
 }
 
 #back_btn {
+   background-color: rgb(39, 42, 51);
 	image: url(:/resources/icons/back.png);
 }
 

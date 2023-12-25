@@ -4,6 +4,8 @@
 #include <QMovie>
 #include "listwidgetitem.h"
 #include "utils/storageutils.h"
+#include <QScrollBar>
+#include <QScroller>
 
 #define MODULE_TAG "VideoViewer"
 using namespace std;
@@ -18,8 +20,13 @@ VideoViewer::VideoViewer(QWidget *parent) :
     ui->setupUi(this);
     mFileType = FILE_TYPE_VIDEO;
 
+    ui->video_list->setAttribute(Qt::WA_AcceptTouchEvents,true);
+    QScroller::grabGesture(ui->video_list,QScroller::TouchGesture);
     connect(mVideoFrameReader,SIGNAL(imageAvailable(QImage)),this,SLOT(onUpdateIcon(QImage)));
     connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)));
+
+    ui->video_list->verticalScrollBar()->setStyleSheet(ui->video_list->styleSheet());
+
 //    connect(mVideoFrameReader,SIGNAL(imagesAvailable(QList<QImage>)),this,SLOT(onImageIconsAvailable(QList<QImage>)));
 }
 

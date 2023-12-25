@@ -2,6 +2,8 @@
 #include "ui_imageviewer.h"
 #include <QLabel>
 #include "listwidgetitem.h"
+#include <QScroller>
+#include <QScrollBar>
 
 ImageViewer::ImageViewer(QWidget *parent) :
     BaseViewer(parent),
@@ -10,7 +12,11 @@ ImageViewer::ImageViewer(QWidget *parent) :
 {
     ui->setupUi(this);
     mFileType = FILE_TYPE_IMAGE;
-    connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)));
+
+    ui->image_list->setAttribute(Qt::WA_AcceptTouchEvents,true);
+    QScroller::grabGesture(ui->image_list,QScroller::TouchGesture);
+    connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)),Qt::UniqueConnection);
+    ui->image_list->verticalScrollBar()->setStyleSheet(ui->image_list->styleSheet());
 }
 
 ImageViewer::~ImageViewer()
@@ -89,6 +95,9 @@ void ImageViewer::onHasClosed()
 {
     if(mDiskSelectionWidget)
         mDiskSelectionWidget->close();
+
+    mSelectMode = false;
+    ui->selectMode_btn->setChecked(mSelectMode);
 }
 
 void ImageViewer::onCopySelectedClicked()

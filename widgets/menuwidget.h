@@ -20,11 +20,11 @@ public:
     virtual void open();
 
     typedef enum EventType {
-        Event_Type_Capture,
-        Event_Type_Record,
-        Event_Type_PushStream,
-        Event_Type_ImageBrowse,
-        Event_Type_VideoBrowse
+        Menu_EventType_Capture,
+        Menu_EventType_Record,
+        Menu_EventType_PushStream,
+        Menu_EventType_ImageBrowse,
+        Menu_EventType_VideoBrowse
     } EventType_t;
 signals:
     void onMenuEvent(MenuWidget::EventType type);

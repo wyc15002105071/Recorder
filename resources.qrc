@@ -24,5 +24,7 @@
         <file>resources/icons/back.png</file>
         <file>resources/icons/broken.png</file>
         <file>resources/icons/udisk.png</file>
+        <file>resources/icons/down.png</file>
+        <file>resources/icons/up.png</file>
     </qresource>
 </RCC>

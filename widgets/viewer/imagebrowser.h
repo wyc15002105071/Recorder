@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QList>
+#include "listeners/key_listener.h"
 
 namespace Ui {
 class ImageBrowser;
@@ -24,13 +25,14 @@ private:
 
     QList<QString> mUrls;
     int mCurrentIndex;
-
+    KeyListener *mKeyListener;
 private:
     void showImage(QString path);
 
 public slots:
     void onLastClicked();
     void onNextClicked();
+    void onKeyEventHandler(KeyListener::EventType type);
 };
 
 #endif // IMAGEBROWSER_H

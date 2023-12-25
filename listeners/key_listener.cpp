@@ -76,25 +76,25 @@ void KeyListener::onReadData()
                 long long end = data_end.toHex().toLongLong(&ok,16);
                 long long body = data_body.toHex().toLongLong(&ok,16);
                 if((head == DATA_HEAD) && (end == DATA_END)) {
-                    KeyType type = KEY_TYPE_UNKNOWN;
+                    EventType type = Key_EventType_UNKNOWN;
                     switch (body) {
                     case RECORD:
-                        type = KEY_TYPE_RECORD;
+                        type = Key_EventType_RECORD;
                         break;
                     case RIGHT:
-                        type = KEY_TYPE_RIGHT;
+                        type = Key_EventType_RIGHT;
                         break;
                     case DOWN:
-                        type = KEY_TYPE_DOWN;
+                        type = Key_EventType_DOWN;
                         break;
                     case UP:
-                        type = KEY_TYPE_UP;
+                        type = Key_EventType_UP;
                         break;
                     case LEFT:
-                        type = KEY_TYPE_LEFT;
+                        type = Key_EventType_LEFT;
                         break;
                     case CAPTURE:
-                        type = KEY_TYPE_CAPTURE;
+                        type = Key_EventType_CAPTURE;
                         break;
                     default:
                         break;

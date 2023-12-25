@@ -4,14 +4,17 @@
 
 #define MODULE_TAG "ImageBrowser"
 
-ImageBrowser::ImageBrowser(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::ImageBrowser),
-    mCurrentIndex(0)
+ImageBrowser::ImageBrowser(QWidget *parent)
+    : QWidget(parent)
+    , ui(new Ui::ImageBrowser)
+    , mCurrentIndex(0)
+    , mKeyListener(KeyListener::get_instance())
 {
     ui->setupUi(this);
 
     setWindowState(Qt::WindowFullScreen);
+
+    connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)));
     close();
 }
 
@@ -59,7 +62,7 @@ void ImageBrowser::showImage(QString path)
     sprintf(num_str,"%d/%d",mCurrentIndex+1,count);
     ui->label->setText(num_str);
     QPixmap pixmap(path);
-    pixmap = pixmap.scaled(ui->image_container->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+    pixmap = pixmap.scaled(ui->image_container->size(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
     ui->image_container->setScaledContents(true);
     ui->image_container->setPixmap(pixmap);
 }
@@ -86,5 +89,24 @@ void ImageBrowser::onNextClicked()
         mCurrentIndex = 0;
 
     showImage(mUrls.at(mCurrentIndex));
+}
+
+void ImageBrowser::onKeyEventHandler(KeyListener::EventType type)
+{
+    if(!this->isVisible()) {
+        return;
+    }
+
+    switch (type)
+    {
+    case KeyListener::Key_EventType_LEFT:
+        onLastClicked();
+        break;
+    case KeyListener::Key_EventType_RIGHT:
+        onNextClicked();
+        break;
+    default:
+        break;
+    }
 }
 

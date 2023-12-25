@@ -27,15 +27,15 @@ public:
         return &key_listener;
     }
 
-    typedef enum KeyType {
-        KEY_TYPE_UNKNOWN = -1,
-        KEY_TYPE_RECORD = 1,
-        KEY_TYPE_RIGHT,
-        KEY_TYPE_DOWN,
-        KEY_TYPE_UP,
-        KEY_TYPE_LEFT,
-        KEY_TYPE_CAPTURE
-    }KeyType_t;
+    typedef enum EventType {
+        Key_EventType_UNKNOWN = -1,
+        Key_EventType_RECORD = 1,
+        Key_EventType_RIGHT,
+        Key_EventType_DOWN,
+        Key_EventType_UP,
+        Key_EventType_LEFT,
+        Key_EventType_CAPTURE
+    }EventType_t;
 
     ~KeyListener();
     virtual bool startTask();
@@ -49,7 +49,7 @@ protected:
     KeyListener();
 
 signals:
-    void onPressed(KeyListener::KeyType type);
+    void onPressed(KeyListener::EventType type);
 
 private:
     sp<SerialPortUtils> mSerialPort;

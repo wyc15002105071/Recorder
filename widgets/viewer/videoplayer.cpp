@@ -7,10 +7,11 @@
 
 using namespace std;
 
-VideoPlayer::VideoPlayer(QWidget *parent) :
-    QWidget(parent)
-  ,ui(new Ui::VideoPlayer)
-  ,mPlayer(shared_ptr<QMediaPlayer>(new QMediaPlayer))
+VideoPlayer::VideoPlayer(QWidget *parent)
+   : QWidget(parent)
+   , ui(new Ui::VideoPlayer)
+   , mPlayer(shared_ptr<QMediaPlayer>(new QMediaPlayer))
+   , mKeyListener(KeyListener::get_instance())
 {
     ui->setupUi(this);
 
@@ -21,6 +22,7 @@ VideoPlayer::VideoPlayer(QWidget *parent) :
     connect(mPlayer.get(),SIGNAL(positionChanged(qint64)),this,SLOT(updateSlider(qint64)),Qt::UniqueConnection);
     connect(mPlayer.get(),SIGNAL(durationChanged(qint64)),this,SLOT(onDurationChanged(qint64)));
     connect(mPlayer.get(),SIGNAL(stateChanged(QMediaPlayer::State)),this,SLOT(onStateChanged(QMediaPlayer::State)));
+    connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)));
     setWindowState(Qt::WindowFullScreen);
     close();
 }
@@ -144,5 +146,24 @@ void VideoPlayer::onStateChanged(QMediaPlayer::State state)
         ui->play_btn->setChecked(false);
     }else if(state == QMediaPlayer::PlayingState){
         ui->play_btn->setChecked(true);
+    }
+}
+
+void VideoPlayer::onKeyEventHandler(KeyListener::EventType type)
+{
+    if(!this->isVisible() || !mPlayer) {
+        return;
+    }
+
+    switch (type)
+    {
+    case KeyListener::Key_EventType_LEFT:
+        onLastClicked();
+        break;
+    case KeyListener::Key_EventType_RIGHT:
+        onNextClicked();
+        break;
+    default:
+        break;
     }
 }

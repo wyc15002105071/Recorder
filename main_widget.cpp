@@ -33,7 +33,7 @@ void MainWidget::initWidgets()
 {
     if(!mMenuWidget) {
         mMenuWidget = sp<MenuWidget>(new MenuWidget(this));
-        connect(mMenuWidget.get(),SIGNAL(onMenuEvent(MenuWidget::EventType)),this,SLOT(onHandleMenuEvent(MenuWidget::EventType)));
+        connect(mMenuWidget.get(),SIGNAL(onMenuEvent(MenuWidget::EventType)),this,SLOT(onMenuEventHandler(MenuWidget::EventType)));
     }
     if(!mVideoWidget_Container) {
         mVideoWidget_Container = sp<QWidget>(ui->videowidget_container);
@@ -60,7 +60,7 @@ void MainWidget::initWidgets()
     mRecordWidget->setGeometry(this->rect());
     mRecordWidget->close();
 
-    connect(mKeyListener,SIGNAL(onPressed(KeyListener::KeyType)),this,SLOT(onKeyEventHandler(KeyListener::KeyType)),Qt::UniqueConnection);
+    connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)),Qt::UniqueConnection);
 
     if (access(IMAGES_SAVE_DIR, F_OK)) {
         mkdir(IMAGES_SAVE_DIR);
@@ -168,22 +168,22 @@ void MainWidget::onCreateTask()
     }
 }
 
-void MainWidget::onHandleMenuEvent(MenuWidget::EventType type)
+void MainWidget::onMenuEventHandler(MenuWidget::EventType type)
 {
     switch(type) {
-    case MenuWidget::Event_Type_Capture:
+    case MenuWidget::Menu_EventType_Capture:
         onCapture();
         break;
-    case MenuWidget::Event_Type_Record:
+    case MenuWidget::Menu_EventType_Record:
         onRecord();
         break;
-    case MenuWidget::Event_Type_PushStream:
+    case MenuWidget::Menu_EventType_PushStream:
         onPushSteam();
         break;
-    case MenuWidget::Event_Type_ImageBrowse:
+    case MenuWidget::Menu_EventType_ImageBrowse:
         onOpenImageBrowser();
         break;
-    case MenuWidget::Event_Type_VideoBrowse:
+    case MenuWidget::Menu_EventType_VideoBrowse:
         onOpenVideoBrowser();
         break;
     default:
@@ -191,20 +191,14 @@ void MainWidget::onHandleMenuEvent(MenuWidget::EventType type)
     }
 }
 
-void MainWidget::onKeyEventHandler(KeyListener::KeyType type)
+void MainWidget::onKeyEventHandler(KeyListener::EventType type)
 {
-    RLOGD("handler key event %d",type);
-    if(isTopLevel()) {
-        RLOGD("main widget is top level");
-    } else {
-        RLOGD("main widget is not top level");
-    }
     switch (type)
     {
-    case KeyListener::KEY_TYPE_RECORD: {
+    case KeyListener::Key_EventType_RECORD: {
         onRecord();
     }break;
-    case KeyListener::KEY_TYPE_CAPTURE: {
+    case KeyListener::Key_EventType_CAPTURE: {
         onCapture();
     }break;
     default:

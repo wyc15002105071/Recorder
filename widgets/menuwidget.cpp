@@ -41,27 +41,27 @@ void MenuWidget::open()
 
 void MenuWidget::onCaptureClicked()
 {
-    onMenuEvent(Event_Type_Capture);
+    onMenuEvent(Menu_EventType_Capture);
 }
 
 void MenuWidget::onRecordClicked()
 {
-    onMenuEvent(Event_Type_Record);
+    onMenuEvent(Menu_EventType_Record);
 }
 
 void MenuWidget::onPushClicked()
 {
-    onMenuEvent(Event_Type_PushStream);
+    onMenuEvent(Menu_EventType_PushStream);
 }
 
 void MenuWidget::onPictureFileClicked()
 {
-    onMenuEvent(Event_Type_ImageBrowse);
+    onMenuEvent(Menu_EventType_ImageBrowse);
 }
 
 void MenuWidget::onVideoFileClicked()
 {
-    onMenuEvent(Event_Type_VideoBrowse);
+    onMenuEvent(Menu_EventType_VideoBrowse);
 }
 
 void MenuWidget::onHasOpened()

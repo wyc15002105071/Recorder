@@ -70,8 +70,8 @@ private:
     const uint32_t    mMenuAutoHideMs = 5000;
 public slots:
     void onCreateTask();
-    void onHandleMenuEvent(MenuWidget::EventType type);
-    void onKeyEventHandler(KeyListener::KeyType type);
+    void onMenuEventHandler(MenuWidget::EventType type);
+    void onKeyEventHandler(KeyListener::EventType type);
 
 private:
     void initWidgets();
