@@ -21,6 +21,8 @@ public:
     virtual void run();
     virtual bool startTask();
     virtual void stopTask();
+    static const char *getFileSuffix(QString file_path);
+    static const char *pathToName(QString path);
     void startCopy(QList<QString> &filesPath,QString dst_dir);
     void startDelete(QList<QString> &filesPath);
     int64_t  getFileSize(QString filePath);

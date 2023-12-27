@@ -10,13 +10,21 @@ public:
     RThread();
     virtual ~RThread() {}
     virtual void run(){};
-    virtual bool startTask(){ return true; }
-    virtual void stopTask(){}
+    virtual bool startTask(){
+        mThreadExit = false;
+        this->start();
+        return true;
+    }
+    virtual void stopTask() {
+        mThreadExit = true;
+        quit();
+        wait(QUIT_TIMEOUT);
+    }
     virtual void reset(){}
 protected:
     bool mThreadExit;
     Mutex mLock;
-    const int QUIT_TIMEOUT = 500;
+    const int QUIT_TIMEOUT = 1000;
 };
 
 #endif // RTHREAD_H

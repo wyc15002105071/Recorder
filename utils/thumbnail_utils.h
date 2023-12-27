@@ -16,11 +16,23 @@ public:
     ~ThumbnailUtils();
 
     virtual void run();
-    virtual bool startTask();
-    virtual void stopTask();
-    void getImages(QList<QString> file_path_list);
+    void setDataSource(QList<QString> files);
 signals:
-    void onGetOneImage(QImage image);
+    void onGetOneImage(QImage image,QString file_path);
+
+private:
+    typedef enum Type {
+        Type_Unkown,
+        Type_Image,
+        Type_Video
+    }Type_t;
+
+    Type getType(const char *suffix);
+    void getThumbnail(QString file_path,Type type);
+
+private:
+    QList<QString> mFileslist;
+    Mutex mLock;
 };
 
 #endif // THUMBNAILUTILS_H

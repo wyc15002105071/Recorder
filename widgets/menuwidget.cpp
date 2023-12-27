@@ -11,6 +11,10 @@ MenuWidget::MenuWidget(QWidget *parent)
     mTimer->setInterval(mAutoHideMs);
 
     connect(mTimer.get(),SIGNAL(timeout()),this,SLOT(close()));
+    connect(this,&MenuWidget::onMenuEvent,this,[=]{
+        mTimer->stop();
+        mTimer->start();
+    },Qt::UniqueConnection);
 }
 
 MenuWidget::~MenuWidget()

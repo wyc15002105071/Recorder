@@ -60,6 +60,14 @@ void ProgressViewer::update(NotifyData data)
     }
 }
 
+void ProgressViewer::showWarning(QString info)
+{
+    setText(info);
+    ui->progress->setValue(ui->progress->value());
+    open();
+    onFinish();
+}
+
 void ProgressViewer::finish()
 {
      QTimer::singleShot(1000, this, SLOT(close()));

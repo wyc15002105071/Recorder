@@ -22,7 +22,7 @@ void DiskSelectionWidget::additem(QString text)
 {
     sp<DiskSelectionItem> item = sp<DiskSelectionItem>(new DiskSelectionItem);
     item->setText(text);
-    ui->container->layout()->addWidget(item.get());
+    ui->items->layout()->addWidget(item.get());
     mItemlist.push_back(item);
 
     connect(item.get(),SIGNAL(itemClicked(DiskSelectionItem *)),this,SLOT(onItemClicked(DiskSelectionItem *)),Qt::UniqueConnection);
@@ -34,7 +34,7 @@ void DiskSelectionWidget::remove(int index)
         return;
     sp<DiskSelectionItem> item = mItemlist.at(index);
     disconnect(item.get(),SIGNAL(itemClicked(DiskSelectionItem *)),this,SLOT(onItemClicked(DiskSelectionItem *)));
-    ui->container->layout()->layout()->removeWidget(item.get());
+    ui->items->layout()->layout()->removeWidget(item.get());
     mItemlist.removeAt(index);
 }
 

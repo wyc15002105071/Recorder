@@ -27,7 +27,7 @@ public:
     void setOperation(int operation);
 
     virtual void update(NotifyData data);
-
+    void showWarning(QString info);
 signals:
     void onUpdateValue(int value);
     void onUpdateText(QString text);

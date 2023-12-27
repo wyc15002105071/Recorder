@@ -48,12 +48,16 @@ void VideoInputDevice::run()
             if(ts == 0) {
                 RLOGE("select time out");
                 mLock.unlock();
+                if(mThreadExit){
+                    break;
+                }
                 retry++;
                 if(retry > 3) {
                     RLOGD("need reset...");
                     needReset = true;
                     retry = 0;
                     mThreadExit = true;
+                    usleep(1*1000);
                     break;
                 }else {
                     usleep(1*1000);

@@ -18,7 +18,7 @@ public:
     explicit ImageViewer(QWidget *parent = nullptr);
     ~ImageViewer();
     virtual void open();
-
+    virtual void loadThumbnail(QList<QString> files_path,int start,int end);
 public slots:
     virtual void onHasOpened();
     virtual void onHasClosed();
@@ -31,6 +31,8 @@ public slots:
     void onDelAllClicked();
 public slots:
     void onDiskItemClicked(int index);
+    void onScrollValueChanged(int value);
+    void onLoadThumbnail(QImage image,QString file_path);
 private:
     Ui::ImageViewer *ui;
     sp<ImageBrowser> mImageBrowser;

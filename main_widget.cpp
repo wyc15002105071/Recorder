@@ -78,11 +78,17 @@ void MainWidget::resizeEvent(QResizeEvent *event)
 
 void MainWidget::mouseMoveEvent(QMouseEvent *event)
 {
+    if(mRecordWidget->isVisible()) {
+        return;
+    }
     mMenuWidget->open();
 }
 
 void MainWidget::mousePressEvent(QMouseEvent *event)
 {
+    if(mRecordWidget->isVisible()) {
+        return;
+    }
     mMenuWidget->open();
 }
 

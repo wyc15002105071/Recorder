@@ -1,14 +1,17 @@
 #include "baseviewer.h"
 #include <QFile>
 #include <QDir>
-BaseViewer::BaseViewer(QWidget *parent)
-    :BaseWidget(parent)
-    ,mSelectMode(false)
+BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mDiskSelectionWidget(sp<DiskSelectionWidget>(new DiskSelectionWidget))
-    ,mStorageUtils(StorageUtils::get_instance())
-    ,mFileUtils(sp<FileUtils>(new FileUtils))
     ,mProgressViewer(sp<ProgressViewer>(new ProgressViewer))
+    ,mFileUtils(sp<FileUtils>(new FileUtils))
+    ,mThumbnail(sp<ThumbnailUtils>(new ThumbnailUtils))
+    ,mStorageUtils(StorageUtils::get_instance())
+    ,mSelectMode(false)
     ,mOperation(FileUtils::COPY)
+    ,mLoadNum(0)
+    ,mIconWidth(0)
+    ,mIconHeight(0)
 {
     setWindowState(Qt::WindowFullScreen);
     mFileUtils->attach(mProgressViewer.get());
@@ -26,6 +29,8 @@ BaseViewer::~BaseViewer()
 void BaseViewer::resizeEvent(QResizeEvent *event)
 {
     mProgressViewer->move(this->width()/2-mProgressViewer->width()/2,this->height()-mProgressViewer->height()-20);
+    mIconWidth = (mListViewer->width() / COLUMN_COUNT_ONE_LINE) - mListViewer->spacing() - X_OFFSET;
+    mIconHeight = mListViewer->height() / ROW_COUNT_ONE_PAGE - mListViewer->spacing() - Y_OFFSET;
 }
 
 void BaseViewer::findAllFiles(const char *dir)
@@ -46,6 +51,9 @@ void BaseViewer::findAllFiles(const char *dir)
         mFilePathList.append(QString(dir)+"/"+file);
         mFileNameList.append(file);
     }
+
+    mFilePathList.sort();
+    mFileNameList.sort();
 }
 
 void BaseViewer::openDiskSelection()
@@ -65,5 +73,3 @@ void BaseViewer::openDiskSelection()
         mDiskSelectionWidget->move((this->width() - mDiskSelectionWidget->width())/2,(this->height() - mDiskSelectionWidget->height())/2);
     }
 }
-
-

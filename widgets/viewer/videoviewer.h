@@ -18,7 +18,7 @@ public:
     explicit VideoViewer(QWidget *parent = nullptr);
     ~VideoViewer();
     virtual void open();
-
+    virtual void loadThumbnail(QList<QString> files_path,int start,int end);
 public slots:
     virtual void onHasOpened();
     virtual void onHasClosed();

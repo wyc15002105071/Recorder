@@ -5,23 +5,27 @@
 #include <QScroller>
 #include <QScrollBar>
 
-ImageViewer::ImageViewer(QWidget *parent) :
-    BaseViewer(parent),
-    ui(new Ui::ImageViewer),
-    mImageBrowser(sp<ImageBrowser>(new ImageBrowser()))
+ImageViewer::ImageViewer(QWidget *parent) : BaseViewer(parent)
+    ,ui(new Ui::ImageViewer)
+    ,mImageBrowser(sp<ImageBrowser>(new ImageBrowser()))
 {
     ui->setupUi(this);
     mFileType = FILE_TYPE_IMAGE;
+    mListViewer = ui->image_list;
+    mScroll     = mListViewer->verticalScrollBar();
+    mScroll->setStyleSheet(mListViewer->styleSheet());
+    mListViewer->setAttribute(Qt::WA_AcceptTouchEvents,true);
 
-    ui->image_list->setAttribute(Qt::WA_AcceptTouchEvents,true);
-    QScroller::grabGesture(ui->image_list,QScroller::TouchGesture);
+    QScroller::grabGesture(mListViewer,QScroller::TouchGesture);
     connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)),Qt::UniqueConnection);
-    ui->image_list->verticalScrollBar()->setStyleSheet(ui->image_list->styleSheet());
+    connect(mScroll,SIGNAL(valueChanged(int)),this,SLOT(onScrollValueChanged(int)));
+    connect(mThumbnail.get(),SIGNAL(onGetOneImage(QImage,QString)),this,SLOT(onLoadThumbnail(QImage,QString)));
 }
 
 ImageViewer::~ImageViewer()
 {
-    ui->image_list->clear();
+    mListViewer->clear();
+    mLoadNum = 0;
     delete ui;
 }
 
@@ -31,17 +35,34 @@ void ImageViewer::open()
     show();
 }
 
+void ImageViewer::loadThumbnail(QList<QString> files_path,int start,int end)
+{
+    if(files_path.count() < 0 || start > files_path.size() - 1 || mLoadNum >= files_path.size())
+        return;
+
+    if(start < 0) {
+        start = 0;
+    }
+
+    if((end > files_path.size() - 1) && files_path.size() > 0)
+        end = files_path.size() - 1;
+
+    for(int i = start;i<end;i++) {
+
+    }
+}
+
 void ImageViewer::onItemClicked(QListWidgetItem *item)
 {
     if(mSelectMode) {
-        ListWidgetItem *item_widget = (ListWidgetItem *)ui->image_list->itemWidget(item);
+        ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
         if(!item_widget)
             return;
         bool is_selected = item_widget->isSelected();
         item_widget->setSelected(!is_selected);
     } else {
-        int current_index = ui->image_list->currentRow();
-        if(mImageBrowser) {
+        int current_index = mListViewer->currentRow();
+        if(mImageBrowser.get()) {
             mImageBrowser->open(mFilePathList,current_index);
         }
     }
@@ -49,43 +70,28 @@ void ImageViewer::onItemClicked(QListWidgetItem *item)
 
 void ImageViewer::onSelectModeToggled(bool toggled)
 {
-    int count = ui->image_list->count();
+    int count = mListViewer->count();
     if(count <= 0)
         return;
     mSelectMode = toggled;
     for(int i = 0;i < count;i++) {
-        QListWidgetItem *item = ui->image_list->item(i);
+        QListWidgetItem *item = mListViewer->item(i);
         if(!item)
             continue;
-        ListWidgetItem *item_widget = (ListWidgetItem *)ui->image_list->itemWidget(item);
+        ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
         item_widget->setSelectable(toggled);
     }
 }
 
 void ImageViewer::onHasOpened()
 {
-    ui->image_list->clear();
-    for(int i = 0;i<mFilePathList.size();i++) {
-        QListWidgetItem *item = new QListWidgetItem;
-        QPixmap file_icon;
-        QImage image(mFilePathList.at(i));
-
-        file_icon = QPixmap::fromImage(image);
-        if(image.isNull()) {
-            QImage broken_image(":/resources/icons/broken.png");
-            file_icon = QPixmap::fromImage(broken_image.scaled(ICON_WIDTH - X_OFFSET,ICON_HEIGHT - Y_OFFSET,Qt::KeepAspectRatio));
-        }else if(image.width() > ICON_WIDTH || image.height() > ICON_HEIGHT) {
-            file_icon = QPixmap::fromImage(image.scaled(ICON_WIDTH - X_OFFSET,ICON_HEIGHT - Y_OFFSET,Qt::KeepAspectRatio));//保持长宽比例缩放
-        }
-        ListWidgetItem *custom_item = new ListWidgetItem;
-        custom_item->setIcon(file_icon);
-        custom_item->setFileName(mFileNameList.at(i));
-        custom_item->setAlignment(Qt::AlignCenter);
-        item->setSizeHint(QSize(ICON_WIDTH,ICON_HEIGHT));
-        ui->image_list->addItem(item);
-        ui->image_list->setItemWidget(item,custom_item);
+    mListViewer->clear();
+    if(mThumbnail.get()) {
+        mThumbnail->setDataSource(mFilePathList);
+        mThumbnail->startTask();
     }
-    if(mProgressViewer) {
+//    loadThumbnail(mFilePathList,0,mFilePathList.count());
+    if(mProgressViewer.get()) {
         mProgressViewer->move(this->width()/2-mProgressViewer->width()/2,this->height()-mProgressViewer->height()-20);
         mProgressViewer->close();
     }
@@ -93,9 +99,11 @@ void ImageViewer::onHasOpened()
 
 void ImageViewer::onHasClosed()
 {
-    if(mDiskSelectionWidget)
+    if(mDiskSelectionWidget.get())
         mDiskSelectionWidget->close();
-
+    if(mThumbnail.get()) {
+        mThumbnail->stopTask();
+    }
     mSelectMode = false;
     ui->selectMode_btn->setChecked(mSelectMode);
 }
@@ -104,9 +112,9 @@ void ImageViewer::onCopySelectedClicked()
 {
     mSelectionlist.clear();
     mOperation = FileUtils::COPY;
-    for(int i = 0;i<ui->image_list->count();i++) {
-        QListWidgetItem *item = ui->image_list->item(i);
-        ListWidgetItem *item_widget = (ListWidgetItem *)ui->image_list->itemWidget(item);
+    for(int i = 0;i<mListViewer->count();i++) {
+        QListWidgetItem *item = mListViewer->item(i);
+        ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
 
         if(!item_widget)
             continue;
@@ -133,12 +141,12 @@ void ImageViewer::onDelSelectClicked()
     mSelectionlist.clear();
     QList<QListWidgetItem*> del_list;
     del_list.clear();
-    if(mProgressViewer) {
+    if(mProgressViewer.get()) {
         mProgressViewer->setOperation(mOperation);
     }
-    for(int i = 0;i<ui->image_list->count();i++) {
-        QListWidgetItem *item = ui->image_list->item(i);
-        ListWidgetItem *item_widget = (ListWidgetItem *)ui->image_list->itemWidget(item);
+    for(int i = 0;i<mListViewer->count();i++) {
+        QListWidgetItem *item = mListViewer->item(i);
+        ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
 
         if(!item_widget)
             continue;
@@ -151,9 +159,9 @@ void ImageViewer::onDelSelectClicked()
     while(del_list.count() > 0) {
         QListWidgetItem *item = del_list.front();
 
-        int row = ui->image_list->row(item);
-        ui->image_list->removeItemWidget(item);
-        ui->image_list->takeItem(row);
+        int row = mListViewer->row(item);
+        mListViewer->removeItemWidget(item);
+        mListViewer->takeItem(row);
         del_list.pop_front();
 
         mFilePathList.removeAt(row);
@@ -167,10 +175,10 @@ void ImageViewer::onDelAllClicked()
 {
     mOperation = FileUtils::DELETE;
 
-    if(mProgressViewer) {
+    if(mProgressViewer.get()) {
         mProgressViewer->setOperation(mOperation);
     }
-    ui->image_list->clear();
+    mListViewer->clear();
     mFileUtils->startDelete(mFilePathList);
     mFilePathList.clear();
     mFileNameList.clear();
@@ -183,13 +191,48 @@ void ImageViewer::onDiskItemClicked(int index)
                       mExternalStorageInfo[index].mount_path.c_str(),
                       mExternalStorageInfo[index].file_system.c_str());
     RLOGD("select count %d",mSelectionlist.count());
+    if (mSelectionlist.count() == 0) {
+        mProgressViewer->showWarning("未选中对象...");
+
+        if(mDiskSelectionWidget.get())
+            mDiskSelectionWidget->close();
+
+        return;
+    }
     QString dst_dir = QString::fromStdString(mExternalStorageInfo[index].mount_path);
     mFileUtils->startCopy(mSelectionlist,dst_dir);
-    if(mDiskSelectionWidget)
+    if(mDiskSelectionWidget.get())
         mDiskSelectionWidget->close();
-    if(mProgressViewer) {
+    if(mProgressViewer.get()) {
         mProgressViewer->setOperation(mOperation);
     }
+}
+
+void ImageViewer::onScrollValueChanged(int value)
+{
+
+}
+
+void ImageViewer::onLoadThumbnail(QImage image,QString file_path)
+{
+    QListWidgetItem *item = new QListWidgetItem;
+    QPixmap file_icon;
+
+    file_icon = QPixmap::fromImage(image);
+    if(image.isNull()) {
+        QImage broken_image(":/resources/icons/broken.png");
+        file_icon = QPixmap::fromImage(broken_image.scaled(mIconWidth - X_OFFSET,mIconHeight - Y_OFFSET,Qt::KeepAspectRatio));
+    }else if(image.width() > mIconWidth || image.height() > mIconHeight) {
+        file_icon = QPixmap::fromImage(image.scaled(mIconWidth - X_OFFSET,mIconHeight - Y_OFFSET,Qt::KeepAspectRatio));//保持长宽比例缩放
+    }
+    ListWidgetItem *custom_item = new ListWidgetItem;
+    custom_item->setIcon(file_icon);
+    custom_item->setFileName(FileUtils::pathToName(file_path));
+    custom_item->setAlignment(Qt::AlignCenter);
+    item->setSizeHint(QSize(mIconWidth,mIconHeight));
+    mListViewer->addItem(item);
+    mListViewer->setItemWidget(item,custom_item);
+    mLoadNum++;
 }
 
 

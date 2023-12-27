@@ -148,6 +148,20 @@ void FileUtils::stopTask()
     wait(QUIT_TIMEOUT);
 }
 
+const char *FileUtils::getFileSuffix(QString file_path)
+{
+    QString file_name = file_path.split("/").last();
+    return file_name.split(".").last().toLatin1().data();
+}
+
+const char *FileUtils::pathToName(QString path)
+{
+    QStringList list = path.split("/");
+    if(list.count() == 0)
+        return nullptr;
+    return list.at(list.count() - 1).toLatin1().data();
+}
+
 void FileUtils::startCopy(QList<QString> &filesPath, QString dst_dir)
 {
     mLock.lock();
