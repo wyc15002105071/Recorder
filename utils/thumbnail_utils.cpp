@@ -17,11 +17,12 @@ void ThumbnailUtils::run()
     if(count == 0) {
         return;
     }
-
+    RLOGD("count is %d",count);
     while(!mThreadExit) {
         for(int i = 0;i < count; i++) {
             QString file_path = mFileslist.at(i);
             const char *suffix = FileUtils::getFileSuffix(file_path);
+            RLOGD("suffix is %s",suffix);
             Type type = getType(suffix);
             if(type == Type_Unkown) {
                 usleep(1*1000);
@@ -71,8 +72,6 @@ void ThumbnailUtils::getThumbnail(QString file_path, ThumbnailUtils::Type type)
 
     if(type == Type_Image) {
         thumbnail.load(file_path);
-    } else if(type == Type_Video) {
-
     }
 
 FINISH:

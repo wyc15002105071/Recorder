@@ -1,6 +1,7 @@
 #include "listwidgetitem.h"
 #include "ui_listwidgetitem.h"
 #include "common/log.h"
+#include <QPixmap>
 
 ListWidgetItem::ListWidgetItem(QWidget *parent) :
     QWidget(parent),
@@ -8,7 +9,6 @@ ListWidgetItem::ListWidgetItem(QWidget *parent) :
     mSelectable(false)
 {
     ui->setupUi(this);
-
 }
 
 void ListWidgetItem::resizeEvent(QResizeEvent *event)

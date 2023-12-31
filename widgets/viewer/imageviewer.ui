@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>795</width>
+    <width>821</width>
     <height>504</height>
    </rect>
   </property>
@@ -410,7 +410,7 @@ QScrollBar::down-arrow:vertical
       <enum>QListView::Adjust</enum>
      </property>
      <property name="spacing">
-      <number>20</number>
+      <number>30</number>
      </property>
      <property name="viewMode">
       <enum>QListView::IconMode</enum>

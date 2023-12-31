@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DiskSelectionItem</class>
+ <widget class="QWidget" name="DiskSelectionItem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>195</width>
+    <height>50</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>50</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>50</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#DiskSelectionItem {
+	background-color: rgb(39, 42, 51);
+}
+
+QPushButton {
+	background-color: rgb(39, 42, 51);
+   
+	color: rgb(255, 255, 255);
+	image: url(:/resources/images/udisk.png);
+	background-origin: content;
+	image-position: left;
+	text-align:center;
+	padding-left:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size: 16px;
+}
+
+QPushButton::pressed {
+	background-color: rgb(136, 138, 133);
+	color: rgb(0, 0, 0);
+	image: url(:/resources/icons/udisk.png);
+	background-origin: content;
+	image-position: left;
+	text-align:center;
+	padding-left:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size: 16px;
+}</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QPushButton" name="item_btn">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>FDISK</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

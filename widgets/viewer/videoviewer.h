@@ -18,15 +18,13 @@ public:
     explicit VideoViewer(QWidget *parent = nullptr);
     ~VideoViewer();
     virtual void open();
-    virtual void loadThumbnail(QList<QString> files_path,int start,int end);
+
 public slots:
     virtual void onHasOpened();
     virtual void onHasClosed();
     void onItemClicked(QListWidgetItem *item);
     void onSelectModeToggled(bool toggled);
-    void onUpdateIcons(QList<QImage> images);
-    void onUpdateIcon(QImage image);
-
+    void onLoadThumbnail(QPixmap pixmap,QString file_path);
     void onCopySelectedClicked();
     void onCopyAllClicked();
     void onDelSelectClicked();

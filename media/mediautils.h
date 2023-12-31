@@ -15,16 +15,31 @@
 #define IMAGES_SAVE_DIR "/userdata/images"
 #define VIDEOS_SAVE_DIR "/userdata/videos"
 
-typedef enum {
-    VIDEO_ENCODE_TYPE_AVC,
-    VIDEO_ENCODE_TYPE_HEVC,
-}VIDEO_ENCODE_TYPE;
+typedef enum Video_CodingType{
+    Video_CodingType_AVC,
+    Video_CodingType_HEVC,
+    Video_CodingType_VP8,
+    Video_CodingType_VP9
+} Video_CodingType_t;
 
 typedef enum {
     MUX_FILE_TYPE_MP4,
     MUX_FILE_TYPE_AVI,
     MUX_FILE_TYPE_MKV,
 }MUX_FILE_TYPE;
+
+typedef enum Suffix_t {
+    Suffix_MP4,
+    Suffix_MKV,
+    Suffix_AVI,
+    Suffix_TS,
+} Suffix;
+
+typedef enum Push_t {
+    Push_RTSP,
+    Push_HTTP,
+    Push_RTMP
+} Push;
 
 typedef enum {
     MUX_PUSH_TYPE_RTSP,

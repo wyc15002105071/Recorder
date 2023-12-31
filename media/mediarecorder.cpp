@@ -5,10 +5,10 @@
 
 MediaRecorder::MediaRecorder()
     :mVideoEncoder(sp<RKHWEncApi>(new RKHWEncApi)),
-     mMediaMuxer(sp<MediaMuxer>(new MediaMuxer)),
-     mRecordState(REC_STATE_UNINITIALIZED),
-     mVideoIndex(0),
-     mRecordEosFlag(false)
+      mMediaMuxer(sp<MediaMuxer>(new MediaMuxer)),
+      mRecordState(REC_STATE_UNINITIALIZED),
+      mVideoIndex(0),
+      mRecordEosFlag(false)
 {
 
 }
@@ -27,6 +27,50 @@ void MediaRecorder::run()
     RLOGD("Record Thread start");
     int frameIndex = 0;
     mRecordState = REC_STATE_RUNNING;
+    MediaMuxer::MediaPacket packet;
+
+    void *extra = nullptr;
+    memset(&packet,0,sizeof(MediaMuxer::MediaPacket));
+    if(mMediaMuxer.get()) {
+        MppPacket hdr_pkt = nullptr;
+        mVideoEncoder->getHdrPacket(&hdr_pkt);
+        RKHWEncApi::EncCfgInfo cfg = mVideoCfg;
+        void *extra_data = mpp_packet_get_data(hdr_pkt);
+        int extra_size = mpp_packet_get_size(hdr_pkt);
+        extra = malloc(extra_size);
+        MediaMuxer::MediaInfo info;
+        memset(&info,0,sizeof(MediaMuxer::MediaInfo));
+        memcpy(extra,extra_data,extra_size);
+        
+        info.extra_data = extra;
+        info.extra_size = extra_size;
+        info.width = cfg.width;
+        info.height = cfg.height;
+        info.framerate = cfg.framerate;
+        info.push_type = Push_RTSP;
+        info.suffix_type = Suffix_MP4;
+        info.coding_type = Video_CodingType_AVC;
+
+        switch(cfg.type) {
+        case MPP_VIDEO_CodingAVC:
+            info.coding_type = Video_CodingType_AVC;
+            break;
+        case MPP_VIDEO_CodingHEVC:
+            info.coding_type = Video_CodingType_HEVC;
+            break;
+        case MPP_VIDEO_CodingVP8:
+            info.coding_type = Video_CodingType_VP8;
+            break;
+        case MPP_VIDEO_CodingVP9:
+            info.coding_type = Video_CodingType_VP9;
+            break;
+        }
+
+        mMediaMuxer->prepare(info);
+
+        mpp_packet_deinit(&hdr_pkt);
+    }
+
     while(!mThreadExit) {
         mLock.lock();
         if(!mVideoEncoder) {
@@ -49,23 +93,35 @@ void MediaRecorder::run()
         RKHWEncApi::EncoderOut encOut;
         int ret = mVideoEncoder->getOutPacket(&encOut);
         if(ret == 0) {
+            frameIndex++;
+            void *data = mpp_packet_get_data(encOut.packet);
+            packet.pts = encOut.pts;
+            packet.dts = encOut.pts;
+            packet.size = encOut.size;
+            packet.data = data;
             if(encOut.keyFrame) {
                 RLOGD("IDR frame produced");
+                packet.flags |= MediaMuxer::FLAG_OUTPUT_INTRA;
             }
-            frameIndex++;
-            mMediaMuxer->sendPacket(encOut.packet);
+
+            packet.is_video = true;
             if(encOut.eos) {
                 RLOGD("recieve output eos");
                 mRecordState = REC_STATE_STOPING;
+                packet.flags |= MediaMuxer::FLAG_END_OF_STREAM;
                 break;
             }
+
+            mMediaMuxer->writeData(&packet);
+
+            encOut.release();
         }
 
         usleep(1*1000);
     }
 
-    if(mMediaMuxer)
-        mMediaMuxer->stopTask();
+    packet.flags |= MediaMuxer::FLAG_END_OF_STREAM;
+    mMediaMuxer->writeData(&packet);
 
     if(mBufferlist.size() > 0)
         mBufferlist.clear();
@@ -75,8 +131,6 @@ void MediaRecorder::run()
     mThreadExit = true;
     mRecordEosFlag = false;
     RLOGD("Record finish");
-//    if(test_file)
-//        fclose(test_file);
 }
 
 bool MediaRecorder::startTask()
@@ -88,14 +142,6 @@ bool MediaRecorder::startTask()
     mThreadExit = false;
     this->start();
 
-    if(mMediaMuxer) {
-        MppPacket hdr_pkt = nullptr;
-        mVideoEncoder->getHdrPacket(&hdr_pkt);
-        RKHWEncApi::EncCfgInfo cfg = mVideoCfg;
-        mMediaMuxer->createMuxCtx(cfg.width,cfg.height,VIDEO_ENCODE_TYPE_AVC,cfg.framerate,hdr_pkt);
-        mMediaMuxer->setMux(true,MUX_FILE_TYPE_MP4);
-        mMediaMuxer->startTask();
-    }
     return true;
 }
 
@@ -107,7 +153,6 @@ void MediaRecorder::stopTask()
     mRecordState = REC_STATE_STOPING;
     mLock.unlock();
     wait(QUIT_TIMEOUT);
-
 }
 
 bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int type)

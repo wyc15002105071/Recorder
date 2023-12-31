@@ -29,20 +29,19 @@ SOURCES += \
     main.cpp \
     main_task.cpp \
     main_widget.cpp \
-    media/hwencoder.cpp \
     common/rthread.cpp \
     media/mediamuxer.cpp \
     media/mediarecorder.cpp \
     media/mediautils.cpp \
-    media/muxer.cpp \
     media/rkmpp_dec_api.cpp \
     media/rkmpp_enc_api.cpp \
+    media/rkrgadef.cpp \
     media/videoframereader.cpp \
     media/videoinputdevice.cpp \
     utils/fileutils.cpp \
     utils/serialportutils.cpp \
     utils/storageutils.cpp \
-    utils/thumbnail_utils.cpp \
+    utils/thumbnailutils.cpp \
     widgets/basewidget.cpp \
     widgets/menuwidget.cpp \
     widgets/recordwidget.cpp \
@@ -71,20 +70,19 @@ HEADERS += \
     listeners/key_listener.h \
     main_task.h \
     main_widget.h \
-    media/hwencoder.h \
     common/rthread.h \
     media/mediamuxer.h \
     media/mediarecorder.h \
     media/mediautils.h \
-    media/muxer.h \
     media/rkmpp_dec_api.h \
     media/rkmpp_enc_api.h \
+    media/rkrgadef.h \
     media/videoframereader.h \
     media/videoinputdevice.h \
     utils/fileutils.h \
     utils/serialportutils.h \
     utils/storageutils.h \
-    utils/thumbnail_utils.h \
+    utils/thumbnailutils.h \
     widgets/basewidget.h \
     widgets/menuwidget.h \
     widgets/recordwidget.h \
@@ -122,10 +120,11 @@ FORMS += \
 INCLUDEPATH += $$PWD/third-party/headers/mpp \
                $$PWD/third-party/headers/drm \
                $$PWD/third-party/headers/ffmpeg \
+               $$PWD/third-party/headers/rga
 
 LIBS += -ludev \
         -L$$PWD/third-party/prebuilt/linux_arm32 \
-        -ldrm -lrockchip_mpp -lrockchip_vpu \
+        -ldrm -lrockchip_mpp -lrockchip_vpu -lrga \
         -lavformat -lavcodec -lavutil -lswscale -lswresample
 
 
