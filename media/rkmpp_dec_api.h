@@ -22,6 +22,7 @@ public:
         int32_t     size;
         void       *vir_addr;
         void       *handler;
+        void       *buffer;
     } OutputFrame;
 
     typedef struct DecCfgInfo {

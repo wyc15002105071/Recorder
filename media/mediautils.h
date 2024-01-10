@@ -15,6 +15,14 @@
 #define IMAGES_SAVE_DIR "/userdata/images"
 #define VIDEOS_SAVE_DIR "/userdata/videos"
 
+typedef struct DmaBufferObject{
+    int32_t     buf_fd;
+    int32_t     buf_size;
+    void       *vir_addr;
+    int32_t     width;
+    int32_t     height;
+} DmaBufferObject_t;
+
 typedef enum Video_CodingType{
     Video_CodingType_AVC,
     Video_CodingType_HEVC,

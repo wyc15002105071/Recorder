@@ -8,11 +8,12 @@ using namespace std;
 #define MODULE_TAG "VideoInputDevice"
 
 VideoInputDevice::VideoInputDevice()
-    :mDeviceFd(0)
-    ,mVideoWidget(nullptr)
-    ,mIsEncoding(false)
-    ,mVideoEosFlag(false)
-    ,mRecorder(sp<MediaRecorder>(new MediaRecorder))
+    : mDeviceFd(0)
+    , mVideoWidget(nullptr)
+    , mIsEncoding(false)
+    , mVideoEosFlag(false)
+    , mRecorder(sp<MediaRecorder>(new MediaRecorder))
+    , mPusher(sp<StreamPusher>(new StreamPusher))
 {
     connect(this,SIGNAL(onNeedReset()),this,SLOT(onReset()),Qt::UniqueConnection);
 }
@@ -78,6 +79,12 @@ void VideoInputDevice::run()
             }
             if(mVideoWidget)
                 mVideoWidget->PrepareUpdate(mBufferArray[i].index);
+            if(mIsPushing) {
+                if(mPusher) {
+                    mPusher->sendData(mDmaBo[i].buf_fd,mDmaBo[i].buf_size,
+                                      mDmaBo[i].width,mDmaBo[i].height,mDmaBo->vir_addr);
+                }
+            }
             if(mIsEncoding) {
                 if(mRecorder) {
                     mRecorder->sendVideoFrame(mDmaBo[i].buf_fd,mDmaBo[i].buf_size,
@@ -121,11 +128,11 @@ bool VideoInputDevice::startTask()
     return true;
 }
 
-void VideoInputDevice::startRecord()
+void VideoInputDevice::startRecord(bool push)
 {
     //    mLock.lock();
     if(mRecorder) {
-        mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC);
+        mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC, push);
         mRecorder->startTask();
     }
     mVideoEosFlag = false;
@@ -142,6 +149,28 @@ void VideoInputDevice::stopRecord()
     mVideoEosFlag = true;
     mIsEncoding = false;
     //    mLock.unlock();
+}
+
+void VideoInputDevice::startPush()
+{
+    mIsPushing = true;
+    mPusher->prepare(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC);
+    mPusher->start();
+}
+
+void VideoInputDevice::stopPush()
+{
+    mIsPushing = false;
+    mPusher->stop();
+}
+
+string VideoInputDevice::getPushUrl()
+{
+    if(mPusher) {
+        return mPusher->getUrl();
+    }
+
+    return "";
 }
 
 void VideoInputDevice::onReset()

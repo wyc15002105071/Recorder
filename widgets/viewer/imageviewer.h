@@ -31,7 +31,7 @@ public slots:
 public slots:
     void onDiskItemClicked(int index);
     void onScrollValueChanged(int value);
-    void onLoadThumbnail(QPixmap pixmap,QString file_path);
+    void onLoadThumbnail(QImage image,QString file_path);
 private:
     Ui::ImageViewer *ui;
     sp<ImageBrowser> mImageBrowser;

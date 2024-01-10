@@ -29,7 +29,13 @@ VideoPlayer::VideoPlayer(QWidget *parent)
 
 VideoPlayer::~VideoPlayer()
 {
+    RLOGD("destructor enter");
+    if(mPlayer.get()) {
+        mPlayer->stop();
+    }
+    mKeyListener = nullptr;
     delete ui;
+    RLOGD("destructor enter");
 }
 
 void VideoPlayer::showEvent(QShowEvent *event)
@@ -41,7 +47,7 @@ void VideoPlayer::showEvent(QShowEvent *event)
 
 void VideoPlayer::closeEvent(QCloseEvent *event)
 {
-    if(mPlayer) {
+    if(mPlayer.get()) {
         mPlayer->stop();
     }
     mUrls.clear();
@@ -61,7 +67,7 @@ void VideoPlayer::open(QList<QString> &list, int index)
 void VideoPlayer::playVideo(QString file_url)
 {
     mPlayer->stop();
-    if(!mVideoWidget || mUrls.count() <= 0 || mCurrentIndex < 0)
+    if(!mVideoWidget.get() || mUrls.count() <= 0 || mCurrentIndex < 0)
         return;
     mPlayer->setVideoOutput(mVideoWidget.get());
 
@@ -82,7 +88,7 @@ void VideoPlayer::playVideo(QString file_url)
 
 void VideoPlayer::onBackClicked()
 {
-    if(mPlayer) {
+    if(mPlayer.get()) {
         mPlayer->stop();
     }
 
@@ -113,7 +119,7 @@ void VideoPlayer::onNextClicked()
 
 void VideoPlayer::updateSlider(qint64 pos)
 {
-    if(pos < 0 || !mPlayer || mPlayer->duration() <= 0)
+    if(pos < 0 || !mPlayer.get() || mPlayer->duration() <= 0)
         return;
     qint64 duration = mPlayer->duration();
     double pos_precent = (double)pos / (double)duration;
@@ -130,11 +136,11 @@ void VideoPlayer::onDurationChanged(qint64 duration)
 void VideoPlayer::onPlayChecked(bool checked)
 {
     if(!checked) {
-        if(mPlayer && mPlayer->state() == QMediaPlayer::PlayingState) {
+        if(mPlayer.get() && mPlayer->state() == QMediaPlayer::PlayingState) {
             mPlayer->pause();
         }
     } else {
-        if(mPlayer && (mPlayer->state() == QMediaPlayer::PausedState || mPlayer->state() == QMediaPlayer::StoppedState)) {
+        if(mPlayer.get() && (mPlayer->state() == QMediaPlayer::PausedState || mPlayer->state() == QMediaPlayer::StoppedState)) {
             mPlayer->play();
         }
     }
@@ -151,7 +157,7 @@ void VideoPlayer::onStateChanged(QMediaPlayer::State state)
 
 void VideoPlayer::onKeyEventHandler(KeyListener::EventType type)
 {
-    if(!this->isVisible() || !mPlayer) {
+    if(!this->isVisible() || !mPlayer.get()) {
         return;
     }
 

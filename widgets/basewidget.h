@@ -15,7 +15,6 @@ class BaseWidget : public QWidget
 
 public:
     explicit BaseWidget(QWidget *parent = nullptr);
-    explicit BaseWidget(QWidget *parent,VideoInputDevice *input_Device);
     virtual void closeEvent(QCloseEvent *event);
     virtual void showEvent(QShowEvent *event);
     ~BaseWidget();
@@ -24,9 +23,6 @@ public:
 
 private:
     Ui::BaseWidget *ui;
-
-protected:
-    VideoInputDevice *mVideoInputDevice;
 
 signals:
     void onOpened();

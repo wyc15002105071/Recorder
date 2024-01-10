@@ -16,8 +16,6 @@ MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
     , mKeyListener(KeyListener::get_instance())
-    , mImageViewer(sp<ImageViewer>(new ImageViewer()))
-    , mVideoViewer(sp<VideoViewer>(new VideoViewer()))
     , mSignalHandler(sp<SignalHandler>(new SignalHandler(this)))
 {
     ui->setupUi(this);
@@ -47,6 +45,11 @@ void MainWidget::initWidgets()
         mRecordWidget = sp<RecordWidget>(new RecordWidget(this,&mInputDevice));
         connect(mRecordWidget.get(),&RecordWidget::onClosed,this,[=]{ if(mMenuWidget) mMenuWidget->show(); },Qt::UniqueConnection);
     }
+    if(!mPushWidget) {
+        mPushWidget = sp<PushStreamWidget>(new PushStreamWidget(this,&mInputDevice));
+
+        connect(mPushWidget.get(),&PushStreamWidget::onClosed,this,[=]{ if(mMenuWidget) mMenuWidget->show(); },Qt::UniqueConnection);
+    }
 
     mVideoWidget->resize(this->size());
     mVideoWidget->move(0,0);
@@ -59,6 +62,24 @@ void MainWidget::initWidgets()
 
     mRecordWidget->setGeometry(this->rect());
     mRecordWidget->close();
+
+    mPushWidget->resize(this->size().width(),mPushWidget->height());
+    mPushWidget->move(0,this->size().height()-mPushWidget->height());
+    mPushWidget->close();
+
+    if(!mImageViewer) {
+        mImageViewer = sp<ImageViewer>(new ImageViewer(this));
+
+        mImageViewer->setGeometry(this->geometry());
+        mImageViewer->close();
+    }
+
+    if(!mVideoViewer) {
+        mVideoViewer = sp<VideoViewer>(new VideoViewer(this));
+        mVideoViewer->setGeometry(this->geometry());
+        mVideoViewer->showFullScreen();
+        mVideoViewer->close();
+    }
 
     connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)),Qt::UniqueConnection);
 
@@ -86,7 +107,7 @@ void MainWidget::mouseMoveEvent(QMouseEvent *event)
 
 void MainWidget::mousePressEvent(QMouseEvent *event)
 {
-    if(mRecordWidget->isVisible()) {
+    if(mRecordWidget->isVisible() || mPushWidget->isVisible()) {
         return;
     }
     mMenuWidget->open();
@@ -151,15 +172,21 @@ void MainWidget::onRecord()
 void MainWidget::onPushSteam()
 {
     RLOGD("start push stream...");
+    if(mPushWidget) {
+        mMenuWidget->close();
+        mPushWidget->open();
+    }
 }
 
 void MainWidget::onOpenImageBrowser()
 {
+    mImageViewer->setGeometry(this->geometry());
     mImageViewer->open();
 }
 
 void MainWidget::onOpenVideoBrowser()
 {
+    mVideoViewer->setGeometry(this->geometry());
     mVideoViewer->open();
 }
 

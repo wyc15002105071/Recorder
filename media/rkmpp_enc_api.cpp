@@ -57,6 +57,7 @@ MPP_RET RKHWEncApi::prepare(EncCfgInfo *enc_cfg_info)
         goto error;
     }
 
+    RLOGD("RKHWEncApi prepare success...");
     return MPP_OK;
 error:
     release();
@@ -69,7 +70,7 @@ MPP_RET RKHWEncApi::sendFrame(DmaBuffer_t buffer,uint64_t pts,bool eos)
     EncoderCtx *p       = &mCtx;
     EncCfgInfo *info    = &mCtx.info;
 
-    if(buffer.dma_fd < 0 || buffer.size < 0) {
+    if(buffer.dma_fd <= 0 || buffer.size <= 0) {
         return MPP_NOK;
     }
 
@@ -248,6 +249,12 @@ void RKHWEncApi::import(int fd, int size, int index)
     RLOGD("impot buf fd %d,size %d",ffd,size);
 }
 
+void RKHWEncApi::getCfgInfo(RKHWEncApi::EncCfgInfo &info)
+{
+    EncoderCtx *p       = &mCtx;
+    info    = p->info;
+}
+
 MppFrameFormat RKHWEncApi::getFormat(uint32_t format)
 {
     MppFrameFormat fmt = MPP_FMT_RGB888;
@@ -375,9 +382,11 @@ MPP_RET RKHWEncApi::setupBitRate()
     EncCfgInfo *info    = &mCtx.info;
     MppEncCfg   cfg     =  mCtx.cfg;
 
-    int32_t bps          = info->width * info->height / 8 * info->framerate;
+    int32_t bps          = info->bitRate > 0?info->bitRate:info->width * info->height / 8 * info->framerate;
     int32_t bps_min      = bps * 15 / 16;
     int32_t bps_max      = bps * 17 / 16;
+
+    info->bitRate = bps_max;
 
     RLOGD("bitrate mode %d bps %d bps_min %d bps_max %d",info->bitrateMode,bps,bps_min,bps_max);
 

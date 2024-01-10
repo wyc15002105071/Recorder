@@ -10,16 +10,6 @@ BaseWidget::BaseWidget(QWidget *parent) :
     connect(this,SIGNAL(onClosed()),this,SLOT(onHasClosed()),Qt::UniqueConnection);
 }
 
-BaseWidget::BaseWidget(QWidget *parent, VideoInputDevice *input_Device):
-    QWidget(parent),
-    ui(new Ui::BaseWidget),
-    mVideoInputDevice(input_Device)
-{
-    ui->setupUi(this);
-    connect(this,SIGNAL(onOpened()),this,SLOT(onHasOpened()),Qt::UniqueConnection);
-    connect(this,SIGNAL(onClosed()),this,SLOT(onHasClosed()),Qt::UniqueConnection);
-}
-
 void BaseWidget::closeEvent(QCloseEvent *event)
 {
     emit onClosed();

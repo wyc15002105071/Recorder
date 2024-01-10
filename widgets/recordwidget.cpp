@@ -10,8 +10,9 @@ RecordWidget::RecordWidget(QWidget *parent) :
 }
 
 RecordWidget::RecordWidget(QWidget *parent, VideoInputDevice *video_input_device):
-    BaseWidget(parent,video_input_device),
-    ui(new Ui::RecordWidget)
+    BaseWidget(parent)
+   , ui(new Ui::RecordWidget)
+   , mVideoInputDevice(video_input_device)
 {
     ui->setupUi(this);
 

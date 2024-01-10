@@ -6,10 +6,10 @@
 #include <QScrollBar>
 
 ImageViewer::ImageViewer(QWidget *parent) : BaseViewer(parent)
-    ,ui(new Ui::ImageViewer)
-    ,mImageBrowser(sp<ImageBrowser>(new ImageBrowser()))
+    , ui(new Ui::ImageViewer)
 {
     ui->setupUi(this);
+    mImageBrowser = sp<ImageBrowser>(new ImageBrowser(this));
     mFileType = FILE_TYPE_IMAGE;
     mListViewer = ui->image_list;
     mScroll     = mListViewer->verticalScrollBar();
@@ -19,7 +19,7 @@ ImageViewer::ImageViewer(QWidget *parent) : BaseViewer(parent)
     QScroller::grabGesture(mListViewer,QScroller::TouchGesture);
     connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)),Qt::UniqueConnection);
     connect(mScroll,SIGNAL(valueChanged(int)),this,SLOT(onScrollValueChanged(int)));
-    connect(mThumbnail.get(),SIGNAL(onGetOneImage(QPixmap,QString)),this,SLOT(onLoadThumbnail(QPixmap,QString)));
+    connect(mThumbnail.get(),SIGNAL(onGetOneImage(QImage,QString)),this,SLOT(onLoadThumbnail(QImage,QString)));
 }
 
 ImageViewer::~ImageViewer()
@@ -48,7 +48,8 @@ void ImageViewer::onItemClicked(QListWidgetItem *item)
         item_widget->setSelected(!is_selected);
     } else {
         int current_index = mListViewer->currentRow();
-        if(mImageBrowser.get()) {
+        if(mImageBrowser) {
+            mImageBrowser->setGeometry(this->geometry());
             mImageBrowser->open(mFilePathList,current_index);
         }
     }
@@ -128,13 +129,6 @@ void ImageViewer::onDelSelectClicked()
     mOperation = FileUtils::DELETE;
     mSelectionlist.clear();
 
-    if (mSelectionlist.count() == 0) {
-        mProgressViewer->showWarning("未选中对象...");
-        if(mDiskSelectionWidget)
-            mDiskSelectionWidget->close();
-        return;
-    }
-
     QList<QListWidgetItem*> del_list;
     del_list.clear();
     if(mProgressViewer.get()) {
@@ -150,6 +144,13 @@ void ImageViewer::onDelSelectClicked()
             mSelectionlist.push_back(mFilePathList.at(i));
             del_list.push_back(item);
         }
+    }
+
+    if (mSelectionlist.count() == 0) {
+        mProgressViewer->showWarning("未选中对象...");
+        if(mDiskSelectionWidget)
+            mDiskSelectionWidget->close();
+        return;
     }
 
     while(del_list.count() > 0) {
@@ -209,8 +210,8 @@ void ImageViewer::onScrollValueChanged(int value)
 
 }
 
-void ImageViewer::onLoadThumbnail(QPixmap pixmap,QString file_path)
+void ImageViewer::onLoadThumbnail(QImage image,QString file_path)
 {
-    loadThumbnail(pixmap,file_path);
+    loadThumbnail(image,file_path);
     mLoadNum++;
 }

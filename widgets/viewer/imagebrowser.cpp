@@ -65,6 +65,8 @@ void ImageBrowser::showImage(QString path)
     pixmap = pixmap.scaled(ui->image_container->size(),Qt::KeepAspectRatio,Qt::SmoothTransformation);
     ui->image_container->setScaledContents(true);
     ui->image_container->setPixmap(pixmap);
+
+    pixmap.detach();
 }
 
 void ImageBrowser::onLastClicked()

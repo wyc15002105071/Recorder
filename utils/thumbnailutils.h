@@ -24,7 +24,7 @@ public:
     void setDataSource(QList<QString> files);
     void setThumbSize(int width,int height);
 signals:
-    void onGetOneImage(QPixmap pixmap,QString file_path);
+    void onGetOneImage(QImage image,QString file_path);
 
 private:
     typedef enum Type {

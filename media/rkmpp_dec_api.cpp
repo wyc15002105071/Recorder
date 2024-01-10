@@ -67,37 +67,40 @@ int RKHWDecApi::prepare(DecCfgInfo &info)
         p->mppApi->control(p->mppCtx, MPP_DEC_SET_IMMEDIATE_OUT, &immediate);
     }
 
-//    ret = mpp_buffer_group_get_internal(&p->group, MPP_BUFFER_TYPE_ION);
-//    if (ret) {
-//        mpp_err("%p get mpp buffer group failed ret %d\n", p->mppCtx, ret);
-//        goto err;
-//    }
+        ret = mpp_buffer_group_get_internal(&p->group, MPP_BUFFER_TYPE_DRM);
 
-//    /* Set buffer to mpp decoder */
-//    ret = p->mppApi->control(p->mppCtx, MPP_DEC_SET_EXT_BUF_GROUP, p->group);
-//    if (ret) {
-//        mpp_err("%p set buffer group failed ret %d\n", p->mppCtx, ret);
-//        goto err;
-//    }
+    //    /* Set buffer to mpp decoder */
+    //    ret = p->mppApi->control(p->mppCtx, MPP_DEC_SET_EXT_BUF_GROUP, p->group);
+    //    if (ret) {
+    //        mpp_err("%p set buffer group failed ret %d\n", p->mppCtx, ret);
+    //        goto err;
+    //    }
 
-//    ret = mpp_buffer_group_limit_config(p->group, buf_size, 24);
-//    if (ret) {
-//        mpp_err("%p limit buffer group failed ret %d\n", p->mppCtx, ret);
-//        goto err;
-//    }
+    //    ret = mpp_buffer_group_limit_config(p->group, buf_size, 24);
+    //    if (ret) {
+    //        mpp_err("%p//    dst_frame->fd           = mpp_buffer_get_fd(mppBuffer);
+    //    dst_frame->width        = src_frame->hor_stride;
+    //    dst_frame->height       = src_frame->ver_stride;
+    //    dst_frame->hor_stride   = MPP_ALIGN(src_frame->hor_stride,8) * 4;
+    //    dst_frame->ver_stride   = src_frame->ver_stride;
+    //    dst_frame->vir_addr     = mpp_buffer_get_ptr(mppBuffer);
+    //    dst_frame->size         = src_frame->hor_stride * src_frame->ver_stride * 4;
+    //    dst_frame->handler      = frame; limit buffer group failed ret %d\n", p->mppCtx, ret);
+    //        goto err;
+    //    }
 
-//    /*
-//                         * All buffer group config done. Set info change ready to let
-//                         * decoder continue decoding
-//                         */
-//    ret = p->mppApi->control(p->mppCtx, MPP_DEC_SET_INFO_CHANGE_READY, NULL);
-//    if (ret) {
-//        mpp_err("%p info change ready failed ret %d\n", p->mppCtx, ret);
-//        goto err;
-//    }
+    //    /*
+    //                         * All buffer group config done. Set info change ready to let
+    //                         * decoder continue decoding
+    //                         */
+    //    ret = p->mppApi->control(p->mppCtx, MPP_DEC_SET_INFO_CHANGE_READY, NULL);
+    //    if (ret) {
+    //        mpp_err("%p info change ready failed ret %d\n", p->mppCtx, ret);
+    //        goto err;
+    //    }
 
     RLOGD("init: width [%d:%d] stride [%d:%d] type %d format %d\n",
-           p->info.width,p->info.height,p->info.hor_stride, p->info.ver_stride,p->info.type,p->info.out_fmt);
+          p->info.width,p->info.height,p->info.hor_stride, p->info.ver_stride,p->info.type,p->info.out_fmt);
 
     p->initOk = 1;
     return ret;
@@ -113,6 +116,11 @@ err:
 void RKHWDecApi::release()
 {
     DecoderCtx *p = &mDecCtx;
+    if(p->group) {
+        mpp_buffer_group_clear(p->group);
+        mpp_buffer_group_put(p->group);
+        p->group = nullptr;
+    }
     if(p->mppCtx) {
         p->mppApi->reset(p->mppCtx);
         mpp_destroy(p->mppCtx);
@@ -187,7 +195,7 @@ REDO:
         uint64_t pts = mpp_frame_get_pts(frame);
         RLOGD("decode get %d\n",ret);
         RLOGD("get one frame [%d:%d] stride [%d:%d] pts %ld err %d eos %d fmt %d\n",
-               width, height, hstride, vstride, pts, err, eos,format);
+              width, height, hstride, vstride, pts, err, eos,format);
 
         out_frame->width = width;
         out_frame->height = height;
@@ -197,7 +205,7 @@ REDO:
         out_frame->fd = mpp_buffer_get_fd_with_caller(mppBuffer,nullptr);
         out_frame->vir_addr = mpp_buffer_get_ptr_with_caller(mppBuffer,nullptr);
         out_frame->handler = frame;
-
+        out_frame->buffer = mppBuffer;
         FILE *fp = fopen("test.yuv","wb");
         fwrite(out_frame->vir_addr,1,out_frame->width*out_frame->height*3/2,fp);
         fclose(fp);
@@ -209,10 +217,12 @@ REDO:
 
 void RKHWDecApi::deinitOutputFrame(RKHWDecApi::OutputFrame *out_frame)
 {
-    if(out_frame->handler) {
-        mpp_frame_deinit(&out_frame->handler);
-        out_frame->handler = nullptr;
-    }
+    RLOGD("deinit outframe");
+
+    mpp_buffer_put(out_frame->buffer);
+    mpp_frame_deinit(&out_frame->handler);
+    out_frame->buffer = nullptr;
+    out_frame->handler = nullptr;
 }
 
 MppCodingType RKHWDecApi::formatFF2Mpp(AVCodecID codecid)
@@ -245,8 +255,9 @@ int RKHWDecApi::convertNV12ToRGB(RKHWDecApi::OutputFrame *src_frame, RKHWDecApi:
 
     MppBuffer mppBuffer = nullptr;
     MppBuffer frame = nullptr;
+
     mpp_frame_init(&frame);
-    mpp_buffer_get(NULL,&mppBuffer,src_frame->hor_stride * src_frame->ver_stride * 4);
+    mpp_buffer_get(p->group,&mppBuffer,src_frame->hor_stride * src_frame->ver_stride * 4);
     mpp_frame_set_buffer(frame,mppBuffer);
 
     dst_frame->fd           = mpp_buffer_get_fd(mppBuffer);
@@ -257,6 +268,7 @@ int RKHWDecApi::convertNV12ToRGB(RKHWDecApi::OutputFrame *src_frame, RKHWDecApi:
     dst_frame->vir_addr     = mpp_buffer_get_ptr(mppBuffer);
     dst_frame->size         = src_frame->hor_stride * src_frame->ver_stride * 4;
     dst_frame->handler      = frame;
+    dst_frame->buffer       = mppBuffer;
     RKRgaDef::SetRgaInfo(&srcInfo, src_frame->fd, src_frame->hor_stride, src_frame->ver_stride, MPP_ALIGN(src_frame->hor_stride,4), MPP_ALIGN(src_frame->ver_stride,2));
     RKRgaDef::SetRgaInfo(&dstInfo, dst_frame->fd, dst_frame->width, dst_frame->height, dst_frame->width, dst_frame->height);
 
@@ -266,9 +278,9 @@ int RKHWDecApi::convertNV12ToRGB(RKHWDecApi::OutputFrame *src_frame, RKHWDecApi:
     } else {
         RLOGD("NV12ToRGB success\n");
     }
-    mpp_buffer_inc_ref(mppBuffer);
+//    mpp_buffer_inc_ref(mppBuffer);
 
-    deinitOutputFrame(src_frame);
+    //    deinitOutputFrame(src_frame);
 
     return ret;
 }

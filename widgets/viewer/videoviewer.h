@@ -24,7 +24,7 @@ public slots:
     virtual void onHasClosed();
     void onItemClicked(QListWidgetItem *item);
     void onSelectModeToggled(bool toggled);
-    void onLoadThumbnail(QPixmap pixmap,QString file_path);
+    void onLoadThumbnail(QImage image,QString file_path);
     void onCopySelectedClicked();
     void onCopyAllClicked();
     void onDelSelectClicked();

@@ -4,11 +4,12 @@
 #define MODULE_TAG "MediaRecorder"
 
 MediaRecorder::MediaRecorder()
-    :mVideoEncoder(sp<RKHWEncApi>(new RKHWEncApi)),
-      mMediaMuxer(sp<MediaMuxer>(new MediaMuxer)),
-      mRecordState(REC_STATE_UNINITIALIZED),
-      mVideoIndex(0),
-      mRecordEosFlag(false)
+    : mVideoEncoder(sp<RKHWEncApi>(new RKHWEncApi))
+    , mMediaMuxer(sp<MediaMuxer>(new MediaMuxer))
+    , mRecordState(REC_STATE_UNINITIALIZED)
+    , mVideoIndex(0)
+    , mRecordEosFlag(false)
+    , mPushStream(false)
 {
 
 }
@@ -26,6 +27,7 @@ void MediaRecorder::run()
 {
     RLOGD("Record Thread start");
     int frameIndex = 0;
+    int ret = 0;
     mRecordState = REC_STATE_RUNNING;
     MediaMuxer::MediaPacket packet;
 
@@ -50,6 +52,7 @@ void MediaRecorder::run()
         info.push_type = Push_RTSP;
         info.suffix_type = Suffix_MP4;
         info.coding_type = Video_CodingType_AVC;
+        info.push_stream = mPushStream;
 
         switch(cfg.type) {
         case MPP_VIDEO_CodingAVC:
@@ -66,8 +69,12 @@ void MediaRecorder::run()
             break;
         }
 
-        mMediaMuxer->prepare(info);
-
+        ret = mMediaMuxer->prepare(info);
+        if(ret < 0) {
+            mpp_packet_deinit(&hdr_pkt);
+            RLOGE("mediamuxer prepare failed");
+            goto EXIT;
+        }
         mpp_packet_deinit(&hdr_pkt);
     }
 
@@ -122,7 +129,7 @@ void MediaRecorder::run()
 
     packet.flags |= MediaMuxer::FLAG_END_OF_STREAM;
     mMediaMuxer->writeData(&packet);
-
+EXIT:
     if(mBufferlist.size() > 0)
         mBufferlist.clear();
 
@@ -155,11 +162,9 @@ void MediaRecorder::stopTask()
     wait(QUIT_TIMEOUT);
 }
 
-bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int type)
+bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int type, bool push_stream)
 {
     mRecordState = REC_STATE_INITIALIZING;
-    if(!mVideoEncoder)
-        mVideoEncoder = sp<RKHWEncApi>(new RKHWEncApi);
     RKHWEncApi::EncCfgInfo cfg;
     memset(&cfg,0,sizeof (RKHWEncApi::EncCfgInfo));
     cfg.width       = width;
@@ -177,13 +182,14 @@ bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int t
 
     memcpy(&mVideoCfg,&cfg,sizeof(RKHWEncApi::EncCfgInfo));
     mRecordState = REC_STATE_INITIALIZED;
+    mPushStream = push_stream;
     return true;
 }
 
 bool MediaRecorder::sendVideoFrame(int dma_fd,int size,int width,int height,bool eos)
 {
     mLock.lock();
-    if(!mVideoEncoder || mRecordState == REC_STATE_UNINITIALIZED || mRecordState == REC_STATE_STOPPED) {
+    if(!mVideoEncoder.get() || mRecordState == REC_STATE_UNINITIALIZED || mRecordState == REC_STATE_STOPPED) {
         mLock.unlock();
         return false;
     }

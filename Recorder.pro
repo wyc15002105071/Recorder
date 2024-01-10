@@ -30,20 +30,26 @@ SOURCES += \
     main_task.cpp \
     main_widget.cpp \
     common/rthread.cpp \
+    media/live555/h264livevideoservermediasubsession.cpp \
+    media/live555/h264livevideosource.cpp \
+    media/live555/rtspserver.cpp \
     media/mediamuxer.cpp \
     media/mediarecorder.cpp \
     media/mediautils.cpp \
     media/rkmpp_dec_api.cpp \
     media/rkmpp_enc_api.cpp \
     media/rkrgadef.cpp \
+    media/streampusher.cpp \
     media/videoframereader.cpp \
     media/videoinputdevice.cpp \
     utils/fileutils.cpp \
+    utils/networkutils.cpp \
     utils/serialportutils.cpp \
     utils/storageutils.cpp \
     utils/thumbnailutils.cpp \
     widgets/basewidget.cpp \
     widgets/menuwidget.cpp \
+    widgets/pushstreamwidget.cpp \
     widgets/recordwidget.cpp \
     widgets/setting_widget.cpp \
     widgets/viewer/baseviewer.cpp \
@@ -71,20 +77,26 @@ HEADERS += \
     main_task.h \
     main_widget.h \
     common/rthread.h \
+    media/live555/h264livevideoservermediasubsession.h \
+    media/live555/h264livevideosource.h \
+    media/live555/rtspserver.h \
     media/mediamuxer.h \
     media/mediarecorder.h \
     media/mediautils.h \
     media/rkmpp_dec_api.h \
     media/rkmpp_enc_api.h \
     media/rkrgadef.h \
+    media/streampusher.h \
     media/videoframereader.h \
     media/videoinputdevice.h \
     utils/fileutils.h \
+    utils/networkutils.h \
     utils/serialportutils.h \
     utils/storageutils.h \
     utils/thumbnailutils.h \
     widgets/basewidget.h \
     widgets/menuwidget.h \
+    widgets/pushstreamwidget.h \
     widgets/recordwidget.h \
     widgets/setting_widget.h \
     widgets/viewer/baseviewer.h \
@@ -104,6 +116,7 @@ FORMS += \
     mainwidget.ui \
     widgets/basewidget.ui \
     widgets/menuwidget.ui \
+    widgets/pushstreamwidget.ui \
     widgets/recordwidget.ui \
     widgets/settingwidget.ui \
     widgets/viewer/diskselectionitem.ui \
@@ -122,9 +135,16 @@ INCLUDEPATH += $$PWD/third-party/headers/mpp \
                $$PWD/third-party/headers/ffmpeg \
                $$PWD/third-party/headers/rga
 
+INCLUDEPATH += $$PWD/third-party/headers/live555 \
+               $$PWD/third-party/headers/live555/liveMedia \
+               $$PWD/third-party/headers/live555/BasicUsageEnvironment \
+               $$PWD/third-party/headers/live555/groupsock \
+               $$PWD/third-party/headers/live555/UsageEnvironment
+
 LIBS += -ludev \
         -L$$PWD/third-party/prebuilt/linux_arm32 \
         -ldrm -lrockchip_mpp -lrockchip_vpu -lrga \
+        -lliveMedia -lgroupsock -lBasicUsageEnvironment -lUsageEnvironment \
         -lavformat -lavcodec -lavutil -lswscale -lswresample
 
 

@@ -17,12 +17,12 @@ class RecordWidget : public BaseWidget
 
 public:
     explicit RecordWidget(QWidget *parent = nullptr);
-    RecordWidget(QWidget *parent,VideoInputDevice *video_input_device);
+    RecordWidget(QWidget *parent = nullptr,VideoInputDevice *video_input_device = nullptr);
     ~RecordWidget();
 
 private:
     Ui::RecordWidget *ui;
-
+    VideoInputDevice *mVideoInputDevice;
 public slots:
     void onRecordBtnToggled(bool toggled);
     void startRec();

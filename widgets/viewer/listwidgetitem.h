@@ -3,10 +3,49 @@
 
 #include <QWidget>
 #include "selectionicon.h"
+#include <QLabel>
+#include <QPainter>
+#include "common/Mutex.h"
 
 namespace Ui {
 class ListWidgetItem;
 }
+
+class Label : public QLabel {
+public:
+    Label(QWidget *parent):
+        QLabel(parent)
+       ,mImage(QImage()){
+
+    }
+
+    ~Label() {
+        mLock.lock();
+        mImage.detach();
+        mLock.unlock();
+    }
+
+    virtual void paintEvent(QPaintEvent * paintEvent) {
+        mLock.lock();
+        QPainter painter;
+        painter.begin(this);
+        painter.drawImage(QRect(this->rect()),mImage);
+        painter.end();
+        mImage.detach();
+        mLock.unlock();
+    }
+
+    void setIcon(QImage image) {
+        mLock.lock();
+        mImage = image;
+        mLock.unlock();
+        update();
+    }
+
+private:
+    QImage mImage;
+    Mutex mLock;
+};
 
 class ListWidgetItem : public QWidget
 {
@@ -18,7 +57,6 @@ public:
     ~ListWidgetItem();
     void setFileName(QString file_name);
     void setIcon(QImage image);
-    void setIcon(QPixmap pixmap);
     void setAlignment(Qt::Alignment alignment);
     void setMovie(QMovie *movie);
     void setSelectable(bool selectable);

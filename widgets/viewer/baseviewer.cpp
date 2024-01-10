@@ -90,14 +90,14 @@ void BaseViewer::openDiskSelection()
     }
 }
 
-void BaseViewer::loadThumbnail(QPixmap pixmap, QString file_path)
+void BaseViewer::loadThumbnail(QImage image, QString file_path)
 {
     QListWidgetItem *item = new QListWidgetItem;
-    QPixmap file_icon;
-    file_icon = pixmap;
-    if(pixmap.isNull()) {
+    QImage file_icon;
+    file_icon = image;
+    if(image.isNull()) {
         QImage broken_image(":/resources/icons/broken.png");
-        file_icon = QPixmap::fromImage(broken_image.scaled(mIconWidth - X_OFFSET,mIconHeight - Y_OFFSET,Qt::KeepAspectRatio));
+        file_icon = broken_image.scaled(mIconWidth - X_OFFSET,mIconHeight - Y_OFFSET,Qt::KeepAspectRatio);
     } else {
 //        file_icon = file_icon.scaled(mIconWidth - X_OFFSET,mIconHeight - Y_OFFSET,Qt::KeepAspectRatio);
     }

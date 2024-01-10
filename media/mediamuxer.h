@@ -24,6 +24,7 @@ public:
         int32_t       width;
         int32_t       height;
         Suffix_t      suffix_type;
+        bool          push_stream;
         Push_t        push_type;
 
         Video_CodingType  coding_type;
@@ -56,12 +57,11 @@ public:
 //    virtual void stopTask();
 protected:
     typedef struct MediaMuxCtx {
-        AVFormatContext *file_ctx;
-        AVFormatContext *push_ctx;
-        AVOutputFormat *output_fmt;
-        MediaInfo info;
-        int32_t video_stream;
-        int32_t audio_stream;
+        AVFormatContext *format_ctx;
+        AVOutputFormat  *output_fmt;
+        MediaInfo        info;
+        int32_t          video_stream;
+        int32_t          audio_stream;
     } MediaMuxCtx_t;
 
     MediaMuxCtx mMediaCtx;

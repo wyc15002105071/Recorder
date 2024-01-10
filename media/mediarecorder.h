@@ -18,7 +18,7 @@ public:
     virtual bool startTask();
     virtual void stopTask();
 
-    bool initVideoRecorder(int width,int height,__u32 format,int type);
+    bool initVideoRecorder(int width,int height,__u32 format,int type,bool push_stream);
     bool sendVideoFrame(int dma_fd,int size,int width,int height,bool eos);
     void sendVideoFrame(int index);
 
@@ -41,8 +41,9 @@ private:
     } VideoFrameBuffer_t;
 
     sp<RKHWEncApi> mVideoEncoder;
-    sp<MediaMuxer> mMediaMuxer;
     RKHWEncApi::EncCfgInfo mVideoCfg;
+    sp<MediaMuxer> mMediaMuxer;
+
     RecordState    mRecordState;
 
     FILE *test_file = nullptr;
@@ -50,6 +51,7 @@ private:
     int mVideoIndex;
     int mCurrentIndex = -1;
     bool mRecordEosFlag;
+    bool mPushStream;
     std::list<VideoFrameBuffer> mBufferlist;
 };
 

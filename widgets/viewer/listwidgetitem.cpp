@@ -35,20 +35,7 @@ void ListWidgetItem::setIcon(QImage image)
 {
     QImage icon_img(image);
 
-    setIcon(QPixmap::fromImage(icon_img));
-}
-
-void ListWidgetItem::setIcon(QPixmap pixmap)
-{
-    QPixmap pix(pixmap);
-
-    if(pix.isNull()) {
-        pix = QPixmap(":/resources/icons/broken.png");
-    }
-    pix.scaled(ui->icon->size(),Qt::IgnoreAspectRatio);
-
-    ui->icon->setPixmap(pix);
-
+    ui->icon->setIcon(image);
 }
 
 void ListWidgetItem::setAlignment(Qt::Alignment alignment)

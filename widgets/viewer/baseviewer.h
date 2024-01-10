@@ -26,7 +26,7 @@ public:
     virtual void findAllFiles(const char *dir);
     void openDiskSelection();
 
-    void loadThumbnail(QPixmap pixmap,QString file_path);
+    void loadThumbnail(QImage image,QString file_path);
 protected:
     QList<QString> mFilePathList;
     QList<QString> mFileNameList;

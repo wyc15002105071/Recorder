@@ -26,5 +26,8 @@
         <file>resources/icons/udisk.png</file>
         <file>resources/icons/down.png</file>
         <file>resources/icons/up.png</file>
+        <file>resources/icons/push.png</file>
+        <file>resources/icons/push_exit.png</file>
+        <file>resources/icons/push_toggled.png</file>
     </qresource>
 </RCC>

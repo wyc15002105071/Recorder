@@ -26,7 +26,7 @@ private:
     Ui::VideoPlayer *ui;
 
     std::shared_ptr<QMediaPlayer> mPlayer;
-    std::shared_ptr<QVideoWidget>mVideoWidget;
+    std::shared_ptr<QVideoWidget> mVideoWidget;
     QList<QString> mUrls;
     int mCurrentIndex;
     KeyListener *mKeyListener;

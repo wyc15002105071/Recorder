@@ -59,6 +59,7 @@ public:
 
     void sendFrame(int index,int pts);
     void import(int fd,int size,int index);
+    void getCfgInfo(EncCfgInfo &info);
 private:
     typedef struct EncoderCtx {
         MppCtx       mppCtx;

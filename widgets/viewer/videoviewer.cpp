@@ -11,35 +11,40 @@
 using namespace std;
 
 VideoViewer::VideoViewer(QWidget *parent) :
-    BaseViewer(parent),
-    ui(new Ui::VideoViewer)
-  ,mPlayer(shared_ptr<VideoPlayer>(new VideoPlayer))
-  ,mIconHasUpdated(0)
+    BaseViewer(parent)
+   , ui(new Ui::VideoViewer)
+//   , mPlayer(sp<VideoPlayer>(new VideoPlayer()))
+   , mIconHasUpdated(0)
 {
     ui->setupUi(this);
+    mPlayer = sp<VideoPlayer>(new VideoPlayer());
+    mPlayer->close();
+
     mFileType = FILE_TYPE_VIDEO;
     mListViewer = ui->video_list;
     mListViewer->setAttribute(Qt::WA_AcceptTouchEvents,true);
     mListViewer->verticalScrollBar()->setStyleSheet(mListViewer->styleSheet());
     QScroller::grabGesture(mListViewer,QScroller::TouchGesture);
-    connect(mThumbnail.get(),SIGNAL(onGetOneImage(QPixmap,QString)),this,SLOT(onLoadThumbnail(QPixmap,QString)));
+    connect(mThumbnail.get(),SIGNAL(onGetOneImage(QImage,QString)),this,SLOT(onLoadThumbnail(QImage,QString)));
     connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)));
 }
 
 VideoViewer::~VideoViewer()
 {
+    RLOGD("destructor enter");
     if(mThumbnail.get()) {
         mThumbnail->stopTask();
     }
     mListViewer->clear();
     delete ui;
+    RLOGD("destructor leave");
 }
 
 void VideoViewer::onHasOpened()
 {
     mListViewer->clear();
     mIconHasUpdated = 0;
-    static QMovie movie(":/resources/icons/loading.gif");
+//    static QMovie movie(":/resources/icons/loading.gif");
 
     //    int count = mFilePathList.count();
     //    for(int i = 0;i < count;i++) {
@@ -55,23 +60,22 @@ void VideoViewer::onHasOpened()
     //        movie.start();
     //    }
 
-    if(mThumbnail.get()) {
-        //        mThumbnail->stopTask();
+    if(mThumbnail) {
         mThumbnail->setThumbSize(mIconWidth - X_OFFSET,mIconHeight - Y_OFFSET);
         mThumbnail->setDataSource(mFilePathList);
         mThumbnail->startTask();
     }
 
-    if(mProgressViewer.get()) {
+    if(mProgressViewer) {
         mProgressViewer->close();
     }
 }
 
 void VideoViewer::onHasClosed()
 {
-    if(mDiskSelectionWidget.get())
+    if(mDiskSelectionWidget)
         mDiskSelectionWidget->close();
-    if(mThumbnail.get()) {
+    if(mThumbnail) {
         mThumbnail->stopTask();
     }
     mSelectMode = false;
@@ -96,8 +100,10 @@ void VideoViewer::onItemClicked(QListWidgetItem *item)
         int index = mListViewer->currentRow();
         QString name = mFilePathList.at(index);
         QString video_path = "file://"+name;
-        if(mPlayer)
+        if(mPlayer) {
+            mPlayer->setGeometry(this->geometry());
             mPlayer->open(mFilePathList,index);
+        }
     }
 }
 
@@ -115,11 +121,6 @@ void VideoViewer::onSelectModeToggled(bool toggled)
         ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
         item_widget->setSelectable(toggled);
     }
-}
-
-void VideoViewer::onLoadThumbnail(QPixmap pixmap, QString file_path)
-{
-    loadThumbnail(pixmap,file_path);
 }
 
 void VideoViewer::onCopySelectedClicked()
@@ -154,13 +155,6 @@ void VideoViewer::onDelSelectClicked()
     mOperation = FileUtils::DELETE;
     mSelectionlist.clear();
 
-    if (mSelectionlist.count() == 0) {
-        mProgressViewer->showWarning("未选中对象...");
-        if(mDiskSelectionWidget)
-            mDiskSelectionWidget->close();
-        return;
-    }
-
     QList<QListWidgetItem*> del_list;
     del_list.clear();
     if(mProgressViewer) {
@@ -176,6 +170,13 @@ void VideoViewer::onDelSelectClicked()
             mSelectionlist.push_back(mFilePathList.at(i));
             del_list.push_back(item);
         }
+    }
+
+    if (mSelectionlist.count() == 0) {
+        mProgressViewer->showWarning("未选中对象...");
+        if(mDiskSelectionWidget)
+            mDiskSelectionWidget->close();
+        return;
     }
 
     while(del_list.count() > 0) {
@@ -228,3 +229,9 @@ void VideoViewer::onDiskItemClicked(int index)
         mProgressViewer->setOperation(mOperation);
     }
 }
+
+void VideoViewer::onLoadThumbnail(QImage image, QString file_path)
+{
+    loadThumbnail(image,file_path);
+}
+

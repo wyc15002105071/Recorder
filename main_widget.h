@@ -17,6 +17,7 @@
 #include "common/log.h"
 #include "widgets/recordwidget.h"
 #include "widgets/viewer/progressviewer.h"
+#include "widgets/pushstreamwidget.h"
 #include "listeners/key_listener.h"
 
 QT_BEGIN_NAMESPACE
@@ -59,13 +60,14 @@ private:
     VideoInputDevice  mInputDevice;
     KeyListener      *mKeyListener;
 
-    sp<ImageViewer>   mImageViewer;
-    sp<VideoViewer>   mVideoViewer;
-    sp<QWidget>       mVideoWidget_Container;
-    sp<MenuWidget>    mMenuWidget;
-    sp<VideoWidget>   mVideoWidget;
-    sp<RecordWidget>  mRecordWidget;
-    sp<SignalHandler> mSignalHandler;
+    sp<ImageViewer>         mImageViewer;
+    sp<VideoViewer>         mVideoViewer;
+    sp<QWidget>             mVideoWidget_Container;
+    sp<MenuWidget>          mMenuWidget;
+    sp<VideoWidget>         mVideoWidget;
+    sp<RecordWidget>        mRecordWidget;
+    sp<SignalHandler>       mSignalHandler;
+    sp<PushStreamWidget>    mPushWidget;
 
     const uint32_t    mMenuAutoHideMs = 5000;
 public slots:

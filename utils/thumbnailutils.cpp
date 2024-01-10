@@ -3,14 +3,19 @@
 
 ThumbnailUtils::ThumbnailUtils() :
     mThumbSize(QSize(0,0))
-  ,mFormatCtx(nullptr)
+   ,mFormatCtx(nullptr)
 {
 
 }
 
 ThumbnailUtils::~ThumbnailUtils()
 {
-
+    mDecoder.release();
+    if(mFormatCtx) {
+        avformat_close_input(&mFormatCtx);
+        avformat_free_context(mFormatCtx);
+        mFormatCtx = nullptr;
+    }
 }
 
 void ThumbnailUtils::run()
@@ -148,22 +153,26 @@ REDO:
         mDecoder.deinitOutputFrame(&out_frame);
         mDecoder.deinitOutputFrame(&rgb_frame);
         av_packet_unref(&packet);
+
     } else if(type == Type_Unkown) {
         goto FINISH;
     }
 
 FINISH:
     if(mThumbSize.width() > 0 && mThumbSize.height() > 0) {
-        thumbnail = QPixmap::fromImage(img).scaled(mThumbSize,Qt::KeepAspectRatio);
+        img = img.scaled(mThumbSize,Qt::KeepAspectRatio);
     }else
-	thumbnail = QPixmap::fromImage(img).scaled(img.size(),Qt::KeepAspectRatio);
+        img = img.scaled(img.size(),Qt::KeepAspectRatio);
     
-    onGetOneImage(thumbnail,file_path);
-        if(type == Type_Video) {
+    onGetOneImage(img,file_path);
+    if(type == Type_Video) {
         mDecoder.release();
-        if(mFormatCtx)
+        if(mFormatCtx) {
             avformat_close_input(&mFormatCtx);
+            avformat_free_context(mFormatCtx);
+            mFormatCtx = nullptr;
+        }
     }
 
-	img.detach();
+    img.detach();
 }
