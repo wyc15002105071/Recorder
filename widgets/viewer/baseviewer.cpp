@@ -2,6 +2,13 @@
 #include <QFile>
 #include <QDir>
 #include "widgets/viewer/listwidgetitem.h"
+#include <QLayout>
+
+static const char *progress_high = "QProgressBar::chunk"
+                            "{"
+                            " background-color:rgba(255, 87, 51, 1);"
+                            "   border-radius: 4px;"
+                            "}";
 
 BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mDiskSelectionWidget(sp<DiskSelectionWidget>(new DiskSelectionWidget))
@@ -14,11 +21,22 @@ BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mLoadNum(0)
     ,mIconWidth(ICON_WIDTH-X_OFFSET)
     ,mIconHeight(ICON_HEIGHT-Y_OFFSET)
+    ,mCapacityListenerTimer(sp<QTimer>(new QTimer))
+    ,mHotplugListener(sp<HotplugListener>(new HotplugListener))
+    ,mConfirmDialog(sp<ConfirmDialog>(new ConfirmDialog))
+    ,mlabel(sp<QLabel>(new QLabel("未插入外部存储")))
 {
     setWindowState(Qt::WindowFullScreen);
     mFileUtils->attach(mProgressViewer.get());
-
+    mHotplugListener->attach(this);
+    mCapacityListenerTimer->setInterval(2000);
+    mlabel->setAlignment(Qt::AlignCenter);
+    mlabel->setStyleSheet("color:white;");
+    mlabel->setFont(QFont("Ubuntu",20));
+    connect(mCapacityListenerTimer.get(),SIGNAL(timeout()),this,SLOT(onUpdateCapacity()));
 //    connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)));
+    connect(this,SIGNAL(onHotplugEvent()),this,SLOT(onUpdateExtStorageView()));
+
     close();
 }
 
@@ -27,6 +45,15 @@ BaseViewer::~BaseViewer()
 	if(mStorageUtils) {
 		mStorageUtils = nullptr;
 	}
+
+    if(mHotplugListener) {
+        mHotplugListener->stopTask();
+    }
+
+    if(mConfirmDialog) {
+        mConfirmDialog->deleteLater();
+        mConfirmDialog = nullptr;
+    }
 }
 
 void BaseViewer::resizeEvent(QResizeEvent *event)
@@ -113,4 +140,57 @@ void BaseViewer::loadThumbnail(QImage image, QString file_path)
     }
 
     file_icon.detach();
+}
+
+void BaseViewer::onUpdateCapacity()
+{
+    long total,free,used = 0;
+    mStorageUtils->getStorageCapacity(ROOT_DIR,total,used,free);
+
+    int precent = ceil(100*used / total);
+    if(precent > 80) {
+        if(mCapacityBar)
+            mCapacityBar->setStyleSheet(progress_high);
+    } else {
+        if(mCapacityBar)
+            mCapacityBar->setStyleSheet("");
+    }
+
+    if(mCapacityBar) {
+        mCapacityBar->setValue(precent);
+    }
+
+    for(int i = 0;i<mExternalStorageInfo.count();i++) {
+        mStorageUtils->getStorageCapacity(mExternalStorageInfo[i].mount_path.c_str(),total,used,free);
+        precent = ceil(100*used / total);
+        if(i < mitemVector.count()) {
+            mitemVector[i]->setValue(precent);
+        }
+    }
+}
+
+void BaseViewer::onUpdateExtStorageView()
+{
+    for(int i = 0;i < mitemVector.count(); i++) {
+        mExtStorageWidget->layout()->removeWidget(mitemVector[i].get());
+        mitemVector[i]->deleteLater();
+    }
+
+    mitemVector.clear();
+    mExternalStorageInfo = mStorageUtils->getExternalStorageInfoList();
+    if(mExternalStorageInfo.count() == 0) {
+        mlabel->setAlignment(Qt::AlignHCenter);
+        mExtStorageWidget->layout()->addWidget(mlabel.get());
+        return;
+    }
+
+    mExtStorageWidget->layout()->removeWidget(mlabel.get());
+
+    for(int i = 0;i<mExternalStorageInfo.count();i++) {
+        sp<ExtStorageItem> item = sp<ExtStorageItem>(new ExtStorageItem);
+        item->setText(mExternalStorageInfo[i].label.c_str());
+        item->setValue(ceil(100*mExternalStorageInfo[i].used / mExternalStorageInfo[i].total));
+        mExtStorageWidget->layout()->addWidget(item.get());
+        mitemVector.push_back(item);
+    }
 }

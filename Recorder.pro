@@ -25,6 +25,7 @@ SOURCES += \
     allocators/drm_allocator.cpp \
     common/log.cpp \
     common/observer.cpp \
+    listeners/hotpluglistener.cpp \
     listeners/key_listener.cpp \
     main.cpp \
     main_task.cpp \
@@ -48,6 +49,7 @@ SOURCES += \
     utils/storageutils.cpp \
     utils/thumbnailutils.cpp \
     widgets/basewidget.cpp \
+    widgets/confirmdialog.cpp \
     widgets/menuwidget.cpp \
     widgets/pushstreamwidget.cpp \
     widgets/recordwidget.cpp \
@@ -55,6 +57,7 @@ SOURCES += \
     widgets/viewer/baseviewer.cpp \
     widgets/viewer/diskselectionitem.cpp \
     widgets/viewer/diskselectionwidget.cpp \
+    widgets/viewer/extstorageitem.cpp \
     widgets/viewer/imagebrowser.cpp \
     widgets/viewer/imageviewer.cpp \
     widgets/record_timer_widget.cpp \
@@ -73,6 +76,7 @@ HEADERS += \
     common/common.h \
     common/log.h \
     common/observer.h \
+    listeners/hotpluglistener.h \
     listeners/key_listener.h \
     main_task.h \
     main_widget.h \
@@ -95,6 +99,7 @@ HEADERS += \
     utils/storageutils.h \
     utils/thumbnailutils.h \
     widgets/basewidget.h \
+    widgets/confirmdialog.h \
     widgets/menuwidget.h \
     widgets/pushstreamwidget.h \
     widgets/recordwidget.h \
@@ -102,6 +107,7 @@ HEADERS += \
     widgets/viewer/baseviewer.h \
     widgets/viewer/diskselectionitem.h \
     widgets/viewer/diskselectionwidget.h \
+    widgets/viewer/extstorageitem.h \
     widgets/viewer/imagebrowser.h \
     widgets/viewer/imageviewer.h \
     widgets/record_timer_widget.h \
@@ -115,12 +121,14 @@ HEADERS += \
 FORMS += \
     mainwidget.ui \
     widgets/basewidget.ui \
+    widgets/confirmdialog.ui \
     widgets/menuwidget.ui \
     widgets/pushstreamwidget.ui \
     widgets/recordwidget.ui \
     widgets/settingwidget.ui \
     widgets/viewer/diskselectionitem.ui \
     widgets/viewer/diskselectionwidget.ui \
+    widgets/viewer/extstorageitem.ui \
     widgets/viewer/imagebrowser.ui \
     widgets/viewer/imageviewer.ui \
     widgets/recordtimerwidget.ui \

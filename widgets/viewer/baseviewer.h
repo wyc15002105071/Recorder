@@ -3,19 +3,24 @@
 
 #include <QWidget>
 #include <QList>
+#include <QProgressBar>
+#include <QTimer>
 #include "widgets/basewidget.h"
 #include "diskselectionwidget.h"
 #include "utils/storageutils.h"
 #include "utils/fileutils.h"
 #include "utils/thumbnailutils.h"
 #include "progressviewer.h"
+#include "extstorageitem.h"
+#include "listeners/hotpluglistener.h"
+#include "widgets/confirmdialog.h"
 
-class BaseViewer : public BaseWidget
+class BaseViewer : public BaseWidget ,public Observer
 {
     Q_OBJECT
 public:
-#define ICON_WIDTH  250
-#define ICON_HEIGHT 200
+#define ICON_WIDTH  300
+#define ICON_HEIGHT 230
 #define X_OFFSET 	20
 #define Y_OFFSET 	20
 #define COLUMN_COUNT_ONE_LINE   4
@@ -24,8 +29,9 @@ public:
     ~BaseViewer();
     virtual void resizeEvent(QResizeEvent *event);
     virtual void findAllFiles(const char *dir);
-    void openDiskSelection();
+    virtual void update(NotifyData data) { onHotplugEvent();}
 
+    void openDiskSelection();
     void loadThumbnail(QImage image,QString file_path);
 protected:
     QList<QString> mFilePathList;
@@ -35,25 +41,38 @@ protected:
         FILE_TYPE_VIDEO,
     }FileType;
 
+    QList<QString> mSelectionlist;
     FileType mFileType;
 
     sp<DiskSelectionWidget> mDiskSelectionWidget;
-    sp<ProgressViewer>  mProgressViewer;
-    sp<FileUtils>       mFileUtils;
-    sp<ThumbnailUtils>  mThumbnail;
+    sp<ProgressViewer>      mProgressViewer;
+    sp<FileUtils>           mFileUtils;
+    sp<ThumbnailUtils>      mThumbnail;
+    sp<QTimer>              mCapacityListenerTimer;
+    sp<HotplugListener>     mHotplugListener;
+    sp<ConfirmDialog>       mConfirmDialog;
 
-    QListWidget  *mListViewer;
-    QScrollBar   *mScroll;
-    StorageUtils *mStorageUtils;
-
+    sp<QLabel>       mlabel;
+    QListWidget     *mListViewer;
+    QScrollBar      *mScroll;
+    QProgressBar    *mCapacityBar;
+    QWidget         *mExtStorageWidget;
+    StorageUtils    *mStorageUtils;
     QVector<StorageUtils::ExternalStorageInfo> mExternalStorageInfo;
-    QList<QString> mSelectionlist;
+    QVector<sp<ExtStorageItem>> mitemVector;
 
     bool mSelectMode;
     int  mOperation;
     int  mLoadNum;
     int  mIconWidth;
     int  mIconHeight;
+
+signals:
+    void onHotplugEvent();
+
+public slots:
+    void onUpdateCapacity();
+    void onUpdateExtStorageView();
 };
 
 #endif // BASEVIEWER_H

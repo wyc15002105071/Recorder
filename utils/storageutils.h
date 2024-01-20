@@ -20,10 +20,14 @@ public:
         std::string label;
         std::string mount_path;
         std::string file_system;
+        long    total;
+        long    free;
+        long    used;
     }ExternalStorageInfo_t;
 
     QVector<ExternalStorageInfo> getExternalStorageInfoList();
 
+    void getStorageCapacity(const char *root,long &total,long &used ,long &free);
 protected:
     StorageUtils();
 

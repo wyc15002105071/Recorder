@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>894</width>
-    <height>638</height>
+    <width>795</width>
+    <height>504</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,6 @@
    <string notr="true">#ImageViewer {
 	background-color: rgb(29, 32, 41);
 }
-
-
-
 #image_list{
    color:rgba(255, 255, 255, 1);
 	border:0px;
@@ -62,7 +59,7 @@ background-color: rgba(57, 63, 77, 1);
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>150</height>
+       <height>80</height>
       </size>
      </property>
      <property name="styleSheet">
@@ -70,36 +67,7 @@ background-color: rgba(57, 63, 77, 1);
 	background-color: rgb(39, 42, 51);
 }
 
-#back_btn{
-   background-color:transparent;
-	image: url(:/resources/icons/back.png);
-}
-
-#selectMode_btn {
-	image: url(:/resources/icons/select_mode.png);
-	background-color: rgba(57, 63, 77, 1);
-   border-radius:8px;
-}
-#selectMode_btn::checked {
-	image: url(:/resources/icons/select_mode.png);
-	background-color: rgba(24, 144, 255, 1);
-   border-radius:8px;
-}
-#copy_btn {
-	image: url(:/resources/icons/copy.png);
-}
-#copy_all_btn {
-	image: url(:/resources/icons/copy_all.png);
-}
-#del_btn {
-	image: url(:/resources/icons/del.png);
-}
-#del_all_btn {
-	image: url(:/resources/icons/del_all.png);
-}
-
 QPushButton {
-	font: 14pt &quot;Ubuntu&quot;;
    border-radius:8px;
 	color: rgb(225, 227, 240);
 	background-color: rgba(57, 63, 77, 1);
@@ -109,21 +77,58 @@ QPushButton::pressed{
    border-radius:8px;
 	color: rgb(225, 227, 240);
 	background-color: rgba(24, 144, 255, 1);
+}
+
+#back_btn{
+   background-color:transparent;
+	border-image: url(:/resources/images/back.png);
+}
+
+#back_btn::clicked{
+   background-color:transparent;
+	border-image: url(:/resources/images/back.png);
+}
+
+#selectMode_btn {
+	image: url(:/resources/images/select_mode.png);
+	background-color: rgba(57, 63, 77, 1);
+   border-radius:8px;
+}
+#selectMode_btn::checked {
+	image: url(:/resources/images/select_mode.png);
+	background-color: rgba(24, 144, 255, 1);
+   border-radius:8px;
 }</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="leftMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="topMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="rightMargin">
        <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>5</number>
+       <number>0</number>
       </property>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item alignment="Qt::AlignVCenter">
        <widget class="QPushButton" name="back_btn">
         <property name="sizePolicy">
@@ -134,21 +139,18 @@ QPushButton::pressed{
         </property>
         <property name="minimumSize">
          <size>
-          <width>80</width>
-          <height>60</height>
+          <width>28</width>
+          <height>48</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>80</width>
-          <height>60</height>
+          <width>28</width>
+          <height>48</height>
          </size>
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -158,7 +160,7 @@ QPushButton::pressed{
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Expanding</enum>
+         <enum>QSizePolicy::Fixed</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -169,21 +171,21 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="copy_btn">
+       <widget class="QPushButton" name="copySelected_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>130</width>
-          <height>50</height>
+          <width>120</width>
+          <height>40</height>
          </size>
         </property>
         <property name="text">
-         <string/>
+         <string>拷贝选中图像</string>
         </property>
        </widget>
       </item>
@@ -193,7 +195,7 @@ QPushButton::pressed{
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Expanding</enum>
+         <enum>QSizePolicy::Fixed</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -204,21 +206,21 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="copy_all_btn">
+       <widget class="QPushButton" name="copyAll_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>130</width>
-          <height>50</height>
+          <width>120</width>
+          <height>40</height>
          </size>
         </property>
         <property name="text">
-         <string/>
+         <string>拷贝所有图像</string>
         </property>
        </widget>
       </item>
@@ -228,7 +230,7 @@ QPushButton::pressed{
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Expanding</enum>
+         <enum>QSizePolicy::Fixed</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -239,21 +241,21 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="del_btn">
+       <widget class="QPushButton" name="delSelected_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>130</width>
-          <height>50</height>
+          <width>120</width>
+          <height>40</height>
          </size>
         </property>
         <property name="text">
-         <string/>
+         <string>删除选中图像</string>
         </property>
        </widget>
       </item>
@@ -263,7 +265,7 @@ QPushButton::pressed{
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Expanding</enum>
+         <enum>QSizePolicy::Fixed</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -274,21 +276,21 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="del_all_btn">
+       <widget class="QPushButton" name="delAll_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>130</width>
-          <height>50</height>
+          <width>120</width>
+          <height>40</height>
          </size>
         </property>
         <property name="text">
-         <string/>
+         <string>删除所有图像</string>
         </property>
        </widget>
       </item>
@@ -296,9 +298,6 @@ QPushButton::pressed{
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Expanding</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -352,60 +351,10 @@ QPushButton::pressed{
    <item>
     <widget class="QListWidget" name="image_list">
      <property name="styleSheet">
-      <string notr="true">QScrollBar {
-  background: rgb(29,32,41,1);
-  padding-top:18px;
-  padding-bottom:18px;
-  width:20px;
-}
-
-QScrollBar::handle:vertical {
-	background-color: rgba(225, 227, 240, 1);
-	      border-radius:4px;
-	      padding-bottom:18px;
-	      padding-top:18px;
-}
-
- QScrollBar::add-line:vertical {
-      background: rgb(29,32,41,1);
-	  border:1px
-  }
-
-QScrollBar::sub-line:vertical {
-      background: rgb(29,32,41,1);
-
-  }
-
-
-QScrollBar::add-page:vertical
-{
-  background-color:rgba(29,32,41,1);
-}
-
-QScrollBar::sub-page:vertical 
-{
-    background-color:rgb(29,32,41,1); 
-}
-
-QScrollBar::up-arrow:vertical
-{
-  border-image: url(:/resources/icons/up.png);
-  height:10px;
-  subcontrol-position:top
-}
-QScrollBar::down-arrow:vertical
-{
-	border-image: url(:/resources/icons/down.png);
-   height:10px;
-   subcontrol-position:bottom
-}
-</string>
+      <string notr="true"/>
      </property>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustToContents</enum>
-     </property>
-     <property name="autoScrollMargin">
-      <number>16</number>
      </property>
      <property name="selectionMode">
       <enum>QAbstractItemView::SingleSelection</enum>
@@ -423,7 +372,7 @@ QScrollBar::down-arrow:vertical
       <enum>QListView::Adjust</enum>
      </property>
      <property name="spacing">
-      <number>30</number>
+      <number>20</number>
      </property>
      <property name="viewMode">
       <enum>QListView::IconMode</enum>
@@ -434,112 +383,6 @@ QScrollBar::down-arrow:vertical
      <property name="itemAlignment">
       <set>Qt::AlignHCenter</set>
      </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QWidget" name="capacity_container" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#capacity_container {
-background-color: rgb(29, 32, 41);
-}
-
-#capacity {
-  background-color:rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-}
-
-#capacity::chunk
-{
-   background-color:rgba(67, 207, 124, 1);
-   border-radius: 4px;
-}</string>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QProgressBar" name="capacity">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>10</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>10</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="value">
-         <number>0</number>
-        </property>
-        <property name="textVisible">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QWidget" name="extStorageWidget" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>50</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#extStorageWidget {
-background-color:rgba(39, 42, 51, 1);
-}</string>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <property name="leftMargin">
-       <number>10</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>10</number>
-      </property>
-      <property name="bottomMargin">
-       <number>5</number>
-      </property>
-     </layout>
     </widget>
    </item>
   </layout>
@@ -595,66 +438,66 @@ background-color:rgba(39, 42, 51, 1);
    </hints>
   </connection>
   <connection>
-   <sender>copy_all_btn</sender>
-   <signal>clicked()</signal>
-   <receiver>ImageViewer</receiver>
-   <slot>onCopyAllClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>290</x>
-     <y>49</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>273</x>
-     <y>-24</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>del_btn</sender>
-   <signal>clicked()</signal>
-   <receiver>ImageViewer</receiver>
-   <slot>onDelSelectClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>468</x>
-     <y>32</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>440</x>
-     <y>-30</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>del_all_btn</sender>
-   <signal>clicked()</signal>
-   <receiver>ImageViewer</receiver>
-   <slot>onDelAllClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>603</x>
-     <y>38</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>582</x>
-     <y>-10</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>copy_btn</sender>
+   <sender>copySelected_btn</sender>
    <signal>clicked()</signal>
    <receiver>ImageViewer</receiver>
    <slot>onCopySelectedClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>194</x>
-     <y>41</y>
+     <x>191</x>
+     <y>47</y>
     </hint>
     <hint type="destinationlabel">
-     <x>107</x>
-     <y>-31</y>
+     <x>116</x>
+     <y>-23</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>copyAll_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageViewer</receiver>
+   <slot>onCopyAllClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>299</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>303</x>
+     <y>-41</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delSelected_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageViewer</receiver>
+   <slot>onDelSelectClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>440</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>452</x>
+     <y>-39</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delAll_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageViewer</receiver>
+   <slot>onDelAllClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>566</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>571</x>
+     <y>-49</y>
     </hint>
    </hints>
   </connection>

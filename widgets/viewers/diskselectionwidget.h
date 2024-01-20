@@ -31,9 +31,6 @@ private:
 
 signals:
     void itemClicked(int index);
-
-public slots:
-    virtual void onHasOpened();
 };
 
 #endif // DISKSELECTWIDGET_H
