@@ -1,0 +1,362 @@
+/********************************************************************************
+** Form generated from reading UI file 'imageviewer.ui'
+**
+** Created by: Qt User Interface Compiler version 5.15.2
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+
+#ifndef UI_IMAGEVIEWER_H
+#define UI_IMAGEVIEWER_H
+
+#include <QtCore/QVariant>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QListWidget>
+#include <QtWidgets/QProgressBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
+
+QT_BEGIN_NAMESPACE
+
+class Ui_ImageViewer
+{
+public:
+    QVBoxLayout *verticalLayout;
+    QWidget *top;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *back_btn;
+    QSpacerItem *horizontalSpacer_4;
+    QPushButton *copy_btn;
+    QSpacerItem *horizontalSpacer_5;
+    QPushButton *copy_all_btn;
+    QSpacerItem *horizontalSpacer_6;
+    QPushButton *del_btn;
+    QSpacerItem *horizontalSpacer_7;
+    QPushButton *del_all_btn;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *selectMode_btn;
+    QSpacerItem *horizontalSpacer_2;
+    QListWidget *image_list;
+    QWidget *capacity_container;
+    QHBoxLayout *horizontalLayout_3;
+    QProgressBar *capacity;
+    QWidget *extStorageWidget;
+    QHBoxLayout *horizontalLayout_2;
+
+    void setupUi(QWidget *ImageViewer)
+    {
+        if (ImageViewer->objectName().isEmpty())
+            ImageViewer->setObjectName(QString::fromUtf8("ImageViewer"));
+        ImageViewer->resize(894, 638);
+        ImageViewer->setStyleSheet(QString::fromUtf8("#ImageViewer {\n"
+"	background-color: rgb(29, 32, 41);\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"#image_list{\n"
+"   color:rgba(255, 255, 255, 1);\n"
+"	border:0px;\n"
+"	outline:none;\n"
+"   \n"
+"	background-color: rgb(29, 32, 41);\n"
+"}\n"
+"\n"
+"#image_list::item::selected{\n"
+"color:rgba(51, 51, 51, 1);\n"
+"background-color: rgba(57, 63, 77, 1);\n"
+"}\n"
+"\n"
+""));
+        verticalLayout = new QVBoxLayout(ImageViewer);
+        verticalLayout->setSpacing(0);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        top = new QWidget(ImageViewer);
+        top->setObjectName(QString::fromUtf8("top"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(top->sizePolicy().hasHeightForWidth());
+        top->setSizePolicy(sizePolicy);
+        top->setMinimumSize(QSize(0, 150));
+        top->setStyleSheet(QString::fromUtf8("#top {\n"
+"	background-color: rgb(39, 42, 51);\n"
+"}\n"
+"\n"
+"#back_btn{\n"
+"   background-color:transparent;\n"
+"	image: url(:/resources/icons/back.png);\n"
+"}\n"
+"\n"
+"#selectMode_btn {\n"
+"	image: url(:/resources/icons/select_mode.png);\n"
+"	background-color: rgba(57, 63, 77, 1);\n"
+"   border-radius:8px;\n"
+"}\n"
+"#selectMode_btn::checked {\n"
+"	image: url(:/resources/icons/select_mode.png);\n"
+"	background-color: rgba(24, 144, 255, 1);\n"
+"   border-radius:8px;\n"
+"}\n"
+"#copy_btn {\n"
+"	image: url(:/resources/icons/copy.png);\n"
+"}\n"
+"#copy_all_btn {\n"
+"	image: url(:/resources/icons/copy_all.png);\n"
+"}\n"
+"#del_btn {\n"
+"	image: url(:/resources/icons/del.png);\n"
+"}\n"
+"#del_all_btn {\n"
+"	image: url(:/resources/icons/del_all.png);\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"	font: 14pt \"Ubuntu\";\n"
+"   border-radius:8px;\n"
+"	color: rgb(225, 227, 240);\n"
+"	background-color: rgba(57, 63, 77, 1);\n"
+"}\n"
+"\n"
+"QPushButton::pressed{\n"
+"   border-radius:8px;\n"
+"	color: rgb(225, 227, 240);\n"
+"	background-colo"
+                        "r: rgba(24, 144, 255, 1);\n"
+"}"));
+        horizontalLayout = new QHBoxLayout(top);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(5, 5, 0, 5);
+        back_btn = new QPushButton(top);
+        back_btn->setObjectName(QString::fromUtf8("back_btn"));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(back_btn->sizePolicy().hasHeightForWidth());
+        back_btn->setSizePolicy(sizePolicy1);
+        back_btn->setMinimumSize(QSize(80, 60));
+        back_btn->setMaximumSize(QSize(80, 60));
+        back_btn->setFlat(true);
+
+        horizontalLayout->addWidget(back_btn, 0, Qt::AlignVCenter);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_4);
+
+        copy_btn = new QPushButton(top);
+        copy_btn->setObjectName(QString::fromUtf8("copy_btn"));
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(copy_btn->sizePolicy().hasHeightForWidth());
+        copy_btn->setSizePolicy(sizePolicy2);
+        copy_btn->setMinimumSize(QSize(130, 50));
+
+        horizontalLayout->addWidget(copy_btn);
+
+        horizontalSpacer_5 = new QSpacerItem(10, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_5);
+
+        copy_all_btn = new QPushButton(top);
+        copy_all_btn->setObjectName(QString::fromUtf8("copy_all_btn"));
+        sizePolicy2.setHeightForWidth(copy_all_btn->sizePolicy().hasHeightForWidth());
+        copy_all_btn->setSizePolicy(sizePolicy2);
+        copy_all_btn->setMinimumSize(QSize(130, 50));
+
+        horizontalLayout->addWidget(copy_all_btn);
+
+        horizontalSpacer_6 = new QSpacerItem(10, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_6);
+
+        del_btn = new QPushButton(top);
+        del_btn->setObjectName(QString::fromUtf8("del_btn"));
+        sizePolicy2.setHeightForWidth(del_btn->sizePolicy().hasHeightForWidth());
+        del_btn->setSizePolicy(sizePolicy2);
+        del_btn->setMinimumSize(QSize(130, 50));
+
+        horizontalLayout->addWidget(del_btn);
+
+        horizontalSpacer_7 = new QSpacerItem(10, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_7);
+
+        del_all_btn = new QPushButton(top);
+        del_all_btn->setObjectName(QString::fromUtf8("del_all_btn"));
+        sizePolicy2.setHeightForWidth(del_all_btn->sizePolicy().hasHeightForWidth());
+        del_all_btn->setSizePolicy(sizePolicy2);
+        del_all_btn->setMinimumSize(QSize(130, 50));
+
+        horizontalLayout->addWidget(del_all_btn);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        selectMode_btn = new QPushButton(top);
+        selectMode_btn->setObjectName(QString::fromUtf8("selectMode_btn"));
+        sizePolicy1.setHeightForWidth(selectMode_btn->sizePolicy().hasHeightForWidth());
+        selectMode_btn->setSizePolicy(sizePolicy1);
+        selectMode_btn->setMinimumSize(QSize(60, 60));
+        selectMode_btn->setCheckable(true);
+
+        horizontalLayout->addWidget(selectMode_btn);
+
+        horizontalSpacer_2 = new QSpacerItem(20, 0, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addWidget(top, 0, Qt::AlignVCenter);
+
+        image_list = new QListWidget(ImageViewer);
+        image_list->setObjectName(QString::fromUtf8("image_list"));
+        image_list->setStyleSheet(QString::fromUtf8("QScrollBar {\n"
+"  background: rgb(29,32,41,1);\n"
+"  padding-top:18px;\n"
+"  padding-bottom:18px;\n"
+"  width:20px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"	background-color: rgba(225, 227, 240, 1);\n"
+"	      border-radius:4px;\n"
+"	      padding-bottom:18px;\n"
+"	      padding-top:18px;\n"
+"}\n"
+"\n"
+" QScrollBar::add-line:vertical {\n"
+"      background: rgb(29,32,41,1);\n"
+"	  border:1px\n"
+"  }\n"
+"\n"
+"QScrollBar::sub-line:vertical {\n"
+"      background: rgb(29,32,41,1);\n"
+"\n"
+"  }\n"
+"\n"
+"\n"
+"QScrollBar::add-page:vertical\n"
+"{\n"
+"  background-color:rgba(29,32,41,1);\n"
+"}\n"
+"\n"
+"QScrollBar::sub-page:vertical \n"
+"{\n"
+"    background-color:rgb(29,32,41,1); \n"
+"}\n"
+"\n"
+"QScrollBar::up-arrow:vertical\n"
+"{\n"
+"  border-image: url(:/resources/icons/up.png);\n"
+"  height:10px;\n"
+"  subcontrol-position:top\n"
+"}\n"
+"QScrollBar::down-arrow:vertical\n"
+"{\n"
+"	border-image: url(:/resources/icons/down.png);\n"
+"   height:10px;\n"
+"   subcontrol-position:bottom\n"
+"}\n"
+""));
+        image_list->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        image_list->setAutoScrollMargin(16);
+        image_list->setSelectionMode(QAbstractItemView::SingleSelection);
+        image_list->setIconSize(QSize(300, 300));
+        image_list->setMovement(QListView::Static);
+        image_list->setResizeMode(QListView::Adjust);
+        image_list->setSpacing(30);
+        image_list->setViewMode(QListView::IconMode);
+        image_list->setBatchSize(101);
+        image_list->setItemAlignment(Qt::AlignHCenter);
+
+        verticalLayout->addWidget(image_list);
+
+        capacity_container = new QWidget(ImageViewer);
+        capacity_container->setObjectName(QString::fromUtf8("capacity_container"));
+        sizePolicy.setHeightForWidth(capacity_container->sizePolicy().hasHeightForWidth());
+        capacity_container->setSizePolicy(sizePolicy);
+        capacity_container->setMinimumSize(QSize(0, 20));
+        capacity_container->setStyleSheet(QString::fromUtf8("#capacity_container {\n"
+"background-color: rgb(29, 32, 41);\n"
+"}\n"
+"\n"
+"#capacity {\n"
+"  background-color:rgba(255, 255, 255, 0.2);\n"
+"  border-radius: 4px;\n"
+"}\n"
+"\n"
+"#capacity::chunk\n"
+"{\n"
+"   background-color:rgba(67, 207, 124, 1);\n"
+"   border-radius: 4px;\n"
+"}"));
+        horizontalLayout_3 = new QHBoxLayout(capacity_container);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        capacity = new QProgressBar(capacity_container);
+        capacity->setObjectName(QString::fromUtf8("capacity"));
+        capacity->setMinimumSize(QSize(0, 10));
+        capacity->setMaximumSize(QSize(16777215, 10));
+        capacity->setStyleSheet(QString::fromUtf8(""));
+        capacity->setValue(0);
+        capacity->setTextVisible(false);
+
+        horizontalLayout_3->addWidget(capacity);
+
+
+        verticalLayout->addWidget(capacity_container);
+
+        extStorageWidget = new QWidget(ImageViewer);
+        extStorageWidget->setObjectName(QString::fromUtf8("extStorageWidget"));
+        sizePolicy.setHeightForWidth(extStorageWidget->sizePolicy().hasHeightForWidth());
+        extStorageWidget->setSizePolicy(sizePolicy);
+        extStorageWidget->setMinimumSize(QSize(0, 50));
+        extStorageWidget->setStyleSheet(QString::fromUtf8("#extStorageWidget {\n"
+"background-color:rgba(39, 42, 51, 1);\n"
+"}"));
+        horizontalLayout_2 = new QHBoxLayout(extStorageWidget);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(10, 0, 10, 5);
+
+        verticalLayout->addWidget(extStorageWidget);
+
+
+        retranslateUi(ImageViewer);
+        QObject::connect(back_btn, SIGNAL(clicked()), ImageViewer, SLOT(close()));
+        QObject::connect(image_list, SIGNAL(itemClicked(QListWidgetItem*)), ImageViewer, SLOT(onItemClicked(QListWidgetItem*)));
+        QObject::connect(selectMode_btn, SIGNAL(toggled(bool)), ImageViewer, SLOT(onSelectModeToggled(bool)));
+        QObject::connect(copy_all_btn, SIGNAL(clicked()), ImageViewer, SLOT(onCopyAllClicked()));
+        QObject::connect(del_btn, SIGNAL(clicked()), ImageViewer, SLOT(onDelSelectClicked()));
+        QObject::connect(del_all_btn, SIGNAL(clicked()), ImageViewer, SLOT(onDelAllClicked()));
+        QObject::connect(copy_btn, SIGNAL(clicked()), ImageViewer, SLOT(onCopySelectedClicked()));
+
+        QMetaObject::connectSlotsByName(ImageViewer);
+    } // setupUi
+
+    void retranslateUi(QWidget *ImageViewer)
+    {
+        ImageViewer->setWindowTitle(QCoreApplication::translate("ImageViewer", "Form", nullptr));
+        back_btn->setText(QString());
+        copy_btn->setText(QString());
+        copy_all_btn->setText(QString());
+        del_btn->setText(QString());
+        del_all_btn->setText(QString());
+        selectMode_btn->setText(QString());
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class ImageViewer: public Ui_ImageViewer {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_IMAGEVIEWER_H
