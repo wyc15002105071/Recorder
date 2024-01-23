@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>236</width>
+    <width>195</width>
     <height>50</height>
    </rect>
   </property>
@@ -38,16 +38,16 @@
 
 QPushButton {
 	background-color: rgb(39, 42, 51);
-    border:0px;
+   
 	color: rgb(255, 255, 255);
-	image: url(:/resources/icons/udisk.png);
+	image: url(:/resources/images/udisk.png);
 	background-origin: content;
 	image-position: left;
 	text-align:center;
 	padding-left:20px;
 	padding-top:10px;
 	padding-bottom:10px;
-	font: 16pt &quot;Ubuntu&quot;;
+	font-size: 16px;
 }
 
 QPushButton::pressed {

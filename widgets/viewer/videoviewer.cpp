@@ -20,8 +20,11 @@ VideoViewer::VideoViewer(QWidget *parent) :
     mPlayer = sp<VideoPlayer>(new VideoPlayer());
     mPlayer->close();
 
-    mFileType = FILE_TYPE_VIDEO;
-    mListViewer = ui->video_list;
+    mFileType    = FILE_TYPE_VIDEO;
+    mListViewer  = ui->video_list;
+    mCapacityBar = ui->capacity;
+    mExtStorageWidget = ui->extStorageWidget;
+
     mListViewer->setAttribute(Qt::WA_AcceptTouchEvents,true);
     mListViewer->verticalScrollBar()->setStyleSheet(mListViewer->styleSheet());
     QScroller::grabGesture(mListViewer,QScroller::TouchGesture);
@@ -69,6 +72,18 @@ void VideoViewer::onHasOpened()
     if(mProgressViewer) {
         mProgressViewer->close();
     }
+
+    if(mCapacityListenerTimer) {
+        mCapacityListenerTimer->start();
+    }
+
+    if(mHotplugListener) {
+        mHotplugListener->startTask();
+    }
+
+    onUpdateExtStorageView();
+
+    onUpdateCapacity();
 }
 
 void VideoViewer::onHasClosed()
@@ -80,6 +95,14 @@ void VideoViewer::onHasClosed()
     }
     mSelectMode = false;
     ui->selectMode_btn->setChecked(mSelectMode);
+
+    if(mCapacityListenerTimer) {
+        mCapacityListenerTimer->stop();
+    }
+
+    if(mHotplugListener) {
+        mHotplugListener->stopTask();
+    }
 }
 
 void VideoViewer::open()
@@ -152,6 +175,12 @@ void VideoViewer::onCopyAllClicked()
 
 void VideoViewer::onDelSelectClicked()
 {
+    mConfirmDialog->setTitle("确认删除吗");
+    int ret = mConfirmDialog->exec();
+    if(ret == QDialog::Rejected) {
+        return;
+    }
+
     mOperation = FileUtils::DELETE;
     mSelectionlist.clear();
 
@@ -196,6 +225,12 @@ void VideoViewer::onDelSelectClicked()
 
 void VideoViewer::onDelAllClicked()
 {
+    mConfirmDialog->setTitle("确认删除吗");
+    int ret = mConfirmDialog->exec();
+    if(ret == QDialog::Rejected) {
+        return;
+    }
+
     mOperation = FileUtils::DELETE;
     if(mProgressViewer) {
         mProgressViewer->setOperation(mOperation);
@@ -208,10 +243,6 @@ void VideoViewer::onDelAllClicked()
 
 void VideoViewer::onDiskItemClicked(int index)
 {
-    RLOGD("label:%s,nodepath:%s,mountpath:%s,filesystem:%s",mExternalStorageInfo[index].label.c_str(),
-          mExternalStorageInfo[index].node_path.c_str(),
-          mExternalStorageInfo[index].mount_path.c_str(),
-          mExternalStorageInfo[index].file_system.c_str());
     RLOGD("select count %d",mSelectionlist.count());
     if (mSelectionlist.count() == 0) {
         mProgressViewer->showWarning("未选中对象...");
@@ -219,6 +250,11 @@ void VideoViewer::onDiskItemClicked(int index)
         if(mDiskSelectionWidget)
             mDiskSelectionWidget->close();
 
+        return;
+    }
+
+    if(mExternalStorageInfo.count() == 0) {
+        mProgressViewer->showWarning(COPY_FAILED);
         return;
     }
     QString dst_dir = QString::fromStdString(mExternalStorageInfo[index].mount_path);

@@ -92,6 +92,7 @@ void FileUtils::run()
                 fflush(stdout);
 			}
 			
+			fsync(dest_fd);
 			close(source_fd);
 			close(dest_fd);
         } else if(mOperation == DELETE) {

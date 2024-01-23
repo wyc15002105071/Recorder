@@ -1,40 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DiskSelectionWidget</class>
- <widget class="QWidget" name="DiskSelectionWidget">
+ <class>ConfirmDialog</class>
+ <widget class="QDialog" name="ConfirmDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
-    <height>142</height>
+    <width>301</width>
+    <height>183</height>
    </rect>
   </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>350</width>
-    <height>0</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>350</width>
-    <height>16777215</height>
-   </size>
-  </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>4</number>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -51,52 +33,43 @@
     <widget class="QWidget" name="container" native="true">
      <property name="styleSheet">
       <string notr="true">#container {
-	background-color: rgba(57, 63, 77, 1);
+	background-color:rgba(57, 63, 77, 1);
 }
 
-#cancel_btn {
+#title {
+	color: rgb(255, 255, 255);
+	font: 16pt &quot;Ubuntu&quot;;
+}
+
+QPushButton {
 	background-color: rgba(39, 42, 51, 1);
-   border:0px;
 	color: rgb(255, 255, 255);
+    border:0px;
 	font: 16pt &quot;Ubuntu&quot;;
 }
 
-#cancel_btn::pressed {
-    background-color: rgb(136, 138, 133);
-   border:0px;
-	color: rgb(255, 255, 255);
-    font: 16pt &quot;Ubuntu&quot;;
-}
-
-#DiskSelectWidget {
-	background-color: rgba(29, 32, 41,1);
-}
-
-#label {
-	color: rgb(255, 255, 255);
+QPushButton::pressed{
+	background-color: rgba(255, 255, 255, 1);
+	color: rgb(0, 0, 0);
+    border:0px;
 	font: 16pt &quot;Ubuntu&quot;;
-}
-
-#item_list {
-background-color: rgb(57, 63, 77);
-	border:0px;
-}
-
-#item_list::item::selected{
-color:rgba(51, 51, 51, 1);
-background-color: rgba(57, 63, 77, 1);
-}
-</string>
+}</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
       <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
        <number>10</number>
       </property>
       <property name="bottomMargin">
-       <number>15</number>
+       <number>10</number>
       </property>
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="title">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -106,48 +79,34 @@ background-color: rgba(57, 63, 77, 1);
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>30</height>
+          <height>50</height>
          </size>
         </property>
         <property name="text">
-         <string>拷贝到</string>
+         <string>TITLE</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
-      <item alignment="Qt::AlignHCenter">
-       <widget class="QWidget" name="items" native="true">
+      <item>
+       <widget class="QPushButton" name="accept_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>300</width>
-          <height>0</height>
+          <width>0</width>
+          <height>50</height>
          </size>
         </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>16777215</height>
-         </size>
+        <property name="text">
+         <string>确认</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-        </layout>
        </widget>
       </item>
       <item>
@@ -161,36 +120,27 @@ background-color: rgba(57, 63, 77, 1);
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
-          <height>10</height>
+          <height>5</height>
          </size>
         </property>
        </spacer>
       </item>
-      <item alignment="Qt::AlignHCenter">
-       <widget class="QPushButton" name="cancel_btn">
+      <item>
+       <widget class="QPushButton" name="reject_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>280</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>280</width>
+          <width>0</width>
           <height>50</height>
          </size>
         </property>
         <property name="text">
          <string>取消</string>
-        </property>
-        <property name="flat">
-         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -202,23 +152,36 @@ background-color: rgba(57, 63, 77, 1);
  <resources/>
  <connections>
   <connection>
-   <sender>cancel_btn</sender>
+   <sender>accept_btn</sender>
    <signal>clicked()</signal>
-   <receiver>DiskSelectionWidget</receiver>
-   <slot>close()</slot>
+   <receiver>ConfirmDialog</receiver>
+   <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>201</x>
-     <y>111</y>
+     <x>193</x>
+     <y>110</y>
     </hint>
     <hint type="destinationlabel">
-     <x>541</x>
-     <y>94</y>
+     <x>-36</x>
+     <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>reject_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>ConfirmDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-111</x>
+     <y>148</y>
     </hint>
    </hints>
   </connection>
  </connections>
- <slots>
-  <slot>onItemClicked(QListWidgetItem*)</slot>
- </slots>
 </ui>

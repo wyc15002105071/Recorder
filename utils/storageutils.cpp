@@ -1,6 +1,8 @@
 #include "storageutils.h"
 #include "common/log.h"
 #include <mntent.h>
+#include <sys/statvfs.h>
+#include <unistd.h>
 
 #define MODULE_TAG "StorageUtils"
 
@@ -56,7 +58,7 @@ QVector<StorageUtils::ExternalStorageInfo> StorageUtils::getExternalStorageInfoL
                 info.label = label;
                 info.file_system = filesystem;
                 info.mount_path = mnt_path;
-
+                getStorageCapacity(mnt_path,info.total,info.used,info.free);
                 RLOGD("node:%s,label:%s,filesystem:%s,mnt_path:%s",info.node_path.c_str()
                       ,info.label.c_str(),info.file_system.c_str(),info.mount_path.c_str());
                 mInfoVec.push_back(info);
@@ -75,6 +77,29 @@ QVector<StorageUtils::ExternalStorageInfo> StorageUtils::getExternalStorageInfoL
 
 RET:
     return mInfoVec;
+}
+
+void StorageUtils::getStorageCapacity(const char *root, long &total, long &used, long &free)
+{
+    if(access(root, F_OK) != 0) {
+        RLOGE("%s not exists",root);
+        total = 0;
+        used = 0;
+        free = 0;
+        return;
+    }
+
+    struct statvfs buf;
+    if (statvfs(root, &buf) == 0) {
+        total = buf.f_frsize * buf.f_blocks; // 磁盘总容量
+        free = buf.f_frsize * buf.f_bfree; // 可用容量
+        used = total - free; // 已使用容量
+    } else {
+        RLOGE("Error in getting disk space information");
+        total = 0;
+        used = 0;
+        free = 0;
+    }
 }
 
 const char *StorageUtils::getMountPath(const char *node_path)

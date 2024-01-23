@@ -10,8 +10,11 @@ ImageViewer::ImageViewer(QWidget *parent) : BaseViewer(parent)
 {
     ui->setupUi(this);
     mImageBrowser = sp<ImageBrowser>(new ImageBrowser(this));
-    mFileType = FILE_TYPE_IMAGE;
-    mListViewer = ui->image_list;
+    mFileType     = FILE_TYPE_IMAGE;
+    mListViewer   = ui->image_list;
+    mCapacityBar  = ui->capacity;
+    mExtStorageWidget = ui->extStorageWidget;
+
     mScroll     = mListViewer->verticalScrollBar();
     mScroll->setStyleSheet(mListViewer->styleSheet());
     mListViewer->setAttribute(Qt::WA_AcceptTouchEvents,true);
@@ -84,6 +87,18 @@ void ImageViewer::onHasOpened()
         mProgressViewer->move(this->width()/2-mProgressViewer->width()/2,this->height()-mProgressViewer->height()-20);
         mProgressViewer->close();
     }
+
+    if(mCapacityListenerTimer) {
+        mCapacityListenerTimer->start();
+    }
+
+    if(mHotplugListener) {
+        mHotplugListener->startTask();
+    }
+
+    onUpdateExtStorageView();
+
+    onUpdateCapacity();
 }
 
 void ImageViewer::onHasClosed()
@@ -95,6 +110,14 @@ void ImageViewer::onHasClosed()
     }
     mSelectMode = false;
     ui->selectMode_btn->setChecked(mSelectMode);
+
+    if(mCapacityListenerTimer) {
+        mCapacityListenerTimer->stop();
+    }
+
+    if(mHotplugListener) {
+        mHotplugListener->stopTask();
+    }
 }
 
 void ImageViewer::onCopySelectedClicked()
@@ -126,6 +149,12 @@ void ImageViewer::onCopyAllClicked()
 
 void ImageViewer::onDelSelectClicked()
 {
+    mConfirmDialog->setTitle("确认删除吗");
+    int ret = mConfirmDialog->exec();
+    if(ret == QDialog::Rejected) {
+        return;
+    }
+
     mOperation = FileUtils::DELETE;
     mSelectionlist.clear();
 
@@ -170,6 +199,12 @@ void ImageViewer::onDelSelectClicked()
 
 void ImageViewer::onDelAllClicked()
 {
+    mConfirmDialog->setTitle("确认删除吗");
+    int ret = mConfirmDialog->exec();
+    if(ret == QDialog::Rejected) {
+        return;
+    }
+
     mOperation = FileUtils::DELETE;
 
     if(mProgressViewer.get()) {
@@ -183,10 +218,10 @@ void ImageViewer::onDelAllClicked()
 
 void ImageViewer::onDiskItemClicked(int index)
 {
-    RLOGD("label:%s,nodepath:%s,mountpath:%s,filesystem:%s",mExternalStorageInfo[index].label.c_str(),
-                      mExternalStorageInfo[index].node_path.c_str(),
-                      mExternalStorageInfo[index].mount_path.c_str(),
-                      mExternalStorageInfo[index].file_system.c_str());
+//    RLOGD("label:%s,nodepath:%s,mountpath:%s,filesystem:%s",mExternalStorageInfo[index].label.c_str(),
+//                      mExternalStorageInfo[index].node_path.c_str(),
+//                      mExternalStorageInfo[index].mount_path.c_str(),
+//                      mExternalStorageInfo[index].file_system.c_str());
     RLOGD("select count %d",mSelectionlist.count());
     if (mSelectionlist.count() == 0) {
         mProgressViewer->showWarning("未选中对象...");
@@ -196,6 +231,12 @@ void ImageViewer::onDiskItemClicked(int index)
 
         return;
     }
+
+    if(mExternalStorageInfo.count() == 0) {
+        mProgressViewer->showWarning(COPY_FAILED);
+        return;
+    }
+
     QString dst_dir = QString::fromStdString(mExternalStorageInfo[index].mount_path);
     mFileUtils->startCopy(mSelectionlist,dst_dir);
     if(mDiskSelectionWidget.get())

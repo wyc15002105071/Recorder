@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>830</width>
+    <width>875</width>
     <height>505</height>
    </rect>
   </property>
@@ -17,6 +17,9 @@
    <string notr="true">#VideoViewer {
 	background-color: rgb(29, 32, 41);
 }
+
+
+
 #video_list{
    color:rgba(255, 255, 255, 1);
 	border:0px;
@@ -50,9 +53,50 @@ background-color: rgba(57, 63, 77, 1);
    </property>
    <item>
     <widget class="QWidget" name="top" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>150</height>
+      </size>
+     </property>
      <property name="styleSheet">
       <string notr="true">#top {
 	background-color: rgb(39, 42, 51);
+}
+
+#back_btn{
+   background-color:transparent;
+   image: url(:/resources/icons/back.png);
+}
+
+#selectMode_btn {
+	image: url(:/resources/icons/select_mode.png);
+	background-color: rgba(57, 63, 77, 1);
+   border-radius:8px;
+}
+#selectMode_btn::checked {
+	image: url(:/resources/icons/select_mode.png);
+	background-color: rgba(24, 144, 255, 1);
+   border-radius:8px;
+}
+
+#copy_btn {
+	image: url(:/resources/icons/copy.png);
+}
+#copy_all_btn {
+	image: url(:/resources/icons/copy_all.png);
+}
+#del_btn {
+	image: url(:/resources/icons/del.png);
+}
+#del_all_btn {
+	image: url(:/resources/icons/del_all.png);
 }
 
 QPushButton {
@@ -66,31 +110,16 @@ QPushButton::pressed{
    border-radius:8px;
 	color: rgb(225, 227, 240);
 	background-color: rgba(24, 144, 255, 1);
-}
-
-#back_btn{
-   background-color:transparent;
-   image: url(:/resources/icons/back.png);
-}
-
-#back_btn::clicked{
-   background-color:transparent;
-	border-image: url(:/resources/icons/back.png);
-}
-
-#selectMode_btn {
-	image: url(:/resources/icons/select_mode.png);
-	background-color: rgba(57, 63, 77, 1);
-   border-radius:8px;
-}
-#selectMode_btn::checked {
-	image: url(:/resources/icons/select_mode.png);
-	background-color: rgba(24, 144, 255, 1);
-   border-radius:8px;
 }</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="leftMargin">
+       <number>5</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="bottomMargin">
        <number>5</number>
       </property>
       <item alignment="Qt::AlignLeft">
@@ -127,7 +156,7 @@ QPushButton::pressed{
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
+         <enum>QSizePolicy::Expanding</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -138,9 +167,9 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="copy_select">
+       <widget class="QPushButton" name="copy_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -152,7 +181,7 @@ QPushButton::pressed{
          </size>
         </property>
         <property name="text">
-         <string>拷贝选中视频</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -162,7 +191,7 @@ QPushButton::pressed{
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
+         <enum>QSizePolicy::Expanding</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -173,9 +202,9 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="copy_all">
+       <widget class="QPushButton" name="copy_all_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -187,7 +216,7 @@ QPushButton::pressed{
          </size>
         </property>
         <property name="text">
-         <string>拷贝所有视频</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -197,7 +226,7 @@ QPushButton::pressed{
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
+         <enum>QSizePolicy::Expanding</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -208,9 +237,9 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="del_select">
+       <widget class="QPushButton" name="del_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -222,7 +251,7 @@ QPushButton::pressed{
          </size>
         </property>
         <property name="text">
-         <string>删除选中视频</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -232,7 +261,7 @@ QPushButton::pressed{
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
+         <enum>QSizePolicy::Expanding</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -243,9 +272,9 @@ QPushButton::pressed{
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="del_all">
+       <widget class="QPushButton" name="del_all_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -257,7 +286,7 @@ QPushButton::pressed{
          </size>
         </property>
         <property name="text">
-         <string>删除所有视频</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -265,6 +294,9 @@ QPushButton::pressed{
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Expanding</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -399,6 +431,114 @@ QScrollBar::down-arrow:vertical
      </property>
     </widget>
    </item>
+   <item>
+    <widget class="QWidget" name="capacity_container" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#capacity_container {
+background-color: rgb(29, 32, 41);
+}
+
+#capacity {
+  background-color:rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+#capacity::chunk
+{
+   background-color:rgba(67, 207, 124, 1);
+   border-radius: 4px;
+}</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QProgressBar" name="capacity">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>10</height>
+         </size>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="extStorageWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#extStorageWidget {
+background-color:rgba(39, 42, 51, 1);
+}
+
+QLabel {
+	color: rgb(255, 255, 255);
+	font: 16pt &quot;Ubuntu&quot;;
+}</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+     </layout>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>
@@ -452,7 +592,7 @@ QScrollBar::down-arrow:vertical
    </hints>
   </connection>
   <connection>
-   <sender>copy_all</sender>
+   <sender>copy_all_btn</sender>
    <signal>clicked()</signal>
    <receiver>VideoViewer</receiver>
    <slot>onCopyAllClicked()</slot>
@@ -468,7 +608,7 @@ QScrollBar::down-arrow:vertical
    </hints>
   </connection>
   <connection>
-   <sender>del_select</sender>
+   <sender>del_btn</sender>
    <signal>clicked()</signal>
    <receiver>VideoViewer</receiver>
    <slot>onDelSelectClicked()</slot>
@@ -484,7 +624,7 @@ QScrollBar::down-arrow:vertical
    </hints>
   </connection>
   <connection>
-   <sender>del_all</sender>
+   <sender>del_all_btn</sender>
    <signal>clicked()</signal>
    <receiver>VideoViewer</receiver>
    <slot>onDelAllClicked()</slot>
@@ -500,7 +640,7 @@ QScrollBar::down-arrow:vertical
    </hints>
   </connection>
   <connection>
-   <sender>copy_select</sender>
+   <sender>copy_btn</sender>
    <signal>clicked()</signal>
    <receiver>VideoViewer</receiver>
    <slot>onCopySelectedClicked()</slot>

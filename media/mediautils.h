@@ -14,6 +14,7 @@
 
 #define IMAGES_SAVE_DIR "/userdata/images"
 #define VIDEOS_SAVE_DIR "/userdata/videos"
+#define ROOT_DIR        "/userdata"
 
 typedef struct DmaBufferObject{
     int32_t     buf_fd;
