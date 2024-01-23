@@ -1,6 +1,5 @@
 QT       += core gui multimedia multimediawidgets serialport
  
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -141,13 +140,12 @@ INCLUDEPATH += $$PWD/third-party/headers/live555 \
                $$PWD/third-party/headers/live555/BasicUsageEnvironment \
                $$PWD/third-party/headers/live555/groupsock \
                $$PWD/third-party/headers/live555/UsageEnvironment
-
+ 
 LIBS += -ludev \
         -L$$PWD/third-party/prebuilt/linux_arm32 \
         -ldrm -lrockchip_mpp -lrockchip_vpu -lrga \
         -lliveMedia -lgroupsock -lBasicUsageEnvironment -lUsageEnvironment \
-        -lavformat -lavcodec -lavutil -lswscale -lswresample
-
+	-lavformat -lavcodec -lavutil -lswscale -lswresample
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
