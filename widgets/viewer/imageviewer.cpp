@@ -205,8 +205,8 @@ void ImageViewer::onDelAllClicked()
         return;
     }
 
+    mThumbnail->stopTask();
     mOperation = FileUtils::DELETE;
-
     if(mProgressViewer.get()) {
         mProgressViewer->setOperation(mOperation);
     }

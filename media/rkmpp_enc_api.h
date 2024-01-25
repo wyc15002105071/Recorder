@@ -12,6 +12,13 @@ class RKHWEncApi
 public:
     RKHWEncApi();
     ~RKHWEncApi();
+    typedef struct OSD_t {
+        void   *data;
+        int32_t width;
+        int32_t height;
+        int32_t size;
+    }OSD;
+
     typedef struct EncCfgInfo {
         int32_t     width;
         int32_t     height;
@@ -29,6 +36,8 @@ public:
         int32_t     profile;
         int32_t     level;
         int32_t     rotation;
+        int32_t     osd_enable;
+        OSD_t       osd;
     } EncCfgInfo_t;
 
     typedef struct EncoderOut {
@@ -62,15 +71,16 @@ public:
     void getCfgInfo(EncCfgInfo &info);
 private:
     typedef struct EncoderCtx {
-        MppCtx       mppCtx;
-        MppApi      *api;
-        MppEncCfg    cfg;
-        MppFrame     input_frame;
-        EncCfgInfo   info;
-        bool         spsPpsHeaderReceived;
-        bool         eos;
-        FILE        *inFile;
-        FILE        *outFile;
+        MppCtx           mppCtx;
+        MppApi          *api;
+        MppBufferGroup   group;
+        MppEncCfg        cfg;
+        MppFrame         input_frame;
+        EncCfgInfo       info;
+        bool             spsPpsHeaderReceived;
+        bool             eos;
+        FILE            *inFile;
+        FILE            *outFile;
     } EncoderCtx_t;
 
     EncoderCtx mCtx;

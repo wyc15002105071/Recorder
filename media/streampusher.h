@@ -19,7 +19,7 @@ public:
     std::string getUrl();
 private:
     DmaBufferObject mDmaBo;
-    Mutex mLock;
+    RMutex mLock;
     sp<RtspServer> mRtspServer;
 };
 

@@ -13,6 +13,8 @@
 #include "mediarecorder.h"
 #include "media/streampusher.h"
 
+#define ALIGN(x, a)         (((x)+(a)-1)&~((a)-1))
+
 class VideoInputDevice : public RThread
 {
     Q_OBJECT
@@ -56,6 +58,7 @@ private:
     StreamInfo      mStreamInfo;
     DmaBufferObject mDmaBo[MAX_BUF_CNT];
 
+    DmaBufferObject mOsdBo;
 signals:
     void onNeedReset();
 

@@ -45,6 +45,7 @@ SOURCES += \
     media/videoinputdevice.cpp \
     utils/fileutils.cpp \
     utils/networkutils.cpp \
+    utils/osdutils.cpp \
     utils/serialportutils.cpp \
     utils/storageutils.cpp \
     utils/thumbnailutils.cpp \
@@ -95,6 +96,7 @@ HEADERS += \
     media/videoinputdevice.h \
     utils/fileutils.h \
     utils/networkutils.h \
+    utils/osdutils.h \
     utils/serialportutils.h \
     utils/storageutils.h \
     utils/thumbnailutils.h \

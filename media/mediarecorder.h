@@ -7,6 +7,7 @@
 #include "common/Mutex.h"
 #include "rkmpp_enc_api.h"
 #include "mediamuxer.h"
+#include <QPixmap>
 
 class MediaRecorder : public RThread
 {
@@ -53,6 +54,8 @@ private:
     bool mRecordEosFlag;
     bool mPushStream;
     std::list<VideoFrameBuffer> mBufferlist;
+
+    QPixmap mOsd;
 };
 
 #endif // MEDIARECORDER_H

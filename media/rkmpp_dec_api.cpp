@@ -269,8 +269,8 @@ int RKHWDecApi::convertNV12ToRGB(RKHWDecApi::OutputFrame *src_frame, RKHWDecApi:
     dst_frame->size         = src_frame->hor_stride * src_frame->ver_stride * 4;
     dst_frame->handler      = frame;
     dst_frame->buffer       = mppBuffer;
-    RKRgaDef::SetRgaInfo(&srcInfo, src_frame->fd, src_frame->hor_stride, src_frame->ver_stride, MPP_ALIGN(src_frame->hor_stride,4), MPP_ALIGN(src_frame->ver_stride,2));
-    RKRgaDef::SetRgaInfo(&dstInfo, dst_frame->fd, dst_frame->width, dst_frame->height, dst_frame->width, dst_frame->height);
+    RKRgaDef::SetRgaInfo(&srcInfo, src_frame->fd, src_frame->hor_stride, src_frame->ver_stride,RK_FORMAT_YCbCr_420_SP,MPP_ALIGN(src_frame->hor_stride,4), MPP_ALIGN(src_frame->ver_stride,2));
+    RKRgaDef::SetRgaInfo(&dstInfo, dst_frame->fd, dst_frame->width, dst_frame->height, RK_FORMAT_RGBA_8888 ,dst_frame->width, dst_frame->height);
 
     if(!RKRgaDef::NV12ToRGB(srcInfo,dstInfo)) {
         RLOGE("NV12ToRGB failed\n");

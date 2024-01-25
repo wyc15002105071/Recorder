@@ -44,7 +44,7 @@ public:
 
 private:
     QImage mImage;
-    Mutex mLock;
+    RMutex mLock;
 };
 
 class ListWidgetItem : public QWidget

@@ -48,7 +48,7 @@ private:
 
     std::thread *mProcThread;
     DmaBufferObject mDmaBo;
-    Mutex mLock;
+    RMutex mLock;
     RKHWEncApi mVideoEncoder;
     bool mStart;
     bool initOther(MetaInfo *meta);
