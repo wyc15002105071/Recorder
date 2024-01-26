@@ -6,6 +6,7 @@ KeyListener::KeyListener()
     : mSerialPort(sp<SerialPortUtils>(new SerialPortUtils))
 {
     connect(mSerialPort.get(),SIGNAL(onDataAvailable()),this,SLOT(onReadData()),Qt::UniqueConnection);
+    connect(this,SIGNAL(onSend(QByteArray)),mSerialPort.get(),SLOT(sendData(QByteArray)),Qt::UniqueConnection);
 }
 
 KeyListener::~KeyListener()
@@ -63,13 +64,13 @@ void KeyListener::onReadData()
                 data_end.push_back(data_all[6]);
                 data_end.push_back(data_all[7]);
 
+                data_body.push_back(data_all[3]);
                 data_body.push_back(data_all[4]);
                 data_body.push_back(data_all[5]);
 
                 data_head.push_back(data_all[0]);
                 data_head.push_back(data_all[1]);
                 data_head.push_back(data_all[2]);
-                data_head.push_back(data_all[3]);
 
                 bool ok;
                 long long head = data_head.toHex().toLongLong(&ok,16);
@@ -96,6 +97,12 @@ void KeyListener::onReadData()
                     case CAPTURE:
                         type = Key_EventType_CAPTURE;
                         break;
+                    case OK:
+                        type = Key_EventType_OK;
+                        break;
+                    case POWER:
+                        type = Key_EventType_POWER;
+                        break;
                     default:
                         break;
                     }
@@ -108,6 +115,11 @@ void KeyListener::onReadData()
             RLOGE("get serial null data");
         }
     }
+}
+
+void KeyListener::doSendWork(QByteArray data)
+{
+    emit onSend(data);
 }
 
 void KeyListener::run()

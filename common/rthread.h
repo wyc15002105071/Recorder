@@ -22,7 +22,7 @@ public:
     }
     virtual void reset(){}
 protected:
-    bool mThreadExit;
+    bool mThreadExit = false;
     Mutex mLock;
     const int QUIT_TIMEOUT = 1000;
 };

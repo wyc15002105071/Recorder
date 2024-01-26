@@ -18,6 +18,8 @@ public:
     void start();
     void stop();
 
+signals:
+    void timeUp();
 public slots:
     void updateView();
 private:

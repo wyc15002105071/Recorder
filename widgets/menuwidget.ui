@@ -79,6 +79,11 @@ rgba(43, 202, 255, 1), stop:1.0 rgba(0, 90, 245, 1));
 border-radius: 40px;
 }
 
+QPushButton:disabled{
+border-radius: 40px;
+background: rgba(127, 104, 98, 1);
+}
+
 #capture_btn {
 	image: url(:/resources/icons/capture.png);
 }
@@ -111,6 +116,9 @@ border-radius: 40px;
       </property>
       <item>
        <widget class="QPushButton" name="capture_btn">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -130,6 +138,9 @@ border-radius: 40px;
       </item>
       <item>
        <widget class="QPushButton" name="record_btn">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -149,6 +160,9 @@ border-radius: 40px;
       </item>
       <item>
        <widget class="QPushButton" name="push_btn">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>

@@ -70,10 +70,13 @@ private:
     sp<PushStreamWidget>    mPushWidget;
 
     const uint32_t    mMenuAutoHideMs = 5000;
+
+    bool signalIn = false;
 public slots:
     void onCreateTask();
     void onMenuEventHandler(MenuWidget::EventType type);
     void onKeyEventHandler(KeyListener::EventType type);
+    void signalChange(bool has);
 
 private:
     void initWidgets();
@@ -82,5 +85,6 @@ private:
     void onPushSteam();
     void onOpenImageBrowser();
     void onOpenVideoBrowser();
+    void onPower();
 };
 #endif // MAINWIDGET_H

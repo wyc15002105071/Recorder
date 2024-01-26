@@ -43,6 +43,13 @@ void MenuWidget::open()
     mTimer->start();
 }
 
+void MenuWidget::setButtonDisabled(bool isDisabled)
+{
+    ui->capture_btn->setDisabled(isDisabled);
+    ui->push_btn->setDisabled(isDisabled);
+    ui->record_btn->setDisabled(isDisabled);
+}
+
 void MenuWidget::onCaptureClicked()
 {
     onMenuEvent(Menu_EventType_Capture);

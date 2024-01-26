@@ -5,6 +5,7 @@
 #include "media/videoinputdevice.h"
 #include "common/common.h"
 #include "basewidget.h"
+#include "widgets/suredialog.h"
 
 namespace Ui {
 class RecordWidget;
@@ -23,9 +24,11 @@ public:
 private:
     Ui::RecordWidget *ui;
     VideoInputDevice *mVideoInputDevice;
+    sp<SureDialog>   mSureDialog;
 public slots:
     void onRecordBtnToggled(bool toggled);
     void startRec();
+    void timeUp();
     virtual void onHasClosed();
 };
 

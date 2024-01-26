@@ -19,6 +19,8 @@ public:
     virtual void mousePressEvent(QMouseEvent *event);
     virtual void open();
 
+    void setButtonDisabled(bool isDisabled);
+
     typedef enum EventType {
         Menu_EventType_Capture,
         Menu_EventType_Record,

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>605</width>
-    <height>158</height>
+    <height>162</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -146,22 +146,6 @@ font: 16pt &quot;Ubuntu&quot;;</string>
  <resources/>
  <connections>
   <connection>
-   <sender>back</sender>
-   <signal>clicked()</signal>
-   <receiver>PushStreamWidget</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>377</x>
-     <y>57</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>434</x>
-     <y>295</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>push</sender>
    <signal>toggled(bool)</signal>
    <receiver>PushStreamWidget</receiver>
@@ -173,7 +157,7 @@ font: 16pt &quot;Ubuntu&quot;;</string>
     </hint>
     <hint type="destinationlabel">
      <x>384</x>
-     <y>278</y>
+     <y>161</y>
     </hint>
    </hints>
   </connection>

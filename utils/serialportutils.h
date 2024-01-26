@@ -20,7 +20,6 @@ public:
     virtual void reset();
     bool open(QString portName,int bandrate);
     QByteArray readData();
-    void sendData(QString data);
 
 protected:
     virtual void run();
@@ -28,6 +27,8 @@ private:
     sp<QSerialPort> mSerialPort;
     bool mInitOk;
 
+public slots:
+    void sendData(QByteArray data);
 signals:
     void onDataAvailable();
 };

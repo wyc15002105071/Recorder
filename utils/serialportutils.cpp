@@ -84,10 +84,11 @@ QByteArray SerialPortUtils::readData()
     return data;
 }
 
-void SerialPortUtils::sendData(QString data)
+void SerialPortUtils::sendData(QByteArray data)
 {
     if(mSerialPort && mInitOk) {
-        mSerialPort->write(data.toLatin1());
+        RLOGE("serial send %s",data.toHex());
+        mSerialPort->write(data);
     }
 }
 

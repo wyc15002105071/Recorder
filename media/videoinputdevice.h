@@ -58,9 +58,12 @@ private:
 
 signals:
     void onNeedReset();
+    void signalChange(bool has);
 
 public slots:
     void onReset();
+private:
+    bool signalIn = false;
 };
 
 #endif // VIDEOINPUTDEVICE_H

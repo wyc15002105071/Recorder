@@ -33,5 +33,7 @@
         <file>resources/icons/copy_all.png</file>
         <file>resources/icons/del.png</file>
         <file>resources/icons/del_all.png</file>
+        <file>resources/icons/no_signals.png</file>
+        <file>resources/icons/top_right_check.png</file>
     </qresource>
 </RCC>

@@ -4,6 +4,7 @@
 
 RecordWidget::RecordWidget(QWidget *parent) :
     BaseWidget(parent),
+    mSureDialog(sp<SureDialog>(new SureDialog)),
     ui(new Ui::RecordWidget)
 {
     ui->setupUi(this);
@@ -12,11 +13,13 @@ RecordWidget::RecordWidget(QWidget *parent) :
 RecordWidget::RecordWidget(QWidget *parent, VideoInputDevice *video_input_device):
     BaseWidget(parent)
    , ui(new Ui::RecordWidget)
+   , mSureDialog(sp<SureDialog>(new SureDialog))
    , mVideoInputDevice(video_input_device)
 {
     ui->setupUi(this);
 
     connect(this,SIGNAL(onOpened()),this,SLOT(startRec()));
+    connect(ui->record_timer_widget,&RecordTimerWidget::timeUp,this,&RecordWidget::timeUp);
 }
 
 RecordWidget::~RecordWidget()
@@ -30,8 +33,8 @@ void RecordWidget::onRecordBtnToggled(bool toggled)
         ui->record_timer_widget->stop();
         if(mVideoInputDevice) {
             mVideoInputDevice->stopRecord();
+            mSureDialog->exec();
         }
-
         this->close();
     }
 }
@@ -44,6 +47,11 @@ void RecordWidget::startRec()
         mVideoInputDevice->startRecord();
     }
     ui->record_timer_widget->start();
+}
+
+void RecordWidget::timeUp()
+{
+    ui->top_right->setDisabled(ui->top_right->isEnabled());
 }
 
 void RecordWidget::onHasClosed()

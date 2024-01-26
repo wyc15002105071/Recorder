@@ -9,14 +9,16 @@
 
 #define KEY_PORT   "ttyS9"
 #define BAUD_RATE   115200
-#define DATA_HEAD   0x5AA50401
+#define DATA_HEAD   0x5AA504
 #define DATA_END    0xEFEF
-#define RECORD      0x01EC
-#define RIGHT       0x02BF
-#define DOWN        0x038E
-#define UP          0x0419
-#define LEFT        0x0528
-#define CAPTURE     0x067B
+#define RECORD      0x0101EC
+#define RIGHT       0x0102BF
+#define DOWN        0x01038E
+#define UP          0x010419
+#define LEFT        0x010528
+#define CAPTURE     0x01067B
+#define OK          0x01074A
+#define POWER       0x0201C1
 
 class KeyListener : public RThread
 {
@@ -34,7 +36,9 @@ public:
         Key_EventType_DOWN,
         Key_EventType_UP,
         Key_EventType_LEFT,
-        Key_EventType_CAPTURE
+        Key_EventType_CAPTURE,
+        Key_EventType_OK,
+        Key_EventType_POWER
     }EventType_t;
 
     ~KeyListener();
@@ -43,6 +47,7 @@ public:
 
 public slots:
     void onReadData();
+    void doSendWork(QByteArray data);
 
 protected:
     virtual void run();
@@ -50,6 +55,7 @@ protected:
 
 signals:
     void onPressed(KeyListener::EventType type);
+    void onSend(QByteArray data);
 
 private:
     sp<SerialPortUtils> mSerialPort;

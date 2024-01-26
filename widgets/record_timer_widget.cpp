@@ -48,6 +48,7 @@ void RecordTimerWidget::updateView()
     char time_str[30] = {0};
     sprintf(time_str,"%.2d:%.2d:%.2d",mHour,mMin,mSec);
     ui->record_time_str->setText(time_str);
+    emit timeUp();
 }
 
 void RecordTimerWidget::start()

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SureDialog</class>
+ <widget class="QDialog" name="SureDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>460</width>
+    <height>280</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#SureDialog{
+border-radius: 4px;
+background: rgba(57, 63, 77, 1);
+}
+#title_lb{
+font-weight: 400;
+letter-spacing: 0px;
+line-height: 57.92px;
+text-align: center;
+vertical-align: top;
+font-size: 40px;
+color: rgba(255, 255, 255, 1);
+}
+#sure_btn{
+border-radius: 4px;
+background: rgba(39, 42, 51, 1);
+font-size: 40px;
+color: rgba(255, 255, 255, 1);
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>30</number>
+   </property>
+   <property name="rightMargin">
+    <number>30</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="title_lb">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>136</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>视屏录制完成</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="sure_btn">
+     <property name="maximumSize">
+      <size>
+       <width>400</width>
+       <height>80</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>确认</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>sure_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>SureDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>169</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>174</x>
+     <y>246</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

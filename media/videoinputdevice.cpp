@@ -58,6 +58,10 @@ void VideoInputDevice::run()
                     needReset = true;
                     retry = 0;
                     mThreadExit = true;
+                    if(signalIn){
+                        emit signalChange(false);
+                        signalIn = false;
+                    }
                     usleep(1*1000);
                     break;
                 }else {
@@ -76,6 +80,10 @@ void VideoInputDevice::run()
                 RLOGE("buffer index out of bounds\n");
                 mLock.unlock();
                 continue;
+            }
+            if(!signalIn){
+                emit signalChange(true);
+                signalIn = true;
             }
             if(mVideoWidget)
                 mVideoWidget->PrepareUpdate(mBufferArray[i].index);

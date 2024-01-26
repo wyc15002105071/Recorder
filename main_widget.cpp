@@ -90,6 +90,9 @@ void MainWidget::initWidgets()
     if (access(VIDEOS_SAVE_DIR, F_OK)) {
         mkdir(VIDEOS_SAVE_DIR);
     }
+    ui->NoSignalWidget->resize(this->size());
+    ui->NoSignalWidget->move(0,0);
+
 }
 
 void MainWidget::resizeEvent(QResizeEvent *event)
@@ -140,6 +143,8 @@ void MainWidget::quit()
 
 void MainWidget::onCapture()
 {
+    if(!signalIn)return;
+
     char time_str[50] = {0};
     getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
     char file_name[50] = {0};
@@ -156,6 +161,7 @@ void MainWidget::onCapture()
 
 void MainWidget::onRecord()
 {
+    if(!signalIn)return;
     if(mRecordWidget) {
         if(!mRecordWidget->isVisible()) {
             RLOGD("ready to open record widget");
@@ -171,9 +177,10 @@ void MainWidget::onRecord()
 
 void MainWidget::onPushSteam()
 {
+    if(!signalIn)return;
     RLOGD("start push stream...");
     if(mPushWidget) {
-        mMenuWidget->close();
+        //mMenuWidget->close();
         mPushWidget->open();
     }
 }
@@ -190,9 +197,31 @@ void MainWidget::onOpenVideoBrowser()
     mVideoViewer->open();
 }
 
+void MainWidget::onPower()
+{
+    if(mRecordWidget) {
+        if(mRecordWidget->isVisible()) {
+            RLOGD("ready to close record widget");
+            mRecordWidget->close();
+            mMenuWidget->open();
+        }
+    }
+    if(mPushWidget){
+        mPushWidget->onStopPush();
+        mPushWidget->close();
+    }
+    if(mKeyListener) {
+        mKeyListener->doSendWork(QByteArray().append(0x5A).append(0xA5)
+                                 .append(0x04).append(0x01)
+                                 .append(0x02).append(0xBF)
+                                 .append(0xEF).append(0xEF));
+    }
+}
+
 void MainWidget::onCreateTask()
 {
     mInputDevice.setVideoWidget(mVideoWidget.get());
+    connect(&mInputDevice,&VideoInputDevice::signalChange,this,&MainWidget::signalChange);
     mInputDevice.initDevice(1);
     mInputDevice.start();
 
@@ -234,8 +263,39 @@ void MainWidget::onKeyEventHandler(KeyListener::EventType type)
     case KeyListener::Key_EventType_CAPTURE: {
         onCapture();
     }break;
+    case KeyListener::Key_EventType_POWER: {
+        onPower();
+    }break;
     default:
         break;
+    }
+}
+
+void MainWidget::signalChange(bool has)
+{
+    if(has){
+        RLOGE("signal");
+        signalIn = true;
+        ui->NoSignalWidget->setVisible(false);
+        if(mMenuWidget){
+            mMenuWidget->setButtonDisabled(false);
+        }
+    }else{
+        RLOGE("no signal");
+        ui->NoSignalWidget->setVisible(true);
+        mMenuWidget->setButtonDisabled(true);
+        signalIn = false;
+        if(mRecordWidget) {
+            if(mRecordWidget->isVisible()) {
+                RLOGD("ready to close record widget");
+                mRecordWidget->close();
+                mMenuWidget->open();
+            }
+        }
+        if(mPushWidget){
+            mPushWidget->onStopPush();
+            mPushWidget->close();
+        }
     }
 }
 

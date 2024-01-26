@@ -27,6 +27,7 @@ SOURCES += \
     common/observer.cpp \
     listeners/hotpluglistener.cpp \
     listeners/key_listener.cpp \
+    listeners/udplistener.cpp \
     main.cpp \
     main_task.cpp \
     main_widget.cpp \
@@ -54,6 +55,7 @@ SOURCES += \
     widgets/pushstreamwidget.cpp \
     widgets/recordwidget.cpp \
     widgets/setting_widget.cpp \
+    widgets/suredialog.cpp \
     widgets/viewer/baseviewer.cpp \
     widgets/viewer/diskselectionitem.cpp \
     widgets/viewer/diskselectionwidget.cpp \
@@ -78,6 +80,7 @@ HEADERS += \
     common/observer.h \
     listeners/hotpluglistener.h \
     listeners/key_listener.h \
+    listeners/udplistener.h \
     main_task.h \
     main_widget.h \
     common/rthread.h \
@@ -104,6 +107,7 @@ HEADERS += \
     widgets/pushstreamwidget.h \
     widgets/recordwidget.h \
     widgets/setting_widget.h \
+    widgets/suredialog.h \
     widgets/viewer/baseviewer.h \
     widgets/viewer/diskselectionitem.h \
     widgets/viewer/diskselectionwidget.h \
@@ -126,6 +130,7 @@ FORMS += \
     widgets/pushstreamwidget.ui \
     widgets/recordwidget.ui \
     widgets/settingwidget.ui \
+    widgets/suredialog.ui \
     widgets/viewer/diskselectionitem.ui \
     widgets/viewer/diskselectionwidget.ui \
     widgets/viewer/extstorageitem.ui \

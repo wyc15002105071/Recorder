@@ -5,6 +5,7 @@
 #include "media/videoinputdevice.h"
 #include "common/common.h"
 #include "basewidget.h"
+#include "listeners/udplistener.h"
 
 namespace Ui {
 class PushStreamWidget;
@@ -22,10 +23,13 @@ public:
 private:
     Ui::PushStreamWidget *ui;
     VideoInputDevice *mVideoInputDevice;
+    UdpListener *udp;
 
 public slots:
     void onPushToggled(bool toggled);
     void onStopPush();
+private slots:
+    void on_back_clicked();
 };
 
 #endif // PUSHSTREAMWIDGET_H
