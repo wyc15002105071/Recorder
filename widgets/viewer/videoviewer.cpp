@@ -231,6 +231,7 @@ void VideoViewer::onDelAllClicked()
         return;
     }
 
+    mThumbnail->stopTask();
     mOperation = FileUtils::DELETE;
     if(mProgressViewer) {
         mProgressViewer->setOperation(mOperation);

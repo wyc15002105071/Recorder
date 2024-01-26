@@ -62,7 +62,7 @@ private:
     Allocator   *mAllocator;
     bool         mUseExternalOES;
     FILE*        inFile;
-    Mutex        mLock;
+    RMutex        mLock;
 signals:
     void onVideoWidgetCreated();
     void onStartUpdate();

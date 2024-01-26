@@ -22,8 +22,9 @@ public:
     }
     virtual void reset(){}
 protected:
-    bool mThreadExit = false;
-    Mutex mLock;
+
+    bool mThreadExit;
+    RMutex mLock;
     const int QUIT_TIMEOUT = 1000;
 };
 

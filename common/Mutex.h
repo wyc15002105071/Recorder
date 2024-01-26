@@ -4,9 +4,9 @@
 #include <mutex>
 #include <pthread.h>
 
-class Mutex {
+class RMutex {
 public:
-    Mutex(){}
+    RMutex(){}
     void lock(){
 //        std::unique_lock<std::mutex> mux(mLock);
         pthread_mutex_lock(&mMtx);

@@ -2,6 +2,8 @@
 #include "common/log.h"
 #include "media/mediautils.h"
 #include "mpp_common.h"
+#include "media/rkrgadef.h"
+#include "RockchipRga.h"
 
 #define MODULE_TAG "RKHWEncApi"
 
@@ -69,7 +71,6 @@ MPP_RET RKHWEncApi::sendFrame(DmaBuffer_t buffer,uint64_t pts,bool eos)
     MPP_RET ret;
     EncoderCtx *p       = &mCtx;
     EncCfgInfo *info    = &mCtx.info;
-
     if(buffer.dma_fd <= 0 || buffer.size <= 0) {
         return MPP_NOK;
     }
@@ -202,6 +203,11 @@ MPP_RET RKHWEncApi::release()
     if (mCtx.outFile != nullptr) {
         fclose(mCtx.outFile);
         mCtx.outFile = nullptr;
+    }
+
+    if(mCtx.group != nullptr) {
+        mpp_buffer_group_put(mCtx.group);
+        mCtx.group = nullptr;
     }
 
     return MPP_OK;

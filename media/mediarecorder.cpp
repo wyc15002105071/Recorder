@@ -1,5 +1,6 @@
 #include "mediarecorder.h"
 #include "common/log.h"
+#include "utils/osdutils.h"
 
 #define MODULE_TAG "MediaRecorder"
 
@@ -28,6 +29,7 @@ void MediaRecorder::run()
     RLOGD("Record Thread start");
     int frameIndex = 0;
     int ret = 0;
+
     mRecordState = REC_STATE_RUNNING;
     MediaMuxer::MediaPacket packet;
 
@@ -137,6 +139,8 @@ EXIT:
     mRecordState = REC_STATE_STOPPED;
     mThreadExit = true;
     mRecordEosFlag = false;
+
+    OSDUtils::destroyOSD(mOsd);
     RLOGD("Record finish");
 }
 
@@ -173,6 +177,16 @@ bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int t
     cfg.type        = type;
     cfg.bitrateMode = 1;
     cfg.framerate   = 60;
+
+    OSDUtils::createOSD(mOsd,"清阅技术");
+
+    RKHWEncApi::OSD_t osd_t;
+    osd_t.data     = mOsd.toImage().bits();
+    osd_t.width    = mOsd.size().width();
+    osd_t.height   = mOsd.size().height();
+    osd_t.size     = mOsd.toImage().sizeInBytes();
+    cfg.osd_enable = 1;
+    cfg.osd = osd_t;
 
     if(mVideoEncoder->prepare(&cfg)) {
         mRecordState = REC_STATE_UNINITIALIZED;

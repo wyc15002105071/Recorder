@@ -30,7 +30,7 @@ public:
 
 private:
     std::list<Observer *>mObservers;
-    Mutex mMutex;
+    RMutex mMutex;
 };
 
 #endif // OBSERVER_H

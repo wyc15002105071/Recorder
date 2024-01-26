@@ -2,6 +2,8 @@
 #include "log.h"
 #include <vector>
 #include "drm_fourcc.h"
+#include "utils/osdutils.h"
+#include "media/rkrgadef.h"
 
 using namespace std;
 
@@ -93,7 +95,21 @@ void VideoInputDevice::run()
                                       mDmaBo[i].width,mDmaBo[i].height,mDmaBo->vir_addr);
                 }
             }
+
             if(mIsEncoding) {
+                RKRgaDef::RgaInfo srcInfo;
+                RKRgaDef::RgaInfo dstInfo;
+                int rga_format = RK_FORMAT_RGB_888;
+                string fmt = fcc2s(mStreamInfo.format);
+                if(fmt == "RGB3" || fmt == "BGR3") {
+                    rga_format = RK_FORMAT_RGB_888;
+                } else if(fmt == "NV12") {
+                    rga_format = RK_FORMAT_YCbCr_420_SP;
+                }
+
+                RKRgaDef::SetRgaInfo(&srcInfo, mOsdBo.buf_fd, mOsdBo.width, mOsdBo.height,RK_FORMAT_RGBA_8888 ,ALIGN(mOsdBo.width,4), ALIGN(mOsdBo.height,2));
+                RKRgaDef::SetRgaInfo(&dstInfo, mDmaBo[i].buf_fd, mDmaBo[i].width, mDmaBo[i].height,rga_format ,ALIGN(mDmaBo[i].width,4), ALIGN(mDmaBo[i].height,2));
+                RKRgaDef::ProcessOSD(srcInfo,dstInfo);
                 if(mRecorder) {
                     mRecorder->sendVideoFrame(mDmaBo[i].buf_fd,mDmaBo[i].buf_size,
                                               mDmaBo[i].width,mDmaBo[i].height,false);
@@ -104,6 +120,16 @@ void VideoInputDevice::run()
                 RLOGD("Send eos");
                 mVideoEosFlag = false;
             }
+
+            if(mIsPushing) {
+                if(mPusher) {
+                    mPusher->sendData(mDmaBo[i].buf_fd,mDmaBo[i].buf_size,
+                                      mDmaBo[i].width,mDmaBo[i].height,mDmaBo->vir_addr);
+                }
+            }
+
+            if(mVideoWidget)
+                mVideoWidget->PrepareUpdate(mBufferArray[i].index);
 
             if (V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE == mBufferArray[i].type)
                 mBufferArray[i].bytesused = mBufferArray[i].m.planes[0].bytesused;
@@ -143,6 +169,15 @@ void VideoInputDevice::startRecord(bool push)
         mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC, push);
         mRecorder->startTask();
     }
+
+    QPixmap osd;
+    OSDUtils::createOSD(osd,"清阅技术");
+
+    if(mOsdBo.vir_addr) {
+        memcpy(mOsdBo.vir_addr,osd.toImage().bits(),osd.toImage().sizeInBytes());
+    }
+    OSDUtils::destroyOSD(osd);
+
     mVideoEosFlag = false;
     mIsEncoding = true;
     //    mLock.unlock();
@@ -363,6 +398,14 @@ bool VideoInputDevice::initDevice(bool is_hdmi_in)
         }
     }
 
+    memset(&mOsdBo,0,sizeof(DmaBufferObject));
+    mOsdBo.width = OSD_DEFAULT_WIDTH;
+    mOsdBo.height = OSD_DEFAULT_HEIGHT;
+    Allocator *allocator = AllocatorService::getDrmAllocator();
+    allocator->allocBuffers(mOsdBo.width,mOsdBo.height,DRM_FORMAT_RGBA8888,false,true,1);
+    allocator->getBuffer(mOsdBo.buf_fd,mOsdBo.buf_size,&mOsdBo.vir_addr,0);
+
+
     enum v4l2_buf_type type = (v4l2_buf_type)buf_type;
     if (ioctl(mDeviceFd, VIDIOC_STREAMON, &type) == -1) {
         perror("无法启动视频流");
@@ -387,6 +430,9 @@ void VideoInputDevice::deinit()
         munmap(mDmaBo[i].vir_addr, mDmaBo[i].buf_size);
         close(mDmaBo[i].buf_fd);
     }
+
+    Allocator *allocator = AllocatorService::getDrmAllocator();
+    allocator->destroyBuffers();
 
     close(mDeviceFd);
 }

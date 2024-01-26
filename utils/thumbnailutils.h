@@ -39,7 +39,6 @@ private:
 private:
     QList<QString> mFileslist;
     QSize mThumbSize;
-    Mutex mLock;
     RKHWDecApi mDecoder;
     AVFormatContext *mFormatCtx;
 };
