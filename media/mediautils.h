@@ -12,9 +12,12 @@
 #include <unistd.h>
 #include <sys/ioctl.h>
 
-#define IMAGES_SAVE_DIR "/userdata/images"
-#define VIDEOS_SAVE_DIR "/userdata/videos"
-#define ROOT_DIR        "/userdata"
+//#define IMAGES_SAVE_DIR "/userdata/images"
+//#define VIDEOS_SAVE_DIR "/userdata/videos"
+//#define ROOT_DIR        "/userdata"
+#define IMAGES_SAVE_DIR "/mnt/storage/images"
+#define VIDEOS_SAVE_DIR "/mnt/storage/videos"
+#define ROOT_DIR        "/mnt/storage"
 
 typedef struct DmaBufferObject{
     int32_t     buf_fd;

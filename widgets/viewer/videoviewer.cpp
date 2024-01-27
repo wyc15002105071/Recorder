@@ -14,6 +14,7 @@ VideoViewer::VideoViewer(QWidget *parent) :
     BaseViewer(parent)
    , ui(new Ui::VideoViewer)
 //   , mPlayer(sp<VideoPlayer>(new VideoPlayer()))
+   , mKeyListener(KeyListener::get_instance())
    , mIconHasUpdated(0)
 {
     ui->setupUi(this);
@@ -29,6 +30,7 @@ VideoViewer::VideoViewer(QWidget *parent) :
     mListViewer->verticalScrollBar()->setStyleSheet(mListViewer->styleSheet());
     QScroller::grabGesture(mListViewer,QScroller::TouchGesture);
     connect(mThumbnail.get(),SIGNAL(onGetOneImage(QImage,QString)),this,SLOT(onLoadThumbnail(QImage,QString)));
+    connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)));
     connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)));
 }
 
@@ -160,6 +162,8 @@ void VideoViewer::onCopySelectedClicked()
             mSelectionlist.push_back(mFilePathList.at(i));
         }
     }
+    RLOGD("",1);
+
     mOperation = FileUtils::COPY;
     openDiskSelection();
 }
@@ -170,17 +174,18 @@ void VideoViewer::onCopyAllClicked()
     mOperation = FileUtils::COPY;
     mSelectionlist = mFilePathList;
 
+    if (mSelectionlist.count() == 0) {
+        mProgressViewer->showWarning("未选中对象...");
+        if(mDiskSelectionWidget)
+            mDiskSelectionWidget->close();
+        return;
+    }
+
     openDiskSelection();
 }
 
 void VideoViewer::onDelSelectClicked()
 {
-    mConfirmDialog->setTitle("确认删除吗");
-    int ret = mConfirmDialog->exec();
-    if(ret == QDialog::Rejected) {
-        return;
-    }
-
     mOperation = FileUtils::DELETE;
     mSelectionlist.clear();
 
@@ -208,6 +213,12 @@ void VideoViewer::onDelSelectClicked()
         return;
     }
 
+    mConfirmDialog->setTitle("确认删除吗");
+    int ret = mConfirmDialog->exec();
+    if(ret == QDialog::Rejected) {
+        return;
+    }
+
     while(del_list.count() > 0) {
         QListWidgetItem *item = del_list.front();
 
@@ -225,6 +236,12 @@ void VideoViewer::onDelSelectClicked()
 
 void VideoViewer::onDelAllClicked()
 {
+    if (mFilePathList.count() == 0) {
+        mProgressViewer->showWarning("未选中对象...");
+        if(mDiskSelectionWidget)
+            mDiskSelectionWidget->close();
+        return;
+    }
     mConfirmDialog->setTitle("确认删除吗");
     int ret = mConfirmDialog->exec();
     if(ret == QDialog::Rejected) {
@@ -264,6 +281,33 @@ void VideoViewer::onDiskItemClicked(int index)
         mDiskSelectionWidget->close();
     if(mProgressViewer) {
         mProgressViewer->setOperation(mOperation);
+    }
+}
+
+void VideoViewer::onKeyEventHandler(KeyListener::EventType type)
+{
+    if(!this->isVisible()||(mPlayer&&mPlayer->isVisible())) {
+        return;
+    }
+
+    switch (type)
+    {
+    case KeyListener::Key_EventType_UP:
+        if(mSelectMode) {
+            onCopySelectedClicked();
+        } else {
+            onCopyAllClicked();
+        }
+        break;
+    case KeyListener::Key_EventType_DOWN:
+        if(mSelectMode){
+            onDelSelectClicked();
+        }else{
+            onDelAllClicked();
+        }
+        break;
+    default:
+        break;
     }
 }
 

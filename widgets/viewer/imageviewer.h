@@ -5,6 +5,7 @@
 #include "baseviewer.h"
 #include <QListWidgetItem>
 #include "imagebrowser.h"
+#include "listeners/key_listener.h"
 
 namespace Ui {
 class ImageViewer;
@@ -32,10 +33,12 @@ public slots:
     void onDiskItemClicked(int index);
     void onScrollValueChanged(int value);
     void onLoadThumbnail(QImage image,QString file_path);
+    void onKeyEventHandler(KeyListener::EventType type);
 private:
     Ui::ImageViewer *ui;
     sp<ImageBrowser> mImageBrowser;
     QList<QString> mSelectionlist;
+    KeyListener *mKeyListener;
 };
 
 #endif // IMAGEVIEWER_H

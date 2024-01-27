@@ -61,6 +61,7 @@ QVector<StorageUtils::ExternalStorageInfo> StorageUtils::getExternalStorageInfoL
                 getStorageCapacity(mnt_path,info.total,info.used,info.free);
                 RLOGD("node:%s,label:%s,filesystem:%s,mnt_path:%s",info.node_path.c_str()
                       ,info.label.c_str(),info.file_system.c_str(),info.mount_path.c_str());
+                if(info.node_path!="/dev/sda"||info.mount_path!="/mnt/storage")
                 mInfoVec.push_back(info);
             }
             udev_device_unref(dev);

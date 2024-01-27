@@ -103,6 +103,15 @@ void BaseViewer::openDiskSelection()
 {
     mExternalStorageInfo.clear();
     mExternalStorageInfo = mStorageUtils->getExternalStorageInfoList();
+
+    if(mExternalStorageInfo.count()==0){
+        mProgressViewer->showWarning("请插入U盘...");
+        if(mDiskSelectionWidget)
+            mDiskSelectionWidget->close();
+        return;
+
+    }
+
     for(int i = 0;i < mExternalStorageInfo.count();i++) {
         if(mDiskSelectionWidget) {
             mDiskSelectionWidget->additem(QString::fromStdString(mExternalStorageInfo[i].label));

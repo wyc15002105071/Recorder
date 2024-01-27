@@ -169,6 +169,9 @@ void VideoPlayer::onKeyEventHandler(KeyListener::EventType type)
     case KeyListener::Key_EventType_RIGHT:
         onNextClicked();
         break;
+    case KeyListener::Key_EventType_OK:
+        onPlayChecked(!ui->play_btn->isChecked());
+        break;
     default:
         break;
     }

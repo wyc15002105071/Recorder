@@ -5,6 +5,7 @@
 #include "baseviewer.h"
 #include "videoframereader.h"
 #include "videoplayer.h"
+#include "listeners/key_listener.h"
 
 namespace Ui {
 class VideoViewer;
@@ -31,7 +32,7 @@ public slots:
     void onDelAllClicked();
 public slots:
     void onDiskItemClicked(int index);
-
+    void onKeyEventHandler(KeyListener::EventType type);
 private:
     Ui::VideoViewer  *ui;
     VideoFrameReader *mVideoFrameReader;
@@ -39,6 +40,7 @@ private:
     sp<VideoPlayer> mPlayer;
 
     int mIconHasUpdated;
+    KeyListener *mKeyListener;
 };
 
 #endif // VIDEOVIEWER_H
