@@ -51,6 +51,7 @@ void MainWidget::initWidgets()
         connect(mPushWidget.get(),&PushStreamWidget::onClosed,this,[=]{ if(mMenuWidget) mMenuWidget->show(); },Qt::UniqueConnection);
     }
 
+
     mVideoWidget->resize(this->size());
     mVideoWidget->move(0,0);
 
@@ -80,7 +81,11 @@ void MainWidget::initWidgets()
         mVideoViewer->showFullScreen();
         mVideoViewer->close();
     }
-
+    if(!mUserSetWidget){
+         mUserSetWidget = sp<UserSetWidget>(new UserSetWidget(this));
+         mUserSetWidget->setGeometry(this->geometry());
+         mUserSetWidget->close();
+    }
     connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)),Qt::UniqueConnection);
 
     if (access(IMAGES_SAVE_DIR, F_OK)) {
@@ -218,6 +223,12 @@ void MainWidget::onPower()
     }
 }
 
+void MainWidget::onUserSet()
+{
+    mUserSetWidget->setGeometry(this->geometry());
+    mUserSetWidget->open();
+}
+
 void MainWidget::onCreateTask()
 {
     mInputDevice.setVideoWidget(mVideoWidget.get());
@@ -247,6 +258,9 @@ void MainWidget::onMenuEventHandler(MenuWidget::EventType type)
         break;
     case MenuWidget::Menu_EventType_VideoBrowse:
         onOpenVideoBrowser();
+        break;
+    case MenuWidget::Menu_EventType_UserSet:
+        onUserSet();
         break;
     default:
         break;

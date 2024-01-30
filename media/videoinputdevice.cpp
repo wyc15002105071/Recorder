@@ -4,6 +4,7 @@
 #include "drm_fourcc.h"
 #include "utils/osdutils.h"
 #include "media/rkrgadef.h"
+#include "utils/configutils.h"
 
 using namespace std;
 
@@ -171,7 +172,8 @@ void VideoInputDevice::startRecord(bool push)
     }
 
     QPixmap osd;
-    OSDUtils::createOSD(osd,"清阅技术");
+    //OSDUtils::createOSD(osd,"清阅技术");
+    OSDUtils::createOSD(osd,ConfigUtils::ost_txt.isEmpty()?"清阅技术":ConfigUtils::ost_txt);
 
     if(mOsdBo.vir_addr) {
         memcpy(mOsdBo.vir_addr,osd.toImage().bits(),osd.toImage().sizeInBytes());

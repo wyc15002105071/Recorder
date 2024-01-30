@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>803</width>
+    <width>945</width>
     <height>233</height>
    </rect>
   </property>
@@ -38,6 +38,9 @@ border-radius: 40px;
 
 #picture_btn {
 	image: url(:/resources/icons/picture.png);
+}
+#userSet_btn{
+	image: url(:/resources/icons/userSet.png);
 }
 
 #menu_widget{
@@ -218,6 +221,25 @@ background: rgba(127, 104, 98, 1);
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="userSet_btn">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>140</width>
+          <height>140</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -305,6 +327,22 @@ background: rgba(127, 104, 98, 1);
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>userSet_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>MenuWidget</receiver>
+   <slot>onUserSetClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>859</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>472</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onCaptureClicked()</slot>
@@ -312,5 +350,6 @@ background: rgba(127, 104, 98, 1);
   <slot>onPushClicked()</slot>
   <slot>onPictureFileClicked()</slot>
   <slot>onVideoFileClicked()</slot>
+  <slot>onUserSetClicked()</slot>
  </slots>
 </ui>

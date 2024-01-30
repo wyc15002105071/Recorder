@@ -1,11 +1,16 @@
 #include "main_widget.h"
 
 #include <QApplication>
+#include "utils/configutils.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWidget w;
+
+    //init config
+    ConfigUtils::ConfigFile = QCoreApplication::applicationDirPath() + "/config.ini";
+    ConfigUtils::readConfig();
 
     struct sigaction interrupt;
 

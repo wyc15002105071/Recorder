@@ -26,7 +26,8 @@ public:
         Menu_EventType_Record,
         Menu_EventType_PushStream,
         Menu_EventType_ImageBrowse,
-        Menu_EventType_VideoBrowse
+        Menu_EventType_VideoBrowse,
+        Menu_EventType_UserSet
     } EventType_t;
 signals:
     void onMenuEvent(MenuWidget::EventType type);
@@ -41,6 +42,7 @@ public slots:
     void onPushClicked();
     void onPictureFileClicked();
     void onVideoFileClicked();
+    void onUserSetClicked();
 
     virtual void onHasOpened();
 };

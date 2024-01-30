@@ -19,6 +19,7 @@
 #include "widgets/viewer/progressviewer.h"
 #include "widgets/pushstreamwidget.h"
 #include "listeners/key_listener.h"
+#include "widgets/usersetwidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
@@ -68,6 +69,7 @@ private:
     sp<RecordWidget>        mRecordWidget;
     sp<SignalHandler>       mSignalHandler;
     sp<PushStreamWidget>    mPushWidget;
+    sp<UserSetWidget>       mUserSetWidget;
 
     const uint32_t    mMenuAutoHideMs = 5000;
 
@@ -86,5 +88,6 @@ private:
     void onOpenImageBrowser();
     void onOpenVideoBrowser();
     void onPower();
+    void onUserSet();
 };
 #endif // MAINWIDGET_H

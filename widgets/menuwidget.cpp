@@ -75,6 +75,11 @@ void MenuWidget::onVideoFileClicked()
     onMenuEvent(Menu_EventType_VideoBrowse);
 }
 
+void MenuWidget::onUserSetClicked()
+{
+    onMenuEvent(Menu_EventType_UserSet);
+}
+
 void MenuWidget::onHasOpened()
 {
     if(mTimer) {

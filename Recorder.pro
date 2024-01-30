@@ -44,6 +44,7 @@ SOURCES += \
     media/streampusher.cpp \
     media/videoframereader.cpp \
     media/videoinputdevice.cpp \
+    utils/configutils.cpp \
     utils/fileutils.cpp \
     utils/networkutils.cpp \
     utils/osdutils.cpp \
@@ -57,6 +58,7 @@ SOURCES += \
     widgets/recordwidget.cpp \
     widgets/setting_widget.cpp \
     widgets/suredialog.cpp \
+    widgets/usersetwidget.cpp \
     widgets/viewer/baseviewer.cpp \
     widgets/viewer/diskselectionitem.cpp \
     widgets/viewer/diskselectionwidget.cpp \
@@ -66,6 +68,7 @@ SOURCES += \
     widgets/record_timer_widget.cpp \
     widgets/videowidget.cpp \
     widgets/viewer/listwidgetitem.cpp \
+    widgets/viewer/osdview.cpp \
     widgets/viewer/progressviewer.cpp \
     widgets/viewer/selectionicon.cpp \
     widgets/viewer/videoplayer.cpp \
@@ -97,6 +100,7 @@ HEADERS += \
     media/streampusher.h \
     media/videoframereader.h \
     media/videoinputdevice.h \
+    utils/configutils.h \
     utils/fileutils.h \
     utils/networkutils.h \
     utils/osdutils.h \
@@ -110,6 +114,7 @@ HEADERS += \
     widgets/recordwidget.h \
     widgets/setting_widget.h \
     widgets/suredialog.h \
+    widgets/usersetwidget.h \
     widgets/viewer/baseviewer.h \
     widgets/viewer/diskselectionitem.h \
     widgets/viewer/diskselectionwidget.h \
@@ -119,6 +124,7 @@ HEADERS += \
     widgets/record_timer_widget.h \
     widgets/videowidget.h \
     widgets/viewer/listwidgetitem.h \
+    widgets/viewer/osdview.h \
     widgets/viewer/progressviewer.h \
     widgets/viewer/selectionicon.h \
     widgets/viewer/videoplayer.h \
@@ -133,6 +139,7 @@ FORMS += \
     widgets/recordwidget.ui \
     widgets/settingwidget.ui \
     widgets/suredialog.ui \
+    widgets/usersetwidget.ui \
     widgets/viewer/diskselectionitem.ui \
     widgets/viewer/diskselectionwidget.ui \
     widgets/viewer/extstorageitem.ui \
@@ -140,6 +147,7 @@ FORMS += \
     widgets/viewer/imageviewer.ui \
     widgets/recordtimerwidget.ui \
     widgets/viewer/listwidgetitem.ui \
+    widgets/viewer/osdview.ui \
     widgets/viewer/progressviewer.ui \
     widgets/viewer/selectionicon.ui \
     widgets/viewer/videoplayer.ui \
