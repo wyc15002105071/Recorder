@@ -1,6 +1,7 @@
 #include "recordwidget.h"
 #include "ui_recordwidget.h"
 #include "common/log.h"
+#include "utils/configutils.h"
 
 RecordWidget::RecordWidget(QWidget *parent) :
     BaseWidget(parent),
@@ -33,7 +34,8 @@ void RecordWidget::onRecordBtnToggled(bool toggled)
         ui->record_timer_widget->stop();
         if(mVideoInputDevice) {
             mVideoInputDevice->stopRecord();
-            mSureDialog->exec();
+            if(!ConfigUtils::isPowOff)
+                mSureDialog->exec();
         }
         this->close();
     }

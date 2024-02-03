@@ -9,6 +9,7 @@ public:
     static QString ConfigFile;  //配置文件路径
 
     static QString ost_txt;
+    static bool isPowOff;
 
     //读写配置参数
     static void readConfig();   //读取配置参数

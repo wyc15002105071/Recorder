@@ -164,8 +164,6 @@ void ImageViewer::onCopyAllClicked()
 
 void ImageViewer::onDelSelectClicked()
 {
-
-
     mOperation = FileUtils::DELETE;
     mSelectionlist.clear();
 

@@ -163,7 +163,12 @@ void VideoViewer::onCopySelectedClicked()
         }
     }
     RLOGD("",1);
-
+    if (mSelectionlist.count() == 0) {
+        mProgressViewer->showWarning("未选中对象...");
+        if(mDiskSelectionWidget)
+            mDiskSelectionWidget->close();
+        return;
+    }
     mOperation = FileUtils::COPY;
     openDiskSelection();
 }

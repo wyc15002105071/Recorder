@@ -7,6 +7,8 @@
 #include <unistd.h>
 #include <sys/types.h>          /* See NOTES */
 #include <sys/socket.h>
+#include "utils/configutils.h"
+#include "widgets/powoffwidget.h"
 
 #define MODULE_TAG "MainWidget"
 
@@ -204,6 +206,12 @@ void MainWidget::onOpenVideoBrowser()
 
 void MainWidget::onPower()
 {
+    if(ConfigUtils::isPowOff)return;
+    ConfigUtils::isPowOff = true;
+
+    PowOffWidget *p = new PowOffWidget;
+    p->showFullScreen();
+
     if(mRecordWidget) {
         if(mRecordWidget->isVisible()) {
             RLOGD("ready to close record widget");
@@ -272,9 +280,19 @@ void MainWidget::onKeyEventHandler(KeyListener::EventType type)
     switch (type)
     {
     case KeyListener::Key_EventType_RECORD: {
+        if((!mVideoViewer&&mVideoViewer->isVisible())
+                ||(!mImageViewer&&mImageViewer->isVisible())
+                ||(!mUserSetWidget&&mUserSetWidget->isVisible())
+                ||(!mPushWidget&&mPushWidget->isVisible()))
+            return
         onRecord();
     }break;
     case KeyListener::Key_EventType_CAPTURE: {
+        if((!mVideoViewer&&mVideoViewer->isVisible())
+                ||(!mImageViewer&&mImageViewer->isVisible())
+                ||(!mUserSetWidget&&mUserSetWidget->isVisible())
+                ||(!mPushWidget&&mPushWidget->isVisible()))
+            return
         onCapture();
     }break;
     case KeyListener::Key_EventType_POWER: {

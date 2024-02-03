@@ -6,6 +6,7 @@
 
 
 QString ConfigUtils::ConfigFile = "config.ini";
+bool ConfigUtils::isPowOff = false;
 QString ConfigUtils::ost_txt = "清阅技术";
 
 bool checkIniFile(const QString &iniFile) {

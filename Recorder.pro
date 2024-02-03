@@ -54,6 +54,7 @@ SOURCES += \
     widgets/basewidget.cpp \
     widgets/confirmdialog.cpp \
     widgets/menuwidget.cpp \
+    widgets/powoffwidget.cpp \
     widgets/pushstreamwidget.cpp \
     widgets/recordwidget.cpp \
     widgets/setting_widget.cpp \
@@ -110,6 +111,7 @@ HEADERS += \
     widgets/basewidget.h \
     widgets/confirmdialog.h \
     widgets/menuwidget.h \
+    widgets/powoffwidget.h \
     widgets/pushstreamwidget.h \
     widgets/recordwidget.h \
     widgets/setting_widget.h \
@@ -135,6 +137,7 @@ FORMS += \
     widgets/basewidget.ui \
     widgets/confirmdialog.ui \
     widgets/menuwidget.ui \
+    widgets/powoffwidget.ui \
     widgets/pushstreamwidget.ui \
     widgets/recordwidget.ui \
     widgets/settingwidget.ui \
