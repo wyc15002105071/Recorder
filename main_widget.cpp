@@ -229,6 +229,7 @@ void MainWidget::onPower()
                                  .append(0x02).append(0xBF)
                                  .append(0xEF).append(0xEF));
     }
+    system("poweroff");
 }
 
 void MainWidget::onUserSet()
