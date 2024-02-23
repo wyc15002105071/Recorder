@@ -1,6 +1,6 @@
 #include "serialportutils.h"
 #include <QSerialPortInfo>
-
+#include <QDebug>
 #define MODULE_TAG "SerialPortUtils"
 
 SerialPortUtils::SerialPortUtils()
@@ -87,8 +87,9 @@ QByteArray SerialPortUtils::readData()
 void SerialPortUtils::sendData(QByteArray data)
 {
     if(mSerialPort && mInitOk) {
+        qDebug()<< "send============="<<data.toHex().toUpper().data();
         RLOGE("serial send %s",data.toHex());
-        mSerialPort->write(data);
+        qDebug()<<mSerialPort->write(data);
     }
 }
 

@@ -305,6 +305,7 @@ void MainWidget::onKeyEventHandler(KeyListener::EventType type)
 
 void MainWidget::signalChange(bool has)
 {
+    //if(has==signalIn)return;
     if(has){
         RLOGE("signal");
         signalIn = true;
