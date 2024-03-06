@@ -53,6 +53,8 @@ QVector<StorageUtils::ExternalStorageInfo> StorageUtils::getExternalStorageInfoL
 
             if (devnode && model && serial_short && filesystem && label) {
                 const char *mnt_path = getMountPath(devnode);
+                if(!mnt_path)
+                    continue;
                 ExternalStorageInfo info;
                 info.node_path = devnode;
                 info.label = label;
@@ -81,7 +83,7 @@ RET:
 
 void StorageUtils::getStorageCapacity(const char *root, long &total, long &used, long &free)
 {
-    if(access(root, F_OK) != 0) {
+    if(!root || (access(root, F_OK) != 0)) {
         RLOGE("%s not exists",root);
         total = 0;
         used = 0;
