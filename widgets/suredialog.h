@@ -2,6 +2,7 @@
 #define SUREDIALOG_H
 
 #include <QDialog>
+#include "listeners/key_listener.h"
 
 namespace Ui {
 class SureDialog;
@@ -15,8 +16,12 @@ public:
     explicit SureDialog(QWidget *parent = nullptr);
     ~SureDialog();
 
+
+public slots:
+    void onKeyEventHandler(KeyListener::EventType type);
 private:
-    Ui::SureDialog *ui;
+    Ui::SureDialog *ui;    
+    KeyListener *mKeyListener;
 };
 
 #endif // SUREDIALOG_H

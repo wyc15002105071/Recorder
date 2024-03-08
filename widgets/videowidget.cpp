@@ -464,6 +464,31 @@ EGLImageKHR VideoWidget::createEGLImage(int fd, int fourcc, int w, int h,int str
         EGL_NONE
     };
 
+    EGLint attr_nv16[] = {
+          EGL_WIDTH, w,
+          EGL_HEIGHT, h,
+          EGL_LINUX_DRM_FOURCC_EXT, fourcc,
+          EGL_DMA_BUF_PLANE0_FD_EXT, fd,
+          EGL_DMA_BUF_PLANE0_OFFSET_EXT, offset,
+          EGL_DMA_BUF_PLANE0_PITCH_EXT, stride,
+          EGL_DMA_BUF_PLANE1_FD_EXT, fd,
+          EGL_DMA_BUF_PLANE1_OFFSET_EXT, offset + h * stride,
+          EGL_DMA_BUF_PLANE1_PITCH_EXT, stride,
+          EGL_NONE
+      };
+    EGLint attr_nv24[] = {
+        EGL_WIDTH, w,
+        EGL_HEIGHT, h,
+        EGL_LINUX_DRM_FOURCC_EXT, fourcc,
+        EGL_DMA_BUF_PLANE0_FD_EXT, fd,
+        EGL_DMA_BUF_PLANE0_OFFSET_EXT, offset,
+        EGL_DMA_BUF_PLANE0_PITCH_EXT, stride,
+        EGL_DMA_BUF_PLANE1_FD_EXT, fd,
+        EGL_DMA_BUF_PLANE1_OFFSET_EXT, offset + h * stride,
+        EGL_DMA_BUF_PLANE1_PITCH_EXT, stride,
+        EGL_NONE
+    };
+
     EGLint attr_yuv420[] = {
         EGL_WIDTH, w,
         EGL_HEIGHT, h,
@@ -485,6 +510,14 @@ EGLImageKHR VideoWidget::createEGLImage(int fd, int fourcc, int w, int h,int str
     case DRM_FORMAT_NV12:
     case DRM_FORMAT_NV21:
         attr = attr_nv12;
+        break;
+    case DRM_FORMAT_NV61:
+    case DRM_FORMAT_NV16:
+        attr = attr_nv16;
+        break;
+    case DRM_FORMAT_NV24:
+    case DRM_FORMAT_NV42:
+        attr = attr_nv24;
         break;
     case DRM_FORMAT_YUV420:
     case DRM_FORMAT_YVU420:
@@ -514,6 +547,10 @@ int VideoWidget::getStride(int width, int height, int fourcc)
     switch(fourcc) {
     case DRM_FORMAT_NV12:
     case DRM_FORMAT_NV21:
+    case DRM_FORMAT_NV16:
+    case DRM_FORMAT_NV61:
+    case DRM_FORMAT_NV24:
+    case DRM_FORMAT_NV42:
         break;
     case DRM_FORMAT_BGR888:
     case DRM_FORMAT_RGB888:
@@ -544,6 +581,15 @@ int VideoWidget::getDrmFourcc(uint32_t format)
     }
     else if(!strcmp(pixel_fmt,"NV16")) {
         drm_fmt = DRM_FORMAT_NV16;
+    }
+    else if(!strcmp(pixel_fmt,"NV61")) {
+        drm_fmt = DRM_FORMAT_NV61;
+    }
+    else if(!strcmp(pixel_fmt,"NV24")) {
+        drm_fmt = DRM_FORMAT_NV24;
+    }
+    else if(!strcmp(pixel_fmt,"NV42")) {
+        drm_fmt = DRM_FORMAT_NV42;
     }
 
     return drm_fmt;

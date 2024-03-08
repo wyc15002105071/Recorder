@@ -7,7 +7,7 @@
 #define OSD_COLOR   200, 200, 200, 170
 #define OSD_FONT    "SimSun"
 #define OSD_FONT_SIZE 40
-#define OSD_DEFAULT_WIDTH  400
+#define OSD_DEFAULT_WIDTH  1500
 #define OSD_DEFAULT_HEIGHT 200
 
 class OSDUtils

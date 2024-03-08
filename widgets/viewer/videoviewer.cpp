@@ -115,6 +115,9 @@ void VideoViewer::open()
 
 void VideoViewer::onItemClicked(QListWidgetItem *item)
 {
+    QScroller *scroller = QScroller::scroller(mListViewer);
+    if(scroller&&scroller->state()!=QScroller::Inactive)
+        return;
     if(mSelectMode) {
         ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
         if(!item_widget)
@@ -194,7 +197,7 @@ void VideoViewer::onDelSelectClicked()
     mOperation = FileUtils::DELETE;
     mSelectionlist.clear();
 
-    QList<QListWidgetItem*> del_list;
+
     del_list.clear();
     if(mProgressViewer) {
         mProgressViewer->setOperation(mOperation);
@@ -217,26 +220,50 @@ void VideoViewer::onDelSelectClicked()
             mDiskSelectionWidget->close();
         return;
     }
-
+    mConfirmDialog = new ConfirmDialog();
+    connect(mConfirmDialog,&ConfirmDialog::rejected,this,[=]{
+        mConfirmDialog->deleteLater();
+        mConfirmDialog = nullptr;
+    });
     mConfirmDialog->setTitle("确认删除吗");
-    int ret = mConfirmDialog->exec();
-    if(ret == QDialog::Rejected) {
-        return;
-    }
+    connect(mConfirmDialog,&ConfirmDialog::accepted,this,[=]{
+        while(del_list.count() > 0) {
+            QListWidgetItem *item = del_list.front();
 
-    while(del_list.count() > 0) {
-        QListWidgetItem *item = del_list.front();
+            int row = mListViewer->row(item);
+            mListViewer->removeItemWidget(item);
+            mListViewer->takeItem(row);
+            del_list.pop_front();
 
-        int row = mListViewer->row(item);
-        mListViewer->removeItemWidget(item);
-        mListViewer->takeItem(row);
-        del_list.pop_front();
+            mFilePathList.removeAt(row);
+            mFileNameList.removeAt(row);
 
-        mFilePathList.removeAt(row);
-        mFileNameList.removeAt(row);
-    }
+            mConfirmDialog->deleteLater();
+            mConfirmDialog = nullptr;
+        }
 
-    mFileUtils->startDelete(mSelectionlist);
+        mFileUtils->startDelete(mSelectionlist);
+    });
+    mConfirmDialog->showFullScreen();
+
+    //int ret = mConfirmDialog->exec();
+    //if(ret == QDialog::Rejected) {
+    //    return;
+    //}
+
+    //while(del_list.count() > 0) {
+    //    QListWidgetItem *item = del_list.front();
+    //
+    //    int row = mListViewer->row(item);
+    //    mListViewer->removeItemWidget(item);
+    //    mListViewer->takeItem(row);
+    //    del_list.pop_front();
+    //
+    //    mFilePathList.removeAt(row);
+    //    mFileNameList.removeAt(row);
+    //}
+    //
+    //mFileUtils->startDelete(mSelectionlist);
 }
 
 void VideoViewer::onDelAllClicked()
@@ -247,21 +274,41 @@ void VideoViewer::onDelAllClicked()
             mDiskSelectionWidget->close();
         return;
     }
-    mConfirmDialog->setTitle("确认删除吗");
-    int ret = mConfirmDialog->exec();
-    if(ret == QDialog::Rejected) {
-        return;
-    }
 
-    mThumbnail->stopTask();
-    mOperation = FileUtils::DELETE;
-    if(mProgressViewer) {
-        mProgressViewer->setOperation(mOperation);
-    }
-    mListViewer->clear();
-    mFileUtils->startDelete(mFilePathList);
-    mFilePathList.clear();
-    mFileNameList.clear();
+    mConfirmDialog = new ConfirmDialog();
+    mConfirmDialog->setTitle("确认删除吗");
+    connect(mConfirmDialog,&ConfirmDialog::rejected,this,[=]{
+        mConfirmDialog->deleteLater();
+        mConfirmDialog = nullptr;
+    });
+    connect(mConfirmDialog,&ConfirmDialog::accepted,this,[=]{
+        mThumbnail->stopTask();
+        mOperation = FileUtils::DELETE;
+        if(mProgressViewer) {
+            mProgressViewer->setOperation(mOperation);
+        }
+        mListViewer->clear();
+        mFileUtils->startDelete(mFilePathList);
+        mFilePathList.clear();
+        mFileNameList.clear();
+        mConfirmDialog->deleteLater();
+        mConfirmDialog = nullptr;
+    });
+    mConfirmDialog->showFullScreen();
+    //int ret = mConfirmDialog->exec();
+    //if(ret == QDialog::Rejected) {
+    //    return;
+    //}
+    //
+    //mThumbnail->stopTask();
+    //mOperation = FileUtils::DELETE;
+    //if(mProgressViewer) {
+    //    mProgressViewer->setOperation(mOperation);
+    //}
+    //mListViewer->clear();
+    //mFileUtils->startDelete(mFilePathList);
+    //mFilePathList.clear();
+    //mFileNameList.clear();
 }
 
 void VideoViewer::onDiskItemClicked(int index)
@@ -305,10 +352,14 @@ void VideoViewer::onKeyEventHandler(KeyListener::EventType type)
         }
         break;
     case KeyListener::Key_EventType_DOWN:
-        if(mSelectMode){
-            onDelSelectClicked();
+        if(mConfirmDialog&&mConfirmDialog->isVisible()){
+            mConfirmDialog->reject();
         }else{
-            onDelAllClicked();
+            if(mSelectMode){
+                onDelSelectClicked();
+            }else{
+                onDelAllClicked();
+            }
         }
         break;
     default:

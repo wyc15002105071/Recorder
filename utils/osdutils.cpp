@@ -27,7 +27,7 @@ void OSDUtils::createOSD(QPixmap &pm, const QString &text)
     painter.setFont(font);
     painter.setPen(pen);
 
-    painter.drawText(textRect, Qt::AlignCenter, text);
+    painter.drawText(textRect, Qt::AlignRight, text+" ");
 }
 
 void OSDUtils::destroyOSD(QPixmap &pm)

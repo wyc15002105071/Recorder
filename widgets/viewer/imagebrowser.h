@@ -20,6 +20,7 @@ public:
     virtual void closeEvent(QCloseEvent *event);
     virtual void resizeEvent(QResizeEvent *event);
     void open(QList<QString> &list,int index);
+    QString getCurrentIndex();
 private:
     Ui::ImageBrowser *ui;
 

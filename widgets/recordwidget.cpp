@@ -35,7 +35,8 @@ void RecordWidget::onRecordBtnToggled(bool toggled)
         if(mVideoInputDevice) {
             mVideoInputDevice->stopRecord();
             if(!ConfigUtils::isPowOff)
-                mSureDialog->exec();
+                //mSureDialog->exec();
+                mSureDialog->showFullScreen();
         }
         this->close();
     }
@@ -59,4 +60,9 @@ void RecordWidget::timeUp()
 void RecordWidget::onHasClosed()
 {
     ui->record_btn->setChecked(true);
+}
+
+bool RecordWidget::getSureDialogShow()
+{
+    return mSureDialog->isVisible();
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>301</width>
-    <height>183</height>
+    <width>858</width>
+    <height>549</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,6 +31,18 @@
    </property>
    <item>
     <widget class="QWidget" name="container" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>460</width>
+       <height>280</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>460</width>
+       <height>280</height>
+      </size>
+     </property>
      <property name="styleSheet">
       <string notr="true">#container {
 	background-color:rgba(57, 63, 77, 1);
@@ -38,21 +50,21 @@
 
 #title {
 	color: rgb(255, 255, 255);
-	font: 16pt &quot;Ubuntu&quot;;
+font-size: 40px;
 }
 
 QPushButton {
 	background-color: rgba(39, 42, 51, 1);
 	color: rgb(255, 255, 255);
     border:0px;
-	font: 16pt &quot;Ubuntu&quot;;
+	font-size: 40px;
 }
 
 QPushButton::pressed{
 	background-color: rgba(255, 255, 255, 1);
 	color: rgb(0, 0, 0);
     border:0px;
-	font: 16pt &quot;Ubuntu&quot;;
+	font-size: 40px;
 }</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -90,7 +102,7 @@ QPushButton::pressed{
         </property>
        </widget>
       </item>
-      <item>
+      <item alignment="Qt::AlignHCenter">
        <widget class="QPushButton" name="accept_btn">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -100,8 +112,14 @@ QPushButton::pressed{
         </property>
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>400</width>
           <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>400</width>
+          <height>80</height>
          </size>
         </property>
         <property name="text">
@@ -109,23 +127,7 @@ QPushButton::pressed{
         </property>
        </widget>
       </item>
-      <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>5</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
+      <item alignment="Qt::AlignHCenter">
        <widget class="QPushButton" name="reject_btn">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -135,8 +137,14 @@ QPushButton::pressed{
         </property>
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>400</width>
           <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>400</width>
+          <height>80</height>
          </size>
         </property>
         <property name="text">

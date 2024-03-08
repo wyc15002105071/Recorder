@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>460</width>
-    <height>280</height>
+    <width>881</width>
+    <height>522</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#SureDialog{
+   <string notr="true">#widget{
 border-radius: 4px;
 background: rgba(57, 63, 77, 1);
 }
@@ -41,33 +41,57 @@ color: rgba(255, 255, 255, 1);
    <property name="rightMargin">
     <number>30</number>
    </property>
-   <item>
-    <widget class="QLabel" name="title_lb">
-     <property name="maximumSize">
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QWidget" name="widget" native="true">
+     <property name="minimumSize">
       <size>
-       <width>16777215</width>
-       <height>136</height>
+       <width>460</width>
+       <height>280</height>
       </size>
      </property>
-     <property name="text">
-      <string>视屏录制完成</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="sure_btn">
      <property name="maximumSize">
       <size>
-       <width>400</width>
-       <height>80</height>
+       <width>460</width>
+       <height>280</height>
       </size>
      </property>
-     <property name="text">
-      <string>确认</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="title_lb">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>136</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>视屏录制完成</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignHCenter">
+       <widget class="QPushButton" name="sure_btn">
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>400</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>确认</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>

@@ -49,7 +49,6 @@ void MainWidget::initWidgets()
     }
     if(!mPushWidget) {
         mPushWidget = sp<PushStreamWidget>(new PushStreamWidget(this,&mInputDevice));
-
         connect(mPushWidget.get(),&PushStreamWidget::onClosed,this,[=]{ if(mMenuWidget) mMenuWidget->show(); },Qt::UniqueConnection);
     }
 
@@ -170,6 +169,9 @@ void MainWidget::onRecord()
 {
     if(!signalIn)return;
     if(mRecordWidget) {
+        if(mRecordWidget->getSureDialogShow())
+            return;
+
         if(!mRecordWidget->isVisible()) {
             RLOGD("ready to open record widget");
             mMenuWidget->close();
@@ -281,19 +283,19 @@ void MainWidget::onKeyEventHandler(KeyListener::EventType type)
     switch (type)
     {
     case KeyListener::Key_EventType_RECORD: {
-        if((!mVideoViewer&&mVideoViewer->isVisible())
-                ||(!mImageViewer&&mImageViewer->isVisible())
-                ||(!mUserSetWidget&&mUserSetWidget->isVisible())
-                ||(!mPushWidget&&mPushWidget->isVisible()))
-            return
+        if((mVideoViewer&&mVideoViewer->isVisible())
+                ||(mImageViewer&&mImageViewer->isVisible())
+                ||(mUserSetWidget&&mUserSetWidget->isVisible())
+                ||(mPushWidget&&mPushWidget->isVisible()))
+            return;
         onRecord();
     }break;
     case KeyListener::Key_EventType_CAPTURE: {
-        if((!mVideoViewer&&mVideoViewer->isVisible())
-                ||(!mImageViewer&&mImageViewer->isVisible())
-                ||(!mUserSetWidget&&mUserSetWidget->isVisible())
-                ||(!mPushWidget&&mPushWidget->isVisible()))
-            return
+        if((mVideoViewer&&mVideoViewer->isVisible())
+                ||(mImageViewer&&mImageViewer->isVisible())
+                ||(mUserSetWidget&&mUserSetWidget->isVisible())
+                ||(mPushWidget&&mPushWidget->isVisible()))
+            return;
         onCapture();
     }break;
     case KeyListener::Key_EventType_POWER: {

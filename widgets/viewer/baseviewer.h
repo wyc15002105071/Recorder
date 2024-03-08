@@ -50,7 +50,6 @@ protected:
     sp<ThumbnailUtils>      mThumbnail;
     sp<QTimer>              mCapacityListenerTimer;
     sp<HotplugListener>     mHotplugListener;
-    sp<ConfirmDialog>       mConfirmDialog;
 
     sp<QLabel>       mlabel;
     QListWidget     *mListViewer;

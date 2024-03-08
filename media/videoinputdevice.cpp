@@ -106,8 +106,9 @@ void VideoInputDevice::run()
                     rga_format = RK_FORMAT_RGB_888;
                 } else if(fmt == "NV12") {
                     rga_format = RK_FORMAT_YCbCr_420_SP;
+                } else if(fmt == "NV16") {
+                    rga_format = RK_FORMAT_YCbCr_422_SP;
                 }
-
                 RKRgaDef::SetRgaInfo(&srcInfo, mOsdBo.buf_fd, mOsdBo.width, mOsdBo.height,RK_FORMAT_RGBA_8888 ,ALIGN(mOsdBo.width,4), ALIGN(mOsdBo.height,2));
                 RKRgaDef::SetRgaInfo(&dstInfo, mDmaBo[i].buf_fd, mDmaBo[i].width, mDmaBo[i].height,rga_format ,ALIGN(mDmaBo[i].width,4), ALIGN(mDmaBo[i].height,2));
                 RKRgaDef::ProcessOSD(srcInfo,dstInfo);

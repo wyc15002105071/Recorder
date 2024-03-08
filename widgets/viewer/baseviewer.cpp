@@ -23,7 +23,7 @@ BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mIconHeight(ICON_HEIGHT-Y_OFFSET)
     ,mCapacityListenerTimer(sp<QTimer>(new QTimer))
     ,mHotplugListener(sp<HotplugListener>(new HotplugListener))
-    ,mConfirmDialog(sp<ConfirmDialog>(new ConfirmDialog))
+    //,mConfirmDialog(sp<ConfirmDialog>(new ConfirmDialog))
     ,mlabel(sp<QLabel>(new QLabel("未插入外部存储")))
 {
     setWindowState(Qt::WindowFullScreen);
@@ -50,10 +50,10 @@ BaseViewer::~BaseViewer()
         mHotplugListener->stopTask();
     }
 
-    if(mConfirmDialog) {
-        mConfirmDialog->deleteLater();
-        mConfirmDialog = nullptr;
-    }
+    //if(mConfirmDialog) {
+    //    mConfirmDialog->deleteLater();
+    //    mConfirmDialog = nullptr;
+    //}
 }
 
 void BaseViewer::resizeEvent(QResizeEvent *event)

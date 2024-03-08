@@ -41,6 +41,8 @@ private:
 
     int mIconHasUpdated;
     KeyListener *mKeyListener;
+    QList<QListWidgetItem*> del_list;
+    ConfirmDialog *mConfirmDialog = nullptr;
 };
 
 #endif // VIDEOVIEWER_H

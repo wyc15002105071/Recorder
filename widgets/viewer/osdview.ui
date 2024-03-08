@@ -105,7 +105,7 @@ vertical-align: middle;
          <string/>
         </property>
         <property name="maxLength">
-         <number>8</number>
+         <number>30</number>
         </property>
         <property name="placeholderText">
          <string>丨请输入水印...</string>

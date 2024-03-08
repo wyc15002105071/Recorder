@@ -55,6 +55,11 @@ void ImageBrowser::open(QList<QString> &list, int index)
     this->show();
 }
 
+QString ImageBrowser::getCurrentIndex()
+{
+    return mUrls.at(mCurrentIndex);
+}
+
 void ImageBrowser::showImage(QString path)
 {
     char num_str[20] = {0};

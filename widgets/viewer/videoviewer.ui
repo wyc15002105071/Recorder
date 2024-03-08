@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>875</width>
+    <width>931</width>
     <height>505</height>
    </rect>
   </property>
@@ -114,7 +114,7 @@ QPushButton::pressed{
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="leftMargin">
-       <number>5</number>
+       <number>20</number>
       </property>
       <property name="topMargin">
        <number>5</number>
@@ -125,7 +125,7 @@ QPushButton::pressed{
       <item alignment="Qt::AlignLeft">
        <widget class="QPushButton" name="back_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -133,13 +133,13 @@ QPushButton::pressed{
         <property name="minimumSize">
          <size>
           <width>80</width>
-          <height>60</height>
+          <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>80</width>
-          <height>60</height>
+          <height>16777215</height>
          </size>
         </property>
         <property name="text">
@@ -309,15 +309,15 @@ QPushButton::pressed{
       <item>
        <widget class="QPushButton" name="selectMode_btn">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>60</width>
-          <height>60</height>
+          <width>130</width>
+          <height>130</height>
          </size>
         </property>
         <property name="text">

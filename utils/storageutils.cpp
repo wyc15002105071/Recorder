@@ -3,6 +3,7 @@
 #include <mntent.h>
 #include <sys/statvfs.h>
 #include <unistd.h>
+//#include <QThread>
 
 #define MODULE_TAG "StorageUtils"
 
@@ -37,12 +38,10 @@ QVector<StorageUtils::ExternalStorageInfo> StorageUtils::getExternalStorageInfoL
     udev_enumerate_add_match_subsystem(enumerate, "block");
     udev_enumerate_scan_devices(enumerate);
     devices = udev_enumerate_get_list_entry(enumerate);
-    ;
 
     // 遍历设备列表并输出U盘的设备信息
     udev_list_entry_foreach(entry, devices) {
         struct udev_device *dev = udev_device_new_from_syspath(udev, udev_list_entry_get_name(entry));
-
         // 检查是否为U盘
         if (dev) {
             const char *devnode = udev_device_get_devnode(dev);
@@ -51,17 +50,39 @@ QVector<StorageUtils::ExternalStorageInfo> StorageUtils::getExternalStorageInfoL
             const char *filesystem = udev_device_get_property_value(dev, "ID_FS_TYPE");
             const char *label = udev_device_get_property_value(dev, "ID_FS_LABEL");
 
-            if (devnode && model && serial_short && filesystem && label) {
+            //RLOGD("==============");
+            //if(devnode)
+            //RLOGD(devnode);
+            //if(model)
+            //RLOGD(model);
+            //if(serial_short)
+            //RLOGD(serial_short);
+            //if(filesystem)
+            //RLOGD(filesystem);
+            //if(!label){
+            //    label = ;
+            //}
+            //RLOGD(label);
+            //RLOGD("==============");
+            if (devnode && model && serial_short && filesystem) {
+
                 const char *mnt_path = getMountPath(devnode);
+                if(!mnt_path)
+                    continue;
                 ExternalStorageInfo info;
                 info.node_path = devnode;
-                info.label = label;
+                if(label){
+                    info.label = label;
+                }else{
+                    info.label ="qy";
+                    info.label.append(std::to_string(mInfoVec.size()+1));
+                }
                 info.file_system = filesystem;
                 info.mount_path = mnt_path;
                 getStorageCapacity(mnt_path,info.total,info.used,info.free);
                 RLOGD("node:%s,label:%s,filesystem:%s,mnt_path:%s",info.node_path.c_str()
                       ,info.label.c_str(),info.file_system.c_str(),info.mount_path.c_str());
-                if(info.node_path!="/dev/sda"||info.mount_path!="/mnt/storage")
+                if(info.node_path.find("/dev/sda")<0||info.mount_path!="/mnt/storage")
                 mInfoVec.push_back(info);
             }
             udev_device_unref(dev);
@@ -82,7 +103,7 @@ RET:
 
 void StorageUtils::getStorageCapacity(const char *root, long &total, long &used, long &free)
 {
-    if(access(root, F_OK) != 0) {
+    if(!root||access(root, F_OK) != 0) {
         RLOGE("%s not exists",root);
         total = 0;
         used = 0;

@@ -30,6 +30,7 @@ public slots:
     void startRec();
     void timeUp();
     virtual void onHasClosed();
+    bool getSureDialogShow();
 };
 
 #endif // RECORDWIDGET_H

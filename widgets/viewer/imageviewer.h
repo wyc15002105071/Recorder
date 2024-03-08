@@ -27,6 +27,7 @@ public slots:
 
     void onCopySelectedClicked();
     void onCopyAllClicked();
+    void onCopyCurrent();
     void onDelSelectClicked();
     void onDelAllClicked();
 public slots:
@@ -39,6 +40,8 @@ private:
     sp<ImageBrowser> mImageBrowser;
     QList<QString> mSelectionlist;
     KeyListener *mKeyListener;
+    QList<QListWidgetItem*> del_list;
+    ConfirmDialog *mConfirmDialog = nullptr;
 };
 
 #endif // IMAGEVIEWER_H
