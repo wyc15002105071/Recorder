@@ -9,6 +9,7 @@ DiskSelectionWidget::DiskSelectionWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
+    setAttribute(Qt::WA_TranslucentBackground,true);
     connect(this,SIGNAL(onClosed()),this,SLOT(onRemoveItems()));
 }
 
@@ -75,3 +76,4 @@ void DiskSelectionWidget::onItemClicked(DiskSelectionItem *item)
 void DiskSelectionWidget::onHasOpened()
 {
 }
+

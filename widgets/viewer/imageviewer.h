@@ -30,7 +30,10 @@ public slots:
     void onCopyCurrent();
     void onDelSelectClicked();
     void onDelAllClicked();
+
 public slots:
+    void onDelSelect();
+    void onDelAll();
     void onDiskItemClicked(int index);
     void onScrollValueChanged(int value);
     void onLoadThumbnail(QImage image,QString file_path);
@@ -42,6 +45,7 @@ private:
     KeyListener *mKeyListener;
     QList<QListWidgetItem*> del_list;
     ConfirmDialog *mConfirmDialog = nullptr;
+    bool isDeleteAll;
 };
 
 #endif // IMAGEVIEWER_H

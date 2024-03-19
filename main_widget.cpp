@@ -9,23 +9,29 @@
 #include <sys/socket.h>
 #include "utils/configutils.h"
 #include "widgets/powoffwidget.h"
+#include "utils/toastutils.h"
 
 #define MODULE_TAG "MainWidget"
-
+#define LAST_SPACE 1024
 using namespace std;
 
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
     , mKeyListener(KeyListener::get_instance())
+    , mDiskListener(new DiskCapacityListener())
     , mSignalHandler(sp<SignalHandler>(new SignalHandler(this)))
 {
     ui->setupUi(this);
     setWindowState(Qt::WindowFullScreen);
+
+    connect(mDiskListener,&DiskCapacityListener::sendDiskSpace,this,&MainWidget::sendDiskSpace);
+    mDiskListener->startTask();
 }
 
 MainWidget::~MainWidget()
 {
+    if(mDiskListener)mDiskListener->stopTask();
     delete ui;
 }
 
@@ -150,7 +156,10 @@ void MainWidget::quit()
 void MainWidget::onCapture()
 {
     if(!signalIn)return;
-
+    if(space<LAST_SPACE){
+        ToastUtils::instance().show(ToastUtils::INFO,"储存空间不足");
+        return;
+    }
     char time_str[50] = {0};
     getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
     char file_name[50] = {0};
@@ -168,6 +177,10 @@ void MainWidget::onCapture()
 void MainWidget::onRecord()
 {
     if(!signalIn)return;
+    if(space<LAST_SPACE){
+        ToastUtils::instance().show(ToastUtils::INFO,tr("储存空间不足"));
+        return;
+    }
     if(mRecordWidget) {
         if(mRecordWidget->getSureDialogShow())
             return;
@@ -335,6 +348,20 @@ void MainWidget::signalChange(bool has)
     }
 }
 
+void MainWidget::sendDiskSpace(long free, long total)
+{
+    qDebug()<<free<<total;
+    space = free;
+    if(space<LAST_SPACE){
+        if(mRecordWidget) {
+            if(mRecordWidget->isVisible()) {
+                RLOGD("ready to close record widget");
+                mRecordWidget->close();
+                mMenuWidget->open();
+            }
+        }
+    }
+}
 int SignalHandler::sigintFd[2];
 SignalHandler::SignalHandler(QObject *parent)
 {

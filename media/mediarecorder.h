@@ -14,12 +14,16 @@ class MediaRecorder : public RThread
 public:
     MediaRecorder();
     ~MediaRecorder();
-
+    typedef enum VideoProfile {
+        VideoProfile_Low,
+        VideoProfile_Standard,
+        VideoProfile_High
+    } VideoProfile_t;
     virtual void run();
     virtual bool startTask();
     virtual void stopTask();
 
-    bool initVideoRecorder(int width,int height,__u32 format,int type,bool push_stream);
+    bool initVideoRecorder(int width,int height,__u32 format,int type,bool push_stream,VideoProfile profile = VideoProfile_Standard);
     bool sendVideoFrame(int dma_fd,int size,int width,int height,bool eos);
     void sendVideoFrame(int index);
 

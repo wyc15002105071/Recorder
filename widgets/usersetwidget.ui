@@ -116,10 +116,36 @@ QPushButton::pressed{
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="widget" native="true">
+    <widget class="QWidget" name="widget_list" native="true">
      <property name="styleSheet">
-      <string notr="true">background: rgba(29, 32, 41, 1);
-</string>
+      <string notr="true">#widget_list{background: rgba(29, 32, 41, 1);}
+
+#widget_fps,#widget_osd,#widget_vision{
+	border-bottom: 1px solid rgba(110, 110, 110, 1);
+}
+
+#lb_ods,#lb_title_fps,#lb_title_vision,#lb_value_vision{
+font-size: 50px;
+font-weight: 400;
+letter-spacing: 0px;
+line-height: 72.4px;
+color: rgba(255, 255, 255, 1);
+text-align: left;
+vertical-align: top;
+}
+#pBtn_osd{
+	border-image: url(:/resources/icons/icon_setting_item.png);
+	border-bottom: 1px solid rgb(110, 110, 110);
+}
+#pBtn_fps{
+font-size: 50px;
+font-weight: 400;
+letter-spacing: 0px;
+line-height: 72.4px;
+color: rgba(255, 255, 255, 1);
+background: rgba(29, 32, 41, 1);
+	border:none;
+}</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <property name="leftMargin">
@@ -137,19 +163,7 @@ QPushButton::pressed{
       <item>
        <widget class="QWidget" name="widget_osd" native="true">
         <property name="styleSheet">
-         <string notr="true">#lb_ods{
-font-size: 50px;
-font-weight: 400;
-letter-spacing: 0px;
-line-height: 72.4px;
-color: rgba(255, 255, 255, 1);
-text-align: left;
-vertical-align: top;
-}
-#pBtn_osd{
-	border-image: url(:/resources/icons/icon_setting_item.png);
-	border-bottom: 1px solid rgb(110, 110, 110);
-}</string>
+         <string notr="true"/>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="leftMargin">
@@ -194,26 +208,82 @@ vertical-align: top;
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>1</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>1</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background:   rgba(110, 110, 110, 1);
-</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
+       <widget class="QWidget" name="widget_fps" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="leftMargin">
+          <number>100</number>
+         </property>
+         <property name="rightMargin">
+          <number>60</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="lb_title_fps">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>130</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>码率设置</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pBtn_fps">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>中</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_vision" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="leftMargin">
+          <number>100</number>
+         </property>
+         <property name="rightMargin">
+          <number>60</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="lb_title_vision">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>130</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>版本号</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lb_value_vision">
+           <property name="text">
+            <string>V1.0.0</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
       <item>
@@ -268,8 +338,25 @@ vertical-align: top;
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pBtn_fps</sender>
+   <signal>clicked()</signal>
+   <receiver>UserSetWidget</receiver>
+   <slot>doSelectFps()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1106</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-6</x>
+     <y>232</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>doEditOsd()</slot>
+  <slot>doSelectFps()</slot>
  </slots>
 </ui>

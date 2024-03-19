@@ -112,6 +112,9 @@ void BaseViewer::openDiskSelection()
 
     }
 
+    if(mDiskSelectionWidget){
+        mDiskSelectionWidget->removeAll();
+    }
     for(int i = 0;i < mExternalStorageInfo.count();i++) {
         if(mDiskSelectionWidget) {
             mDiskSelectionWidget->additem(QString::fromStdString(mExternalStorageInfo[i].label));
@@ -121,8 +124,8 @@ void BaseViewer::openDiskSelection()
     if(mDiskSelectionWidget) {
         if(mDiskSelectionWidget->isVisible())
             mDiskSelectionWidget->close();
-        mDiskSelectionWidget->open();
-        mDiskSelectionWidget->move((this->width() - mDiskSelectionWidget->width())/2,(this->height() - mDiskSelectionWidget->height())/2);
+        mDiskSelectionWidget->showFullScreen();
+        //mDiskSelectionWidget->move((this->width() - mDiskSelectionWidget->width())/2,(this->height() - mDiskSelectionWidget->height())/2);
     }
 }
 
@@ -142,6 +145,7 @@ void BaseViewer::loadThumbnail(QImage image, QString file_path)
     custom_item->setIcon(file_icon);
     custom_item->setFileName(FileUtils::pathToName(file_path));
     custom_item->setAlignment(Qt::AlignCenter);
+    custom_item->setSelectable(mSelectMode);
     item->setSizeHint(QSize(mIconWidth - X_OFFSET,mIconHeight- Y_OFFSET));
     if(mListViewer) {
         mListViewer->addItem(item);

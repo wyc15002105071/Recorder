@@ -4,6 +4,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 
+TARGET = qy_desktop
+
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -25,6 +27,7 @@ SOURCES += \
     allocators/drm_allocator.cpp \
     common/log.cpp \
     common/observer.cpp \
+    listeners/diskcapacitylistener.cpp \
     listeners/hotpluglistener.cpp \
     listeners/key_listener.cpp \
     listeners/udplistener.cpp \
@@ -51,6 +54,7 @@ SOURCES += \
     utils/serialportutils.cpp \
     utils/storageutils.cpp \
     utils/thumbnailutils.cpp \
+    utils/toastutils.cpp \
     widgets/basewidget.cpp \
     widgets/confirmdialog.cpp \
     widgets/menuwidget.cpp \
@@ -72,6 +76,7 @@ SOURCES += \
     widgets/viewer/osdview.cpp \
     widgets/viewer/progressviewer.cpp \
     widgets/viewer/selectionicon.cpp \
+    widgets/viewer/setfpsview.cpp \
     widgets/viewer/videoplayer.cpp \
     widgets/viewer/videoviewer.cpp
 
@@ -83,6 +88,7 @@ HEADERS += \
     common/common.h \
     common/log.h \
     common/observer.h \
+    listeners/diskcapacitylistener.h \
     listeners/hotpluglistener.h \
     listeners/key_listener.h \
     listeners/udplistener.h \
@@ -108,6 +114,7 @@ HEADERS += \
     utils/serialportutils.h \
     utils/storageutils.h \
     utils/thumbnailutils.h \
+    utils/toastutils.h \
     widgets/basewidget.h \
     widgets/confirmdialog.h \
     widgets/menuwidget.h \
@@ -129,6 +136,7 @@ HEADERS += \
     widgets/viewer/osdview.h \
     widgets/viewer/progressviewer.h \
     widgets/viewer/selectionicon.h \
+    widgets/viewer/setfpsview.h \
     widgets/viewer/videoplayer.h \
     widgets/viewer/videoviewer.h
 
@@ -153,6 +161,7 @@ FORMS += \
     widgets/viewer/osdview.ui \
     widgets/viewer/progressviewer.ui \
     widgets/viewer/selectionicon.ui \
+    widgets/viewer/setfpsview.ui \
     widgets/viewer/videoplayer.ui \
     widgets/viewer/videoviewer.ui
 

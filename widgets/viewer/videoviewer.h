@@ -31,6 +31,8 @@ public slots:
     void onDelSelectClicked();
     void onDelAllClicked();
 public slots:
+    void onDelSelect();
+    void onDelAll();
     void onDiskItemClicked(int index);
     void onKeyEventHandler(KeyListener::EventType type);
 private:
@@ -43,6 +45,7 @@ private:
     KeyListener *mKeyListener;
     QList<QListWidgetItem*> del_list;
     ConfirmDialog *mConfirmDialog = nullptr;
+    bool isDeleteAll;
 };
 
 #endif // VIDEOVIEWER_H

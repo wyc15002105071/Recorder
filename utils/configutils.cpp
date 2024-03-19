@@ -7,6 +7,7 @@
 
 QString ConfigUtils::ConfigFile = "config.ini";
 bool ConfigUtils::isPowOff = false;
+int ConfigUtils::Fps = 2;
 QString ConfigUtils::ost_txt = "清阅技术";
 
 bool checkIniFile(const QString &iniFile) {
@@ -59,6 +60,7 @@ void ConfigUtils::readConfig()
     set.setIniCodec(QTextCodec::codecForName("GBK"));
     set.beginGroup("system");
     ConfigUtils::ost_txt = set.value("ost_txt", ConfigUtils::ost_txt).toString();
+    ConfigUtils::Fps = set.value("Fps", ConfigUtils::Fps).toInt();
     set.endGroup();
 
 }
@@ -69,5 +71,6 @@ void ConfigUtils::writeConfig()
     set.setIniCodec(QTextCodec::codecForName("GBK"));
     set.beginGroup("system");
     set.setValue("ost_txt", ConfigUtils::ost_txt);
+    set.setValue("Fps", ConfigUtils::Fps);
     set.endGroup();
 }

@@ -19,6 +19,7 @@
 #include "widgets/viewer/progressviewer.h"
 #include "widgets/pushstreamwidget.h"
 #include "listeners/key_listener.h"
+#include "listeners/diskcapacitylistener.h"
 #include "widgets/usersetwidget.h"
 
 QT_BEGIN_NAMESPACE
@@ -60,6 +61,7 @@ private:
 
     VideoInputDevice  mInputDevice;
     KeyListener      *mKeyListener;
+    DiskCapacityListener   *mDiskListener;
 
     sp<ImageViewer>         mImageViewer;
     sp<VideoViewer>         mVideoViewer;
@@ -74,12 +76,13 @@ private:
     const uint32_t    mMenuAutoHideMs = 5000;
 
     bool signalIn = false;
+    int space = 0;
 public slots:
     void onCreateTask();
     void onMenuEventHandler(MenuWidget::EventType type);
     void onKeyEventHandler(KeyListener::EventType type);
     void signalChange(bool has);
-
+    void sendDiskSpace(long free,long total);
 private:
     void initWidgets();
     void onCapture();

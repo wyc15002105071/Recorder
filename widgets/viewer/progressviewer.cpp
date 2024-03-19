@@ -10,6 +10,7 @@ ProgressViewer::ProgressViewer(QWidget *parent) :
     ui->setupUi(this);
     ui->progress->setValue(0);
     setWindowFlags(Qt::FramelessWindowHint);
+    setAttribute(Qt::WA_TranslucentBackground,true);
 
     connect(this,SIGNAL(onUpdateValue(int)),this,SLOT(setValue(int)));
     connect(this,SIGNAL(onUpdateText(QString)),this,SLOT(setText(QString)));

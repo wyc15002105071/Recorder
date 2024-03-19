@@ -47,7 +47,16 @@ void RecordWidget::startRec()
     ui->record_btn->setChecked(false);
 
     if(mVideoInputDevice) {
-        mVideoInputDevice->startRecord();
+        MediaRecorder::VideoProfile profile = MediaRecorder::VideoProfile_Standard;
+        switch (ConfigUtils::Fps) {
+        case 1:profile = MediaRecorder::VideoProfile_Low;
+            break;
+        case 2:profile = MediaRecorder::VideoProfile_Standard;
+            break;
+        case 3:profile = MediaRecorder::VideoProfile_High;
+            break;
+        }
+        mVideoInputDevice->startRecord(profile);
     }
     ui->record_timer_widget->start();
 }

@@ -10,7 +10,7 @@ ConfirmDialog::ConfirmDialog(QWidget *parent) :
 
     setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground,true);
-    setAttribute(Qt::WA_DeleteOnClose,true);
+    //setAttribute(Qt::WA_DeleteOnClose,true);
     connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)));
 }
 
