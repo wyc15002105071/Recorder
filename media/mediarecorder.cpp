@@ -1,6 +1,7 @@
 #include "mediarecorder.h"
 #include "common/log.h"
 #include "utils/osdutils.h"
+#include "utils/storageutils.h"
 
 #define MODULE_TAG "MediaRecorder"
 
@@ -29,7 +30,7 @@ void MediaRecorder::run()
     RLOGD("Record Thread start");
     int frameIndex = 0;
     int ret = 0;
-
+    int temp = 0;
     mRecordState = REC_STATE_RUNNING;
     MediaMuxer::MediaPacket packet;
 
@@ -93,6 +94,18 @@ void MediaRecorder::run()
             continue;
         }
 
+        if((temp++ % mVideoCfg.framerate) == 0) {
+            long total,used,free = 0;
+            StorageUtils::get_instance()->getStorageCapacity(VIDEOS_SAVE_DIR,total,used,free);
+            RLOGD("used is %ld",used);
+            if(free <= SZ_1G) {
+                RLOGD("exit:available free memory is low");
+                break;
+            }
+            if(temp >= mVideoCfg.framerate)
+                temp = 0;
+        }
+
         VideoFrameBuffer video_buffer = mBufferlist.front();
 
         mVideoEncoder->sendFrame(video_buffer.dmabuf,frameIndex,mRecordEosFlag);
@@ -122,7 +135,6 @@ void MediaRecorder::run()
             }
 
             mMediaMuxer->writeData(&packet);
-
             encOut.release();
         }
 
@@ -166,7 +178,7 @@ void MediaRecorder::stopTask()
     wait(QUIT_TIMEOUT);
 }
 
-bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int type, bool push_stream)
+bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int type, bool push_stream, VideoProfile profile)
 {
     mRecordState = REC_STATE_INITIALIZING;
     RKHWEncApi::EncCfgInfo cfg;
@@ -177,6 +189,21 @@ bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int t
     cfg.type        = type;
     cfg.bitrateMode = 1;
     cfg.framerate   = 60;
+
+    switch(profile) {
+    case VideoProfile_Low:
+        cfg.bitRate = (cfg.width * cfg.height / 32) * cfg.framerate;
+        break;
+    case VideoProfile_Standard:
+        cfg.bitRate = (cfg.width * cfg.height / 16) * cfg.framerate;
+        break;
+    case VideoProfile_High:
+        cfg.bitRate = (cfg.width * cfg.height / 8) * cfg.framerate;
+        break;
+    default:
+        cfg.bitRate = (cfg.width * cfg.height / 16) * cfg.framerate;
+        break;
+    }
 
     OSDUtils::createOSD(mOsd,"清阅技术");
 

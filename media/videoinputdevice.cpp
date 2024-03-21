@@ -146,11 +146,11 @@ bool VideoInputDevice::startTask()
     return true;
 }
 
-void VideoInputDevice::startRecord(bool push)
+void VideoInputDevice::startRecord(MediaRecorder::VideoProfile profile,bool push)
 {
     //    mLock.lock();
     if(mRecorder) {
-        mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC, push);
+        mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC, push,profile);
         mRecorder->startTask();
     }
 

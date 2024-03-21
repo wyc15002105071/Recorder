@@ -31,7 +31,7 @@ public:
 
     bool    initDevice(bool is_hdmi_in);
     void    deinit();
-    void    startRecord(bool push = false);
+    void    startRecord(MediaRecorder::VideoProfile profile = MediaRecorder::VideoProfile_Standard, bool push = false);
     void    stopRecord();
     void    startPush();
     void    stopPush();

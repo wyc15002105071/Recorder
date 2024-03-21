@@ -43,6 +43,9 @@ void ImageViewer::open()
 
 void ImageViewer::onItemClicked(QListWidgetItem *item)
 {
+    QScroller *scroller = QScroller::scroller(mListViewer);
+    if(scroller && scroller->state() != QScroller::Inactive)
+        return;
     if(mSelectMode) {
         ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
         if(!item_widget)
