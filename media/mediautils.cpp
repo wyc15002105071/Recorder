@@ -167,3 +167,23 @@ string convertMillisecondsToTime(long long milliseconds)
 
     return string(time_str);
 }
+
+const char *getSuffix(Suffix_t suffix)
+{
+    switch (suffix) {
+    case Suffix_MP4:
+        return "mp4";
+        break;
+    case Suffix_AVI:
+        return "avi";
+        break;
+    case Suffix_MKV:
+        return "mkv";
+        break;
+    case Suffix_TS:
+        return "ts";
+        break;
+    default:
+        return "mp4";
+    }
+}

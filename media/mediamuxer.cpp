@@ -71,26 +71,15 @@ int MediaMuxer::prepare(MediaMuxer::MediaInfo info)
         }
     } else {
         char time_str[100] = {0};
-        char suffix[100] = {0};
+        const char *suffix = getSuffix(info.suffix_type);
 
-        switch (p->info.suffix_type) {
-        case Suffix_MP4:
-            strcpy(suffix,"mp4");
-            break;
-        case Suffix_AVI:
-            strcpy(suffix,"avi");
-            break;
-        case Suffix_MKV:
-            strcpy(suffix,"mkv");
-            break;
-        case Suffix_TS:
-            strcpy(suffix,"mkv");
-            break;
-        default:
-            strcpy(suffix,"mp4");
+        if(info.file_path.length() == 0 || !info.file_path.c_str()) {
+            getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
+            sprintf(url,"%s/%s.%s",VIDEOS_SAVE_DIR,time_str,suffix);
+        } else {
+            strcpy(url,info.file_path.c_str());
         }
-        getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
-        sprintf(url,"%s/%s.%s",VIDEOS_SAVE_DIR,time_str,suffix);
+
         ret = avformat_alloc_output_context2(&p->format_ctx,nullptr,suffix,url);
         if(ret < 0) {
             char err[1024] = {0};

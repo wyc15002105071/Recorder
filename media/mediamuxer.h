@@ -26,7 +26,7 @@ public:
         Suffix_t      suffix_type;
         bool          push_stream;
         Push_t        push_type;
-
+        std::string   file_path;
         Video_CodingType  coding_type;
     } MediaInfo_t;
 

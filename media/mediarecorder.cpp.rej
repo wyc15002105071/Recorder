@@ -1,0 +1,25 @@
+--- media/mediarecorder.cpp
++++ media/mediarecorder.cpp
+@@ -30,14 +30,20 @@ void MediaRecorder::run()
+     RLOGD("Record Thread start");
+     int frameIndex = 0;
+     int ret = 0;
+-
+-    //int temp = 0;
++    int video_num = 0;
++    const char *suffix;
++    char time_str[100] = {0};
++    char url[100] = {0};
+ 
+     mRecordState = REC_STATE_RUNNING;
+     MediaMuxer::MediaPacket packet;
+ 
+     void *extra = nullptr;
++    MediaMuxer::MediaInfo info;
++
++    memset(&info,0,sizeof(MediaMuxer::MediaInfo));
+     memset(&packet,0,sizeof(MediaMuxer::MediaPacket));
++
+     if(mMediaMuxer.get()) {
+         MppPacket hdr_pkt = nullptr;
+         mVideoEncoder->getHdrPacket(&hdr_pkt);

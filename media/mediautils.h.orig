@@ -72,6 +72,5 @@ void getCurentTime(char *str,const char *format);
 std::string fcc2s(__u32 val);
 std::string convertSecondToTime(int64_t seconds);
 std::string convertMillisecondsToTime(long long milliseconds);
-const char* getSuffix(Suffix_t suffix);
 
 #endif // MEDIAUTILS_H
