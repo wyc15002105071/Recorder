@@ -46,7 +46,8 @@ void ImageViewer::open()
 void ImageViewer::onItemClicked(QListWidgetItem *item)
 {
     QScroller *scroller = QScroller::scroller(mListViewer);
-    if(scroller&&scroller->state()!=QScroller::Inactive)
+
+    if(scroller && scroller->state() != QScroller::Inactive)
         return;
     if(mSelectMode) {
         ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
@@ -331,7 +332,11 @@ void ImageViewer::onDiskItemClicked(int index)
         mProgressViewer->showWarning(COPY_FAILED);
         return;
     }
-
+    RLOGD("select count %d",mSelectionlist.count());
+    if(!compareDisk(mExternalStorageInfo[index].mount_path.c_str(),mSelectionlist)){
+        mProgressViewer->showWarning(FREE_NO);
+        return;
+    }
     QString dst_dir = QString::fromStdString(mExternalStorageInfo[index].mount_path);
     mFileUtils->startCopy(mSelectionlist,dst_dir);
     if(mDiskSelectionWidget.get())

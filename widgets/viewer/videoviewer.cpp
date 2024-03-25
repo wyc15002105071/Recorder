@@ -116,7 +116,7 @@ void VideoViewer::open()
 void VideoViewer::onItemClicked(QListWidgetItem *item)
 {
     QScroller *scroller = QScroller::scroller(mListViewer);
-    if(scroller&&scroller->state()!=QScroller::Inactive)
+    if(scroller && scroller->state() != QScroller::Inactive)
         return;
     if(mSelectMode) {
         ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
@@ -340,6 +340,10 @@ void VideoViewer::onDiskItemClicked(int index)
 
     if(mExternalStorageInfo.count() == 0) {
         mProgressViewer->showWarning(COPY_FAILED);
+        return;
+    }
+    if(!compareDisk(mExternalStorageInfo[index].mount_path.c_str(),mSelectionlist)){
+        mProgressViewer->showWarning(FREE_NO);
         return;
     }
     QString dst_dir = QString::fromStdString(mExternalStorageInfo[index].mount_path);

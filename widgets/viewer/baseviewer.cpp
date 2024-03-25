@@ -3,6 +3,7 @@
 #include <QDir>
 #include "widgets/viewer/listwidgetitem.h"
 #include <QLayout>
+#include <QDebug>
 
 static const char *progress_high = "QProgressBar::chunk"
                             "{"
@@ -109,7 +110,6 @@ void BaseViewer::openDiskSelection()
         if(mDiskSelectionWidget)
             mDiskSelectionWidget->close();
         return;
-
     }
 
     if(mDiskSelectionWidget){
@@ -153,6 +153,21 @@ void BaseViewer::loadThumbnail(QImage image, QString file_path)
     }
 
     file_icon.detach();
+}
+
+bool BaseViewer::compareDisk(const char *path, QList<QString> fileList)
+{
+    qDebug()<<fileList.count();
+    if(!path||fileList.count()==0||!mStorageUtils||!mFileUtils)
+        return false;
+
+    long total,free,used = 0;
+    mStorageUtils->getStorageCapacity(path,total,used,free);
+    qDebug()<<free<<mFileUtils->getFilesSize(fileList);
+    if(free<mFileUtils->getFilesSize(fileList)+500*SZ_1M){
+        return false;
+    }
+    return true;
 }
 
 void BaseViewer::onUpdateCapacity()

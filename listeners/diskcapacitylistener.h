@@ -18,7 +18,6 @@ signals:
     void sendDiskSpace(long free,long total);
 
 private:
-    QString path;
 };
 
 #endif // DISKCAPACITYLISTENER_H

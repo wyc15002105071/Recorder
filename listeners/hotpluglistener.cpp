@@ -1,5 +1,7 @@
 #include "hotpluglistener.h"
+#include "utils/configutils.h"
 #include <libudev.h>
+
 
 HotplugListener::HotplugListener()
 {
@@ -45,8 +47,23 @@ void HotplugListener::run()
             // 从监视器接收事件
             struct udev_device *dev = udev_monitor_receive_device(mon);
             if (dev) {
+
                 NotifyData data;
                 memset(&data,0,sizeof(NotifyData));
+
+                RLOGE(udev_device_get_devnode(dev));
+                QString devnode = udev_device_get_devnode(dev);
+                if(!devnode.isEmpty()&&devnode==ConfigUtils::usbName){
+                    const char * action = udev_device_get_action(dev);
+                    RLOGE(action);
+                    if(strcmp(action, "remove") == 0){
+                        ConfigUtils::isUsbMedia = false;
+                        ConfigUtils::usbName = "";
+                        ConfigUtils::usbMonut = "";
+                        data.isUsbOut = true;
+                    }
+                }
+
                 notify(data);
                 udev_device_unref(dev);
             }

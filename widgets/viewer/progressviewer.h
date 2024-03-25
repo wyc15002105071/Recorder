@@ -21,6 +21,8 @@ public:
 #define DELETE_SUCCESS	"删除完成······"
 #define COPY_FAILED 	"拷贝失败······"
 #define DELETE_FAILED 	"删除失败······"
+#define FREE_NO 	    "移动设备内存不足"
+
     explicit ProgressViewer(QWidget *parent = nullptr);
     ~ProgressViewer();
 

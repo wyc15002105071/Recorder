@@ -146,12 +146,13 @@ REDO:
 
         memset(&out_frame,0,sizeof(RKHWDecApi::OutputFrame));
         ret = mDecoder.getOutputFrame(&out_frame);
-        RKHWDecApi::OutputFrame rgb_frame;
-        mDecoder.convertNV12ToRGB(&out_frame,&rgb_frame);
-
-        img = QImage((uchar *)rgb_frame.vir_addr,rgb_frame.width,rgb_frame.height,QImage::Format_RGBA8888);
-        mDecoder.deinitOutputFrame(&out_frame);
-        mDecoder.deinitOutputFrame(&rgb_frame);
+        if(ret == MPP_OK) {
+            RKHWDecApi::OutputFrame rgb_frame;
+            mDecoder.convertNV12ToRGB(&out_frame,&rgb_frame);
+            img = QImage((uchar *)rgb_frame.vir_addr,rgb_frame.width,rgb_frame.height,QImage::Format_RGBA8888);
+            mDecoder.deinitOutputFrame(&out_frame);
+            mDecoder.deinitOutputFrame(&rgb_frame);
+        }
         av_packet_unref(&packet);
 
     } else if(type == Type_Unkown) {

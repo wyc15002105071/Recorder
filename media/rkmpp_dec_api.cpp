@@ -176,7 +176,7 @@ REDO:
     ret = p->mppApi->decode_get_frame(p->mppCtx, &frame);
     tryCount++;
     if (MPP_OK != ret || !frame) {
-        if (tryCount < 100) {
+        if (tryCount < 10) {
             RLOGD("need to get frame\n");
             usleep(5 * 1000);
             goto REDO;
@@ -206,10 +206,6 @@ REDO:
         out_frame->vir_addr = mpp_buffer_get_ptr_with_caller(mppBuffer,nullptr);
         out_frame->handler = frame;
         out_frame->buffer = mppBuffer;
-        FILE *fp = fopen("test.yuv","wb");
-        fwrite(out_frame->vir_addr,1,out_frame->width*out_frame->height*3/2,fp);
-        fclose(fp);
-
     }
 
     return ret;

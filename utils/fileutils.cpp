@@ -19,7 +19,7 @@ void FileUtils::run()
 {
     QList<QString> src_files_list = std::move(mSrcFilesPath);
     int file_count = src_files_list.count();
-    int64_t total_size = getFilesSize(src_files_list);
+    long long total_size = getFilesSize(src_files_list);
     int64_t already_handled_size = 0; //already copy bytes or already delete file nums
 	int i = 0;
     int ret = RET_SUCCESS;
@@ -189,10 +189,10 @@ void FileUtils::startDelete(QList<QString> &filesPath)
     mLock.unlock();
 }
 
-int64_t FileUtils::getFileSize(QString filePath)
+long long  FileUtils::getFileSize(QString filePath)
 {
     int file_fd = open(filePath.toLatin1().data(), O_RDONLY);
-    int file_size = 0;
+    long long  file_size = 0;
     if (file_fd == -1) {
         RLOGE("Error opening source file");
         goto RET;
@@ -206,9 +206,9 @@ RET:
     return file_size;
 }
 
-int64_t FileUtils::getFilesSize(QList<QString> fileslist)
+long long  FileUtils::getFilesSize(QList<QString> fileslist)
 {
-    int64_t file_total_size = 0;
+    long long  file_total_size = 0;
     int count = fileslist.count();
     for(int i = 0;i < count;i++) {
         file_total_size += getFileSize(fileslist.at(i));

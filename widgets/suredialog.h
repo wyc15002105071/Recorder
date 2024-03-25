@@ -15,7 +15,7 @@ class SureDialog : public QDialog
 public:
     explicit SureDialog(QWidget *parent = nullptr);
     ~SureDialog();
-
+    void setText(QString t);
 
 public slots:
     void onKeyEventHandler(KeyListener::EventType type);

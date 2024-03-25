@@ -25,8 +25,6 @@ private:
     ToastDlg* mDlg;
     int mTimerId{0};
     QRect mGeometry;
-
-
 };
 
 #endif // TOASTUTILS_H

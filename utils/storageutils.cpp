@@ -3,6 +3,7 @@
 #include <mntent.h>
 #include <sys/statvfs.h>
 #include <unistd.h>
+#include "utils/configutils.h"
 //#include <QThread>
 
 #define MODULE_TAG "StorageUtils"
@@ -78,6 +79,9 @@ QVector<StorageUtils::ExternalStorageInfo> StorageUtils::getExternalStorageInfoL
                     info.label.append(std::to_string(mInfoVec.size()+1));
                 }
                 info.file_system = filesystem;
+
+                if(info.file_system=="ntfs")
+                    continue;
                 info.mount_path = mnt_path;
                 getStorageCapacity(mnt_path,info.total,info.used,info.free);
                 RLOGD("node:%s,label:%s,filesystem:%s,mnt_path:%s",info.node_path.c_str()
@@ -103,7 +107,8 @@ RET:
 
 void StorageUtils::getStorageCapacity(const char *root, long &total, long &used, long &free)
 {
-    if(!root||access(root, F_OK) != 0) {
+
+    if(!root || (access(root, F_OK) != 0)) {
         RLOGE("%s not exists",root);
         total = 0;
         used = 0;
@@ -122,6 +127,11 @@ void StorageUtils::getStorageCapacity(const char *root, long &total, long &used,
         used = 0;
         free = 0;
     }
+}
+
+void StorageUtils::getUsePath()
+{
+
 }
 
 const char *StorageUtils::getMountPath(const char *node_path)

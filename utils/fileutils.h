@@ -25,8 +25,8 @@ public:
     static const char *pathToName(QString path);
     void startCopy(QList<QString> &filesPath,QString dst_dir);
     void startDelete(QList<QString> &filesPath);
-    int64_t  getFileSize(QString filePath);
-    int64_t  getFilesSize(QList<QString> fileslist);
+    long long getFileSize(QString filePath);
+    long long getFilesSize(QList<QString> fileslist);
 private:
 #define BUFFER_SIZE 4096
     QList<QString> mSrcFilesPath;

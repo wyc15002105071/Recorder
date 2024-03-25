@@ -7,7 +7,12 @@
 
 QString ConfigUtils::ConfigFile = "config.ini";
 bool ConfigUtils::isPowOff = false;
+bool ConfigUtils::isUsbMedia = false;
+QString ConfigUtils::usbName = "/dev/sda1";
+QString ConfigUtils::usbMonut = "/media/udisk1";
 int ConfigUtils::Fps = 2;
+int ConfigUtils::time = 0;
+QString ConfigUtils::MainMediaPath = "/mnt/storage";
 QString ConfigUtils::ost_txt = "清阅技术";
 
 bool checkIniFile(const QString &iniFile) {
@@ -61,6 +66,7 @@ void ConfigUtils::readConfig()
     set.beginGroup("system");
     ConfigUtils::ost_txt = set.value("ost_txt", ConfigUtils::ost_txt).toString();
     ConfigUtils::Fps = set.value("Fps", ConfigUtils::Fps).toInt();
+    ConfigUtils::time = set.value("time", ConfigUtils::time).toInt();
     set.endGroup();
 
 }
@@ -72,5 +78,6 @@ void ConfigUtils::writeConfig()
     set.beginGroup("system");
     set.setValue("ost_txt", ConfigUtils::ost_txt);
     set.setValue("Fps", ConfigUtils::Fps);
+    set.setValue("time", ConfigUtils::time);
     set.endGroup();
 }

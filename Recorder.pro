@@ -49,6 +49,7 @@ SOURCES += \
     media/videoinputdevice.cpp \
     utils/configutils.cpp \
     utils/fileutils.cpp \
+    utils/mediapathutils.cpp \
     utils/networkutils.cpp \
     utils/osdutils.cpp \
     utils/serialportutils.cpp \
@@ -76,6 +77,7 @@ SOURCES += \
     widgets/viewer/osdview.cpp \
     widgets/viewer/progressviewer.cpp \
     widgets/viewer/selectionicon.cpp \
+    widgets/viewer/selectview.cpp \
     widgets/viewer/setfpsview.cpp \
     widgets/viewer/videoplayer.cpp \
     widgets/viewer/videoviewer.cpp
@@ -109,6 +111,7 @@ HEADERS += \
     media/videoinputdevice.h \
     utils/configutils.h \
     utils/fileutils.h \
+    utils/mediapathutils.h \
     utils/networkutils.h \
     utils/osdutils.h \
     utils/serialportutils.h \
@@ -136,6 +139,7 @@ HEADERS += \
     widgets/viewer/osdview.h \
     widgets/viewer/progressviewer.h \
     widgets/viewer/selectionicon.h \
+    widgets/viewer/selectview.h \
     widgets/viewer/setfpsview.h \
     widgets/viewer/videoplayer.h \
     widgets/viewer/videoviewer.h
@@ -161,6 +165,7 @@ FORMS += \
     widgets/viewer/osdview.ui \
     widgets/viewer/progressviewer.ui \
     widgets/viewer/selectionicon.ui \
+    widgets/viewer/selectview.ui \
     widgets/viewer/setfpsview.ui \
     widgets/viewer/videoplayer.ui \
     widgets/viewer/videoviewer.ui

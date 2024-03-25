@@ -2,8 +2,6 @@
 #include "common/log.h"
 #include "utils/osdutils.h"
 #include "utils/storageutils.h"
-#include "utils/configutils.h"
-#include "utils/mediapathutils.h"
 
 #define MODULE_TAG "MediaRecorder"
 
@@ -32,24 +30,7 @@ void MediaRecorder::run()
     RLOGD("Record Thread start");
     int frameIndex = 0;
     int ret = 0;
-    int video_num = 0;
-    const char *suffix;
-    char time_str[100] = {0};
-    char url[100] = {0};
-    MediaMuxer::MediaInfo info;
-
-    memset(&info,0,sizeof(MediaMuxer::MediaInfo));
-
-    //int temp = 0;
-
-    int min =30;
-    switch (ConfigUtils::time) {
-    case 0:min =30;break;
-    case 1:min =60;break;
-    case 2:min =90;break;
-    case 3:min =120;break;
-    }
-
+    int temp = 0;
     mRecordState = REC_STATE_RUNNING;
     MediaMuxer::MediaPacket packet;
 
@@ -62,7 +43,8 @@ void MediaRecorder::run()
         void *extra_data = mpp_packet_get_data(hdr_pkt);
         int extra_size = mpp_packet_get_size(hdr_pkt);
         extra = malloc(extra_size);
-
+        MediaMuxer::MediaInfo info;
+        memset(&info,0,sizeof(MediaMuxer::MediaInfo));
         memcpy(extra,extra_data,extra_size);
         
         info.extra_data = extra;
@@ -74,13 +56,6 @@ void MediaRecorder::run()
         info.suffix_type = Suffix_MP4;
         info.coding_type = Video_CodingType_AVC;
         info.push_stream = mPushStream;
-
-        suffix = getSuffix(info.suffix_type);
-        getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
-        //sprintf(url,"%s/%s_[%d].%s",VIDEOS_SAVE_DIR,time_str,video_num,suffix);
-        sprintf(url,"%s/%s_[%d].%s",MediaPathUtils::get_instance()->getRootVideoPath().toStdString().c_str(),time_str,video_num,suffix);
-
-        info.file_path = url;
 
         switch(cfg.type) {
         case MPP_VIDEO_CodingAVC:
@@ -115,20 +90,21 @@ void MediaRecorder::run()
 
         if(mBufferlist.size() <= 0) {
             mLock.unlock();
-            usleep(1*1000);
+            usleep(1*!000);
             continue;
         }
-        //if((temp++ % mVideoCfg.framerate) == 0) {
-        //    long total,used,free = 0;
-        //    StorageUtils::get_instance()->getStorageCapacity(VIDEOS_SAVE_DIR,total,used,free);
-        //    RLOGD("used is %ld",used);
-        //    if(free <= SZ_1G) {
-        //        RLOGD("exit:available free memory is low");
-        //        break;
-        //    }
-        //    if(temp >= mVideoCfg.framerate)
-        //        temp = 0;
-        //}
+
+        if((temp++ % mVideoCfg.framerate) == 0) {
+            long total,used,free = 0;
+            StorageUtils::get_instance()->getStorageCapacity(VIDEOS_SAVE_DIR,total,used,free);
+            RLOGD("used is %ld",used);
+            if(free <= SZ_1G) {
+                RLOGD("exit:available free memory is low");
+                break;
+            }
+            if(temp >= mVideoCfg.framerate)
+                temp = 0;
+        }
 
         VideoFrameBuffer video_buffer = mBufferlist.front();
 
@@ -140,54 +116,22 @@ void MediaRecorder::run()
         int ret = mVideoEncoder->getOutPacket(&encOut);
         if(ret == 0) {
             frameIndex++;
-    	    memset(&packet,0,sizeof(MediaMuxer::MediaPacket));
             void *data = mpp_packet_get_data(encOut.packet);
             packet.pts = encOut.pts;
             packet.dts = encOut.pts;
             packet.size = encOut.size;
             packet.data = data;
+            if(encOut.keyFrame) {
+                RLOGD("IDR frame produced");
+                packet.flags |= MediaMuxer::FLAG_OUTPUT_INTRA;
+            }
+
             packet.is_video = true;
             if(encOut.eos) {
                 RLOGD("recieve output eos");
                 mRecordState = REC_STATE_STOPING;
                 packet.flags |= MediaMuxer::FLAG_END_OF_STREAM;
                 break;
-            }
-
-            if(encOut.keyFrame) {
-                if(frameIndex >= min * TM_1M * info.framerate) {
-                    MediaMuxer::MediaPacket temp_packet;
-                    memset(&temp_packet,0,sizeof(MediaMuxer::MediaPacket));
-                    temp_packet.pts = packet.pts;
-                    temp_packet.dts = packet.dts;
-                    temp_packet.size = packet.size;
-
-                    temp_packet.flags |= MediaMuxer::FLAG_END_OF_STREAM;
-                    mMediaMuxer->writeData(&temp_packet);
-
-                    if(mBufferlist.size() > 0)
-                        mBufferlist.clear();
-                    mVideoIndex = 0;
-                    frameIndex = 0;
-                    packet.pts = 0;
-                    packet.dts = 0;
-
-                    video_num++;
-		
-                    //sprintf(url,"%s/%s_[%d].%s",VIDEOS_SAVE_DIR,time_str,video_num,suffix);
-                    sprintf(url,"%s/%s_[%d].%s",MediaPathUtils::get_instance()->getRootVideoPath().toStdString().c_str(),time_str,video_num,suffix);
-
-                    info.file_path = url;
-                    ret = mMediaMuxer->prepare(info);
-                    if(ret < 0) {
-                        RLOGE("mediamuxer prepare failed:%d",ret);
-                        encOut.release();
-                        goto EXIT;
-                    }
-                    usleep(1*1000);
-                }
-                //RLOGD("IDR frame produced");
-                packet.flags |= MediaMuxer::FLAG_OUTPUT_INTRA;
             }
 
             mMediaMuxer->writeData(&packet);
@@ -202,9 +146,6 @@ void MediaRecorder::run()
 EXIT:
     if(mBufferlist.size() > 0)
         mBufferlist.clear();
-
-    free(extra);
-    extra = nullptr;
 
     mVideoEncoder->release();
     mRecordState = REC_STATE_STOPPED;
@@ -237,7 +178,7 @@ void MediaRecorder::stopTask()
     wait(QUIT_TIMEOUT);
 }
 
-bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int type, bool push_stream,VideoProfile profile)
+bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int type, bool push_stream, VideoProfile profile)
 {
     mRecordState = REC_STATE_INITIALIZING;
     RKHWEncApi::EncCfgInfo cfg;

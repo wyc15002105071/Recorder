@@ -10,6 +10,7 @@
 #include "utils/configutils.h"
 #include "widgets/powoffwidget.h"
 #include "utils/toastutils.h"
+#include "utils/mediapathutils.h"
 
 #define MODULE_TAG "MainWidget"
 #define LAST_SPACE 1024
@@ -164,8 +165,11 @@ void MainWidget::onCapture()
     getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
     char file_name[50] = {0};
     char file_save_path[50] = {0};
+
+    QString path = MediaPathUtils::get_instance()->getRootImagePath();
+    RLOGD(path.toStdString().c_str());
     sprintf(file_name,"%s.jpg",time_str);
-    sprintf(file_save_path,"%s/%s",IMAGES_SAVE_DIR,file_name);
+    sprintf(file_save_path,"%s/%s",path.toStdString().c_str(),file_name);
     RLOGD("capture file path is %s",file_save_path);
     if(mVideoWidget) {
         QPixmap pix_map = mVideoWidget->grab();
@@ -330,6 +334,7 @@ void MainWidget::signalChange(bool has)
             mMenuWidget->setButtonDisabled(false);
         }
     }else{
+
         RLOGE("no signal");
         ui->NoSignalWidget->setVisible(true);
         mMenuWidget->setButtonDisabled(true);
@@ -350,7 +355,7 @@ void MainWidget::signalChange(bool has)
 
 void MainWidget::sendDiskSpace(long free, long total)
 {
-    qDebug()<<free<<total;
+    //qDebug()<<free<<total;
     space = free;
     if(space<LAST_SPACE){
         if(mRecordWidget) {

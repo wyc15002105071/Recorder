@@ -18,6 +18,11 @@ SureDialog::~SureDialog()
     delete ui;
 }
 
+void SureDialog::setText(QString t)
+{
+    ui->title_lb->setText(t);
+}
+
 void SureDialog::onKeyEventHandler(KeyListener::EventType type)
 {
     if(!this->isVisible()) {

@@ -33,6 +33,7 @@ public:
 
     void openDiskSelection();
     void loadThumbnail(QImage image,QString file_path);
+    bool compareDisk(const char *path,QList<QString> fileList);
 protected:
     QList<QString> mFilePathList;
     QList<QString> mFileNameList;

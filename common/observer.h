@@ -14,6 +14,7 @@ typedef struct NotifyData {
     Result  result;
     bool    finish;
     int     flags;
+    bool    isUsbOut;
 }NotifyData_t;
 
 class Observer

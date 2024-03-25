@@ -14,12 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-#widget_ods{
-background:rgba(29, 32, 41, 1);
-border: 1px solid rgba(110, 110, 110, 1);
-}
-</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -39,6 +34,12 @@ border: 1px solid rgba(110, 110, 110, 1);
    </property>
    <item>
     <widget class="QWidget" name="widget_title" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -120,12 +121,22 @@ QPushButton::pressed{
      <property name="styleSheet">
       <string notr="true">#widget_list{background: rgba(29, 32, 41, 1);}
 
-#widget_fps,#widget_osd,#widget_vision{
-	border-bottom: 1px solid rgba(110, 110, 110, 1);
+#widget_fps,#widget_dizhi,#widget_osd,#widget_time,#widget_vision{
+	background-color:rgba(57, 63, 77, 1);
+	border-radius: 20px;
 }
 
-#lb_ods,#lb_title_fps,#lb_title_vision,#lb_value_vision{
+#lb_title_ods,#lb_title_fps,#lb_title_time,#lb_title_vision,#lb_title_dizhi{
 font-size: 50px;
+font-weight: 400;
+letter-spacing: 0px;
+line-height: 72.4px;
+color: rgba(255, 255, 255, 1);
+text-align: left;
+vertical-align: top;
+}
+#lb_value_vision{
+font-size: 36px;
 font-weight: 400;
 letter-spacing: 0px;
 line-height: 72.4px;
@@ -137,22 +148,303 @@ vertical-align: top;
 	border-image: url(:/resources/icons/icon_setting_item.png);
 	border-bottom: 1px solid rgb(110, 110, 110);
 }
-#pBtn_fps{
-font-size: 50px;
+#pBtn_fps,#pBtn_time,#pBtn_dizhi{
+font-size: 36px;
 font-weight: 400;
 letter-spacing: 0px;
 line-height: 72.4px;
 color: rgba(255, 255, 255, 1);
-background: rgba(29, 32, 41, 1);
-	border:none;
+background-color:rgba(57, 63, 77, 1);
+border:none;
+text-align: right;
 }</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <widget class="QWidget" name="widget_1" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1280</width>
+        <height>450</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="leftMargin">
+        <number>40</number>
+       </property>
+       <property name="topMargin">
+        <number>70</number>
+       </property>
+       <property name="rightMargin">
+        <number>40</number>
+       </property>
+       <property name="bottomMargin">
+        <number>70</number>
+       </property>
+       <property name="spacing">
+        <number>40</number>
+       </property>
+       <item row="0" column="1">
+        <widget class="QWidget" name="widget_fps" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <property name="leftMargin">
+           <number>40</number>
+          </property>
+          <property name="rightMargin">
+           <number>40</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lb_title_fps">
+            <property name="text">
+             <string>码率设置</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pBtn_fps">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>中</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QWidget" name="widget_osd" native="true">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="leftMargin">
+           <number>40</number>
+          </property>
+          <property name="rightMargin">
+           <number>40</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lb_title_ods">
+            <property name="text">
+             <string>编辑水印</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pBtn_osd">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QWidget" name="widget_time" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <property name="leftMargin">
+           <number>40</number>
+          </property>
+          <property name="rightMargin">
+           <number>40</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lb_title_time">
+            <property name="text">
+             <string>录制时长</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pBtn_time">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>60min</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QWidget" name="widget_dizhi" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <property name="leftMargin">
+           <number>40</number>
+          </property>
+          <property name="rightMargin">
+           <number>40</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lb_title_dizhi">
+            <property name="text">
+             <string>储存位置</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pBtn_dizhi">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>本地</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1280</width>
+        <height>450</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="leftMargin">
+        <number>40</number>
+       </property>
+       <property name="topMargin">
+        <number>70</number>
+       </property>
+       <property name="rightMargin">
+        <number>40</number>
+       </property>
+       <property name="bottomMargin">
+        <number>70</number>
+       </property>
+       <property name="spacing">
+        <number>40</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QWidget" name="widget_vision" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="leftMargin">
+           <number>40</number>
+          </property>
+          <property name="rightMargin">
+           <number>40</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lb_title_vision">
+            <property name="text">
+             <string>版本号</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lb_value_vision">
+            <property name="text">
+             <string>V1.0.0</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QWidget" name="widget_3" native="true"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QWidget" name="widget" native="true"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="QWidget" name="widget_4" native="true"/>
+       </item>
+      </layout>
+     </widget>
+     <zorder>widget_2</zorder>
+     <zorder>widget_1</zorder>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_button" native="true">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>120</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#widget_button{
+	background-color:rgba(59,63,75,1);
+}
+#pBtn_left,#pBtn_right{
+	background-color: rgb(39, 42, 51);
+	color:white;
+	font-size: 50px; 
+	border:none; 
+}
+#pBtn_left::disabled,#pBtn_right::disabled{
+	background-color: rgb(39, 42, 51);
+	color:rgba(255, 255, 255, 0.4);
+	font-size: 50px; 
+	border:none; 
+}
+</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <property name="spacing">
+       <number>1</number>
+      </property>
       <property name="leftMargin">
        <number>0</number>
       </property>
       <property name="topMargin">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="rightMargin">
        <number>0</number>
@@ -161,143 +453,33 @@ background: rgba(29, 32, 41, 1);
        <number>0</number>
       </property>
       <item>
-       <widget class="QWidget" name="widget_osd" native="true">
+       <widget class="QPushButton" name="pBtn_left">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>上一页</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pBtn_right">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="styleSheet">
          <string notr="true"/>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <property name="leftMargin">
-          <number>100</number>
-         </property>
-         <property name="rightMargin">
-          <number>60</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="lb_ods">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>130</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>编辑水印</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pBtn_osd">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>60</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget_fps" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <property name="leftMargin">
-          <number>100</number>
-         </property>
-         <property name="rightMargin">
-          <number>60</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="lb_title_fps">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>130</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>码率设置</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pBtn_fps">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>中</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget_vision" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <property name="leftMargin">
-          <number>100</number>
-         </property>
-         <property name="rightMargin">
-          <number>60</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="lb_title_vision">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>130</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>版本号</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="lb_value_vision">
-           <property name="text">
-            <string>V1.0.0</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
+        <property name="text">
+         <string>下一页</string>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
+       </widget>
       </item>
      </layout>
     </widget>

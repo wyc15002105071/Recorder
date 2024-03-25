@@ -28,6 +28,9 @@ public:
     QVector<ExternalStorageInfo> getExternalStorageInfoList();
 
     void getStorageCapacity(const char *root,long &total,long &used ,long &free);
+
+    void getUsePath();
+
 protected:
     StorageUtils();
 

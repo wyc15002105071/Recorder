@@ -157,10 +157,10 @@ void DrmAllocator::destroyBuffers()
             };
             drmIoctl(mDrmFd, DRM_IOCTL_GEM_CLOSE, &req);
 
-            if(bo->drm_buf){
+            if(bo->drm_buf) {
                 munmap(bo->drm_buf,bo->actual_size);
             }
-            if(bo->drm_buffer_fd>0){
+            if(bo->drm_buffer_fd > 0) {
                 close(bo->drm_buffer_fd);
             }
 
