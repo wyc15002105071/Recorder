@@ -22,6 +22,7 @@ public:
     ~UserSetWidget();
 
     virtual void onHasOpened();
+    virtual void onHasClosed();
 public slots:
     void doEditOsd();
     void doSelectFps();

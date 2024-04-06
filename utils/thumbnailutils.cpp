@@ -24,6 +24,13 @@ void ThumbnailUtils::run()
     if(count == 0) {
         return;
     }
+    float precent = 0.0f;
+    NotifyData ndata;
+    ndata.data = &precent;
+    ndata.finish = false;
+    ndata.flags = 2;
+    ndata.result = RET_NONE;
+
     int i = 0;
     while(!mThreadExit) {
         for(i = 0;i < count; i++) {
@@ -38,12 +45,17 @@ void ThumbnailUtils::run()
             getThumbnail(file_path,type);
             usleep(1*1000);
 
+            precent = (float)i*100.0/(float)count;
+            ndata.data = &precent;
+            notify(ndata);
             if(mThreadExit)
                 break;
         }
         if(i >= count)
             break;
     }
+    ndata.finish = true;
+    notify(ndata);
 }
 
 void ThumbnailUtils::setDataSource(QList<QString> files)

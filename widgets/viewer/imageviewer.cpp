@@ -39,6 +39,9 @@ ImageViewer::~ImageViewer()
 
 void ImageViewer::open()
 {
+    if(mProgressViewer){
+        mProgressViewer->setOperation(2);
+    }
     findAllFiles(IMAGES_SAVE_DIR);
     show();
 }
@@ -98,9 +101,9 @@ void ImageViewer::onHasOpened()
         mCapacityListenerTimer->start();
     }
 
-    if(mHotplugListener) {
-        mHotplugListener->startTask();
-    }
+    //if(mHotplugListener) {
+    //    mHotplugListener->startTask();
+    //}
 
     onUpdateExtStorageView();
 
@@ -109,6 +112,10 @@ void ImageViewer::onHasOpened()
 
 void ImageViewer::onHasClosed()
 {
+
+    if(mConfirmDialog)
+        mConfirmDialog->close();
+
     if(mDiskSelectionWidget.get())
         mDiskSelectionWidget->close();
     if(mThumbnail.get()) {
@@ -121,9 +128,9 @@ void ImageViewer::onHasClosed()
         mCapacityListenerTimer->stop();
     }
 
-    if(mHotplugListener) {
-        mHotplugListener->stopTask();
-    }
+    //if(mHotplugListener) {
+    //    mHotplugListener->stopTask();
+    //}
 }
 
 void ImageViewer::onCopySelectedClicked()

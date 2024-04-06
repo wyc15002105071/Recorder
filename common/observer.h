@@ -6,7 +6,8 @@
 
 typedef enum Result{
     RET_SUCCESS = 0,
-    RET_FAILURE = -1
+    RET_FAILURE = -1,
+    RET_NONE = -2
 } Result_t;
 
 typedef struct NotifyData {
@@ -15,6 +16,8 @@ typedef struct NotifyData {
     bool    finish;
     int     flags;
     bool    isUsbOut;
+    bool    isAdd;
+    bool    isNoLegal;
 }NotifyData_t;
 
 class Observer

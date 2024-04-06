@@ -31,11 +31,7 @@ public:
 
     bool    initDevice(bool is_hdmi_in);
     void    deinit();
-//<<<<<<< HEAD
-    //void    startRecord(MediaRecorder::VideoProfile profile = MediaRecorder::VideoProfile_Standard,bool push = false);
-//=======
     void    startRecord(MediaRecorder::VideoProfile profile = MediaRecorder::VideoProfile_Standard, bool push = false);
-//>>>>>>> ead4270d313686d7c240d6d9f35d3fcf218e382f
     void    stopRecord();
     void    startPush();
     void    stopPush();
@@ -46,6 +42,7 @@ private:
         int32_t     width;
         int32_t     height;
         uint32_t    format;
+        uint32_t    framerate;
     } StreamInfo_t;
 
     int32_t       mDeviceFd;

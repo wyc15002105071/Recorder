@@ -40,7 +40,17 @@ void UserSetWidget::onHasOpened()
 {
     if(!ConfigUtils::isUsbMedia){
         ui->pBtn_dizhi->setText("本地");
+    }else{
+        ui->pBtn_dizhi->setText(ConfigUtils::usbLabel);
     }
+}
+
+void UserSetWidget::onHasClosed()
+{
+    if(mOsdView)mOsdView->close();
+    if(mSetFpsView)mSetFpsView->close();
+    if(mSetDiZhiView)mSetDiZhiView->close();
+    if(mTimeSelectView)mTimeSelectView->close();
 }
 
 void UserSetWidget::doEditOsd()
@@ -153,6 +163,7 @@ void UserSetWidget::setDiZhi(int index)
     }else{
         ui->pBtn_dizhi->setText(QString::fromStdString(mExternalStorageInfo[index-1].label));
         ConfigUtils::isUsbMedia = true;
+        ConfigUtils::usbLabel = QString::fromStdString(mExternalStorageInfo[index-1].label);
         ConfigUtils::usbName = QString::fromStdString(mExternalStorageInfo[index-1].node_path);
         ConfigUtils::usbMonut = QString::fromStdString(mExternalStorageInfo[index-1].mount_path);
     }

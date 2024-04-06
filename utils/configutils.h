@@ -16,6 +16,7 @@ public:
     static QString MainMediaPath;
     static bool isUsbMedia;
     static QString usbName;
+    static QString usbLabel;
     static QString usbMonut;
 
     //读写配置参数

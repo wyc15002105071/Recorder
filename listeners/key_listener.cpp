@@ -36,6 +36,10 @@ bool KeyListener::startTask()
     }
 //    mSerialPort->start();
     RLOGD("open serial port success");
+    doSendWork(QByteArray().append(0x5A).append(0xA5)
+               .append(0x04).append(0x02)
+               .append(0x01).append(0xBF)
+               .append(0xEF).append(0xEF));
     start();
     return true;
 }

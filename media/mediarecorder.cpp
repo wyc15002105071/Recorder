@@ -237,7 +237,7 @@ void MediaRecorder::stopTask()
     wait(QUIT_TIMEOUT);
 }
 
-bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int type, bool push_stream,VideoProfile profile)
+bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int framerate, int type, bool push_stream,VideoProfile profile)
 {
     mRecordState = REC_STATE_INITIALIZING;
     RKHWEncApi::EncCfgInfo cfg;
@@ -247,7 +247,7 @@ bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int t
     cfg.format      = format;
     cfg.type        = type;
     cfg.bitrateMode = 1;
-    cfg.framerate   = 60;
+    cfg.framerate   = framerate;
 
     switch(profile) {
     case VideoProfile_Low:

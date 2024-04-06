@@ -4,9 +4,10 @@
 #include <QWidget>
 #include "media/videoinputdevice.h"
 #include "common/common.h"
+#include "common/observer.h"
 #include "basewidget.h"
 #include "widgets/suredialog.h"
-#include "listeners/hotpluglistener.h"
+//#include "listeners/hotpluglistener.h"
 
 namespace Ui {
 class RecordWidget;
@@ -22,18 +23,18 @@ public:
     RecordWidget(QWidget *parent = nullptr,VideoInputDevice *video_input_device = nullptr);
     ~RecordWidget();
 
-    virtual void update(NotifyData data) {if(data.isUsbOut)onHotplugEvent();}
+    virtual void update(NotifyData data) {if(data.isUsbOut&&isVisible())onHotplugEvent();}
 private:
     Ui::RecordWidget *ui;
     VideoInputDevice *mVideoInputDevice;
     sp<SureDialog>   mSureDialog;
-    sp<HotplugListener> mHotplugListener;
+    //sp<HotplugListener> mHotplugListener;
 public slots:
     void onRecordBtnToggled(bool toggled);
     void startRec();
     void timeUp();
     virtual void onHasClosed();
-    virtual void onHasOpened();
+    //virtual void onHasOpened();
     bool getSureDialogShow();
     void checkUsb();
 

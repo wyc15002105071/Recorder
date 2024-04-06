@@ -21,10 +21,17 @@ MainWidget::MainWidget(QWidget *parent)
     , ui(new Ui::MainWidget)
     , mKeyListener(KeyListener::get_instance())
     , mDiskListener(new DiskCapacityListener())
+    , mStorageUtils(StorageUtils::get_instance())
+    , mHotplugListener(sp<HotplugListener>(new HotplugListener))
     , mSignalHandler(sp<SignalHandler>(new SignalHandler(this)))
 {
     ui->setupUi(this);
     setWindowState(Qt::WindowFullScreen);
+
+    mHotplugListener->attach(this);
+    connect(this,SIGNAL(onHotplugEvent(bool)),this,SLOT(checkUsb(bool)));
+
+    mHotplugListener->startTask();
 
     connect(mDiskListener,&DiskCapacityListener::sendDiskSpace,this,&MainWidget::sendDiskSpace);
     mDiskListener->startTask();
@@ -95,6 +102,11 @@ void MainWidget::initWidgets()
          mUserSetWidget->close();
     }
     connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)),Qt::UniqueConnection);
+
+    mHotplugListener->attach(mRecordWidget.get());
+    mHotplugListener->attach(mVideoViewer.get());
+    mHotplugListener->attach(mImageViewer.get());
+
 
     if (access(IMAGES_SAVE_DIR, F_OK)) {
         mkdir(IMAGES_SAVE_DIR);
@@ -300,19 +312,26 @@ void MainWidget::onKeyEventHandler(KeyListener::EventType type)
     switch (type)
     {
     case KeyListener::Key_EventType_RECORD: {
-        if((mVideoViewer&&mVideoViewer->isVisible())
-                ||(mImageViewer&&mImageViewer->isVisible())
-                ||(mUserSetWidget&&mUserSetWidget->isVisible())
-                ||(mPushWidget&&mPushWidget->isVisible()))
-            return;
+        //if((mVideoViewer&&mVideoViewer->isVisible())
+        //        ||(mImageViewer&&mImageViewer->isVisible())
+        //        ||(mUserSetWidget&&mUserSetWidget->isVisible())
+        //        ||(mPushWidget&&mPushWidget->isVisible()))
+        //    return;
+        if(!signalIn)return;
+        if(mVideoViewer&&mVideoViewer->isVisible()&&!mVideoViewer->isFileUtilsRun())mVideoViewer->close();
+        if(mImageViewer&&mImageViewer->isVisible()&&!mImageViewer->isFileUtilsRun())mImageViewer->close();
+        if(mUserSetWidget&&mUserSetWidget->isVisible())mUserSetWidget->close();
+        if(mPushWidget&&mPushWidget->isVisible())mPushWidget->close();
+        if(mSureDialog&&mSureDialog->isVisible())mSureDialog->reject();
+        if(mConfirmDialog&&mConfirmDialog->isVisible())return;
         onRecord();
     }break;
     case KeyListener::Key_EventType_CAPTURE: {
-        if((mVideoViewer&&mVideoViewer->isVisible())
-                ||(mImageViewer&&mImageViewer->isVisible())
-                ||(mUserSetWidget&&mUserSetWidget->isVisible())
-                ||(mPushWidget&&mPushWidget->isVisible()))
-            return;
+        //if((mVideoViewer&&mVideoViewer->isVisible())
+        //        ||(mImageViewer&&mImageViewer->isVisible())
+        //        ||(mUserSetWidget&&mUserSetWidget->isVisible())
+        //        ||(mPushWidget&&mPushWidget->isVisible()))
+        //    return;
         onCapture();
     }break;
     case KeyListener::Key_EventType_POWER: {
@@ -366,6 +385,39 @@ void MainWidget::sendDiskSpace(long free, long total)
             }
         }
     }
+}
+
+void MainWidget::checkUsb(bool isNoLagel)
+{
+    mux.lock();
+    if(isNoLagel){
+        if(!mSureDialog){
+            mSureDialog = new SureDialog;
+            mSureDialog->setText("系统不支持该u盘格式");
+        }
+        if(!mSureDialog->isVisible()&&(!mConfirmDialog||!mConfirmDialog->isVisible()))
+            mSureDialog->showFullScreen();
+    }
+    if(!ConfigUtils::isUsbMedia){
+       if(!mConfirmDialog){
+           mConfirmDialog = new ConfirmDialog;
+           mConfirmDialog->setTitle("是否录制到u盘?");
+           connect(mConfirmDialog,&ConfirmDialog::accepted,this,[=]{
+               QVector<StorageUtils::ExternalStorageInfo> list = StorageUtils::get_instance()->getExternalStorageInfoList();
+               for(int i=0;i<list.count();i++){
+                   if(!ConfigUtils::isUsbMedia){
+                       ConfigUtils::isUsbMedia = true;
+                       ConfigUtils::usbName = QString::fromStdString(list.at(i).node_path);
+                       ConfigUtils::usbLabel = QString::fromStdString(list.at(i).label);
+                       ConfigUtils::usbMonut = QString::fromStdString(list.at(i).mount_path);
+                   }
+               }
+           });
+       }
+       if((!mSureDialog||!mSureDialog->isVisible())&&!mConfirmDialog->isVisible())
+            mConfirmDialog->showFullScreen();
+    }
+    mux.unlock();
 }
 int SignalHandler::sigintFd[2];
 SignalHandler::SignalHandler(QObject *parent)

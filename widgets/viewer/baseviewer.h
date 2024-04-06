@@ -12,7 +12,7 @@
 #include "utils/thumbnailutils.h"
 #include "progressviewer.h"
 #include "extstorageitem.h"
-#include "listeners/hotpluglistener.h"
+//#include "listeners/hotpluglistener.h"
 #include "widgets/confirmdialog.h"
 
 class BaseViewer : public BaseWidget ,public Observer
@@ -29,11 +29,12 @@ public:
     ~BaseViewer();
     virtual void resizeEvent(QResizeEvent *event);
     virtual void findAllFiles(const char *dir);
-    virtual void update(NotifyData data) { onHotplugEvent();}
+    virtual void update(NotifyData data) {if(isVisible()) onHotplugEvent();}
 
     void openDiskSelection();
     void loadThumbnail(QImage image,QString file_path);
     bool compareDisk(const char *path,QList<QString> fileList);
+    bool isFileUtilsRun();
 protected:
     QList<QString> mFilePathList;
     QList<QString> mFileNameList;
@@ -50,7 +51,7 @@ protected:
     sp<FileUtils>           mFileUtils;
     sp<ThumbnailUtils>      mThumbnail;
     sp<QTimer>              mCapacityListenerTimer;
-    sp<HotplugListener>     mHotplugListener;
+    //sp<HotplugListener>     mHotplugListener;
 
     sp<QLabel>       mlabel;
     QListWidget     *mListViewer;

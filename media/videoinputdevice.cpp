@@ -5,6 +5,7 @@
 #include "utils/osdutils.h"
 #include "media/rkrgadef.h"
 #include "utils/configutils.h"
+#include "rk_hdmirx_config.h"
 
 using namespace std;
 
@@ -111,7 +112,16 @@ void VideoInputDevice::run()
                 }
                 RKRgaDef::SetRgaInfo(&srcInfo, mOsdBo.buf_fd, mOsdBo.width, mOsdBo.height,RK_FORMAT_RGBA_8888 ,ALIGN(mOsdBo.width,4), ALIGN(mOsdBo.height,2));
                 RKRgaDef::SetRgaInfo(&dstInfo, mDmaBo[i].buf_fd, mDmaBo[i].width, mDmaBo[i].height,rga_format ,ALIGN(mDmaBo[i].width,4), ALIGN(mDmaBo[i].height,2));
-                RKRgaDef::ProcessOSD(srcInfo,dstInfo);
+
+                if(srcInfo.width > dstInfo.width) {
+                        srcInfo.width = dstInfo.width;
+                }
+
+                if(srcInfo.height > dstInfo.height) {
+                        srcInfo.height = dstInfo.height;
+                }
+
+//                RKRgaDef::ProcessOSD(srcInfo,dstInfo);
                 if(mRecorder) {
                     mRecorder->sendVideoFrame(mDmaBo[i].buf_fd,mDmaBo[i].buf_size,
                                               mDmaBo[i].width,mDmaBo[i].height,false);
@@ -168,12 +178,14 @@ void VideoInputDevice::startRecord(MediaRecorder::VideoProfile profile,bool push
 {
     //    mLock.lock();
     if(mRecorder) {
-        mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC, push,profile);
+        //mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,MPP_VIDEO_CodingAVC, push,profile);
+        mRecorder->initVideoRecorder(mStreamInfo.width,mStreamInfo.height,mStreamInfo.format,mStreamInfo.framerate,MPP_VIDEO_CodingAVC, push,profile);
         mRecorder->startTask();
     }
 
     QPixmap osd;
     //OSDUtils::createOSD(osd,"清阅技术");
+    osd = QPixmap(mStreamInfo.width*0.7,OSD_DEFAULT_HEIGHT);
     OSDUtils::createOSD(osd,ConfigUtils::ost_txt.isEmpty()?"清阅技术":ConfigUtils::ost_txt);
 
     if(mOsdBo.vir_addr) {
@@ -259,6 +271,25 @@ bool VideoInputDevice::initDevice(bool is_hdmi_in)
         return false;
     }
     RLOGD("open %s success!",node);
+
+
+    //struct v4l2_control control;
+    //control.id = V4L2_CID_DV_RX_POWER_PRESENT;
+    //if(ioctl(mDeviceFd, VIDIOC_G_CTRL, &control) == -1) {
+    //    RLOGE("Failed to Get Ctrl");
+    //}
+    //
+    //int signal_stable;
+    //if(ioctl(mDeviceFd, RK_HDMIRX_CMD_GET_SIGNAL_STABLE_STATUS,&signal_stable) == -1) {
+    //    RLOGE("Failed to get signal stable status");
+    //}
+    //
+    //if(!control.value || !signal_stable) {
+    //    RLOGE("no plugin or signal:current plugin: %d,current signal stable: %d",control.value,signal_stable);
+    //    close(mDeviceFd);
+    //    return false;
+    //}
+
     struct v4l2_capability caps;
     if (ioctl(mDeviceFd, VIDIOC_QUERYCAP, &caps) == -1) {
         RLOGE("Failed to query device capabilities");
@@ -303,8 +334,16 @@ bool VideoInputDevice::initDevice(bool is_hdmi_in)
         return false;
     }
 
-    RLOGD("current video fmt is:width:%d,height:%d,PixFormat is %s",format.fmt.pix.width,format.fmt.pix.height,fcc2s(format.fmt.pix.pixelformat).c_str());
+    int fps = 0;
+    if(ioctl(mDeviceFd, RK_HDMIRX_CMD_GET_FPS, &fps) == -1) {
+        RLOGE("failed to get fps,set default fps to 60");
+    }
 
+    if(fps <= 0) {
+        fps = 60;
+    }
+
+    RLOGD("current video fmt is:width:%d,height:%d,PixFormat is %s fps :%d",format.fmt.pix.width,format.fmt.pix.height,fcc2s(format.fmt.pix.pixelformat).c_str(),fps);
     // 请求缓冲区
     struct v4l2_requestbuffers req;
     memset(&req, 0, sizeof(struct v4l2_requestbuffers));
@@ -324,6 +363,7 @@ bool VideoInputDevice::initDevice(bool is_hdmi_in)
     mStreamInfo.width = format.fmt.pix.width;
     mStreamInfo.height = format.fmt.pix.height;
     mStreamInfo.format = format.fmt.pix.pixelformat;
+    mStreamInfo.framerate = fps;
 
     {
         for (int i = 0; i < MAX_BUF_CNT; i++) {
@@ -402,7 +442,9 @@ bool VideoInputDevice::initDevice(bool is_hdmi_in)
     }
 
     memset(&mOsdBo,0,sizeof(DmaBufferObject));
-    mOsdBo.width = OSD_DEFAULT_WIDTH;
+    //mOsdBo.width = OSD_DEFAULT_WIDTH;
+    //mOsdBo.height = OSD_DEFAULT_HEIGHT;
+    mOsdBo.width = mStreamInfo.width*0.7;
     mOsdBo.height = OSD_DEFAULT_HEIGHT;
     Allocator *allocator = AllocatorService::getDrmAllocator();
     allocator->allocBuffers(mOsdBo.width,mOsdBo.height,DRM_FORMAT_RGBA8888,false,true,1);

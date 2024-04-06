@@ -40,8 +40,10 @@ void ProgressViewer::setOperation(int operation)
      mOperation = operation;
      if(mOperation == 0) {
          setText(COPYING);
-     } else {
+     } else if(mOperation==1){
          setText(DELETEING);
+     }else{
+         setText(LOAD);
      }
 }
 

@@ -6,7 +6,7 @@
 RecordWidget::RecordWidget(QWidget *parent) :
     BaseWidget(parent),
     mSureDialog(sp<SureDialog>(new SureDialog)),
-    mHotplugListener(sp<HotplugListener>(new HotplugListener)),
+    //mHotplugListener(sp<HotplugListener>(new HotplugListener)),
     ui(new Ui::RecordWidget)
 {
     ui->setupUi(this);
@@ -16,7 +16,7 @@ RecordWidget::RecordWidget(QWidget *parent, VideoInputDevice *video_input_device
     BaseWidget(parent)
    , ui(new Ui::RecordWidget)
    , mSureDialog(sp<SureDialog>(new SureDialog))
-   , mHotplugListener(sp<HotplugListener>(new HotplugListener))
+   //, mHotplugListener(sp<HotplugListener>(new HotplugListener))
    , mVideoInputDevice(video_input_device)
 {
     ui->setupUi(this);
@@ -24,15 +24,15 @@ RecordWidget::RecordWidget(QWidget *parent, VideoInputDevice *video_input_device
     connect(this,SIGNAL(onOpened()),this,SLOT(startRec()));
     connect(ui->record_timer_widget,&RecordTimerWidget::timeUp,this,&RecordWidget::timeUp);
 
-    mHotplugListener->attach(this);
+    //mHotplugListener->attach(this);
     connect(this,SIGNAL(onHotplugEvent()),this,SLOT(checkUsb()));
 }
 
 RecordWidget::~RecordWidget()
 {
-    if(mHotplugListener) {
-        mHotplugListener->stopTask();
-    }
+    //if(mHotplugListener) {
+    //    mHotplugListener->stopTask();
+    //}
     delete ui;
 }
 
@@ -44,7 +44,8 @@ void RecordWidget::onRecordBtnToggled(bool toggled)
         ui->record_timer_widget->stop();
         if(mVideoInputDevice) {
             mVideoInputDevice->stopRecord();
-            system("sync");
+            if(ConfigUtils::isUsbMedia)
+                system("sync");
             if(!ConfigUtils::isPowOff){
                 //mSureDialog->exec();
                 mSureDialog->setText("视屏录制完成");
@@ -82,17 +83,17 @@ void RecordWidget::timeUp()
 void RecordWidget::onHasClosed()
 {
     ui->record_btn->setChecked(true);
-    if(mHotplugListener) {
-        mHotplugListener->stopTask();
-    }
+    //if(mHotplugListener) {
+    //    mHotplugListener->stopTask();
+    //}
 }
 
-void RecordWidget::onHasOpened()
-{
-    if(mHotplugListener) {
-        mHotplugListener->startTask();
-    }
-}
+//void RecordWidget::onHasOpened()
+//{
+//    if(mHotplugListener) {
+//        mHotplugListener->startTask();
+//    }
+//}
 
 bool RecordWidget::getSureDialogShow()
 {

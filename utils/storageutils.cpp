@@ -60,10 +60,6 @@ QVector<StorageUtils::ExternalStorageInfo> StorageUtils::getExternalStorageInfoL
             //RLOGD(serial_short);
             //if(filesystem)
             //RLOGD(filesystem);
-            //if(!label){
-            //    label = ;
-            //}
-            //RLOGD(label);
             //RLOGD("==============");
             if (devnode && model && serial_short && filesystem) {
 

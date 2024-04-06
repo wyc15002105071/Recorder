@@ -79,9 +79,9 @@ void VideoViewer::onHasOpened()
         mCapacityListenerTimer->start();
     }
 
-    if(mHotplugListener) {
-        mHotplugListener->startTask();
-    }
+    //if(mHotplugListener) {
+    //    mHotplugListener->startTask();
+    //}
 
     onUpdateExtStorageView();
 
@@ -90,6 +90,10 @@ void VideoViewer::onHasOpened()
 
 void VideoViewer::onHasClosed()
 {
+    if(mPlayer&&mPlayer->isVisible())
+        mPlayer->close();
+    if(mConfirmDialog)
+        mConfirmDialog->close();
     if(mDiskSelectionWidget)
         mDiskSelectionWidget->close();
     if(mThumbnail) {
@@ -102,13 +106,16 @@ void VideoViewer::onHasClosed()
         mCapacityListenerTimer->stop();
     }
 
-    if(mHotplugListener) {
-        mHotplugListener->stopTask();
-    }
+    //if(mHotplugListener) {
+    //    mHotplugListener->stopTask();
+    //}
 }
 
 void VideoViewer::open()
 {
+    if(mProgressViewer){
+        mProgressViewer->setOperation(2);
+    }
     findAllFiles(VIDEOS_SAVE_DIR);
     show();
 }

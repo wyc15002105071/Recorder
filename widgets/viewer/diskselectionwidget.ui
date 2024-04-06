@@ -52,13 +52,13 @@
     <widget class="QWidget" name="container" native="true">
      <property name="minimumSize">
       <size>
-       <width>350</width>
+       <width>460</width>
        <height>0</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>350</width>
+       <width>460</width>
        <height>16777215</height>
       </size>
      </property>
@@ -146,7 +146,7 @@ background-color: rgba(57, 63, 77, 1);
         </property>
         <property name="minimumSize">
          <size>
-          <width>300</width>
+          <width>400</width>
           <height>0</height>
          </size>
         </property>
@@ -157,6 +157,12 @@ background-color: rgba(57, 63, 77, 1);
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
          <property name="bottomMargin">
           <number>0</number>
          </property>
@@ -189,14 +195,14 @@ background-color: rgba(57, 63, 77, 1);
         </property>
         <property name="minimumSize">
          <size>
-          <width>280</width>
-          <height>50</height>
+          <width>400</width>
+          <height>80</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>280</width>
-          <height>50</height>
+          <width>400</width>
+          <height>80</height>
          </size>
         </property>
         <property name="text">

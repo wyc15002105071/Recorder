@@ -1,6 +1,7 @@
 #include "hotpluglistener.h"
 #include "utils/configutils.h"
 #include <libudev.h>
+#include <mntent.h>
 
 
 HotplugListener::HotplugListener()
@@ -50,17 +51,28 @@ void HotplugListener::run()
 
                 NotifyData data;
                 memset(&data,0,sizeof(NotifyData));
-
-                RLOGE(udev_device_get_devnode(dev));
                 QString devnode = udev_device_get_devnode(dev);
-                if(!devnode.isEmpty()&&devnode==ConfigUtils::usbName){
+                if(!devnode.isEmpty()){
                     const char * action = udev_device_get_action(dev);
-                    RLOGE(action);
+
                     if(strcmp(action, "remove") == 0){
-                        ConfigUtils::isUsbMedia = false;
-                        ConfigUtils::usbName = "";
-                        ConfigUtils::usbMonut = "";
-                        data.isUsbOut = true;
+                        data.isAdd = false;
+                        if(devnode==ConfigUtils::usbName){
+                            ConfigUtils::isUsbMedia = false;
+                            ConfigUtils::usbName = "";
+                            ConfigUtils::usbMonut = "";
+                            ConfigUtils::usbLabel = "";
+                            data.isUsbOut = true;
+                        }
+                    }else if(strcmp(action, "add") == 0){
+                        const char *mnt_path = getMountPath(devnode.toStdString().c_str());
+                        if(mnt_path){
+                            RLOGD(action);
+                            data.isAdd = true;
+                        }
+                        QString filesystem = udev_device_get_property_value(dev, "ID_FS_TYPE");
+                        if(filesystem == "ntfs")
+                            data.isNoLegal = true;
                     }
                 }
 
@@ -80,3 +92,29 @@ void HotplugListener::run()
     udev_monitor_unref(mon);
     udev_unref(udev);
 }
+
+const char *HotplugListener::getMountPath(const char *node_path)
+{
+    FILE *mounts;
+    struct mntent *ent;
+
+    // 打开 /etc/mtab 文件以获取挂载点信息
+    mounts = setmntent("/etc/mtab", "r");
+    if (mounts == NULL) {
+        perror("Error opening /etc/mtab");
+        return NULL;
+    }
+
+    // 读取并输出挂载信息
+    while ((ent = getmntent(mounts)) != NULL) {
+        if(!strcmp(node_path,ent->mnt_fsname)) {
+            return ent->mnt_dir;
+        }
+    }
+
+    // 关闭文件
+    endmntent(mounts);
+
+    return NULL;
+}
+

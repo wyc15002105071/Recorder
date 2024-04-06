@@ -13,6 +13,9 @@ public:
     HotplugListener();
 
     virtual void run();
+
+private:
+    const char *getMountPath(const char *node_path);
 };
 
 #endif // HOTPLUGLISTENER_H

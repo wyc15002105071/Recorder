@@ -23,7 +23,7 @@ public:
     virtual bool startTask();
     virtual void stopTask();
 
-    bool initVideoRecorder(int width,int height,__u32 format,int type,bool push_stream,VideoProfile profile = VideoProfile_Standard);
+    bool initVideoRecorder(int width,int height,__u32 format,int framerate,int type,bool push_stream,VideoProfile profile = VideoProfile_Standard);
     bool sendVideoFrame(int dma_fd,int size,int width,int height,bool eos);
     void sendVideoFrame(int index);
 

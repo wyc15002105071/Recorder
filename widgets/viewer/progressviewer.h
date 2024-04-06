@@ -22,6 +22,7 @@ public:
 #define COPY_FAILED 	"拷贝失败······"
 #define DELETE_FAILED 	"删除失败······"
 #define FREE_NO 	    "移动设备内存不足"
+#define LOAD 	        "加载中........"
 
     explicit ProgressViewer(QWidget *parent = nullptr);
     ~ProgressViewer();

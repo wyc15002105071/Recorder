@@ -173,7 +173,8 @@ FORMS += \
 INCLUDEPATH += $$PWD/third-party/headers/mpp \
                $$PWD/third-party/headers/drm \
                $$PWD/third-party/headers/ffmpeg \
-               $$PWD/third-party/headers/rga
+               $$PWD/third-party/headers/rga \
+               $$PWD/third-party/headers/linux
 
 INCLUDEPATH += $$PWD/third-party/headers/live555 \
                $$PWD/third-party/headers/live555/liveMedia \

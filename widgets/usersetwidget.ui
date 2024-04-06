@@ -275,7 +275,7 @@ text-align: right;
           <item>
            <widget class="QLabel" name="lb_title_time">
             <property name="text">
-             <string>录制时长</string>
+             <string>录制分段时长</string>
             </property>
            </widget>
           </item>

@@ -291,8 +291,8 @@ bool RKRgaDef::ProcessOSD(RKRgaDef::RgaInfo srcInfo, RKRgaDef::RgaInfo dstInfo)
     bg_rect.width = fg_rect.width;
     bg_rect.height = fg_rect.height;
 
-    output_rect.x = fg_width - bg_width;
-    output_rect.y = 0;
+    output_rect.x = fg_width - bg_width-20;
+    output_rect.y = 20;
     output_rect.width = fg_rect.width;
     output_rect.height = fg_rect.height;
 

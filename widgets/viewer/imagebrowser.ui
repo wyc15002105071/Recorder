@@ -65,10 +65,14 @@ background-color: rgb(39, 42, 51);
 }
 
 #last_btn {
-	border-image: url(:/resources/icons/last.png);
+   background-color: rgb(39, 42, 51);
+	border:none;
+	image: url(:/resources/icons/last.png);
 }
 #next_btn {
-	border-image: url(:/resources/icons/next.png);
+   background-color: rgb(39, 42, 51);
+	border:none;
+	image: url(:/resources/icons/next.png);
 }
 #label {
 	color: rgb(255, 255, 255);
@@ -143,14 +147,14 @@ background-color: rgb(39, 42, 51);
         </property>
         <property name="minimumSize">
          <size>
-          <width>25</width>
-          <height>45</height>
+          <width>80</width>
+          <height>60</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>25</width>
-          <height>45</height>
+          <width>80</width>
+          <height>60</height>
          </size>
         </property>
         <property name="text">
@@ -176,8 +180,17 @@ background-color: rgb(39, 42, 51);
       </item>
       <item>
        <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>0</height>
+         </size>
+        </property>
         <property name="text">
          <string>1/20</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -207,14 +220,14 @@ background-color: rgb(39, 42, 51);
         </property>
         <property name="minimumSize">
          <size>
-          <width>25</width>
-          <height>45</height>
+          <width>80</width>
+          <height>60</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>25</width>
-          <height>45</height>
+          <width>80</width>
+          <height>60</height>
          </size>
         </property>
         <property name="text">

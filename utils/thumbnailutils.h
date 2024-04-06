@@ -5,6 +5,7 @@
 #include "common/common.h"
 #include "common/log.h"
 #include "common/rthread.h"
+#include "common/observer.h"
 #include <QImage>
 #include <QPixmap>
 #include "media/rkmpp_dec_api.h"
@@ -12,7 +13,8 @@ extern "C"{
 #include "libavformat/avformat.h"
 #include "libavcodec/avcodec.h"
 }
-class ThumbnailUtils : public RThread
+class ThumbnailUtils : public RThread,
+        public Observer
 {
     Q_OBJECT
 public:

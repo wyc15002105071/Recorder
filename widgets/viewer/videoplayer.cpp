@@ -163,11 +163,18 @@ void VideoPlayer::onKeyEventHandler(KeyListener::EventType type)
 
     switch (type)
     {
-    case KeyListener::Key_EventType_LEFT:
-        onLastClicked();
+    case KeyListener::Key_EventType_LEFT:{
+        if(mPlayer->position()>20000)
+        mPlayer->setPosition(mPlayer->position() - 20000);
+    }
+        //onLastClicked();
         break;
     case KeyListener::Key_EventType_RIGHT:
-        onNextClicked();
+    {
+        if((mPlayer->duration() -mPlayer->position())>21000)
+        mPlayer->setPosition(mPlayer->position() + 20000);
+    }
+        //onNextClicked();
         break;
     case KeyListener::Key_EventType_OK:
         onPlayChecked(!ui->play_btn->isChecked());

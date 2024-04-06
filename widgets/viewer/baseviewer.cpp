@@ -23,13 +23,14 @@ BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mIconWidth(ICON_WIDTH-X_OFFSET)
     ,mIconHeight(ICON_HEIGHT-Y_OFFSET)
     ,mCapacityListenerTimer(sp<QTimer>(new QTimer))
-    ,mHotplugListener(sp<HotplugListener>(new HotplugListener))
+    //,mHotplugListener(sp<HotplugListener>(new HotplugListener))
     //,mConfirmDialog(sp<ConfirmDialog>(new ConfirmDialog))
     ,mlabel(sp<QLabel>(new QLabel("未插入外部存储")))
 {
     setWindowState(Qt::WindowFullScreen);
     mFileUtils->attach(mProgressViewer.get());
-    mHotplugListener->attach(this);
+    mThumbnail->attach(mProgressViewer.get());
+    //mHotplugListener->attach(this);
     mCapacityListenerTimer->setInterval(2000);
     mlabel->setAlignment(Qt::AlignCenter);
     mlabel->setStyleSheet("color:white;");
@@ -47,8 +48,11 @@ BaseViewer::~BaseViewer()
 		mStorageUtils = nullptr;
 	}
 
-    if(mHotplugListener) {
-        mHotplugListener->stopTask();
+    //if(mHotplugListener) {
+    //    mHotplugListener->stopTask();
+    //}
+    if(mFileUtils){
+        mFileUtils->stopTask();
     }
 
     //if(mConfirmDialog) {
@@ -93,7 +97,7 @@ void BaseViewer::findAllFiles(const char *dir)
     }
 
     auto comp = [&](const QString &s1,const QString &s2)->bool {
-        return (strcmp(s1.toLatin1().data(),s2.toLatin1().data()) >= 0)?0:1;
+        return (strcmp(s1.toLatin1().data(),s2.toLatin1().data()) >= 0)?1:0;
     };
 
     std::sort(mFilePathList.begin(),mFilePathList.end(),comp);
@@ -168,6 +172,12 @@ bool BaseViewer::compareDisk(const char *path, QList<QString> fileList)
         return false;
     }
     return true;
+}
+
+bool BaseViewer::isFileUtilsRun()
+{
+    if(mFileUtils&&mFileUtils->isRunning())return true;
+    return false;
 }
 
 void BaseViewer::onUpdateCapacity()
