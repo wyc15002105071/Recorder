@@ -121,7 +121,7 @@ void VideoInputDevice::run()
                         srcInfo.height = dstInfo.height;
                 }
 
-//                RKRgaDef::ProcessOSD(srcInfo,dstInfo);
+                RKRgaDef::ProcessOSD(srcInfo,dstInfo);
                 if(mRecorder) {
                     mRecorder->sendVideoFrame(mDmaBo[i].buf_fd,mDmaBo[i].buf_size,
                                               mDmaBo[i].width,mDmaBo[i].height,false);

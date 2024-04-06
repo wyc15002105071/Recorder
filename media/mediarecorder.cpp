@@ -59,8 +59,8 @@ void MediaRecorder::run()
         MppPacket hdr_pkt = nullptr;
         mVideoEncoder->getHdrPacket(&hdr_pkt);
         RKHWEncApi::EncCfgInfo cfg = mVideoCfg;
-        void *extra_data = mpp_packet_get_data(hdr_pkt);
-        int extra_size = mpp_packet_get_size(hdr_pkt);
+        void *extra_data = mpp_packet_get_pos(hdr_pkt);
+        int extra_size = mpp_packet_get_length(hdr_pkt);
         extra = malloc(extra_size);
 
         memcpy(extra,extra_data,extra_size);
@@ -246,8 +246,11 @@ bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int f
     cfg.height      = height;
     cfg.format      = format;
     cfg.type        = type;
-    cfg.bitrateMode = 1;
+    cfg.bitrateMode = 0;
     cfg.framerate   = framerate;
+    if(cfg.width * cfg.height >= 1920*1080) {
+    	cfg.type = MPP_VIDEO_CodingHEVC;
+    }
 
     switch(profile) {
     case VideoProfile_Low:
@@ -296,6 +299,7 @@ bool MediaRecorder::sendVideoFrame(int dma_fd,int size,int width,int height,bool
 
     VideoFrameBuffer video_buffer;
 
+    const int maxbuffer = 3;
     RKHWEncApi::DmaBuffer_t dma_buffer;
     dma_buffer.dma_fd = dma_fd;
     dma_buffer.size   = size;
@@ -305,8 +309,10 @@ bool MediaRecorder::sendVideoFrame(int dma_fd,int size,int width,int height,bool
     video_buffer.pts = mVideoIndex;
     video_buffer.eos = eos;
 
-    mBufferlist.push_back(video_buffer);
-    mVideoIndex++;
+    if(mBufferlist.size() <= maxbuffer) {
+	mBufferlist.push_back(video_buffer);
+    	mVideoIndex++;
+    }
     mLock.unlock();
     return true;
 }

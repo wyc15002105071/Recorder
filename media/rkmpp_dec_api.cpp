@@ -184,28 +184,40 @@ REDO:
         return MPP_NOK;
     }
     if(ret == MPP_OK) {
-        uint32_t width  = mpp_frame_get_width(frame);
-        uint32_t height = mpp_frame_get_height(frame);
-        uint32_t hstride = mpp_frame_get_hor_stride(frame);
-        uint32_t vstride = mpp_frame_get_ver_stride(frame);
-        MppFrameFormat format = mpp_frame_get_fmt(frame);
-        uint32_t err = mpp_frame_get_errinfo(frame);
-        uint32_t eos = mpp_frame_get_eos(frame);
-        MppBuffer mppBuffer = mpp_frame_get_buffer(frame);
-        uint64_t pts = mpp_frame_get_pts(frame);
-        RLOGD("decode get %d\n",ret);
-        RLOGD("get one frame [%d:%d] stride [%d:%d] pts %ld err %d eos %d fmt %d\n",
-              width, height, hstride, vstride, pts, err, eos,format);
+	if(frame) {
+	    if(mpp_frame_get_info_change(frame)) {
+		RLOGD("frame info changed");
+		ret = p->mppApi->control(p->mppCtx, MPP_DEC_SET_INFO_CHANGE_READY, NULL);
+              	if (ret) {
+                   RLOGE("%p info change ready failed ret %d\n", p->mppCtx, ret);
+                   return MPP_NOK;
+                }
+		goto REDO;
+	    }
 
-        out_frame->width = width;
-        out_frame->height = height;
-        out_frame->hor_stride = hstride;
-        out_frame->ver_stride = vstride;
-        out_frame->size   = mpp_frame_get_buf_size(frame);
-        out_frame->fd = mpp_buffer_get_fd_with_caller(mppBuffer,nullptr);
-        out_frame->vir_addr = mpp_buffer_get_ptr_with_caller(mppBuffer,nullptr);
-        out_frame->handler = frame;
-        out_frame->buffer = mppBuffer;
+            uint32_t width  = mpp_frame_get_width(frame);
+            uint32_t height = mpp_frame_get_height(frame);
+            uint32_t hstride = mpp_frame_get_hor_stride(frame);
+            uint32_t vstride = mpp_frame_get_ver_stride(frame);
+            MppFrameFormat format = mpp_frame_get_fmt(frame);
+            uint32_t err = mpp_frame_get_errinfo(frame);
+            uint32_t eos = mpp_frame_get_eos(frame);
+            MppBuffer mppBuffer = mpp_frame_get_buffer(frame);
+            uint64_t pts = mpp_frame_get_pts(frame);
+            RLOGD("decode get %d\n",ret);
+            RLOGD("get one frame [%d:%d] stride [%d:%d] pts %ld err %d eos %d fmt %d\n",
+                  width, height, hstride, vstride, pts, err, eos,format);
+
+            out_frame->width = width;
+            out_frame->height = height;
+            out_frame->hor_stride = hstride;
+            out_frame->ver_stride = vstride;
+            out_frame->size   = mpp_frame_get_buf_size(frame);
+            out_frame->fd = mpp_buffer_get_fd_with_caller(mppBuffer,nullptr);
+            out_frame->vir_addr = mpp_buffer_get_ptr_with_caller(mppBuffer,nullptr);
+            out_frame->handler = frame;
+            out_frame->buffer = mppBuffer;
+        }
     }
 
     return ret;
@@ -257,15 +269,15 @@ int RKHWDecApi::convertNV12ToRGB(RKHWDecApi::OutputFrame *src_frame, RKHWDecApi:
     mpp_frame_set_buffer(frame,mppBuffer);
 
     dst_frame->fd           = mpp_buffer_get_fd(mppBuffer);
-    dst_frame->width        = src_frame->hor_stride;
-    dst_frame->height       = src_frame->ver_stride;
-    dst_frame->hor_stride   = MPP_ALIGN(src_frame->hor_stride,8) * 4;
+    dst_frame->width        = src_frame->width;
+    dst_frame->height       = src_frame->height;
+    dst_frame->hor_stride   = MPP_ALIGN(src_frame->hor_stride,8);
     dst_frame->ver_stride   = src_frame->ver_stride;
     dst_frame->vir_addr     = mpp_buffer_get_ptr(mppBuffer);
     dst_frame->size         = src_frame->hor_stride * src_frame->ver_stride * 4;
     dst_frame->handler      = frame;
     dst_frame->buffer       = mppBuffer;
-    RKRgaDef::SetRgaInfo(&srcInfo, src_frame->fd, src_frame->hor_stride, src_frame->ver_stride,RK_FORMAT_YCbCr_420_SP,MPP_ALIGN(src_frame->hor_stride,4), MPP_ALIGN(src_frame->ver_stride,2));
+    RKRgaDef::SetRgaInfo(&srcInfo, src_frame->fd, src_frame->width, src_frame->height,RK_FORMAT_YCbCr_420_SP,src_frame->hor_stride, src_frame->ver_stride);
     RKRgaDef::SetRgaInfo(&dstInfo, dst_frame->fd, dst_frame->width, dst_frame->height, RK_FORMAT_RGBA_8888 ,dst_frame->width, dst_frame->height);
 
     if(!RKRgaDef::NV12ToRGB(srcInfo,dstInfo)) {

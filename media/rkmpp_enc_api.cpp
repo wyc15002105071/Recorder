@@ -23,6 +23,7 @@ MPP_RET RKHWEncApi::prepare(EncCfgInfo *enc_cfg_info)
     EncoderCtx *p       = nullptr;
     EncCfgInfo *info    = nullptr;
     MppPollType timeout = MPP_POLL_BLOCK;
+    int in_timeout_ms = 80,out_timeout_ms = 120;
 
     memset(&mCtx,0,sizeof(EncoderCtx));
     memcpy(&mCtx.info,enc_cfg_info,sizeof(EncCfgInfo));
@@ -41,9 +42,15 @@ MPP_RET RKHWEncApi::prepare(EncCfgInfo *enc_cfg_info)
         return ret;
     }
 
-    ret = p->api->control(p->mppCtx, MPP_SET_OUTPUT_TIMEOUT, &timeout);
+    ret = p->api->control(p->mppCtx, MPP_SET_INPUT_TIMEOUT, &in_timeout_ms);
     if (MPP_OK != ret) {
-        RLOGE("mpi control set output timeout %d ret %d\n", timeout, ret);
+        RLOGE("mpi control set input timeout %d ret %d\n", in_timeout_ms, ret);
+        goto error;
+    }
+
+    ret = p->api->control(p->mppCtx, MPP_SET_OUTPUT_TIMEOUT, &out_timeout_ms);
+    if (MPP_OK != ret) {
+        RLOGE("mpi control set output timeout %d ret %d\n", out_timeout_ms, ret);
         goto error;
     }
 
@@ -364,7 +371,7 @@ MPP_RET RKHWEncApi::setupFrameRate()
     if(info->framerate == 0)
         info->framerate = 60;
     if(info->idrInterval == 0)
-        info->idrInterval = 1;
+        info->idrInterval = 2;
     gop = info->idrInterval * info->framerate;
     RLOGD("framerate %d gop %d",info->framerate,gop);
 
@@ -393,6 +400,10 @@ MPP_RET RKHWEncApi::setupBitRate()
     int32_t bps_max      = bps * 17 / 16;
 
     info->bitRate = bps_max;
+    
+    if(info->bitrateMode == MPP_ENC_RC_MODE_VBR || info->bitrateMode == MPP_ENC_RC_MODE_AVBR) {
+    	bps_min = bps * 8 / 16;
+    }
 
     RLOGD("bitrate mode %d bps %d bps_min %d bps_max %d",info->bitrateMode,bps,bps_min,bps_max);
 
@@ -461,7 +472,9 @@ MPP_RET RKHWEncApi::setupProfileParams()
         if (constraint_set & 0x3f0000)
             mpp_enc_cfg_set_s32(cfg, "h264:constraint_set", constraint_set);
     } break;
-    case MPP_VIDEO_CodingHEVC  :
+    case MPP_VIDEO_CodingHEVC  : {
+	mpp_enc_cfg_set_s32(cfg, "h265:auto_tile", 1);			 
+    } break;
     case MPP_VIDEO_CodingVP9   :
     case MPP_VIDEO_CodingMJPEG :
     case MPP_VIDEO_CodingVP8   : {
