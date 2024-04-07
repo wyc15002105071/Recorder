@@ -9,7 +9,7 @@ class RThread : public QThread
 public:
     RThread();
     virtual ~RThread() {}
-    virtual void run(){};
+    virtual void run() {}
     virtual bool startTask(){
         mThreadExit = false;
         this->start();
