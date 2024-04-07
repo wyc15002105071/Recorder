@@ -42,13 +42,13 @@ MPP_RET RKHWEncApi::prepare(EncCfgInfo *enc_cfg_info)
         return ret;
     }
 
-    ret = p->api->control(p->mppCtx, MPP_SET_INPUT_TIMEOUT, &in_timeout_ms);
+    ret = p->api->control(p->mppCtx, MPP_SET_INPUT_TIMEOUT, &timeout);
     if (MPP_OK != ret) {
         RLOGE("mpi control set input timeout %d ret %d\n", in_timeout_ms, ret);
         goto error;
     }
 
-    ret = p->api->control(p->mppCtx, MPP_SET_OUTPUT_TIMEOUT, &out_timeout_ms);
+    ret = p->api->control(p->mppCtx, MPP_SET_OUTPUT_TIMEOUT, &timeout);
     if (MPP_OK != ret) {
         RLOGE("mpi control set output timeout %d ret %d\n", out_timeout_ms, ret);
         goto error;
