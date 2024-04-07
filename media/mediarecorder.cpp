@@ -104,6 +104,7 @@ void MediaRecorder::run()
             goto EXIT;
         }
         mpp_packet_deinit(&hdr_pkt);
+    	mMediaMuxer->startTask();
     }
 
     while(!mThreadExit) {
@@ -178,6 +179,7 @@ void MediaRecorder::run()
                     sprintf(url,"%s/%s_[%d].%s",MediaPathUtils::get_instance()->getRootVideoPath().toStdString().c_str(),time_str,video_num,suffix);
 
                     info.file_path = url;
+		    mMediaMuxer->stopTask();
                     ret = mMediaMuxer->prepare(info);
                     if(ret < 0) {
                         RLOGE("mediamuxer prepare failed:%d",ret);
@@ -185,6 +187,7 @@ void MediaRecorder::run()
                         goto EXIT;
                     }
                     usleep(1*1000);
+		    mMediaMuxer->startTask();
                 }
                 //RLOGD("IDR frame produced");
                 packet.flags |= MediaMuxer::FLAG_OUTPUT_INTRA;
@@ -199,6 +202,7 @@ void MediaRecorder::run()
 
     packet.flags |= MediaMuxer::FLAG_END_OF_STREAM;
     mMediaMuxer->writeData(&packet);
+    mMediaMuxer->stopTask();
 EXIT:
     if(mBufferlist.size() > 0)
         mBufferlist.clear();
@@ -299,7 +303,7 @@ bool MediaRecorder::sendVideoFrame(int dma_fd,int size,int width,int height,bool
 
     VideoFrameBuffer video_buffer;
 
-    const int maxbuffer = 3;
+    const int maxbuffer = 10;
     RKHWEncApi::DmaBuffer_t dma_buffer;
     dma_buffer.dma_fd = dma_fd;
     dma_buffer.size   = size;

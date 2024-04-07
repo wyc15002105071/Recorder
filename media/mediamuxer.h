@@ -46,7 +46,8 @@ public:
 
     MediaMuxer();
     ~MediaMuxer();
-//    virtual void run();
+    virtual void run();
+    virtual void stopTask();
     int prepare(MediaInfo info);
     int writeData(MediaMuxer::MediaPacket *media_pkt);
 //    void createMuxCtx(int width,int height,Video_CodingType video_type,int framerate,MppPacket hdr_pkt);
@@ -65,8 +66,8 @@ protected:
     } MediaMuxCtx_t;
 
     MediaMuxCtx mMediaCtx;
-#define MAX_QUEUE_SIZE 20
-    std::list<MppPacket>mPackets;
+#define MAX_QUEUE_SIZE 50
+    std::list<AVPacket *> mPackets;
 
     const int VIDEOSTREAM = 0;
     const int AUDIOSTREAM = 1;

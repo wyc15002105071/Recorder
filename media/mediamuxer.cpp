@@ -5,6 +5,8 @@
 using namespace std;
 #define MODULE_TAG "Muxer"
 
+#define AV_PKT_FLAG_EOS (1 << 10)
+
 static double r2d(AVRational r)
 {
     return r.den == 0 ? 0 : (double)r.num / (double)r.den;
@@ -26,6 +28,88 @@ MediaMuxer::~MediaMuxer()
     avformat_network_deinit();
 }
 
+void MediaMuxer::stopTask()
+{
+    mLock.lock();
+
+    mLock.unlock();
+    RThread::stopTask();
+}
+
+void MediaMuxer::run()
+{
+    MediaMuxCtx *p = &mMediaCtx;
+    int ret = 0;
+
+    RLOGD("mux thread start,is exit:%d",mThreadExit);
+    while(!mThreadExit) {
+	bool eos = false;
+	mLock.lock();	
+	if(mPackets.size() <= 0) {
+	    mLock.unlock();
+	    usleep(1*1000);
+	    continue;
+	}
+
+	AVPacket *pkt = mPackets.front();
+	if(!p->format_ctx || !pkt || !pkt->data || pkt->size <= 0) {
+	    mPackets.pop_front();
+	    mLock.unlock();
+	    usleep(1*1000);
+	    continue;
+	}
+
+	//AVPacket *dst_pkt;
+	//av_copy_packet(dst_pkt, pkt);
+        //av_packet_ref(dst_pkt,pkt);
+
+	mPackets.pop_front();
+	mLock.unlock();
+	
+	if(pkt->flags & AV_PKT_FLAG_EOS) {
+	    RLOGD("recieve eos");
+	    eos = true;	
+	}
+        p->format_ctx->duration = pkt->pts;
+//	struct timespec start, end;
+//	long long int diff;
+//	clock_gettime(CLOCK_MONOTONIC, &start);
+	ret = av_interleaved_write_frame(p->format_ctx, pkt);
+//	clock_gettime(CLOCK_MONOTONIC, &end);
+//	diff = (end.tv_sec - start.tv_sec) * 1000000000LL + (end.tv_nsec - start.tv_nsec);
+//	double seconds = diff / 1e9;
+//	double milliseconds = diff / 1e6;
+
+//	RLOGD("list size %d write const time %.9f seconds %.3f milliseconds",mPackets.size(),seconds,milliseconds);
+
+    	av_packet_unref(pkt);
+    	av_packet_free(&pkt);
+
+
+	if(eos) break;
+    	usleep(1*1000);
+    }
+
+    if(p->format_ctx) {
+    	ret = av_write_trailer(p->format_ctx);
+    	ret = avio_closep(&p->format_ctx->pb);
+    	avformat_free_context(p->format_ctx);
+    }
+ 
+    while (mPackets.size() > 0) {
+    	AVPacket *pkt = mPackets.front();
+	if(pkt) {
+	    av_packet_unref(pkt);
+            av_packet_free(&pkt);
+	}
+	mPackets.pop_front();
+    }
+
+    mPackets.clear();
+    RLOGD("mux eos");
+    memset(p,0,sizeof(MediaMuxCtx));
+}
+
 int MediaMuxer::prepare(MediaMuxer::MediaInfo info)
 {
     MediaMuxCtx *p = &mMediaCtx;
@@ -34,6 +118,7 @@ int MediaMuxer::prepare(MediaMuxer::MediaInfo info)
 
     char url[100] = {0};
 
+    RLOGD("mux prepare start");
     memset(&p->info,0,sizeof(MediaMuxer::MediaInfo));
     p->info = info;
 
@@ -145,31 +230,49 @@ int MediaMuxer::writeData(MediaMuxer::MediaPacket *media_pkt)
     MediaMuxCtx *p = &mMediaCtx;
     int ret = 0;
 
+    mLock.lock();
+    if(!p->format_ctx) {
+    	mLock.unlock();
+	return -1;
+    }
+
+    uint8_t *data = (uint8_t *)av_malloc(media_pkt->size);
     AVPacket *avpkt = av_packet_alloc();
+//    AVPacket *avpkt;
+//    av_new_packet(avpkt,media_pkt->size);
+    memcpy(data,media_pkt->data,media_pkt->size);
+    av_packet_from_data(avpkt,data,media_pkt->size);
     avpkt->stream_index = media_pkt->is_video?p->video_stream:p->audio_stream;
-    avpkt->data = (uint8_t *)media_pkt->data;
-    avpkt->size = media_pkt->size;
+//    avpkt->data = (uint8_t *)media_pkt->data;
+//    memcpy(avpkt->data,media_pkt->data,media_pkt->size);
+//    avpkt->size = media_pkt->size;
     int64_t calc_duration = (double)AV_TIME_BASE / av_q2d(p->format_ctx->streams[p->video_stream]->r_frame_rate);
     avpkt->pts = (double)(media_pkt->pts*calc_duration) / (double)(av_q2d(p->format_ctx->streams[p->video_stream]->time_base)*AV_TIME_BASE);
     avpkt->dts = avpkt->pts;
     avpkt->duration = (double)calc_duration / (double)(av_q2d(p->format_ctx->streams[p->video_stream]->time_base)*AV_TIME_BASE);
     if(media_pkt->flags & FLAG_END_OF_STREAM) {
-        p->format_ctx->duration = avpkt->pts;
+/*        p->format_ctx->duration = avpkt->pts;
         ret = av_write_trailer(p->format_ctx);
         ret = avio_closep(&p->format_ctx->pb);
         avformat_free_context(p->format_ctx);
         RLOGD("mux eos");
         av_packet_unref(avpkt);
         memset(p,0,sizeof(MediaMuxCtx));
-        return ret;
+        return ret;*/
+	avpkt->flags |= AV_PKT_FLAG_EOS;
     }
+
 
     if (media_pkt->flags & FLAG_OUTPUT_INTRA) {
         avpkt->flags |= AV_PKT_FLAG_KEY;
     }
 
-    ret = av_interleaved_write_frame(p->format_ctx, avpkt);
-    av_packet_unref(avpkt);
-    av_packet_free(&avpkt);
+    if(mPackets.size() < MAX_QUEUE_SIZE) {
+    	mPackets.push_back(avpkt);
+    }
+    mLock.unlock();
+//    ret = av_interleaved_write_frame(p->format_ctx, avpkt);
+//    av_packet_unref(avpkt);
+//    av_packet_free(&avpkt);
     return ret;
 }
