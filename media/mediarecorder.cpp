@@ -157,6 +157,7 @@ void MediaRecorder::run()
 
             if(encOut.keyFrame) {
                 if(frameIndex >= min * TM_1M * info.framerate) {
+//                if(frameIndex >= 10 * TM_1S * info.framerate) {
                     MediaMuxer::MediaPacket temp_packet;
                     memset(&temp_packet,0,sizeof(MediaMuxer::MediaPacket));
                     temp_packet.pts = packet.pts;
@@ -164,7 +165,7 @@ void MediaRecorder::run()
                     temp_packet.size = packet.size;
 
                     temp_packet.flags |= MediaMuxer::FLAG_END_OF_STREAM;
-                    mMediaMuxer->writeData(&temp_packet);
+//                    mMediaMuxer->writeData(&temp_packet);
 
                     if(mBufferlist.size() > 0)
                         mBufferlist.clear();
@@ -179,7 +180,8 @@ void MediaRecorder::run()
                     sprintf(url,"%s/%s_[%d].%s",MediaPathUtils::get_instance()->getRootVideoPath().toStdString().c_str(),time_str,video_num,suffix);
 
                     info.file_path = url;
-		    mMediaMuxer->stopTask();
+                    mMediaMuxer->stopTask();
+                    mMediaMuxer->wait();
                     ret = mMediaMuxer->prepare(info);
                     if(ret < 0) {
                         RLOGE("mediamuxer prepare failed:%d",ret);
@@ -187,7 +189,7 @@ void MediaRecorder::run()
                         goto EXIT;
                     }
                     usleep(1*1000);
-		    mMediaMuxer->startTask();
+                    mMediaMuxer->startTask();
                 }
                 //RLOGD("IDR frame produced");
                 packet.flags |= MediaMuxer::FLAG_OUTPUT_INTRA;
