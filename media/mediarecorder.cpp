@@ -179,7 +179,8 @@ void MediaRecorder::run()
                     sprintf(url,"%s/%s_[%d].%s",MediaPathUtils::get_instance()->getRootVideoPath().toStdString().c_str(),time_str,video_num,suffix);
 
                     info.file_path = url;
-		    mMediaMuxer->stopTask();
+                    mMediaMuxer->stopTask();
+                    mMediaMuxer->wait();
                     ret = mMediaMuxer->prepare(info);
                     if(ret < 0) {
                         RLOGE("mediamuxer prepare failed:%d",ret);

@@ -23,6 +23,7 @@ VideoPlayer::VideoPlayer(QWidget *parent)
     connect(mPlayer.get(),SIGNAL(durationChanged(qint64)),this,SLOT(onDurationChanged(qint64)));
     connect(mPlayer.get(),SIGNAL(stateChanged(QMediaPlayer::State)),this,SLOT(onStateChanged(QMediaPlayer::State)));
     connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)));
+    connect(ui->pos_slider,SIGNAL(valueChanged(int)),this,SLOT(onSetPosition(int)));
     setWindowState(Qt::WindowFullScreen);
     close();
 }
@@ -182,4 +183,15 @@ void VideoPlayer::onKeyEventHandler(KeyListener::EventType type)
     default:
         break;
     }
+}
+
+void VideoPlayer::onSetPosition(int value)
+{
+    if(!mPlayer || !ui->pos_slider->isSliderDown() || mPlayer->state() != QMediaPlayer::PlayingState)
+        return;
+
+    float precent = (float)value / (float)(ui->pos_slider->maximum() - ui->pos_slider->minimum());
+
+    //player_->pause();
+    mPlayer->setPosition(precent * mPlayer->duration());
 }
