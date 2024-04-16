@@ -99,6 +99,7 @@ public slots:
     void sendDiskSpace(long free,long total);
 
     void checkUsb(bool isNoLagel);
+    void onShowChange(bool isShow);
 private:
     void initWidgets();
     void onCapture();

@@ -11,7 +11,6 @@
 #include "widgets/powoffwidget.h"
 #include "utils/toastutils.h"
 #include "utils/mediapathutils.h"
-
 #define MODULE_TAG "MainWidget"
 #define LAST_SPACE 1024
 using namespace std;
@@ -42,12 +41,16 @@ MainWidget::~MainWidget()
     if(mDiskListener)mDiskListener->stopTask();
     delete ui;
 }
-
+void MainWidget::onShowChange(bool isShow)
+{
+    ui->widget_time->setVisible(isShow);
+}
 void MainWidget::initWidgets()
 {
     if(!mMenuWidget) {
         mMenuWidget = sp<MenuWidget>(new MenuWidget(this));
         connect(mMenuWidget.get(),SIGNAL(onMenuEvent(MenuWidget::EventType)),this,SLOT(onMenuEventHandler(MenuWidget::EventType)));
+        connect(mMenuWidget.get(),SIGNAL(onShowChange(bool)),this,SLOT(onShowChange(bool)));
     }
     if(!mVideoWidget_Container) {
         mVideoWidget_Container = sp<QWidget>(ui->videowidget_container);
@@ -117,6 +120,9 @@ void MainWidget::initWidgets()
     }
     ui->NoSignalWidget->resize(this->size());
     ui->NoSignalWidget->move(0,0);
+
+    ui->widget_time->move((this->width()-ui->widget_time->width())/2,20);
+
 
 }
 
@@ -376,7 +382,9 @@ void MainWidget::sendDiskSpace(long free, long total)
 {
     //qDebug()<<free<<total;
     space = free;
+
     if(space<LAST_SPACE){
+        ui->lb_time->setText("0m");
         if(mRecordWidget) {
             if(mRecordWidget->isVisible()) {
                 RLOGD("ready to close record widget");
@@ -384,6 +392,9 @@ void MainWidget::sendDiskSpace(long free, long total)
                 mMenuWidget->open();
             }
         }
+    }else{
+        int min = (space-LAST_SPACE)/450;
+        ui->lb_time->setText(QString("%1h%2m").arg(min/60).arg(min%60));
     }
 }
 
@@ -419,6 +430,8 @@ void MainWidget::checkUsb(bool isNoLagel)
     }
     mux.unlock();
 }
+
+
 int SignalHandler::sigintFd[2];
 SignalHandler::SignalHandler(QObject *parent)
 {

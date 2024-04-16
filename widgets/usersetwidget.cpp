@@ -13,7 +13,7 @@ UserSetWidget::UserSetWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_TranslucentBackground, false);//设置窗口背景透明
-    ui->lb_value_vision->setText(tr("V1.0.5"));
+    ui->lb_value_vision->setText(tr("V1.0.6"));
 
     connect(mSetFpsView.get(),&SelectView::checkedIndex,this,&UserSetWidget::setFps);
     connect(mTimeSelectView.get(),&SelectView::checkedIndex,this,&UserSetWidget::setTime);

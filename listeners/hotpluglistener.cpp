@@ -70,9 +70,9 @@ void HotplugListener::run()
                             RLOGD(action);
                             data.isAdd = true;
                         }
-                        QString filesystem = udev_device_get_property_value(dev, "ID_FS_TYPE");
-                        if(filesystem == "ntfs")
-                            data.isNoLegal = true;
+                        //QString filesystem = udev_device_get_property_value(dev, "ID_FS_TYPE");
+                        //if(filesystem == "ntfs")
+                        //    data.isNoLegal = true;
                     }
                 }
 

@@ -31,6 +31,7 @@ public:
     } EventType_t;
 signals:
     void onMenuEvent(MenuWidget::EventType type);
+    void onShowChange(bool isShow);
 private:
     Ui::MenuWidget *ui;
 
@@ -45,6 +46,7 @@ public slots:
     void onUserSetClicked();
 
     virtual void onHasOpened();
+    virtual void onHasClosed();
 };
 
 #endif // MENUWIDGET_H

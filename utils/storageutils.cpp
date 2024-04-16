@@ -76,8 +76,8 @@ QVector<StorageUtils::ExternalStorageInfo> StorageUtils::getExternalStorageInfoL
                 }
                 info.file_system = filesystem;
 
-                if(info.file_system=="ntfs")
-                    continue;
+                //if(info.file_system=="ntfs")
+                //    continue;
                 info.mount_path = mnt_path;
                 getStorageCapacity(mnt_path,info.total,info.used,info.free);
                 RLOGD("node:%s,label:%s,filesystem:%s,mnt_path:%s",info.node_path.c_str()

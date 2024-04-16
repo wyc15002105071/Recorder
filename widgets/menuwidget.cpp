@@ -85,5 +85,11 @@ void MenuWidget::onHasOpened()
     if(mTimer) {
         mTimer->start();
     }
+    onShowChange(true);
+}
+
+void MenuWidget::onHasClosed()
+{
+    onShowChange(false);
 }
 
