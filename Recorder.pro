@@ -75,6 +75,7 @@ SOURCES += \
     widgets/videowidget.cpp \
     widgets/viewer/listwidgetitem.cpp \
     widgets/viewer/osdview.cpp \
+    widgets/viewer/positionslider.cpp \
     widgets/viewer/progressviewer.cpp \
     widgets/viewer/selectionicon.cpp \
     widgets/viewer/selectview.cpp \
@@ -137,6 +138,7 @@ HEADERS += \
     widgets/videowidget.h \
     widgets/viewer/listwidgetitem.h \
     widgets/viewer/osdview.h \
+    widgets/viewer/positionslider.h \
     widgets/viewer/progressviewer.h \
     widgets/viewer/selectionicon.h \
     widgets/viewer/selectview.h \

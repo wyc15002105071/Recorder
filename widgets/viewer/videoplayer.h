@@ -39,6 +39,7 @@ public slots:
     void onPlayChecked(bool checked);
     void onStateChanged(QMediaPlayer::State state);
     void onKeyEventHandler(KeyListener::EventType type);
+    void onSetPosition(int value);
 };
 
 #endif // VIDEOPLAYER_H
