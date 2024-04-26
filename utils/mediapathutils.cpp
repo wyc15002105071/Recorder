@@ -56,6 +56,21 @@ QString MediaPathUtils::getRootImagePath()
     return path;
 }
 
+QString MediaPathUtils::getImagePath()
+{
+    char time_str[50] = {0};
+    getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
+    char file_name[50] = {0};
+    char file_save_path[50] = {0};
+
+    QString path = getRootImagePath();
+    RLOGD(path.toStdString().c_str());
+    sprintf(file_name,"%s.jpg",time_str);
+    sprintf(file_save_path,"%s/%s",path.toStdString().c_str(),file_name);
+    RLOGD("capture file path is %s",file_save_path);
+    return QString(file_save_path);
+}
+
 MediaPathUtils::MediaPathUtils()
 {
 

@@ -120,6 +120,11 @@ void VideoViewer::open()
     show();
 }
 
+bool VideoViewer::isPlay()
+{
+    return mPlayer&&mPlayer->isVisible();
+}
+
 void VideoViewer::onItemClicked(QListWidgetItem *item)
 {
     QScroller *scroller = QScroller::scroller(mListViewer);

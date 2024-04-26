@@ -56,6 +56,7 @@ SOURCES += \
     utils/storageutils.cpp \
     utils/thumbnailutils.cpp \
     utils/toastutils.cpp \
+    utils/videoframetoimageutils.cpp \
     widgets/basewidget.cpp \
     widgets/confirmdialog.cpp \
     widgets/menuwidget.cpp \
@@ -119,6 +120,7 @@ HEADERS += \
     utils/storageutils.h \
     utils/thumbnailutils.h \
     utils/toastutils.h \
+    utils/videoframetoimageutils.h \
     widgets/basewidget.h \
     widgets/confirmdialog.h \
     widgets/menuwidget.h \

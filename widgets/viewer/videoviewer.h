@@ -19,7 +19,7 @@ public:
     explicit VideoViewer(QWidget *parent = nullptr);
     ~VideoViewer();
     virtual void open();
-
+    bool isPlay();
 public slots:
     virtual void onHasOpened();
     virtual void onHasClosed();

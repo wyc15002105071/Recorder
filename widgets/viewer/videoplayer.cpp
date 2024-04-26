@@ -2,6 +2,9 @@
 #include "ui_videoplayer.h"
 #include "log.h"
 #include "media/mediautils.h"
+#include "utils/mediapathutils.h"
+#include <QVideoProbe>
+#include "utils/videoframetoimageutils.h"
 
 #define MODULE_TAG "VideoPlayer"
 
@@ -14,6 +17,10 @@ VideoPlayer::VideoPlayer(QWidget *parent)
    , mKeyListener(KeyListener::get_instance())
 {
     ui->setupUi(this);
+
+    QVideoProbe *videoProbe = new QVideoProbe;
+    QObject::connect(videoProbe, &QVideoProbe::videoFrameProbed, this,&VideoPlayer::videoFrameProbed);
+    videoProbe->setSource(mPlayer.get());
 
     mVideoWidget = shared_ptr<QVideoWidget>(new QVideoWidget(ui->video_widget));
     mVideoWidget->move(0,0);
@@ -180,6 +187,9 @@ void VideoPlayer::onKeyEventHandler(KeyListener::EventType type)
     case KeyListener::Key_EventType_OK:
         onPlayChecked(!ui->play_btn->isChecked());
         break;
+    case KeyListener::Key_EventType_CAPTURE:
+        Screenshot();
+        break;
     default:
         break;
     }
@@ -194,4 +204,19 @@ void VideoPlayer::onSetPosition(int value)
 
     //player_->pause();
     mPlayer->setPosition(precent * mPlayer->duration());
+}
+
+void VideoPlayer::videoFrameProbed(const QVideoFrame &frame)
+{
+    if (!frame.isValid())
+        return;
+
+    this->frame = frame;
+    if(isFirst)
+        isFirst = false;
+}
+
+void VideoPlayer::Screenshot()
+{
+    if(!isFirst)VideoFrameToImageUtils::videoFrameToImage(frame).save(MediaPathUtils::get_instance()->getImagePath());
 }

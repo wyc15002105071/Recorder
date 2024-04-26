@@ -6,6 +6,8 @@
 #include <memory>
 #include <QVideoWidget>
 #include "listeners/key_listener.h"
+#include <QVideoFrame>
+
 
 namespace Ui {
 class VideoPlayer;
@@ -30,6 +32,8 @@ private:
     QList<QString> mUrls;
     int mCurrentIndex;
     KeyListener *mKeyListener;
+    QVideoFrame frame;
+    bool isFirst = true;
 public slots:
     void onBackClicked();
     void onLastClicked();
@@ -40,6 +44,10 @@ public slots:
     void onStateChanged(QMediaPlayer::State state);
     void onKeyEventHandler(KeyListener::EventType type);
     void onSetPosition(int value);
+
+    void videoFrameProbed(const QVideoFrame &frame);
+    void Screenshot();
+
 };
 
 #endif // VIDEOPLAYER_H

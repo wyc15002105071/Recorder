@@ -121,9 +121,8 @@ void MainWidget::initWidgets()
     ui->NoSignalWidget->resize(this->size());
     ui->NoSignalWidget->move(0,0);
 
-    ui->widget_time->move((this->width()-ui->widget_time->width())/2,20);
-
-
+    //ui->widget_time->move((this->width()-ui->widget_time->width())/2,20);
+    ui->widget_time->move(0,20);
 }
 
 void MainWidget::resizeEvent(QResizeEvent *event)
@@ -179,19 +178,20 @@ void MainWidget::onCapture()
         ToastUtils::instance().show(ToastUtils::INFO,"储存空间不足");
         return;
     }
-    char time_str[50] = {0};
-    getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
-    char file_name[50] = {0};
-    char file_save_path[50] = {0};
-
-    QString path = MediaPathUtils::get_instance()->getRootImagePath();
-    RLOGD(path.toStdString().c_str());
-    sprintf(file_name,"%s.jpg",time_str);
-    sprintf(file_save_path,"%s/%s",path.toStdString().c_str(),file_name);
-    RLOGD("capture file path is %s",file_save_path);
+    //char time_str[50] = {0};
+    //getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
+    //char file_name[50] = {0};
+    //char file_save_path[50] = {0};
+    //
+    //QString path = MediaPathUtils::get_instance()->getRootImagePath();
+    //RLOGD(path.toStdString().c_str());
+    //sprintf(file_name,"%s.jpg",time_str);
+    //sprintf(file_save_path,"%s/%s",path.toStdString().c_str(),file_name);
+    //RLOGD("capture file path is %s",file_save_path);
     if(mVideoWidget) {
         QPixmap pix_map = mVideoWidget->grab();
-        pix_map.save(file_save_path);
+        //pix_map.save(file_save_path);
+        pix_map.save(MediaPathUtils::get_instance()->getImagePath());
         mVideoWidget->showSnapShotEffect();
     }
 }
@@ -333,11 +333,12 @@ void MainWidget::onKeyEventHandler(KeyListener::EventType type)
         onRecord();
     }break;
     case KeyListener::Key_EventType_CAPTURE: {
-        //if((mVideoViewer&&mVideoViewer->isVisible())
+        if((mVideoViewer&&mVideoViewer->isVisible()&&mVideoViewer->isPlay())
         //        ||(mImageViewer&&mImageViewer->isVisible())
         //        ||(mUserSetWidget&&mUserSetWidget->isVisible())
-        //        ||(mPushWidget&&mPushWidget->isVisible()))
-        //    return;
+        //        ||(mPushWidget&&mPushWidget->isVisible())
+                )
+            return;
         onCapture();
     }break;
     case KeyListener::Key_EventType_POWER: {

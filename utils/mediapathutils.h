@@ -15,6 +15,7 @@ public:
     QString getRootPath();
     QString getRootVideoPath();
     QString getRootImagePath();
+    QString getImagePath();
 
 protected:
     MediaPathUtils();
