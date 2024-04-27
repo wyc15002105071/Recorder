@@ -185,7 +185,7 @@ void VideoInputDevice::startRecord(MediaRecorder::VideoProfile profile,bool push
 
     QPixmap osd;
     //OSDUtils::createOSD(osd,"清阅技术");
-    osd = QPixmap(mStreamInfo.width*0.7,OSD_DEFAULT_HEIGHT);
+    osd = QPixmap(mStreamInfo.width*0.5,OSD_DEFAULT_HEIGHT);
     OSDUtils::createOSD(osd,ConfigUtils::ost_txt.isEmpty()?"清阅技术":ConfigUtils::ost_txt);
 
     if(mOsdBo.vir_addr) {
@@ -444,7 +444,7 @@ bool VideoInputDevice::initDevice(bool is_hdmi_in)
     memset(&mOsdBo,0,sizeof(DmaBufferObject));
     //mOsdBo.width = OSD_DEFAULT_WIDTH;
     //mOsdBo.height = OSD_DEFAULT_HEIGHT;
-    mOsdBo.width = mStreamInfo.width*0.7;
+    mOsdBo.width = mStreamInfo.width*0.5;
     mOsdBo.height = OSD_DEFAULT_HEIGHT;
     Allocator *allocator = AllocatorService::getDrmAllocator();
     allocator->allocBuffers(mOsdBo.width,mOsdBo.height,DRM_FORMAT_RGBA8888,false,true,1);

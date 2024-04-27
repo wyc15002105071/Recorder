@@ -5,6 +5,7 @@
 #include "utils/mediapathutils.h"
 #include <QVideoProbe>
 #include "utils/videoframetoimageutils.h"
+#include "utils/toastutils.h"
 
 #define MODULE_TAG "VideoPlayer"
 
@@ -218,5 +219,7 @@ void VideoPlayer::videoFrameProbed(const QVideoFrame &frame)
 
 void VideoPlayer::Screenshot()
 {
-    if(!isFirst)VideoFrameToImageUtils::videoFrameToImage(frame).save(MediaPathUtils::get_instance()->getImagePath());
+    if(!isFirst)
+        if(VideoFrameToImageUtils::videoFrameToImage(frame).save(MediaPathUtils::get_instance()->getImagePath()))
+            ToastUtils::instance().show(ToastUtils::INFO,"截图成功!");
 }

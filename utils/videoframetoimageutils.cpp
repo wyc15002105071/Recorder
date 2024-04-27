@@ -1,42 +1,43 @@
 #include "videoframetoimageutils.h"
-#include <QDebug>
-#include <cstring>
-QImage convertNV12ToRGB(QVideoFrame &NV12Frame) {
-    // 获取视频帧的大小
-    QSize size = NV12Frame.size();
-    int width = NV12Frame.width();
-    int height = NV12Frame.height();
+QImage convertNV12ToRGB(QVideoFrame &frame) {
+    if (!frame.isValid()) {
+        //qDebug() << "Invalid video frame";
+        return QImage();
+    }
 
-    // Get the Y and UV planes
-    uchar *yPlane = NV12Frame.bits();
-    uchar *uvPlane = yPlane + width * height;
+    int width = frame.width();
+    int height = frame.height();
 
-    // 创建RGB图像
-    QImage rgbImage(width,height, QImage::Format_RGB888);
+    QImage image(width, height, QImage::Format_RGB888);
 
-    // 进行YUV到RGB的颜色空间转换
-    for (int y = 0; y < size.height(); ++y) {
-        for (int x = 0; x < size.width(); ++x) {
-            int Y = yPlane[y * width + x];
-            int U = uvPlane[(y / 2) * width + (x / 2) * 2];
-            int V = uvPlane[(y / 2) * width + (x / 2) * 2 + 1];
+    // Convert NV12 to RGB888
+    const uchar *yPlane = frame.bits(0);
+    const uchar *uvPlane = frame.bits(1);
+    uchar *rgbData = image.bits();
+    int uvRowStride = frame.bytesPerLine(1);
+    int yRowStride = frame.bytesPerLine();
 
-            // Convert YUV to RGB (accurate formula)
-            int C = Y - 16;
-            int D = U - 128;
-            int E = V - 128;
-            int R = qBound(0, (298 * C + 409 * E + 128) >> 8, 255);
-            int G = qBound(0, (298 * C - 100 * D - 208 * E + 128) >> 8, 255);
-            int B = qBound(0, (298 * C + 516 * D + 128) >> 8, 255);
-            // 裁剪RGB值
-            //R = qBound(0, R, 255);
-            //G = qBound(0, G, 255);
-            //B = qBound(0, B, 255);
-            // 设置像素值
-            rgbImage.setPixel(x, y, qRgb(R, G, B));
+    for (int y = 0; y < height; ++y) {
+        const uchar *yLine = yPlane + y * yRowStride;
+        const uchar *uvLine = uvPlane + (y / 2) * uvRowStride;
+
+        for (int x = 0; x < width; ++x) {
+            int yValue = yLine[x];
+            int u = uvLine[x & ~1] - 128;
+            int v = uvLine[x | 1] - 128;
+
+            int r = qBound(0, (298 * yValue + 409 * v + 128) >> 8, 255);
+            int g = qBound(0, (298 * yValue - 100 * u - 208 * v + 128) >> 8, 255);
+            int b = qBound(0, (298 * yValue + 516 * u + 128) >> 8, 255);
+
+            rgbData[0] = r;
+            rgbData[1] = g;
+            rgbData[2] = b;
+            rgbData += 3;
         }
     }
-    return  rgbImage;
+
+    return image;
 }
 
 
@@ -87,7 +88,7 @@ QImage VideoFrameToImageUtils::videoFrameToImage(QVideoFrame frame)
     // 映射视频帧到内存
     if (!frame.map(QAbstractVideoBuffer::ReadOnly))return QImage();
     QImage image;
-    qDebug()<<frame.pixelFormat();
+
     // 根据视频帧创建QImage对象
     switch (frame.pixelFormat()) {
         case QVideoFrame::Format_ARGB32:
@@ -103,8 +104,7 @@ QImage VideoFrameToImageUtils::videoFrameToImage(QVideoFrame frame)
             break;
     case QVideoFrame::Format_NV12:{image = convertNV12ToRGB(frame);}break;
     case QVideoFrame::Format_NV21:{image = convertNV12ToRGB(frame);}break;
-    case QVideoFrame::Format_YV12:{image = convertYV12ToRGB(frame);}
-        break;
+    case QVideoFrame::Format_YV12:{image = convertYV12ToRGB(frame);}break;
         default:
         frame.unmap();
         return QImage();
