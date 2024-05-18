@@ -14,7 +14,7 @@ using namespace std;
 VideoPlayer::VideoPlayer(QWidget *parent)
    : QWidget(parent)
    , ui(new Ui::VideoPlayer)
-   , mPlayer(shared_ptr<QMediaPlayer>(new QMediaPlayer))
+   , mPlayer(sp<QMediaPlayer>(new QMediaPlayer))
    , mKeyListener(KeyListener::get_instance())
 {
     ui->setupUi(this);
@@ -23,7 +23,7 @@ VideoPlayer::VideoPlayer(QWidget *parent)
     QObject::connect(videoProbe, &QVideoProbe::videoFrameProbed, this,&VideoPlayer::videoFrameProbed);
     videoProbe->setSource(mPlayer.get());
 
-    mVideoWidget = shared_ptr<QVideoWidget>(new QVideoWidget(ui->video_widget));
+    mVideoWidget = sp<QVideoWidget>(new QVideoWidget(ui->video_widget));
     mVideoWidget->move(0,0);
     auto layout = ui->video_widget->layout();
     layout->addWidget(mVideoWidget.get());
@@ -44,7 +44,7 @@ VideoPlayer::~VideoPlayer()
     }
     mKeyListener = nullptr;
     delete ui;
-    RLOGD("destructor enter");
+    RLOGD("destructor level");
 }
 
 void VideoPlayer::showEvent(QShowEvent *event)

@@ -1,11 +1,16 @@
 #include "videoinputdevice.h"
 #include "log.h"
 #include <vector>
+#include <QImage>
 #include "drm_fourcc.h"
-#include "utils/osdutils.h"
 #include "media/rkrgadef.h"
+
+#include "utils/mediapathutils.h"
+#include "utils/osdutils.h"
 #include "utils/configutils.h"
+
 #include "rk_hdmirx_config.h"
+
 
 using namespace std;
 
@@ -16,10 +21,14 @@ VideoInputDevice::VideoInputDevice()
     , mVideoWidget(nullptr)
     , mIsEncoding(false)
     , mVideoEosFlag(false)
-    , mRecorder(sp<MediaRecorder>(new MediaRecorder))
+    , mNeedCapture(false)
+    , signalIn(false)
     , mPusher(sp<StreamPusher>(new StreamPusher))
+    , mCaptureHelper(sp<CaptureHelper>(new CaptureHelper))
+
 {
     connect(this,SIGNAL(onNeedReset()),this,SLOT(onReset()),Qt::UniqueConnection);
+    connect(mCaptureHelper.get(),&CaptureHelper::onFinished,this,[=]{ onCaptureFinished(); },Qt::UniqueConnection);
 }
 
 VideoInputDevice::~VideoInputDevice()
@@ -37,6 +46,7 @@ void VideoInputDevice::run()
 {
     int retry = 0;
     bool needReset = false;
+
     while(!mThreadExit) {
         for (int i = 0; i < MAX_BUF_CNT; i++ ) {
             mLock.lock();
@@ -89,6 +99,20 @@ void VideoInputDevice::run()
                 emit signalChange(true);
                 signalIn = true;
             }
+
+            {
+                mCaptureMutex.lock();
+                if(mNeedCapture) {
+                    if(mCaptureHelper && !mCaptureHelper->isRunning()) {
+                        mCaptureHelper->setFrameParam(mDmaBo[i],mStreamInfo.format);
+                        mCaptureHelper->startTask();
+                    }
+
+                    mNeedCapture = false;
+                }
+                mCaptureMutex.unlock();
+            }
+
             if(mVideoWidget)
                 mVideoWidget->PrepareUpdate(mBufferArray[i].index);
             if(mIsPushing) {
@@ -170,6 +194,7 @@ void VideoInputDevice::run()
 bool VideoInputDevice::startTask()
 {
     mThreadExit = false;
+
     start();
     return true;
 }
@@ -204,6 +229,7 @@ void VideoInputDevice::stopRecord()
     if(mRecorder) {
         mRecorder->stopTask();
     }
+
     mVideoEosFlag = true;
     mIsEncoding = false;
     //    mLock.unlock();
@@ -220,6 +246,13 @@ void VideoInputDevice::stopPush()
 {
     mIsPushing = false;
     mPusher->stop();
+}
+
+void VideoInputDevice::capture()
+{
+    mCaptureMutex.lock();
+    mNeedCapture = true;
+    mCaptureMutex.unlock();
 }
 
 string VideoInputDevice::getPushUrl()
@@ -500,6 +533,8 @@ void VideoInputDevice::reset()
 {
     RLOGD("reset...");
     deinit();
+
+    stopTask();
     if(mVideoWidget) {
         mVideoWidget->reset();
     }

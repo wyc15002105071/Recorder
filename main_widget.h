@@ -7,23 +7,29 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QResizeEvent>
+
+#include "common/common.h"
+#include "common/log.h"
+
 #include "media/mediautils.h"
 #include "media/videoinputdevice.h"
+#include "media/mediarecorder.h"
+
 #include "widgets/record_timer_widget.h"
 #include "widgets/viewer/imageviewer.h"
 #include "widgets/viewer/videoviewer.h"
 #include "widgets/menuwidget.h"
-#include "common/common.h"
-#include "common/log.h"
 #include "widgets/recordwidget.h"
 #include "widgets/viewer/progressviewer.h"
 #include "widgets/pushstreamwidget.h"
-#include "listeners/key_listener.h"
-#include "listeners/diskcapacitylistener.h"
-#include "listeners/hotpluglistener.h"
 #include "widgets/usersetwidget.h"
 #include "widgets/confirmdialog.h"
 #include "widgets/suredialog.h"
+
+#include "listeners/key_listener.h"
+#include "listeners/diskcapacitylistener.h"
+#include "listeners/hotpluglistener.h"
+
 #include "utils/serialportutils.h"
 #include <QMutex>
 
@@ -67,14 +73,15 @@ signals:
 private:
     Ui::MainWidget *ui;
 
-    VideoInputDevice  mInputDevice;
-    KeyListener      *mKeyListener;
+    VideoInputDevice        mInputDevice;
+    AudioRender             mAudioRender;
+    KeyListener            *mKeyListener;
     DiskCapacityListener   *mDiskListener;
-    ConfirmDialog *mConfirmDialog = nullptr;
-    SureDialog *mSureDialog = nullptr;
+    ConfirmDialog          *mConfirmDialog = nullptr;
+    SureDialog             *mSureDialog = nullptr;
 
-    sp<HotplugListener> mHotplugListener;
-    sp<StorageUtils> mStorageUtils;
+    sp<HotplugListener>     mHotplugListener;
+    sp<StorageUtils>        mStorageUtils;
 
     sp<ImageViewer>         mImageViewer;
     sp<VideoViewer>         mVideoViewer;
@@ -85,7 +92,7 @@ private:
     sp<SignalHandler>       mSignalHandler;
     sp<PushStreamWidget>    mPushWidget;
     sp<UserSetWidget>       mUserSetWidget;
-
+    sp<MediaRecorder>       mMediaRecorder;
     const uint32_t    mMenuAutoHideMs = 5000;
 
     bool signalIn = false;
@@ -100,6 +107,8 @@ public slots:
 
     void checkUsb(bool isNoLagel);
     void onShowChange(bool isShow);
+    void onCaptureFinished();
+
 private:
     void initWidgets();
     void onCapture();
