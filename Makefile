@@ -10406,8 +10406,8 @@ main_widget.o: main_widget.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
 		third-party/headers/mpp/mpp_common.h \
-		utils/configutils.h \
 		widgets/powoffwidget.h \
+		utils/configutils.h \
 		utils/toastutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QRect \
 		utils/mediapathutils.h
@@ -12820,8 +12820,7 @@ videoframetoimageutils.o: utils/videoframetoimageutils.cpp utils/videoframetoima
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qset.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontiguouscache.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QDebug
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o videoframetoimageutils.o utils/videoframetoimageutils.cpp
 
 basewidget.o: widgets/basewidget.cpp widgets/basewidget.h \
@@ -19052,7 +19051,9 @@ videoplayer.o: widgets/viewer/videoplayer.cpp widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qvideoprobe.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
 		utils/videoframetoimageutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		utils/toastutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QRect
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o videoplayer.o widgets/viewer/videoplayer.cpp
 
 videoviewer.o: widgets/viewer/videoviewer.cpp widgets/viewer/videoviewer.h \

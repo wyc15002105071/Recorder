@@ -5,10 +5,10 @@
 #include <sys/stat.h>
 #include "mpp_common.h"
 #include <unistd.h>
-#include <sys/types.h>          /* See NOTES */
+#include <sys/types.h>
 #include <sys/socket.h>
-#include "utils/configutils.h"
 #include "widgets/powoffwidget.h"
+#include "utils/configutils.h"
 #include "utils/toastutils.h"
 #include "utils/mediapathutils.h"
 #define MODULE_TAG "MainWidget"
@@ -324,8 +324,18 @@ void MainWidget::onKeyEventHandler(KeyListener::EventType type)
         //        ||(mPushWidget&&mPushWidget->isVisible()))
         //    return;
         if(!signalIn)return;
-        if(mVideoViewer&&mVideoViewer->isVisible()&&!mVideoViewer->isFileUtilsRun())mVideoViewer->close();
-        if(mImageViewer&&mImageViewer->isVisible()&&!mImageViewer->isFileUtilsRun())mImageViewer->close();
+        if(mVideoViewer&&mVideoViewer->isVisible()){
+            if(mVideoViewer->isFileUtilsRun())
+                return;
+            else
+                mVideoViewer->close();
+        }
+        if(mImageViewer&&mImageViewer->isVisible()){
+            if(mImageViewer->isFileUtilsRun())
+                return;
+            else
+                mImageViewer->close();
+        }
         if(mUserSetWidget&&mUserSetWidget->isVisible())mUserSetWidget->close();
         if(mPushWidget&&mPushWidget->isVisible())mPushWidget->close();
         if(mSureDialog&&mSureDialog->isVisible())mSureDialog->reject();

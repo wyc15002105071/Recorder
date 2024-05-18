@@ -38,7 +38,11 @@ bool RtspServer::prepare(RtspServer::MetaInfo *meta)
     cfg.height = meta->height;
     cfg.format = meta->format;
     cfg.type = meta->type;
-    cfg.bitRate = cfg.width * cfg.height / 30 * 60;
+    if(meta->width>1920||meta->height>1080){
+        cfg.bitRate = cfg.width * cfg.height / 30 * 60;
+    }else{
+        cfg.bitRate = cfg.width * cfg.height / 30 * 60;
+    }
     if(mVideoEncoder.prepare(&cfg) != MPP_OK) {
         RLOGE("Failed to prepare video encoder");
         return false;
