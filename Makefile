@@ -17,7 +17,7 @@ CXX           = /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_MULTIMEDIAWIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot -std=gnu++11 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -Icommon -Imedia -Ithird-party/headers/mpp -Ithird-party/headers/drm -Ithird-party/headers/ffmpeg -Ithird-party/headers/rga -Ithird-party/headers/linux -Ithird-party/headers/live555 -Ithird-party/headers/live555/liveMedia -Ithird-party/headers/live555/BasicUsageEnvironment -Ithird-party/headers/live555/groupsock -Ithird-party/headers/live555/UsageEnvironment -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I. -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/libdrm -I. -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++
+INCPATH       = -I. -Icommon -Imedia -Ithird-party/headers/mpp -Ithird-party/headers/drm -Ithird-party/headers/ffmpeg -Ithird-party/headers/rga -Ithird-party/headers/linux -Ithird-party/headers -Ithird-party/headers/live555 -Ithird-party/headers/live555/liveMedia -Ithird-party/headers/live555/BasicUsageEnvironment -Ithird-party/headers/live555/groupsock -Ithird-party/headers/live555/UsageEnvironment -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I. -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/libdrm -I. -I../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++
 QMAKE         = /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = qy_desktop1.0.0
 DISTDIR = /home/linux/make/Recorder/.tmp/qy_desktop1.0.0
 LINK          = /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/aarch64-buildroot-linux-gnu-g++
 LFLAGS        = --sysroot=/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot -Wl,-O1 -Wl,-rpath-link,/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib
-LIBS          = $(SUBLIBS) -latomic -ludev -L/home/linux/make/Recorder/third-party/prebuilt/linux_arm32 -lrockchip_mpp -lrockchip_vpu -lrga -lliveMedia -lgroupsock -lBasicUsageEnvironment -lUsageEnvironment -lavformat -lavcodec -lavutil -lswscale -lswresample /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5MultimediaWidgets.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Multimedia.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Widgets.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Gui.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Network.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5SerialPort.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Core.so -L/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib -lmali -lGLESv2 -ldrm -lwayland-client -lwayland-server -lpthread  -lrt -lpthread -ldl 
+LIBS          = $(SUBLIBS) -latomic -ludev -L/home/linux/make/Recorder/third-party/prebuilt/linux_arm32 -lrockchip_mpp -lrockchip_vpu -lrga -lliveMedia -lgroupsock -lBasicUsageEnvironment -lUsageEnvironment -lavformat -lavcodec -lavutil -lswscale -lswresample -lasound /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5MultimediaWidgets.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Multimedia.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Widgets.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Gui.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Network.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5SerialPort.so /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libQt5Core.so -L/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib -lmali -lGLESv2 -ldrm -lwayland-client -lwayland-server -lpthread  -lrt -lpthread -ldl 
 AR            = /home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/aarch64-buildroot-linux-gnu-ar cqs
 RANLIB        = 
 SED           = sed
@@ -65,6 +65,8 @@ SOURCES       = allocators/allocator.cpp \
 		main_task.cpp \
 		main_widget.cpp \
 		common/rthread.cpp \
+		media/audiodevice.cpp \
+		media/audiorender.cpp \
 		media/live555/h264livevideoservermediasubsession.cpp \
 		media/live555/h264livevideosource.cpp \
 		media/live555/rtspserver.cpp \
@@ -74,6 +76,7 @@ SOURCES       = allocators/allocator.cpp \
 		media/rkmpp_dec_api.cpp \
 		media/rkmpp_enc_api.cpp \
 		media/rkrgadef.cpp \
+		media/sndaudiodevice.cpp \
 		media/streampusher.cpp \
 		media/videoframereader.cpp \
 		media/videoinputdevice.cpp \
@@ -116,11 +119,14 @@ SOURCES       = allocators/allocator.cpp \
 		moc_diskcapacitylistener.cpp \
 		moc_key_listener.cpp \
 		moc_main_widget.cpp \
+		moc_CaptureHelper.cpp \
+		moc_audiorender.cpp \
 		moc_videoframereader.cpp \
 		moc_videoinputdevice.cpp \
 		moc_serialportutils.cpp \
 		moc_thumbnailutils.cpp \
 		moc_toastutils.cpp \
+		moc_videoframetoimageutils.cpp \
 		moc_basewidget.cpp \
 		moc_confirmdialog.cpp \
 		moc_menuwidget.cpp \
@@ -159,6 +165,8 @@ OBJECTS       = allocator.o \
 		main_task.o \
 		main_widget.o \
 		rthread.o \
+		audiodevice.o \
+		audiorender.o \
 		h264livevideoservermediasubsession.o \
 		h264livevideosource.o \
 		rtspserver.o \
@@ -168,6 +176,7 @@ OBJECTS       = allocator.o \
 		rkmpp_dec_api.o \
 		rkmpp_enc_api.o \
 		rkrgadef.o \
+		sndaudiodevice.o \
 		streampusher.o \
 		videoframereader.o \
 		videoinputdevice.o \
@@ -211,11 +220,14 @@ OBJECTS       = allocator.o \
 		moc_diskcapacitylistener.o \
 		moc_key_listener.o \
 		moc_main_widget.o \
+		moc_CaptureHelper.o \
+		moc_audiorender.o \
 		moc_videoframereader.o \
 		moc_videoinputdevice.o \
 		moc_serialportutils.o \
 		moc_thumbnailutils.o \
 		moc_toastutils.o \
+		moc_videoframetoimageutils.o \
 		moc_basewidget.o \
 		moc_confirmdialog.o \
 		moc_menuwidget.o \
@@ -373,6 +385,10 @@ DIST          = ../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspec
 		main_task.h \
 		main_widget.h \
 		common/rthread.h \
+		media/CaptureHelper.h \
+		media/audiodevice.h \
+		media/audiorender.h \
+		media/imageconvert.h \
 		media/live555/h264livevideoservermediasubsession.h \
 		media/live555/h264livevideosource.h \
 		media/live555/rtspserver.h \
@@ -382,6 +398,7 @@ DIST          = ../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspec
 		media/rkmpp_dec_api.h \
 		media/rkmpp_enc_api.h \
 		media/rkrgadef.h \
+		media/sndaudiodevice.h \
 		media/streampusher.h \
 		media/videoframereader.h \
 		media/videoinputdevice.h \
@@ -433,6 +450,8 @@ DIST          = ../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspec
 		main_task.cpp \
 		main_widget.cpp \
 		common/rthread.cpp \
+		media/audiodevice.cpp \
+		media/audiorender.cpp \
 		media/live555/h264livevideoservermediasubsession.cpp \
 		media/live555/h264livevideosource.cpp \
 		media/live555/rtspserver.cpp \
@@ -442,6 +461,7 @@ DIST          = ../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspec
 		media/rkmpp_dec_api.cpp \
 		media/rkmpp_enc_api.cpp \
 		media/rkrgadef.cpp \
+		media/sndaudiodevice.cpp \
 		media/streampusher.cpp \
 		media/videoframereader.cpp \
 		media/videoinputdevice.cpp \
@@ -749,8 +769,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents allocators/allocator.h allocators/allocator_service.h allocators/drm_allocator.h common/Mutex.h common/common.h common/log.h common/observer.h listeners/diskcapacitylistener.h listeners/hotpluglistener.h listeners/key_listener.h listeners/udplistener.h main_task.h main_widget.h common/rthread.h media/live555/h264livevideoservermediasubsession.h media/live555/h264livevideosource.h media/live555/rtspserver.h media/mediamuxer.h media/mediarecorder.h media/mediautils.h media/rkmpp_dec_api.h media/rkmpp_enc_api.h media/rkrgadef.h media/streampusher.h media/videoframereader.h media/videoinputdevice.h utils/configutils.h utils/fileutils.h utils/mediapathutils.h utils/networkutils.h utils/osdutils.h utils/serialportutils.h utils/storageutils.h utils/thumbnailutils.h utils/toastutils.h utils/videoframetoimageutils.h widgets/basewidget.h widgets/confirmdialog.h widgets/menuwidget.h widgets/powoffwidget.h widgets/pushstreamwidget.h widgets/recordwidget.h widgets/setting_widget.h widgets/suredialog.h widgets/usersetwidget.h widgets/viewer/baseviewer.h widgets/viewer/diskselectionitem.h widgets/viewer/diskselectionwidget.h widgets/viewer/extstorageitem.h widgets/viewer/imagebrowser.h widgets/viewer/imageviewer.h widgets/record_timer_widget.h widgets/videowidget.h widgets/viewer/listwidgetitem.h widgets/viewer/osdview.h widgets/viewer/positionslider.h widgets/viewer/progressviewer.h widgets/viewer/selectionicon.h widgets/viewer/selectview.h widgets/viewer/setfpsview.h widgets/viewer/videoplayer.h widgets/viewer/videoviewer.h $(DISTDIR)/
-	$(COPY_FILE) --parents allocators/allocator.cpp allocators/allocator_service.cpp allocators/drm_allocator.cpp common/log.cpp common/observer.cpp listeners/diskcapacitylistener.cpp listeners/hotpluglistener.cpp listeners/key_listener.cpp listeners/udplistener.cpp main.cpp main_task.cpp main_widget.cpp common/rthread.cpp media/live555/h264livevideoservermediasubsession.cpp media/live555/h264livevideosource.cpp media/live555/rtspserver.cpp media/mediamuxer.cpp media/mediarecorder.cpp media/mediautils.cpp media/rkmpp_dec_api.cpp media/rkmpp_enc_api.cpp media/rkrgadef.cpp media/streampusher.cpp media/videoframereader.cpp media/videoinputdevice.cpp utils/configutils.cpp utils/fileutils.cpp utils/mediapathutils.cpp utils/networkutils.cpp utils/osdutils.cpp utils/serialportutils.cpp utils/storageutils.cpp utils/thumbnailutils.cpp utils/toastutils.cpp utils/videoframetoimageutils.cpp widgets/basewidget.cpp widgets/confirmdialog.cpp widgets/menuwidget.cpp widgets/powoffwidget.cpp widgets/pushstreamwidget.cpp widgets/recordwidget.cpp widgets/setting_widget.cpp widgets/suredialog.cpp widgets/usersetwidget.cpp widgets/viewer/baseviewer.cpp widgets/viewer/diskselectionitem.cpp widgets/viewer/diskselectionwidget.cpp widgets/viewer/extstorageitem.cpp widgets/viewer/imagebrowser.cpp widgets/viewer/imageviewer.cpp widgets/record_timer_widget.cpp widgets/videowidget.cpp widgets/viewer/listwidgetitem.cpp widgets/viewer/osdview.cpp widgets/viewer/positionslider.cpp widgets/viewer/progressviewer.cpp widgets/viewer/selectionicon.cpp widgets/viewer/selectview.cpp widgets/viewer/setfpsview.cpp widgets/viewer/videoplayer.cpp widgets/viewer/videoviewer.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents allocators/allocator.h allocators/allocator_service.h allocators/drm_allocator.h common/Mutex.h common/common.h common/log.h common/observer.h listeners/diskcapacitylistener.h listeners/hotpluglistener.h listeners/key_listener.h listeners/udplistener.h main_task.h main_widget.h common/rthread.h media/CaptureHelper.h media/audiodevice.h media/audiorender.h media/imageconvert.h media/live555/h264livevideoservermediasubsession.h media/live555/h264livevideosource.h media/live555/rtspserver.h media/mediamuxer.h media/mediarecorder.h media/mediautils.h media/rkmpp_dec_api.h media/rkmpp_enc_api.h media/rkrgadef.h media/sndaudiodevice.h media/streampusher.h media/videoframereader.h media/videoinputdevice.h utils/configutils.h utils/fileutils.h utils/mediapathutils.h utils/networkutils.h utils/osdutils.h utils/serialportutils.h utils/storageutils.h utils/thumbnailutils.h utils/toastutils.h utils/videoframetoimageutils.h widgets/basewidget.h widgets/confirmdialog.h widgets/menuwidget.h widgets/powoffwidget.h widgets/pushstreamwidget.h widgets/recordwidget.h widgets/setting_widget.h widgets/suredialog.h widgets/usersetwidget.h widgets/viewer/baseviewer.h widgets/viewer/diskselectionitem.h widgets/viewer/diskselectionwidget.h widgets/viewer/extstorageitem.h widgets/viewer/imagebrowser.h widgets/viewer/imageviewer.h widgets/record_timer_widget.h widgets/videowidget.h widgets/viewer/listwidgetitem.h widgets/viewer/osdview.h widgets/viewer/positionslider.h widgets/viewer/progressviewer.h widgets/viewer/selectionicon.h widgets/viewer/selectview.h widgets/viewer/setfpsview.h widgets/viewer/videoplayer.h widgets/viewer/videoviewer.h $(DISTDIR)/
+	$(COPY_FILE) --parents allocators/allocator.cpp allocators/allocator_service.cpp allocators/drm_allocator.cpp common/log.cpp common/observer.cpp listeners/diskcapacitylistener.cpp listeners/hotpluglistener.cpp listeners/key_listener.cpp listeners/udplistener.cpp main.cpp main_task.cpp main_widget.cpp common/rthread.cpp media/audiodevice.cpp media/audiorender.cpp media/live555/h264livevideoservermediasubsession.cpp media/live555/h264livevideosource.cpp media/live555/rtspserver.cpp media/mediamuxer.cpp media/mediarecorder.cpp media/mediautils.cpp media/rkmpp_dec_api.cpp media/rkmpp_enc_api.cpp media/rkrgadef.cpp media/sndaudiodevice.cpp media/streampusher.cpp media/videoframereader.cpp media/videoinputdevice.cpp utils/configutils.cpp utils/fileutils.cpp utils/mediapathutils.cpp utils/networkutils.cpp utils/osdutils.cpp utils/serialportutils.cpp utils/storageutils.cpp utils/thumbnailutils.cpp utils/toastutils.cpp utils/videoframetoimageutils.cpp widgets/basewidget.cpp widgets/confirmdialog.cpp widgets/menuwidget.cpp widgets/powoffwidget.cpp widgets/pushstreamwidget.cpp widgets/recordwidget.cpp widgets/setting_widget.cpp widgets/suredialog.cpp widgets/usersetwidget.cpp widgets/viewer/baseviewer.cpp widgets/viewer/diskselectionitem.cpp widgets/viewer/diskselectionwidget.cpp widgets/viewer/extstorageitem.cpp widgets/viewer/imagebrowser.cpp widgets/viewer/imageviewer.cpp widgets/record_timer_widget.cpp widgets/videowidget.cpp widgets/viewer/listwidgetitem.cpp widgets/viewer/osdview.cpp widgets/viewer/positionslider.cpp widgets/viewer/progressviewer.cpp widgets/viewer/selectionicon.cpp widgets/viewer/selectview.cpp widgets/viewer/setfpsview.cpp widgets/viewer/videoplayer.cpp widgets/viewer/videoviewer.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwidget.ui widgets/basewidget.ui widgets/confirmdialog.ui widgets/menuwidget.ui widgets/powoffwidget.ui widgets/pushstreamwidget.ui widgets/recordwidget.ui widgets/settingwidget.ui widgets/suredialog.ui widgets/usersetwidget.ui widgets/viewer/diskselectionitem.ui widgets/viewer/diskselectionwidget.ui widgets/viewer/extstorageitem.ui widgets/viewer/imagebrowser.ui widgets/viewer/imageviewer.ui widgets/recordtimerwidget.ui widgets/viewer/listwidgetitem.ui widgets/viewer/osdview.ui widgets/viewer/progressviewer.ui widgets/viewer/selectionicon.ui widgets/viewer/selectview.ui widgets/viewer/setfpsview.ui widgets/viewer/videoplayer.ui widgets/viewer/videoviewer.ui $(DISTDIR)/
 
 
@@ -825,9 +845,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/features/data/dummy.cpp
 	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/aarch64-buildroot-linux-gnu-g++ -pipe -D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -Os --sysroot=/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot -std=gnu++11 -Wall -Wextra -dM -E -o moc_predefs.h ../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_diskcapacitylistener.cpp moc_key_listener.cpp moc_main_widget.cpp moc_videoframereader.cpp moc_videoinputdevice.cpp moc_serialportutils.cpp moc_thumbnailutils.cpp moc_toastutils.cpp moc_basewidget.cpp moc_confirmdialog.cpp moc_menuwidget.cpp moc_powoffwidget.cpp moc_pushstreamwidget.cpp moc_recordwidget.cpp moc_setting_widget.cpp moc_suredialog.cpp moc_usersetwidget.cpp moc_baseviewer.cpp moc_diskselectionitem.cpp moc_diskselectionwidget.cpp moc_extstorageitem.cpp moc_imagebrowser.cpp moc_imageviewer.cpp moc_record_timer_widget.cpp moc_videowidget.cpp moc_listwidgetitem.cpp moc_osdview.cpp moc_progressviewer.cpp moc_selectionicon.cpp moc_selectview.cpp moc_setfpsview.cpp moc_videoplayer.cpp moc_videoviewer.cpp
+compiler_moc_header_make_all: moc_diskcapacitylistener.cpp moc_key_listener.cpp moc_main_widget.cpp moc_CaptureHelper.cpp moc_audiorender.cpp moc_videoframereader.cpp moc_videoinputdevice.cpp moc_serialportutils.cpp moc_thumbnailutils.cpp moc_toastutils.cpp moc_videoframetoimageutils.cpp moc_basewidget.cpp moc_confirmdialog.cpp moc_menuwidget.cpp moc_powoffwidget.cpp moc_pushstreamwidget.cpp moc_recordwidget.cpp moc_setting_widget.cpp moc_suredialog.cpp moc_usersetwidget.cpp moc_baseviewer.cpp moc_diskselectionitem.cpp moc_diskselectionwidget.cpp moc_extstorageitem.cpp moc_imagebrowser.cpp moc_imageviewer.cpp moc_record_timer_widget.cpp moc_videowidget.cpp moc_listwidgetitem.cpp moc_osdview.cpp moc_progressviewer.cpp moc_selectionicon.cpp moc_selectview.cpp moc_setfpsview.cpp moc_videoplayer.cpp moc_videoviewer.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_diskcapacitylistener.cpp moc_key_listener.cpp moc_main_widget.cpp moc_videoframereader.cpp moc_videoinputdevice.cpp moc_serialportutils.cpp moc_thumbnailutils.cpp moc_toastutils.cpp moc_basewidget.cpp moc_confirmdialog.cpp moc_menuwidget.cpp moc_powoffwidget.cpp moc_pushstreamwidget.cpp moc_recordwidget.cpp moc_setting_widget.cpp moc_suredialog.cpp moc_usersetwidget.cpp moc_baseviewer.cpp moc_diskselectionitem.cpp moc_diskselectionwidget.cpp moc_extstorageitem.cpp moc_imagebrowser.cpp moc_imageviewer.cpp moc_record_timer_widget.cpp moc_videowidget.cpp moc_listwidgetitem.cpp moc_osdview.cpp moc_progressviewer.cpp moc_selectionicon.cpp moc_selectview.cpp moc_setfpsview.cpp moc_videoplayer.cpp moc_videoviewer.cpp
+	-$(DEL_FILE) moc_diskcapacitylistener.cpp moc_key_listener.cpp moc_main_widget.cpp moc_CaptureHelper.cpp moc_audiorender.cpp moc_videoframereader.cpp moc_videoinputdevice.cpp moc_serialportutils.cpp moc_thumbnailutils.cpp moc_toastutils.cpp moc_videoframetoimageutils.cpp moc_basewidget.cpp moc_confirmdialog.cpp moc_menuwidget.cpp moc_powoffwidget.cpp moc_pushstreamwidget.cpp moc_recordwidget.cpp moc_setting_widget.cpp moc_suredialog.cpp moc_usersetwidget.cpp moc_baseviewer.cpp moc_diskselectionitem.cpp moc_diskselectionwidget.cpp moc_extstorageitem.cpp moc_imagebrowser.cpp moc_imageviewer.cpp moc_record_timer_widget.cpp moc_videowidget.cpp moc_listwidgetitem.cpp moc_osdview.cpp moc_progressviewer.cpp moc_selectionicon.cpp moc_selectview.cpp moc_setfpsview.cpp moc_videoplayer.cpp moc_videoviewer.cpp
 moc_diskcapacitylistener.cpp: listeners/diskcapacitylistener.h \
 		common/common.h \
 		common/log.h \
@@ -891,7 +911,7 @@ moc_diskcapacitylistener.cpp: listeners/diskcapacitylistener.h \
 		common/Mutex.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include listeners/diskcapacitylistener.h -o moc_diskcapacitylistener.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include listeners/diskcapacitylistener.h -o moc_diskcapacitylistener.cpp
 
 moc_key_listener.cpp: listeners/key_listener.h \
 		common/Mutex.h \
@@ -962,7 +982,7 @@ moc_key_listener.cpp: listeners/key_listener.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include listeners/key_listener.h -o moc_key_listener.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include listeners/key_listener.h -o moc_key_listener.cpp
 
 moc_main_widget.cpp: main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
@@ -1076,6 +1096,8 @@ moc_main_widget.cpp: main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QResizeEvent \
+		common/common.h \
+		common/log.h \
 		media/mediautils.h \
 		media/videoinputdevice.h \
 		common/rthread.h \
@@ -1102,8 +1124,6 @@ moc_main_widget.cpp: main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QScopedPointer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglversionfunctions.h \
 		media/mediarecorder.h \
-		common/common.h \
-		common/log.h \
 		media/rkmpp_enc_api.h \
 		third-party/headers/mpp/rk_mpi.h \
 		third-party/headers/mpp/rk_mpi_cmd.h \
@@ -1328,6 +1348,14 @@ moc_main_widget.cpp: main_widget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		widgets/record_timer_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
@@ -1365,7 +1393,6 @@ moc_main_widget.cpp: main_widget.h \
 		utils/fileutils.h \
 		common/observer.h \
 		utils/thumbnailutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		media/rkmpp_dec_api.h \
 		widgets/viewer/progressviewer.h \
 		widgets/viewer/extstorageitem.h \
@@ -1398,7 +1425,6 @@ moc_main_widget.cpp: main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetworkglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetwork-config.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QSharedDataPointer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QUrl \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaenumdebug.h \
@@ -1411,6 +1437,8 @@ moc_main_widget.cpp: main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qvideowidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediabindableinterface.h \
+		utils/videoframetoimageutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		widgets/menuwidget.h \
 		widgets/recordwidget.h \
@@ -1421,16 +1449,171 @@ moc_main_widget.cpp: main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qudpsocket.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qabstractsocket.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qhostaddress.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
-		listeners/diskcapacitylistener.h \
-		listeners/hotpluglistener.h \
 		widgets/usersetwidget.h \
 		widgets/viewer/osdview.h \
 		widgets/viewer/setfpsview.h \
 		widgets/viewer/selectview.h \
+		listeners/diskcapacitylistener.h \
+		listeners/hotpluglistener.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include main_widget.h -o moc_main_widget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include main_widget.h -o moc_main_widget.cpp
+
+moc_CaptureHelper.cpp: media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimage.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtguiglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtcore-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsystemdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qprocessordetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcompilerdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtypeinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsysinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlogging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qflags.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasicatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qgenericatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_msvc.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobalstatic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtgui-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qcolor.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qrgb.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiterator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrefcount.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qarraydata.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhashfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringliteral.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringview.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringbuilder.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpair.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvector.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainertools_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpoint.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearraylist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qregexp.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringmatcher.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qrgba64.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpaintdevice.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs_win.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrect.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmargins.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsize.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpixelformat.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtransform.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qmatrix.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpolygon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qregion.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdatastream.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qscopedpointer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiodevice.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreevent.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetatype.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvarlengtharray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainerfwd.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qline.h \
+		media/imageconvert.h \
+		common/rthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QThread \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdeadlinetimer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qelapsedtimer.h \
+		common/Mutex.h \
+		common/log.h \
+		media/mediautils.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
+		moc_predefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include media/CaptureHelper.h -o moc_CaptureHelper.cpp
+
+moc_audiorender.cpp: media/audiorender.h \
+		common/common.h \
+		common/log.h \
+		common/rthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QThread \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtcore-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsystemdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qprocessordetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcompilerdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtypeinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsysinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlogging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qflags.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasicatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qgenericatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_msvc.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobalstatic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrefcount.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qarraydata.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringliteral.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringview.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringbuilder.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiterator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhashfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpair.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvector.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainertools_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpoint.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearraylist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qregexp.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringmatcher.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreevent.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qscopedpointer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetatype.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvarlengtharray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainerfwd.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdeadlinetimer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qelapsedtimer.h \
+		common/Mutex.h \
+		media/audiodevice.h \
+		moc_predefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include media/audiorender.h -o moc_audiorender.cpp
 
 moc_videoframereader.cpp: media/videoframereader.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
@@ -1583,7 +1766,7 @@ moc_videoframereader.cpp: media/videoframereader.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qrubberband.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include media/videoframereader.h -o moc_videoframereader.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include media/videoframereader.h -o moc_videoframereader.cpp
 
 moc_videoinputdevice.cpp: media/videoinputdevice.h \
 		media/mediautils.h \
@@ -1941,9 +2124,17 @@ moc_videoinputdevice.cpp: media/videoinputdevice.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include media/videoinputdevice.h -o moc_videoinputdevice.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include media/videoinputdevice.h -o moc_videoinputdevice.cpp
 
 moc_serialportutils.cpp: utils/serialportutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QList \
@@ -2013,7 +2204,7 @@ moc_serialportutils.cpp: utils/serialportutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include utils/serialportutils.h -o moc_serialportutils.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include utils/serialportutils.h -o moc_serialportutils.cpp
 
 moc_thumbnailutils.cpp: utils/thumbnailutils.h \
 		common/Mutex.h \
@@ -2157,7 +2348,7 @@ moc_thumbnailutils.cpp: utils/thumbnailutils.h \
 		third-party/headers/ffmpeg/libavformat/version.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include utils/thumbnailutils.h -o moc_thumbnailutils.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include utils/thumbnailutils.h -o moc_thumbnailutils.cpp
 
 moc_toastutils.cpp: utils/toastutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
@@ -2219,7 +2410,110 @@ moc_toastutils.cpp: utils/toastutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsize.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include utils/toastutils.h -o moc_toastutils.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include utils/toastutils.h -o moc_toastutils.cpp
+
+moc_videoframetoimageutils.cpp: utils/videoframetoimageutils.h \
+		common/rthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QThread \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtcore-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsystemdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qprocessordetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcompilerdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtypeinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsysinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlogging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qflags.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasicatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qgenericatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_msvc.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobalstatic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrefcount.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qarraydata.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringliteral.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringview.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringbuilder.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiterator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhashfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpair.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvector.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainertools_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpoint.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearraylist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qregexp.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringmatcher.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreevent.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qscopedpointer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetatype.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvarlengtharray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainerfwd.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdeadlinetimer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qelapsedtimer.h \
+		common/Mutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimage.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtguiglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtgui-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qcolor.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qrgb.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qrgba64.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpaintdevice.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs_win.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrect.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmargins.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsize.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpixelformat.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtransform.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qmatrix.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpolygon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qregion.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdatastream.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiodevice.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qline.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qvideoframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qshareddata.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhash.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qabstractvideobuffer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimediaglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimedia-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmultimedia.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvariant.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmap.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdebug.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtextstream.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlocale.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qset.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontiguouscache.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		moc_predefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include utils/videoframetoimageutils.h -o moc_videoframetoimageutils.cpp
 
 moc_basewidget.cpp: widgets/basewidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -2578,10 +2872,18 @@ moc_basewidget.cpp: widgets/basewidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/basewidget.h -o moc_basewidget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/basewidget.h -o moc_basewidget.cpp
 
 moc_confirmdialog.cpp: widgets/confirmdialog.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QDialog \
@@ -2704,7 +3006,7 @@ moc_confirmdialog.cpp: widgets/confirmdialog.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/confirmdialog.h -o moc_confirmdialog.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/confirmdialog.h -o moc_confirmdialog.cpp
 
 moc_menuwidget.cpp: widgets/menuwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -3064,13 +3366,21 @@ moc_menuwidget.cpp: widgets/menuwidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/menuwidget.h -o moc_menuwidget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/menuwidget.h -o moc_menuwidget.cpp
 
 moc_powoffwidget.cpp: widgets/powoffwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -3178,7 +3488,7 @@ moc_powoffwidget.cpp: widgets/powoffwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/powoffwidget.h -o moc_powoffwidget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/powoffwidget.h -o moc_powoffwidget.cpp
 
 moc_pushstreamwidget.cpp: widgets/pushstreamwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -3537,6 +3847,14 @@ moc_pushstreamwidget.cpp: widgets/pushstreamwidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		widgets/basewidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		listeners/udplistener.h \
@@ -3549,7 +3867,7 @@ moc_pushstreamwidget.cpp: widgets/pushstreamwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/pushstreamwidget.h -o moc_pushstreamwidget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/pushstreamwidget.h -o moc_pushstreamwidget.cpp
 
 moc_recordwidget.cpp: widgets/recordwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -3908,6 +4226,14 @@ moc_recordwidget.cpp: widgets/recordwidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		common/observer.h \
 		widgets/basewidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
@@ -3922,7 +4248,7 @@ moc_recordwidget.cpp: widgets/recordwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/recordwidget.h -o moc_recordwidget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/recordwidget.h -o moc_recordwidget.cpp
 
 moc_setting_widget.cpp: widgets/setting_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -4030,7 +4356,7 @@ moc_setting_widget.cpp: widgets/setting_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/setting_widget.h -o moc_setting_widget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/setting_widget.h -o moc_setting_widget.cpp
 
 moc_suredialog.cpp: widgets/suredialog.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QDialog \
@@ -4153,7 +4479,7 @@ moc_suredialog.cpp: widgets/suredialog.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/suredialog.h -o moc_suredialog.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/suredialog.h -o moc_suredialog.cpp
 
 moc_usersetwidget.cpp: widgets/usersetwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -4513,6 +4839,14 @@ moc_usersetwidget.cpp: widgets/usersetwidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/osdview.h \
 		widgets/viewer/setfpsview.h \
@@ -4525,7 +4859,7 @@ moc_usersetwidget.cpp: widgets/usersetwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVector \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/usersetwidget.h -o moc_usersetwidget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/usersetwidget.h -o moc_usersetwidget.cpp
 
 moc_baseviewer.cpp: widgets/viewer/baseviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -4892,6 +5226,14 @@ moc_baseviewer.cpp: widgets/viewer/baseviewer.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -4919,7 +5261,6 @@ moc_baseviewer.cpp: widgets/viewer/baseviewer.h \
 		utils/fileutils.h \
 		common/observer.h \
 		utils/thumbnailutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		media/rkmpp_dec_api.h \
 		widgets/viewer/progressviewer.h \
 		widgets/viewer/extstorageitem.h \
@@ -4935,7 +5276,7 @@ moc_baseviewer.cpp: widgets/viewer/baseviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/baseviewer.h -o moc_baseviewer.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/baseviewer.h -o moc_baseviewer.cpp
 
 moc_diskselectionitem.cpp: widgets/viewer/diskselectionitem.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -5046,7 +5387,7 @@ moc_diskselectionitem.cpp: widgets/viewer/diskselectionitem.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVector \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/diskselectionitem.h -o moc_diskselectionitem.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/diskselectionitem.h -o moc_diskselectionitem.cpp
 
 moc_diskselectionwidget.cpp: widgets/viewer/diskselectionwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -5406,6 +5747,14 @@ moc_diskselectionwidget.cpp: widgets/viewer/diskselectionwidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionitem.h \
 		utils/storageutils.h \
@@ -5432,7 +5781,7 @@ moc_diskselectionwidget.cpp: widgets/viewer/diskselectionwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qrubberband.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/diskselectionwidget.h -o moc_diskselectionwidget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/diskselectionwidget.h -o moc_diskselectionwidget.cpp
 
 moc_extstorageitem.cpp: widgets/viewer/extstorageitem.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -5546,7 +5895,7 @@ moc_extstorageitem.cpp: widgets/viewer/extstorageitem.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/extstorageitem.h -o moc_extstorageitem.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/extstorageitem.h -o moc_extstorageitem.cpp
 
 moc_imagebrowser.cpp: widgets/viewer/imagebrowser.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -5668,7 +6017,7 @@ moc_imagebrowser.cpp: widgets/viewer/imagebrowser.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/imagebrowser.h -o moc_imagebrowser.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/imagebrowser.h -o moc_imagebrowser.cpp
 
 moc_imageviewer.cpp: widgets/viewer/imageviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -6036,6 +6385,14 @@ moc_imageviewer.cpp: widgets/viewer/imageviewer.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -6063,7 +6420,6 @@ moc_imageviewer.cpp: widgets/viewer/imageviewer.h \
 		utils/fileutils.h \
 		common/observer.h \
 		utils/thumbnailutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		media/rkmpp_dec_api.h \
 		widgets/viewer/progressviewer.h \
 		widgets/viewer/extstorageitem.h \
@@ -6080,7 +6436,7 @@ moc_imageviewer.cpp: widgets/viewer/imageviewer.h \
 		widgets/viewer/imagebrowser.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/imageviewer.h -o moc_imageviewer.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/imageviewer.h -o moc_imageviewer.cpp
 
 moc_record_timer_widget.cpp: widgets/record_timer_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -6191,7 +6547,7 @@ moc_record_timer_widget.cpp: widgets/record_timer_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/record_timer_widget.h -o moc_record_timer_widget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/record_timer_widget.h -o moc_record_timer_widget.cpp
 
 moc_videowidget.cpp: widgets/videowidget.h \
 		allocators/allocator_service.h \
@@ -6317,7 +6673,7 @@ moc_videowidget.cpp: widgets/videowidget.h \
 		common/Mutex.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/videowidget.h -o moc_videowidget.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/videowidget.h -o moc_videowidget.cpp
 
 moc_listwidgetitem.cpp: widgets/viewer/listwidgetitem.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -6678,6 +7034,14 @@ moc_listwidgetitem.cpp: widgets/viewer/listwidgetitem.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
@@ -6688,7 +7052,7 @@ moc_listwidgetitem.cpp: widgets/viewer/listwidgetitem.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpen.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/listwidgetitem.h -o moc_listwidgetitem.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/listwidgetitem.h -o moc_listwidgetitem.cpp
 
 moc_osdview.cpp: widgets/viewer/osdview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -6796,7 +7160,7 @@ moc_osdview.cpp: widgets/viewer/osdview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/osdview.h -o moc_osdview.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/osdview.h -o moc_osdview.cpp
 
 moc_progressviewer.cpp: widgets/viewer/progressviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -7156,11 +7520,19 @@ moc_progressviewer.cpp: widgets/viewer/progressviewer.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		common/observer.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/progressviewer.h -o moc_progressviewer.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/progressviewer.h -o moc_progressviewer.cpp
 
 moc_selectionicon.cpp: widgets/viewer/selectionicon.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -7520,10 +7892,18 @@ moc_selectionicon.cpp: widgets/viewer/selectionicon.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/selectionicon.h -o moc_selectionicon.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/selectionicon.h -o moc_selectionicon.cpp
 
 moc_selectview.cpp: widgets/viewer/selectview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -7635,7 +8015,7 @@ moc_selectview.cpp: widgets/viewer/selectview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/selectview.h -o moc_selectview.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/selectview.h -o moc_selectview.cpp
 
 moc_setfpsview.cpp: widgets/viewer/setfpsview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -7743,7 +8123,7 @@ moc_setfpsview.cpp: widgets/viewer/setfpsview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/setfpsview.h -o moc_setfpsview.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/setfpsview.h -o moc_setfpsview.cpp
 
 moc_videoplayer.cpp: widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -7886,12 +8266,16 @@ moc_videoplayer.cpp: widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
+		utils/videoframetoimageutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qvideoframe.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qabstractvideobuffer.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/videoplayer.h -o moc_videoplayer.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/videoplayer.h -o moc_videoplayer.cpp
 
 moc_videoviewer.cpp: widgets/viewer/videoviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
@@ -8259,6 +8643,14 @@ moc_videoviewer.cpp: widgets/viewer/videoviewer.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -8286,7 +8678,6 @@ moc_videoviewer.cpp: widgets/viewer/videoviewer.h \
 		utils/fileutils.h \
 		common/observer.h \
 		utils/thumbnailutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		media/rkmpp_dec_api.h \
 		widgets/viewer/progressviewer.h \
 		widgets/viewer/extstorageitem.h \
@@ -8317,7 +8708,6 @@ moc_videoviewer.cpp: widgets/viewer/videoviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetworkglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetwork-config.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QSharedDataPointer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QUrl \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaenumdebug.h \
@@ -8330,10 +8720,12 @@ moc_videoviewer.cpp: widgets/viewer/videoviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qvideowidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediabindableinterface.h \
+		utils/videoframetoimageutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
-	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/videoviewer.h -o moc_videoviewer.cpp
+	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/videoviewer.h -o moc_videoviewer.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -8984,6 +9376,14 @@ ui_listwidgetitem.h: widgets/viewer/listwidgetitem.ui \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
@@ -9154,6 +9554,8 @@ drm_allocator.o: allocators/drm_allocator.cpp allocators/drm_allocator.h \
 		third-party/headers/drm/libdrm/drm.h \
 		third-party/headers/drm/libdrm/drm_mode.h \
 		third-party/headers/drm/rockchip_drm.h \
+		third-party/headers/drm/drm.h \
+		third-party/headers/drm/drm_mode.h \
 		common/log.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o drm_allocator.o allocators/drm_allocator.cpp
 
@@ -9562,6 +9964,8 @@ main.o: main.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QResizeEvent \
+		common/common.h \
+		common/log.h \
 		media/mediautils.h \
 		media/videoinputdevice.h \
 		common/rthread.h \
@@ -9588,8 +9992,6 @@ main.o: main.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QScopedPointer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglversionfunctions.h \
 		media/mediarecorder.h \
-		common/common.h \
-		common/log.h \
 		media/rkmpp_enc_api.h \
 		third-party/headers/mpp/rk_mpi.h \
 		third-party/headers/mpp/rk_mpi_cmd.h \
@@ -9814,6 +10216,14 @@ main.o: main.cpp main_widget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		widgets/record_timer_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
@@ -9851,7 +10261,6 @@ main.o: main.cpp main_widget.h \
 		utils/fileutils.h \
 		common/observer.h \
 		utils/thumbnailutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		media/rkmpp_dec_api.h \
 		widgets/viewer/progressviewer.h \
 		widgets/viewer/extstorageitem.h \
@@ -9884,7 +10293,6 @@ main.o: main.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetworkglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetwork-config.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QSharedDataPointer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QUrl \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaenumdebug.h \
@@ -9897,6 +10305,8 @@ main.o: main.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qvideowidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediabindableinterface.h \
+		utils/videoframetoimageutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		widgets/menuwidget.h \
 		widgets/recordwidget.h \
@@ -9907,21 +10317,19 @@ main.o: main.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qudpsocket.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qabstractsocket.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qhostaddress.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
-		listeners/diskcapacitylistener.h \
-		listeners/hotpluglistener.h \
 		widgets/usersetwidget.h \
 		widgets/viewer/osdview.h \
 		widgets/viewer/setfpsview.h \
 		widgets/viewer/selectview.h \
+		listeners/diskcapacitylistener.h \
+		listeners/hotpluglistener.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		utils/configutils.h
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 main_task.o: main_task.cpp main_task.h
@@ -10039,6 +10447,8 @@ main_widget.o: main_widget.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QResizeEvent \
+		common/common.h \
+		common/log.h \
 		media/mediautils.h \
 		media/videoinputdevice.h \
 		common/rthread.h \
@@ -10065,8 +10475,6 @@ main_widget.o: main_widget.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QScopedPointer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglversionfunctions.h \
 		media/mediarecorder.h \
-		common/common.h \
-		common/log.h \
 		media/rkmpp_enc_api.h \
 		third-party/headers/mpp/rk_mpi.h \
 		third-party/headers/mpp/rk_mpi_cmd.h \
@@ -10291,6 +10699,14 @@ main_widget.o: main_widget.cpp main_widget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		widgets/record_timer_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
@@ -10328,7 +10744,6 @@ main_widget.o: main_widget.cpp main_widget.h \
 		utils/fileutils.h \
 		common/observer.h \
 		utils/thumbnailutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		media/rkmpp_dec_api.h \
 		widgets/viewer/progressviewer.h \
 		widgets/viewer/extstorageitem.h \
@@ -10361,7 +10776,6 @@ main_widget.o: main_widget.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetworkglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetwork-config.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QSharedDataPointer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QUrl \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaenumdebug.h \
@@ -10374,6 +10788,8 @@ main_widget.o: main_widget.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qvideowidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediabindableinterface.h \
+		utils/videoframetoimageutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		widgets/menuwidget.h \
 		widgets/recordwidget.h \
@@ -10384,33 +10800,17 @@ main_widget.o: main_widget.cpp main_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qudpsocket.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qabstractsocket.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qhostaddress.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
-		listeners/diskcapacitylistener.h \
-		listeners/hotpluglistener.h \
 		widgets/usersetwidget.h \
 		widgets/viewer/osdview.h \
 		widgets/viewer/setfpsview.h \
 		widgets/viewer/selectview.h \
+		listeners/diskcapacitylistener.h \
+		listeners/hotpluglistener.h \
 		ui_mainwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
 		third-party/headers/mpp/mpp_common.h \
 		widgets/powoffwidget.h \
-		utils/configutils.h \
 		utils/toastutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QRect \
-		utils/mediapathutils.h
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QRect
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main_widget.o main_widget.cpp
 
 rthread.o: common/rthread.cpp common/rthread.h \
@@ -10472,6 +10872,138 @@ rthread.o: common/rthread.cpp common/rthread.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qelapsedtimer.h \
 		common/Mutex.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rthread.o common/rthread.cpp
+
+audiodevice.o: media/audiodevice.cpp media/audiodevice.h \
+		media/sndaudiodevice.h \
+		third-party/headers/alsa/asoundlib.h \
+		third-party/headers/alsa/asoundef.h \
+		third-party/headers/alsa/version.h \
+		third-party/headers/alsa/global.h \
+		third-party/headers/alsa/input.h \
+		third-party/headers/alsa/output.h \
+		third-party/headers/alsa/error.h \
+		third-party/headers/alsa/conf.h \
+		third-party/headers/alsa/pcm.h \
+		third-party/headers/alsa/pcm_old.h \
+		third-party/headers/alsa/rawmidi.h \
+		third-party/headers/alsa/timer.h \
+		third-party/headers/alsa/hwdep.h \
+		third-party/headers/alsa/control.h \
+		third-party/headers/alsa/mixer.h \
+		third-party/headers/alsa/seq_event.h \
+		third-party/headers/alsa/seq.h \
+		third-party/headers/alsa/seqmid.h \
+		third-party/headers/alsa/seq_midi_event.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QList \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtcore-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsystemdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qprocessordetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcompilerdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtypeinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsysinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlogging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qflags.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasicatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qgenericatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_msvc.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobalstatic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiterator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrefcount.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qarraydata.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhashfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringliteral.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringview.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringbuilder.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpair.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvector.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainertools_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpoint.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearraylist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qregexp.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringmatcher.h \
+		common/log.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o audiodevice.o media/audiodevice.cpp
+
+audiorender.o: media/audiorender.cpp media/audiorender.h \
+		common/common.h \
+		common/log.h \
+		common/rthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QThread \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtcore-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsystemdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qprocessordetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcompilerdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtypeinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsysinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlogging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qflags.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasicatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qgenericatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_msvc.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobalstatic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrefcount.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qarraydata.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringliteral.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringview.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringbuilder.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiterator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhashfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpair.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvector.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainertools_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpoint.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearraylist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qregexp.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringmatcher.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreevent.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qscopedpointer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetatype.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvarlengtharray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainerfwd.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdeadlinetimer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qelapsedtimer.h \
+		common/Mutex.h \
+		media/audiodevice.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o audiorender.o media/audiorender.cpp
 
 h264livevideoservermediasubsession.o: media/live555/h264livevideoservermediasubsession.cpp third-party/headers/live555/liveMedia/H264VideoRTPSink.hh \
 		third-party/headers/live555/liveMedia/H264or5VideoRTPSink.hh \
@@ -11299,6 +11831,75 @@ rkrgadef.o: media/rkrgadef.cpp media/rkrgadef.h \
 		common/log.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o rkrgadef.o media/rkrgadef.cpp
 
+sndaudiodevice.o: media/sndaudiodevice.cpp media/sndaudiodevice.h \
+		media/audiodevice.h \
+		third-party/headers/alsa/asoundlib.h \
+		third-party/headers/alsa/asoundef.h \
+		third-party/headers/alsa/version.h \
+		third-party/headers/alsa/global.h \
+		third-party/headers/alsa/input.h \
+		third-party/headers/alsa/output.h \
+		third-party/headers/alsa/error.h \
+		third-party/headers/alsa/conf.h \
+		third-party/headers/alsa/pcm.h \
+		third-party/headers/alsa/pcm_old.h \
+		third-party/headers/alsa/rawmidi.h \
+		third-party/headers/alsa/timer.h \
+		third-party/headers/alsa/hwdep.h \
+		third-party/headers/alsa/control.h \
+		third-party/headers/alsa/mixer.h \
+		third-party/headers/alsa/seq_event.h \
+		third-party/headers/alsa/seq.h \
+		third-party/headers/alsa/seqmid.h \
+		third-party/headers/alsa/seq_midi_event.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QList \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtcore-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsystemdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qprocessordetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcompilerdetection.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtypeinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsysinfo.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlogging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qflags.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasicatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_bootstrap.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qgenericatomic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_cxx11.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_msvc.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobalstatic.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiterator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrefcount.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qarraydata.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhashfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringliteral.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringview.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringbuilder.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpair.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvector.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainertools_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpoint.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearraylist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qregexp.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringmatcher.h \
+		common/common.h \
+		common/log.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sndaudiodevice.o media/sndaudiodevice.cpp
+
 streampusher.o: media/streampusher.cpp media/streampusher.h \
 		media/live555/rtspserver.h \
 		third-party/headers/live555/liveMedia/liveMedia.hh \
@@ -12010,11 +12611,17 @@ videoinputdevice.o: media/videoinputdevice.cpp media/videoinputdevice.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		third-party/headers/drm/drm_fourcc.h \
 		third-party/headers/drm/drm.h \
 		third-party/headers/drm/drm_mode.h \
-		utils/osdutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		media/rkrgadef.h \
 		third-party/headers/rga/RockchipRga.h \
 		third-party/headers/rga/drmrga.h \
@@ -12023,7 +12630,7 @@ videoinputdevice.o: media/videoinputdevice.cpp media/videoinputdevice.h \
 		third-party/headers/rga/RgaUtils.h \
 		third-party/headers/rga/RgaSingleton.h \
 		third-party/headers/rga/RgaMutex.h \
-		utils/configutils.h \
+		utils/osdutils.h \
 		third-party/headers/linux/rk_hdmirx_config.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o videoinputdevice.o media/videoinputdevice.cpp
 
@@ -12731,9 +13338,12 @@ toastutils.o: utils/toastutils.cpp utils/toastutils.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o toastutils.o utils/toastutils.cpp
 
 videoframetoimageutils.o: utils/videoframetoimageutils.cpp utils/videoframetoimageutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimage.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtguiglobal.h \
+		common/rthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QThread \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qthread.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig.h \
@@ -12755,36 +13365,48 @@ videoframetoimageutils.o: utils/videoframetoimageutils.cpp utils/videoframetoima
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtgui-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qcolor.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qrgb.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringlist.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlist.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qalgorithms.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiterator.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrefcount.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qarraydata.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhashfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs_impl.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrefcount.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qarraydata.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringliteral.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringalgorithms.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringbuilder.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qalgorithms.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiterator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhashfunctions.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpair.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvector.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainertools_impl.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpoint.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearraylist.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringlist.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qregexp.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringmatcher.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreevent.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qscopedpointer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetatype.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvarlengtharray.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainerfwd.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdeadlinetimer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qelapsedtimer.h \
+		common/Mutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimage.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtguiglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtgui-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qcolor.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qrgb.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qrgba64.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpaintdevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs_impl.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs_win.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrect.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmargins.h \
@@ -12795,14 +13417,7 @@ videoframetoimageutils.o: utils/videoframetoimageutils.cpp utils/videoframetoima
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpolygon.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qregion.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdatastream.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qscopedpointer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiodevice.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreevent.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetatype.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvarlengtharray.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainerfwd.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject_impl.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qline.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qvideoframe.h \
@@ -12820,7 +13435,12 @@ videoframetoimageutils.o: utils/videoframetoimageutils.cpp utils/videoframetoima
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qset.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontiguouscache.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		common/log.h \
+		utils/mediapathutils.h \
+		media/mediautils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o videoframetoimageutils.o utils/videoframetoimageutils.cpp
 
 basewidget.o: widgets/basewidget.cpp widgets/basewidget.h \
@@ -13180,16 +13800,16 @@ basewidget.o: widgets/basewidget.cpp widgets/basewidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
-		ui_basewidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h
+		ui_basewidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o basewidget.o widgets/basewidget.cpp
 
 confirmdialog.o: widgets/confirmdialog.cpp widgets/confirmdialog.h \
@@ -13311,29 +13931,7 @@ confirmdialog.o: widgets/confirmdialog.cpp widgets/confirmdialog.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
-		ui_confirmdialog.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget
+		ui_confirmdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmdialog.o widgets/confirmdialog.cpp
 
 menuwidget.o: widgets/menuwidget.cpp widgets/menuwidget.h \
@@ -13694,28 +14292,19 @@ menuwidget.o: widgets/menuwidget.cpp widgets/menuwidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h \
-		ui_menuwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h
+		ui_menuwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menuwidget.o widgets/menuwidget.cpp
 
 powoffwidget.o: widgets/powoffwidget.cpp widgets/powoffwidget.h \
@@ -13822,24 +14411,7 @@ powoffwidget.o: widgets/powoffwidget.cpp widgets/powoffwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfiledevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
-		ui_powoffwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h
+		ui_powoffwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o powoffwidget.o widgets/powoffwidget.cpp
 
 pushstreamwidget.o: widgets/pushstreamwidget.cpp widgets/pushstreamwidget.h \
@@ -14199,6 +14771,14 @@ pushstreamwidget.o: widgets/pushstreamwidget.cpp widgets/pushstreamwidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		widgets/basewidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		listeners/udplistener.h \
@@ -14210,27 +14790,6 @@ pushstreamwidget.o: widgets/pushstreamwidget.cpp widgets/pushstreamwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qhostaddress.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
 		ui_pushstreamwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h
@@ -14593,6 +15152,14 @@ recordwidget.o: widgets/recordwidget.cpp widgets/recordwidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		common/observer.h \
 		widgets/basewidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
@@ -14605,35 +15172,7 @@ recordwidget.o: widgets/recordwidget.cpp widgets/recordwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
-		ui_recordwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QGridLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		widgets/record_timer_widget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h \
-		utils/configutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString
+		ui_recordwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o recordwidget.o widgets/recordwidget.cpp
 
 setting_widget.o: widgets/setting_widget.cpp widgets/setting_widget.h \
@@ -14740,32 +15279,7 @@ setting_widget.o: widgets/setting_widget.cpp widgets/setting_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfiledevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
-		ui_settingwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QGridLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QGroupBox \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgroupbox.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QRadioButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qradiobutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout
+		ui_settingwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o setting_widget.o widgets/setting_widget.cpp
 
 suredialog.o: widgets/suredialog.cpp widgets/suredialog.h \
@@ -14887,28 +15401,7 @@ suredialog.o: widgets/suredialog.cpp widgets/suredialog.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
-		ui_suredialog.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget
+		ui_suredialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o suredialog.o widgets/suredialog.cpp
 
 usersetwidget.o: widgets/usersetwidget.cpp widgets/usersetwidget.h \
@@ -15269,6 +15762,14 @@ usersetwidget.o: widgets/usersetwidget.cpp widgets/usersetwidget.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/osdview.h \
 		widgets/viewer/setfpsview.h \
@@ -15279,28 +15780,7 @@ usersetwidget.o: widgets/usersetwidget.cpp widgets/usersetwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
 		utils/storageutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVector \
-		ui_usersetwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QGridLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
-		utils/configutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString
+		ui_usersetwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o usersetwidget.o widgets/usersetwidget.cpp
 
 baseviewer.o: widgets/viewer/baseviewer.cpp widgets/viewer/baseviewer.h \
@@ -15668,6 +16148,14 @@ baseviewer.o: widgets/viewer/baseviewer.cpp widgets/viewer/baseviewer.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -15695,7 +16183,6 @@ baseviewer.o: widgets/viewer/baseviewer.cpp widgets/viewer/baseviewer.h \
 		utils/fileutils.h \
 		common/observer.h \
 		utils/thumbnailutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		media/rkmpp_dec_api.h \
 		widgets/viewer/progressviewer.h \
 		widgets/viewer/extstorageitem.h \
@@ -15834,24 +16321,7 @@ diskselectionitem.o: widgets/viewer/diskselectionitem.cpp widgets/viewer/disksel
 		utils/storageutils.h \
 		common/common.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVector \
-		ui_diskselectionitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h
+		ui_diskselectionitem.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o diskselectionitem.o widgets/viewer/diskselectionitem.cpp
 
 diskselectionwidget.o: widgets/viewer/diskselectionwidget.cpp widgets/viewer/diskselectionwidget.h \
@@ -16212,6 +16682,14 @@ diskselectionwidget.o: widgets/viewer/diskselectionwidget.cpp widgets/viewer/dis
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionitem.h \
 		utils/storageutils.h \
@@ -16236,26 +16714,7 @@ diskselectionwidget.o: widgets/viewer/diskselectionwidget.cpp widgets/viewer/dis
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtabbar.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtabwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qrubberband.h \
-		ui_diskselectionwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h
+		ui_diskselectionwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o diskselectionwidget.o widgets/viewer/diskselectionwidget.cpp
 
 extstorageitem.o: widgets/viewer/extstorageitem.cpp widgets/viewer/extstorageitem.h \
@@ -16368,20 +16827,7 @@ extstorageitem.o: widgets/viewer/extstorageitem.cpp widgets/viewer/extstorageite
 		common/common.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		ui_extstorageitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h
+		ui_extstorageitem.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o extstorageitem.o widgets/viewer/extstorageitem.cpp
 
 imagebrowser.o: widgets/viewer/imagebrowser.cpp widgets/viewer/imagebrowser.h \
@@ -16502,29 +16948,7 @@ imagebrowser.o: widgets/viewer/imagebrowser.cpp widgets/viewer/imagebrowser.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
-		ui_imagebrowser.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout
+		ui_imagebrowser.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o imagebrowser.o widgets/viewer/imagebrowser.cpp
 
 imageviewer.o: widgets/viewer/imageviewer.cpp widgets/viewer/imageviewer.h \
@@ -16893,6 +17317,14 @@ imageviewer.o: widgets/viewer/imageviewer.cpp widgets/viewer/imageviewer.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -16920,7 +17352,6 @@ imageviewer.o: widgets/viewer/imageviewer.cpp widgets/viewer/imageviewer.h \
 		utils/fileutils.h \
 		common/observer.h \
 		utils/thumbnailutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		media/rkmpp_dec_api.h \
 		widgets/viewer/progressviewer.h \
 		widgets/viewer/extstorageitem.h \
@@ -16936,25 +17367,6 @@ imageviewer.o: widgets/viewer/imageviewer.cpp widgets/viewer/imageviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
 		widgets/viewer/imagebrowser.h \
 		ui_imageviewer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QListWidget \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
 		widgets/viewer/listwidgetitem.h \
 		widgets/viewer/selectionicon.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QPainter \
@@ -16967,6 +17379,7 @@ imageviewer.o: widgets/viewer/imageviewer.cpp widgets/viewer/imageviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QScrollerProperties \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qscrollerproperties.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMetaType \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QScrollBar \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qscrollbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o imageviewer.o widgets/viewer/imageviewer.cpp
@@ -17079,23 +17492,6 @@ record_timer_widget.o: widgets/record_timer_widget.cpp widgets/record_timer_widg
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h \
 		ui_recordtimerwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
 		common/log.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o record_timer_widget.o widgets/record_timer_widget.cpp
 
@@ -17589,6 +17985,14 @@ listwidgetitem.o: widgets/viewer/listwidgetitem.cpp widgets/viewer/listwidgetite
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
@@ -17597,20 +18001,7 @@ listwidgetitem.o: widgets/viewer/listwidgetitem.cpp widgets/viewer/listwidgetite
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpainter.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtextoption.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpen.h \
-		ui_listwidgetitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h
+		ui_listwidgetitem.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listwidgetitem.o widgets/viewer/listwidgetitem.cpp
 
 osdview.o: widgets/viewer/osdview.cpp widgets/viewer/osdview.h \
@@ -17718,32 +18109,6 @@ osdview.o: widgets/viewer/osdview.cpp widgets/viewer/osdview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
 		ui_osdview.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLineEdit \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlineedit.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtextcursor.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtextformat.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpen.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtextoption.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
 		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o osdview.o widgets/viewer/osdview.cpp
@@ -18216,28 +18581,17 @@ progressviewer.o: widgets/viewer/progressviewer.cpp widgets/viewer/progressviewe
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		common/observer.h \
 		ui_progressviewer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QProgressBar \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qprogressbar.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h
@@ -18601,25 +18955,16 @@ selectionicon.o: widgets/viewer/selectionicon.cpp widgets/viewer/selectionicon.h
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
-		ui_selectionicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h
+		ui_selectionicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o selectionicon.o widgets/viewer/selectionicon.cpp
 
 selectview.o: widgets/viewer/selectview.cpp widgets/viewer/selectview.h \
@@ -18730,22 +19075,7 @@ selectview.o: widgets/viewer/selectview.cpp widgets/viewer/selectview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		ui_selectview.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout
+		ui_selectview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o selectview.o widgets/viewer/selectview.cpp
 
 setfpsview.o: widgets/viewer/setfpsview.cpp widgets/viewer/setfpsview.h \
@@ -18852,26 +19182,7 @@ setfpsview.o: widgets/viewer/setfpsview.cpp widgets/viewer/setfpsview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfiledevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
-		ui_setfpsview.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout
+		ui_setfpsview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o setfpsview.o widgets/viewer/setfpsview.cpp
 
 videoplayer.o: widgets/viewer/videoplayer.cpp widgets/viewer/videoplayer.h \
@@ -19015,43 +19326,17 @@ videoplayer.o: widgets/viewer/videoplayer.cpp widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
+		utils/videoframetoimageutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qvideoframe.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qabstractvideobuffer.h \
 		ui_videoplayer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
-		widgets/viewer/positionslider.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSlider \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qslider.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractslider.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QMouseEvent \
 		media/mediautils.h \
-		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoProbe \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qvideoprobe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
-		utils/videoframetoimageutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		utils/toastutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QRect
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o videoplayer.o widgets/viewer/videoplayer.cpp
@@ -19422,6 +19707,14 @@ videoviewer.o: widgets/viewer/videoviewer.cpp widgets/viewer/videoviewer.h \
 		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
 		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
 		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -19449,7 +19742,6 @@ videoviewer.o: widgets/viewer/videoviewer.cpp widgets/viewer/videoviewer.h \
 		utils/fileutils.h \
 		common/observer.h \
 		utils/thumbnailutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
 		media/rkmpp_dec_api.h \
 		widgets/viewer/progressviewer.h \
 		widgets/viewer/extstorageitem.h \
@@ -19480,7 +19772,6 @@ videoviewer.o: widgets/viewer/videoviewer.cpp widgets/viewer/videoviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetworkglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetwork-config.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QSharedDataPointer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QUrl \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaenumdebug.h \
@@ -19493,28 +19784,15 @@ videoviewer.o: widgets/viewer/videoviewer.cpp widgets/viewer/videoviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qvideowidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediabindableinterface.h \
+		utils/videoframetoimageutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		ui_videoviewer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QMovie \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qmovie.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimagereader.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimageiohandler.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qplugin.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpointer.h \
@@ -19553,6 +19831,12 @@ moc_key_listener.o: moc_key_listener.cpp
 moc_main_widget.o: moc_main_widget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_main_widget.o moc_main_widget.cpp
 
+moc_CaptureHelper.o: moc_CaptureHelper.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_CaptureHelper.o moc_CaptureHelper.cpp
+
+moc_audiorender.o: moc_audiorender.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_audiorender.o moc_audiorender.cpp
+
 moc_videoframereader.o: moc_videoframereader.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_videoframereader.o moc_videoframereader.cpp
 
@@ -19567,6 +19851,9 @@ moc_thumbnailutils.o: moc_thumbnailutils.cpp
 
 moc_toastutils.o: moc_toastutils.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_toastutils.o moc_toastutils.cpp
+
+moc_videoframetoimageutils.o: moc_videoframetoimageutils.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_videoframetoimageutils.o moc_videoframetoimageutils.cpp
 
 moc_basewidget.o: moc_basewidget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_basewidget.o moc_basewidget.cpp

@@ -39,7 +39,7 @@ bool RtspServer::prepare(RtspServer::MetaInfo *meta)
     cfg.format = meta->format;
     cfg.type = meta->type;
     if(meta->width>1920||meta->height>1080){
-        cfg.bitRate = cfg.width * cfg.height / 30 * 60;
+        cfg.bitRate = cfg.width * cfg.height / 30 * 30;
     }else{
         cfg.bitRate = cfg.width * cfg.height / 30 * 60;
     }

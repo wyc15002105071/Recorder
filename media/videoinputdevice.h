@@ -12,6 +12,8 @@
 #include "widgets/videowidget.h"
 #include "mediarecorder.h"
 #include "media/streampusher.h"
+#include "media/audiorender.h"
+#include "media/CaptureHelper.h"
 
 #define ALIGN(x, a)         (((x)+(a)-1)&~((a)-1))
 
@@ -36,6 +38,9 @@ public:
     void    startPush();
     void    stopPush();
     void    setVideoWidget(VideoWidget *video_widget) { mVideoWidget = std::move(video_widget);};
+    void    setRecorder(sp<MediaRecorder> &recorder) { mRecorder = recorder;}
+    void    capture();
+
     std::string getPushUrl();
 private:
     typedef struct StreamInfo{
@@ -50,24 +55,27 @@ private:
     bool          mIsEncoding;
     bool          mIsPushing;
     bool          mVideoEosFlag;
+    bool          mNeedCapture;
+    bool          signalIn;
 
     sp<MediaRecorder>   mRecorder;
     sp<StreamPusher>    mPusher;
+    sp<CaptureHelper>   mCaptureHelper;
+
     struct v4l2_plane   mPlanes[MAX_BUF_CNT];
     struct v4l2_buffer  mBufferArray[MAX_BUF_CNT];
 
     StreamInfo      mStreamInfo;
     DmaBufferObject mDmaBo[MAX_BUF_CNT];
-
     DmaBufferObject mOsdBo;
+
+    RMutex mCaptureMutex;
 signals:
     void onNeedReset();
     void signalChange(bool has);
-
+    void onCaptureFinished();
 public slots:
     void onReset();
-private:
-    bool signalIn = false;
 };
 
 #endif // VIDEOINPUTDEVICE_H

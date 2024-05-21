@@ -11,6 +11,7 @@
 #include "utils/configutils.h"
 #include "utils/toastutils.h"
 #include "utils/mediapathutils.h"
+
 #define MODULE_TAG "MainWidget"
 #define LAST_SPACE 1024
 using namespace std;
@@ -23,6 +24,7 @@ MainWidget::MainWidget(QWidget *parent)
     , mStorageUtils(StorageUtils::get_instance())
     , mHotplugListener(sp<HotplugListener>(new HotplugListener))
     , mSignalHandler(sp<SignalHandler>(new SignalHandler(this)))
+    , mMediaRecorder(sp<MediaRecorder>(new MediaRecorder()))
 {
     ui->setupUi(this);
     setWindowState(Qt::WindowFullScreen);
@@ -41,10 +43,12 @@ MainWidget::~MainWidget()
     if(mDiskListener)mDiskListener->stopTask();
     delete ui;
 }
+
 void MainWidget::onShowChange(bool isShow)
 {
     ui->widget_time->setVisible(isShow);
 }
+
 void MainWidget::initWidgets()
 {
     if(!mMenuWidget) {
@@ -100,9 +104,9 @@ void MainWidget::initWidgets()
         mVideoViewer->close();
     }
     if(!mUserSetWidget){
-         mUserSetWidget = sp<UserSetWidget>(new UserSetWidget(this));
-         mUserSetWidget->setGeometry(this->geometry());
-         mUserSetWidget->close();
+        mUserSetWidget = sp<UserSetWidget>(new UserSetWidget(this));
+        mUserSetWidget->setGeometry(this->geometry());
+        mUserSetWidget->close();
     }
     connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)),Qt::UniqueConnection);
 
@@ -149,6 +153,7 @@ void MainWidget::mousePressEvent(QMouseEvent *event)
 void MainWidget::quit()
 {
     mInputDevice.stopTask();
+    mAudioRender.stopTask();
 
     if(mVideoWidget) {
         mVideoWidget->deleteLater();
@@ -168,7 +173,15 @@ void MainWidget::quit()
     }
 
     RLOGD("exit...");
-    QApplication::quit();
+    //    QApplication::quit();
+    exit(0);
+}
+
+void MainWidget::onCaptureFinished()
+{
+    if(mVideoWidget) {
+        mVideoWidget->showSnapShotEffect();
+    }
 }
 
 void MainWidget::onCapture()
@@ -178,22 +191,16 @@ void MainWidget::onCapture()
         ToastUtils::instance().show(ToastUtils::INFO,"储存空间不足");
         return;
     }
-    //char time_str[50] = {0};
-    //getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
-    //char file_name[50] = {0};
-    //char file_save_path[50] = {0};
-    //
-    //QString path = MediaPathUtils::get_instance()->getRootImagePath();
-    //RLOGD(path.toStdString().c_str());
-    //sprintf(file_name,"%s.jpg",time_str);
-    //sprintf(file_save_path,"%s/%s",path.toStdString().c_str(),file_name);
-    //RLOGD("capture file path is %s",file_save_path);
-    if(mVideoWidget) {
-        QPixmap pix_map = mVideoWidget->grab();
-        //pix_map.save(file_save_path);
-        pix_map.save(MediaPathUtils::get_instance()->getImagePath());
-        mVideoWidget->showSnapShotEffect();
-    }
+
+//    if(mVideoWidget) {
+//        QPixmap pix_map = mVideoWidget->grab();
+//        //pix_map.save(file_save_path);
+//        pix_map.save(MediaPathUtils::get_instance()->getImagePath());
+//        mVideoWidget->showSnapShotEffect();
+//    }
+
+      mInputDevice.capture();
+
 }
 
 void MainWidget::onRecord()
@@ -277,10 +284,19 @@ void MainWidget::onUserSet()
 
 void MainWidget::onCreateTask()
 {
-    mInputDevice.setVideoWidget(mVideoWidget.get());
-    connect(&mInputDevice,&VideoInputDevice::signalChange,this,&MainWidget::signalChange);
-    mInputDevice.initDevice(1);
-    mInputDevice.start();
+    {
+        mInputDevice.setVideoWidget(mVideoWidget.get());
+        connect(&mInputDevice,&VideoInputDevice::signalChange,this,&MainWidget::signalChange);
+        connect(&mInputDevice,&VideoInputDevice::onCaptureFinished,this,&MainWidget::onCaptureFinished);
+        mInputDevice.setRecorder(mMediaRecorder);
+        mInputDevice.initDevice(1);
+        mInputDevice.start();
+    }
+
+    {
+        mAudioRender.setOutVolume(0.5f);
+        mAudioRender.startTask();
+    }
 
     if(mKeyListener) {
         mKeyListener->startTask();
@@ -344,9 +360,9 @@ void MainWidget::onKeyEventHandler(KeyListener::EventType type)
     }break;
     case KeyListener::Key_EventType_CAPTURE: {
         if((mVideoViewer&&mVideoViewer->isVisible()&&mVideoViewer->isPlay())
-        //        ||(mImageViewer&&mImageViewer->isVisible())
-        //        ||(mUserSetWidget&&mUserSetWidget->isVisible())
-        //        ||(mPushWidget&&mPushWidget->isVisible())
+                //        ||(mImageViewer&&mImageViewer->isVisible())
+                //        ||(mUserSetWidget&&mUserSetWidget->isVisible())
+                //        ||(mPushWidget&&mPushWidget->isVisible())
                 )
             return;
         onCapture();
@@ -421,22 +437,22 @@ void MainWidget::checkUsb(bool isNoLagel)
             mSureDialog->showFullScreen();
     }
     if(!ConfigUtils::isUsbMedia){
-       if(!mConfirmDialog){
-           mConfirmDialog = new ConfirmDialog;
-           mConfirmDialog->setTitle("是否录制到u盘?");
-           connect(mConfirmDialog,&ConfirmDialog::accepted,this,[=]{
-               QVector<StorageUtils::ExternalStorageInfo> list = StorageUtils::get_instance()->getExternalStorageInfoList();
-               for(int i=0;i<list.count();i++){
-                   if(!ConfigUtils::isUsbMedia){
-                       ConfigUtils::isUsbMedia = true;
-                       ConfigUtils::usbName = QString::fromStdString(list.at(i).node_path);
-                       ConfigUtils::usbLabel = QString::fromStdString(list.at(i).label);
-                       ConfigUtils::usbMonut = QString::fromStdString(list.at(i).mount_path);
-                   }
-               }
-           });
-       }
-       if((!mSureDialog||!mSureDialog->isVisible())&&!mConfirmDialog->isVisible())
+        if(!mConfirmDialog){
+            mConfirmDialog = new ConfirmDialog;
+            mConfirmDialog->setTitle("是否录制到u盘?");
+            connect(mConfirmDialog,&ConfirmDialog::accepted,this,[=]{
+                QVector<StorageUtils::ExternalStorageInfo> list = StorageUtils::get_instance()->getExternalStorageInfoList();
+                for(int i=0;i<list.count();i++){
+                    if(!ConfigUtils::isUsbMedia){
+                        ConfigUtils::isUsbMedia = true;
+                        ConfigUtils::usbName = QString::fromStdString(list.at(i).node_path);
+                        ConfigUtils::usbLabel = QString::fromStdString(list.at(i).label);
+                        ConfigUtils::usbMonut = QString::fromStdString(list.at(i).mount_path);
+                    }
+                }
+            });
+        }
+        if((!mSureDialog||!mSureDialog->isVisible())&&!mConfirmDialog->isVisible())
             mConfirmDialog->showFullScreen();
     }
     mux.unlock();
@@ -447,7 +463,7 @@ int SignalHandler::sigintFd[2];
 SignalHandler::SignalHandler(QObject *parent)
 {
     if (::socketpair(AF_UNIX, SOCK_STREAM, 0, sigintFd))
-       RLOGE("Couldn't create INT socketpair");
+        RLOGE("Couldn't create INT socketpair");
     mSnInt = sp<QSocketNotifier>(new QSocketNotifier(sigintFd[1], QSocketNotifier::Read, this));
     mParent = (MainWidget *)parent;
     connect(mSnInt.get(), SIGNAL(activated(int)), this, SLOT(handleSignalInt()),Qt::UniqueConnection);

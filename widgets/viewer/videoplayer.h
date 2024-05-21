@@ -6,6 +6,7 @@
 #include <memory>
 #include <QVideoWidget>
 #include "listeners/key_listener.h"
+#include "utils/videoframetoimageutils.h"
 #include <QVideoFrame>
 
 
@@ -34,6 +35,8 @@ private:
     KeyListener *mKeyListener;
     QVideoFrame frame;
     bool isFirst = true;
+    sp<VideoFrameToImageUtils> frameUtils;
+
 public slots:
     void onBackClicked();
     void onLastClicked();
@@ -47,6 +50,8 @@ public slots:
 
     void videoFrameProbed(const QVideoFrame &frame);
     void Screenshot();
+
+    void saveImageFinish();
 
 };
 

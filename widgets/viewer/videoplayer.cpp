@@ -2,9 +2,7 @@
 #include "ui_videoplayer.h"
 #include "log.h"
 #include "media/mediautils.h"
-#include "utils/mediapathutils.h"
 #include <QVideoProbe>
-#include "utils/videoframetoimageutils.h"
 #include "utils/toastutils.h"
 
 #define MODULE_TAG "VideoPlayer"
@@ -14,16 +12,19 @@ using namespace std;
 VideoPlayer::VideoPlayer(QWidget *parent)
    : QWidget(parent)
    , ui(new Ui::VideoPlayer)
-   , mPlayer(shared_ptr<QMediaPlayer>(new QMediaPlayer))
+   , mPlayer(sp<QMediaPlayer>(new QMediaPlayer))
    , mKeyListener(KeyListener::get_instance())
+   , frameUtils(sp<VideoFrameToImageUtils>(new VideoFrameToImageUtils))
 {
     ui->setupUi(this);
+
+    connect(frameUtils.get(),SIGNAL(saveImageFinish()),this,SLOT(saveImageFinish()),Qt::UniqueConnection);
 
     QVideoProbe *videoProbe = new QVideoProbe;
     QObject::connect(videoProbe, &QVideoProbe::videoFrameProbed, this,&VideoPlayer::videoFrameProbed);
     videoProbe->setSource(mPlayer.get());
 
-    mVideoWidget = shared_ptr<QVideoWidget>(new QVideoWidget(ui->video_widget));
+    mVideoWidget = sp<QVideoWidget>(new QVideoWidget(ui->video_widget));
     mVideoWidget->move(0,0);
     auto layout = ui->video_widget->layout();
     layout->addWidget(mVideoWidget.get());
@@ -44,7 +45,7 @@ VideoPlayer::~VideoPlayer()
     }
     mKeyListener = nullptr;
     delete ui;
-    RLOGD("destructor enter");
+    RLOGD("destructor level");
 }
 
 void VideoPlayer::showEvent(QShowEvent *event)
@@ -219,7 +220,16 @@ void VideoPlayer::videoFrameProbed(const QVideoFrame &frame)
 
 void VideoPlayer::Screenshot()
 {
-    if(!isFirst)
-        if(VideoFrameToImageUtils::videoFrameToImage(frame).save(MediaPathUtils::get_instance()->getImagePath()))
-            ToastUtils::instance().show(ToastUtils::INFO,"截图成功!");
+    if(!isFirst) {
+        if(frameUtils && !frameUtils->isRunning()) {
+            QVideoFrame f = this->frame;
+            frameUtils->saveFrame(f);
+            frameUtils->startTask();
+        }
+    }
+}
+
+void VideoPlayer::saveImageFinish()
+{
+    ToastUtils::instance().show(ToastUtils::INFO,"截图成功!");
 }

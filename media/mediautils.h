@@ -25,6 +25,7 @@ typedef struct DmaBufferObject{
     void       *vir_addr;
     int32_t     width;
     int32_t     height;
+    int32_t     v4l2_format;
 } DmaBufferObject_t;
 
 typedef enum Video_CodingType{

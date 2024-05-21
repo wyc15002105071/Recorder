@@ -1,4 +1,8 @@
 #include "videoframetoimageutils.h"
+#include "common/log.h"
+#include "utils/mediapathutils.h"
+#include "utils/configutils.h"
+
 QImage convertNV12ToRGB(QVideoFrame &frame) {
     if (!frame.isValid()) {
         //qDebug() << "Invalid video frame";
@@ -81,12 +85,50 @@ QImage convertYV12ToRGB(QVideoFrame &yv12Frame) {
 }
 
 
+VideoFrameToImageUtils::VideoFrameToImageUtils()
+{
+
+}
+
+VideoFrameToImageUtils::~VideoFrameToImageUtils()
+{
+
+}
+
+void VideoFrameToImageUtils::run()
+{
+    while(!mThreadExit){
+        if(mFrames.length() <= 0) {
+            RLOGE("no task doing...");
+            return;
+        }
+        mux.lock();
+        QVideoFrame frame = mFrames.takeFirst();
+        mux.unlock();
+
+        // 确保视频帧格式可以转换为QImage
+        if (!frame.isValid())return;
+        // 映射视频帧到内存
+        if (!frame.map(QAbstractVideoBuffer::ReadOnly))return;
+
+        QImage image = videoFrameToImage(frame);
+        if(!image.isNull()){
+            if(image.save(MediaPathUtils::get_instance()->getImagePath())){
+                if(ConfigUtils::isUsbMedia)
+                    system("sync");
+                emit saveImageFinish();
+            }
+        }
+    }
+
+    mux.lock();
+    mFrames.clear();
+    mux.unlock();
+    mThreadExit = true;
+}
+
 QImage VideoFrameToImageUtils::videoFrameToImage(QVideoFrame frame)
 {
-    // 确保视频帧格式可以转换为QImage
-    if (!frame.isValid())return QImage();
-    // 映射视频帧到内存
-    if (!frame.map(QAbstractVideoBuffer::ReadOnly))return QImage();
     QImage image;
 
     // 根据视频帧创建QImage对象
@@ -115,4 +157,11 @@ QImage VideoFrameToImageUtils::videoFrameToImage(QVideoFrame frame)
 
     return image;
 
+}
+
+void VideoFrameToImageUtils::saveFrame(QVideoFrame frame)
+{
+    mux.lock();
+    mFrames.push_back(frame);
+    mux.unlock();
 }

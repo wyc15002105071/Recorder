@@ -35,6 +35,8 @@ SOURCES += \
     main_task.cpp \
     main_widget.cpp \
     common/rthread.cpp \
+    media/audiodevice.cpp \
+    media/audiorender.cpp \
     media/live555/h264livevideoservermediasubsession.cpp \
     media/live555/h264livevideosource.cpp \
     media/live555/rtspserver.cpp \
@@ -44,6 +46,7 @@ SOURCES += \
     media/rkmpp_dec_api.cpp \
     media/rkmpp_enc_api.cpp \
     media/rkrgadef.cpp \
+    media/sndaudiodevice.cpp \
     media/streampusher.cpp \
     media/videoframereader.cpp \
     media/videoinputdevice.cpp \
@@ -99,6 +102,10 @@ HEADERS += \
     main_task.h \
     main_widget.h \
     common/rthread.h \
+    media/CaptureHelper.h \
+    media/audiodevice.h \
+    media/audiorender.h \
+    media/imageconvert.h \
     media/live555/h264livevideoservermediasubsession.h \
     media/live555/h264livevideosource.h \
     media/live555/rtspserver.h \
@@ -108,6 +115,7 @@ HEADERS += \
     media/rkmpp_dec_api.h \
     media/rkmpp_enc_api.h \
     media/rkrgadef.h \
+    media/sndaudiodevice.h \
     media/streampusher.h \
     media/videoframereader.h \
     media/videoinputdevice.h \
@@ -178,7 +186,8 @@ INCLUDEPATH += $$PWD/third-party/headers/mpp \
                $$PWD/third-party/headers/drm \
                $$PWD/third-party/headers/ffmpeg \
                $$PWD/third-party/headers/rga \
-               $$PWD/third-party/headers/linux
+               $$PWD/third-party/headers/linux \
+               $$PWD/third-party/headers
 
 INCLUDEPATH += $$PWD/third-party/headers/live555 \
                $$PWD/third-party/headers/live555/liveMedia \
@@ -190,7 +199,7 @@ LIBS += -ludev \
         -L$$PWD/third-party/prebuilt/linux_arm32 \
         -ldrm -lrockchip_mpp -lrockchip_vpu -lrga \
         -lliveMedia -lgroupsock -lBasicUsageEnvironment -lUsageEnvironment \
-	-lavformat -lavcodec -lavutil -lswscale -lswresample
+        -lavformat -lavcodec -lavutil -lswscale -lswresample -lasound
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
