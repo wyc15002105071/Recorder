@@ -26,6 +26,8 @@ public:
     void    PrepareUpdate(int buf_index);
     void    showSnapShotEffect();
     void    importDmaBuffer(int buf_id,int buf_fd,int width,int height,uint32_t format,int buf_size,void *vir_addr);
+
+    void    importSnapBuffer(int buf_fd,int width,int height,uint32_t format,int buf_size,void *vir_addr);
     void    reset();
 private:
 #define MAX_BUF_CNT 4
@@ -56,6 +58,7 @@ private:
     }BufferObject;
 
     BufferObject mBo[MAX_BUF_CNT];
+    BufferObject mSnapShotBo;
     EGLDisplay   mDisplay;
     int          mSnapShotFrameCount;
     bool         mIsShowSnapShotEffect;
@@ -63,6 +66,7 @@ private:
     bool         mUseExternalOES;
     FILE*        inFile;
     RMutex        mLock;
+
 signals:
     void onVideoWidgetCreated();
     void onStartUpdate();

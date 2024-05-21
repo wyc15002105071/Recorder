@@ -104,7 +104,7 @@ void VideoInputDevice::run()
                 mCaptureMutex.lock();
                 if(mNeedCapture) {
                     if(mCaptureHelper && !mCaptureHelper->isRunning()) {
-                        mCaptureHelper->setFrameParam(mDmaBo[i],mStreamInfo.format);
+                        mCaptureHelper->setFrameParam(mDmaBo[i], mSnapShotBo, mStreamInfo.format);
                         mCaptureHelper->startTask();
                     }
 
@@ -475,6 +475,7 @@ bool VideoInputDevice::initDevice(bool is_hdmi_in)
     }
 
     memset(&mOsdBo,0,sizeof(DmaBufferObject));
+    memset(&mSnapShotBo,0,sizeof(DmaBufferObject));
     //mOsdBo.width = OSD_DEFAULT_WIDTH;
     //mOsdBo.height = OSD_DEFAULT_HEIGHT;
     mOsdBo.width = mStreamInfo.width*0.5;
@@ -482,7 +483,13 @@ bool VideoInputDevice::initDevice(bool is_hdmi_in)
     Allocator *allocator = AllocatorService::getDrmAllocator();
     allocator->allocBuffers(mOsdBo.width,mOsdBo.height,DRM_FORMAT_RGBA8888,false,true,1);
     allocator->getBuffer(mOsdBo.buf_fd,mOsdBo.buf_size,&mOsdBo.vir_addr,0);
+    RLOGD("osd buffer: [%d,%d,%d]",mOsdBo.buf_fd,mOsdBo.width,mOsdBo.height);
 
+    mSnapShotBo.width = mStreamInfo.width;
+    mSnapShotBo.height = mStreamInfo.height;
+    allocator->allocBuffers(mSnapShotBo.width,mSnapShotBo.height,DRM_FORMAT_RGBA8888,false,true,1);
+    allocator->getBuffer(mSnapShotBo.buf_fd,mSnapShotBo.buf_size,&mSnapShotBo.vir_addr,1);
+    RLOGD("snap buffer: [%d,%d,%d]",mSnapShotBo.buf_fd,mSnapShotBo.width,mSnapShotBo.height);
 
     enum v4l2_buf_type type = (v4l2_buf_type)buf_type;
     if (ioctl(mDeviceFd, VIDIOC_STREAMON, &type) == -1) {
