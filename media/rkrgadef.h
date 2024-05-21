@@ -26,5 +26,7 @@ public:
     static bool NV12ToRGB(RgaInfo srcInfo, RgaInfo dstInfo);
     static bool ProcessOSD(int32_t src_width,int32_t src_height,void *vir_addr,RgaInfo dstInfo,int32_t dst_format);
     static bool ProcessOSD(RgaInfo srcInfo,RgaInfo dstInfo);
+
+    static bool convertFormat(RgaInfo srcInfo, RgaInfo dstInfo);
 };
 #endif // RKRGADEF_H

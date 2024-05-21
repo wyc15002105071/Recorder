@@ -13,6 +13,8 @@
 #include "utils/mediapathutils.h"
 #include "utils/configutils.h"
 
+#include "media/rkrgadef.h"
+
 class CaptureHelper : public RThread {
     Q_OBJECT
 public:
@@ -33,23 +35,40 @@ public:
                 RLOGD("invaild resolution [%dx%d]",width,height);
                 return;
             }
-            unsigned char *rgb = nullptr;
-            rgb = (unsigned char *)malloc(width * height * 3); // RGB数据
+
+            void *rgb = nullptr;
+            rgb = malloc(width * height * 3); // RGB数据
             bool success = true;
             switch (format) {
             case V4L2_PIX_FMT_NV12: {
-                NV12ToRGB_Soft((unsigned char *)dmabuf.vir_addr,rgb,width,height);
-                QImage image(rgb,width,height,QImage::Format_BGR888);
+                RKRgaDef::RgaInfo srcInfo, dstInfo;
+                RKRgaDef::SetRgaInfo(&srcInfo, dmabuf.buf_fd, dmabuf.width, dmabuf.height,RK_FORMAT_YCbCr_420_SP,dmabuf.width, dmabuf.height);
+                RKRgaDef::SetRgaInfo(&dstInfo, mDstBo.buf_fd, mDstBo.width, mDstBo.height, RK_FORMAT_RGBA_8888 ,mDstBo.width, mDstBo.height);
+                if(!RKRgaDef::convertFormat(srcInfo,dstInfo)) {
+                    RLOGE("NV12ToRGB failed\n");
+                } else {
+                    RLOGD("NV12ToRGB success\n");
+                }
+
+                QImage image((uchar *)mDstBo.vir_addr,width,height,QImage::Format_RGBA8888);
                 image.save(MediaPathUtils::get_instance()->getImagePath());
             } break;
             case V4L2_PIX_FMT_NV16: {
-                NV16ToRGB_Soft((unsigned char *)dmabuf.vir_addr,rgb,width,height);
-                QImage image(rgb,width,height,QImage::Format_BGR888);
+                RKRgaDef::RgaInfo srcInfo, dstInfo;
+                RKRgaDef::SetRgaInfo(&srcInfo, dmabuf.buf_fd, dmabuf.width, dmabuf.height,RK_FORMAT_YCbCr_422_SP,dmabuf.width, dmabuf.height);
+                RKRgaDef::SetRgaInfo(&dstInfo, mDstBo.buf_fd, mDstBo.width, mDstBo.height, RK_FORMAT_RGBA_8888 ,mDstBo.width, mDstBo.height);
+                if(!RKRgaDef::convertFormat(srcInfo,dstInfo)) {
+                    RLOGE("NV12ToRGB failed\n");
+                } else {
+                    RLOGD("NV12ToRGB success\n");
+                }
+
+                QImage image((uchar *)mDstBo.vir_addr,width,height,QImage::Format_RGBA8888);
                 image.save(MediaPathUtils::get_instance()->getImagePath());
             } break;
             case V4L2_PIX_FMT_NV24: {
-                NV24ToRGB_Soft((unsigned char *)dmabuf.vir_addr,rgb,width,height);
-                QImage image(rgb,width,height,QImage::Format_BGR888);
+                NV24ToRGB_Soft((unsigned char *)dmabuf.vir_addr,(unsigned char *)rgb,width,height);
+                QImage image((uchar *)rgb,width,height,QImage::Format_BGR888);
                 image.save(MediaPathUtils::get_instance()->getImagePath());
             } break;
             case V4L2_PIX_FMT_RGB24: {
@@ -77,23 +96,26 @@ public:
                 free(rgb);
                 rgb = nullptr;
             }
-            break;
 
+            break;
         }
 
         mBuffers.clear();
         mThreadExit = true;
     }
 
-    void setFrameParam(DmaBufferObject &dmabuf,int format) {
-        dmabuf.v4l2_format = format;
-        mBuffers.push_back(dmabuf);
+    void setFrameParam(DmaBufferObject &srcbuf,DmaBufferObject &dstbuf, int format) {
+        srcbuf.v4l2_format = format;
+        mBuffers.push_back(srcbuf);
+
+        mDstBo = dstbuf;
     }
 
 
 
 private:
     std::vector<DmaBufferObject> mBuffers;
+    DmaBufferObject mDstBo;
 signals:
     void onFinished();
 };

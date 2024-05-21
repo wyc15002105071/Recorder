@@ -58,10 +58,10 @@ QString MediaPathUtils::getRootImagePath()
 
 QString MediaPathUtils::getImagePath()
 {
-    char time_str[50] = {0};
+    char time_str[100] = {0};
     getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
-    char file_name[50] = {0};
-    char file_save_path[50] = {0};
+    char file_name[100] = {0};
+    char file_save_path[100] = {0};
 
     QString path = getRootImagePath();
     RLOGD(path.toStdString().c_str());

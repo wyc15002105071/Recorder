@@ -122,14 +122,21 @@ void getVideoNodesInfo(std::vector<VideoNodeInfo> &infos)
 void getCurentTime(char *str,const char *format)
 {
     struct timeval current_time;
-    char time_str[30];
+    char temp_str[50];
+    char time_str[50];
+    char usec_str[50];
     char *str_fmt = "%Y-%m-%d_%H:%M:%S";
     if(format)
         str_fmt = (char *)format;
     gettimeofday(&current_time, NULL);
-    strftime(time_str, sizeof(time_str), str_fmt, localtime(&current_time.tv_sec));
+    strftime(temp_str, sizeof(temp_str), str_fmt, localtime(&current_time.tv_sec));
 
+    sprintf(usec_str, "%03ld", current_time.tv_usec);
+    sprintf(time_str, "%s.%s", temp_str, usec_str);
+
+    RLOGD("time str %s",time_str);
     strcpy(str,time_str);
+    RLOGD("str %s",str);
 }
 
 string convertSecondToTime(int64_t seconds)

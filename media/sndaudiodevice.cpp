@@ -13,7 +13,7 @@ SNDAudioDevice::SNDAudioDevice() :
 
 }
 
-int SNDAudioDevice::open(AudioDevice::AudioDeviceType_t type, AudioDevice::AudioFormat_t format)
+int SNDAudioDevice::open(AudioDevice::AudioDeviceType_t type, AudioDevice::AudioFormat_t &format)
 {
     int ret = SUCCESS;
     bool hdmiin = (type == AudioDevice_TypeHdmiIn) ? true:false;
@@ -219,7 +219,7 @@ next_card:
     }
 }
 
-int SNDAudioDevice::openSnd(snd_pcm_stream_t stream, AudioFormat_t format)
+int SNDAudioDevice::openSnd(snd_pcm_stream_t stream, AudioFormat_t &format)
 {
     snd_pcm_hw_params_t *hw_params;
     snd_pcm_sw_params_t *sw_params;

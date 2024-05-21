@@ -333,6 +333,20 @@ void VideoWidget::importDmaBuffer(int buf_id, int buf_fd, int width, int height,
     mBo[buf_id].stride      = getStride(mBo[buf_id].width,mBo[buf_id].height,mBo[buf_id].fourcc);
 }
 
+void VideoWidget::importSnapBuffer(int buf_fd, int width, int height, uint32_t format, int buf_size, void *vir_addr)
+{
+    if(buf_fd < 0 || width*height <= 0)
+        return;
+
+    mSnapShotBo.dmabuf_fd   = buf_fd;
+    mSnapShotBo.width       = width;
+    mSnapShotBo.height      = height;
+    mSnapShotBo.fourcc      = getDrmFourcc(format);
+    mSnapShotBo.buf_size    = buf_size;
+    mSnapShotBo.vir_addr    = vir_addr;
+    mSnapShotBo.stride      = getStride(mSnapShotBo.width,mSnapShotBo.height,mSnapShotBo.fourcc);
+}
+
 void VideoWidget::reset()
 {
     for(int i = 0;i<MAX_BUF_CNT;i++) {

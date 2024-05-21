@@ -22,6 +22,56 @@ void freeRgaBuffer(rga_buffer_handle_t handle) {
     releasebuffer_handle(handle);
 }
 
+bool RKRgaDef::convertFormat(RgaInfo srcInfo, RgaInfo dstInfo) {
+    bool ret = true;
+
+    rga_info_t src;
+    rga_info_t dst;
+    rga_buffer_handle_t srcHdl;
+    rga_buffer_handle_t dstHdl;
+
+    RockchipRga& rkRga(RockchipRga::get());
+
+    RLOGD("rga src fd %d rect[%d, %d, %d, %d\n", srcInfo.fd,
+          srcInfo.width, srcInfo.height, srcInfo.wstride, srcInfo.hstride);
+    RLOGD("rga dst fd %d rect[%d, %d, %d, %d]\n", dstInfo.fd,
+          dstInfo.width, dstInfo.height, dstInfo.wstride, dstInfo.hstride);
+
+    if ((srcInfo.wstride % 4) != 0) {
+        RLOGE("err yuv not align to 4\n");
+        return true;
+    }
+
+    memset((void*)&src, 0, sizeof(rga_info_t));
+    memset((void*)&dst, 0, sizeof(rga_info_t));
+
+    srcHdl = importRgaBuffer(&srcInfo, srcInfo.format);
+    dstHdl = importRgaBuffer(&dstInfo, dstInfo.format);
+    if (!srcHdl || !dstHdl) {
+        RLOGE("failed to import rga buffer [%d:%d]\n",srcHdl,dstHdl);
+        return false;
+    }
+
+    src.handle = srcHdl;
+    dst.handle = dstHdl;
+    rga_set_rect(&src.rect, 0, 0, srcInfo.width, srcInfo.height,
+                 srcInfo.wstride, srcInfo.hstride, RK_FORMAT_YCbCr_420_SP);
+    rga_set_rect(&dst.rect, 0, 0, dstInfo.width, dstInfo.height,
+                 dstInfo.wstride, dstInfo.hstride, RK_FORMAT_RGBA_8888);
+
+    if (rkRga.RkRgaBlit(&src, &dst, NULL)) {
+        RLOGE("RgaBlit fail, nv12Copy\n");
+        ret = false;
+    }
+
+    freeRgaBuffer(srcHdl);
+    freeRgaBuffer(dstHdl);
+
+    return ret;
+}
+
+
+
 void RKRgaDef::SetRgaInfo(RgaInfo *info, int32_t fd,
                           int32_t width, int32_t height,int32_t format,
                           int32_t wstride, int32_t hstride) {

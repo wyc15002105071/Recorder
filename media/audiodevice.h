@@ -35,7 +35,7 @@ public:
 
     static AudioDevice *create(int interface);
 
-    virtual int open(AudioDeviceType type, AudioFormat_t format) = 0;
+    virtual int open(AudioDeviceType type, AudioFormat_t &format) = 0;
 
     virtual void close() = 0;
 

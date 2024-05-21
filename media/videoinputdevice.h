@@ -68,6 +68,7 @@ private:
     StreamInfo      mStreamInfo;
     DmaBufferObject mDmaBo[MAX_BUF_CNT];
     DmaBufferObject mOsdBo;
+    DmaBufferObject mSnapShotBo;
 
     RMutex mCaptureMutex;
 signals:
