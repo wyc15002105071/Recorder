@@ -1356,6 +1356,14 @@ moc_main_widget.cpp: main_widget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		widgets/record_timer_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
@@ -1545,6 +1553,14 @@ moc_CaptureHelper.cpp: media/CaptureHelper.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
 	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include media/CaptureHelper.h -o moc_CaptureHelper.cpp
@@ -2132,6 +2148,14 @@ moc_videoinputdevice.cpp: media/videoinputdevice.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
 	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include media/videoinputdevice.h -o moc_videoinputdevice.cpp
@@ -2880,6 +2904,14 @@ moc_basewidget.cpp: widgets/basewidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
@@ -3374,6 +3406,14 @@ moc_menuwidget.cpp: widgets/menuwidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
@@ -3855,6 +3895,14 @@ moc_pushstreamwidget.cpp: widgets/pushstreamwidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		widgets/basewidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		listeners/udplistener.h \
@@ -4234,6 +4282,14 @@ moc_recordwidget.cpp: widgets/recordwidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		common/observer.h \
 		widgets/basewidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
@@ -4847,6 +4903,14 @@ moc_usersetwidget.cpp: widgets/usersetwidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/osdview.h \
 		widgets/viewer/setfpsview.h \
@@ -5234,6 +5298,14 @@ moc_baseviewer.cpp: widgets/viewer/baseviewer.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -5755,6 +5827,14 @@ moc_diskselectionwidget.cpp: widgets/viewer/diskselectionwidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionitem.h \
 		utils/storageutils.h \
@@ -6393,6 +6473,14 @@ moc_imageviewer.cpp: widgets/viewer/imageviewer.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -7042,6 +7130,14 @@ moc_listwidgetitem.cpp: widgets/viewer/listwidgetitem.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
@@ -7528,6 +7624,14 @@ moc_progressviewer.cpp: widgets/viewer/progressviewer.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		common/observer.h \
 		moc_predefs.h \
@@ -7900,6 +8004,14 @@ moc_selectionicon.cpp: widgets/viewer/selectionicon.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
@@ -8651,6 +8763,14 @@ moc_videoviewer.cpp: widgets/viewer/videoviewer.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -9384,6 +9504,14 @@ ui_listwidgetitem.h: widgets/viewer/listwidgetitem.ui \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
@@ -10224,6 +10352,14 @@ main.o: main.cpp main_widget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		widgets/record_timer_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
@@ -10707,6 +10843,14 @@ main_widget.o: main_widget.cpp main_widget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		widgets/record_timer_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
@@ -12619,9 +12763,6 @@ videoinputdevice.o: media/videoinputdevice.cpp media/videoinputdevice.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
-		third-party/headers/drm/drm_fourcc.h \
-		third-party/headers/drm/drm.h \
-		third-party/headers/drm/drm_mode.h \
 		media/rkrgadef.h \
 		third-party/headers/rga/RockchipRga.h \
 		third-party/headers/rga/drmrga.h \
@@ -12630,6 +12771,9 @@ videoinputdevice.o: media/videoinputdevice.cpp media/videoinputdevice.h \
 		third-party/headers/rga/RgaUtils.h \
 		third-party/headers/rga/RgaSingleton.h \
 		third-party/headers/rga/RgaMutex.h \
+		third-party/headers/drm/drm_fourcc.h \
+		third-party/headers/drm/drm.h \
+		third-party/headers/drm/drm_mode.h \
 		utils/osdutils.h \
 		third-party/headers/linux/rk_hdmirx_config.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o videoinputdevice.o media/videoinputdevice.cpp
@@ -13808,6 +13952,14 @@ basewidget.o: widgets/basewidget.cpp widgets/basewidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		ui_basewidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o basewidget.o widgets/basewidget.cpp
@@ -14300,6 +14452,14 @@ menuwidget.o: widgets/menuwidget.cpp widgets/menuwidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
@@ -14779,6 +14939,14 @@ pushstreamwidget.o: widgets/pushstreamwidget.cpp widgets/pushstreamwidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		widgets/basewidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		listeners/udplistener.h \
@@ -15160,6 +15328,14 @@ recordwidget.o: widgets/recordwidget.cpp widgets/recordwidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		common/observer.h \
 		widgets/basewidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
@@ -15770,6 +15946,14 @@ usersetwidget.o: widgets/usersetwidget.cpp widgets/usersetwidget.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/osdview.h \
 		widgets/viewer/setfpsview.h \
@@ -16156,6 +16340,14 @@ baseviewer.o: widgets/viewer/baseviewer.cpp widgets/viewer/baseviewer.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -16690,6 +16882,14 @@ diskselectionwidget.o: widgets/viewer/diskselectionwidget.cpp widgets/viewer/dis
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionitem.h \
 		utils/storageutils.h \
@@ -17325,6 +17525,14 @@ imageviewer.o: widgets/viewer/imageviewer.cpp widgets/viewer/imageviewer.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
@@ -17993,6 +18201,14 @@ listwidgetitem.o: widgets/viewer/listwidgetitem.cpp widgets/viewer/listwidgetite
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
@@ -18589,6 +18805,14 @@ progressviewer.o: widgets/viewer/progressviewer.cpp widgets/viewer/progressviewe
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		common/observer.h \
 		ui_progressviewer.h \
@@ -18963,6 +19187,14 @@ selectionicon.o: widgets/viewer/selectionicon.cpp widgets/viewer/selectionicon.h
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		ui_selectionicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o selectionicon.o widgets/viewer/selectionicon.cpp
@@ -19715,6 +19947,14 @@ videoviewer.o: widgets/viewer/videoviewer.cpp widgets/viewer/videoviewer.h \
 		utils/mediapathutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
 		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		widgets/viewer/diskselectionwidget.h \
 		widgets/viewer/diskselectionitem.h \
