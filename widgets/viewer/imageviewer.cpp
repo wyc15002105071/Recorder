@@ -62,7 +62,7 @@ void ImageViewer::onItemClicked(QListWidgetItem *item)
         int current_index = mListViewer->currentRow();
         if(mImageBrowser) {
             mImageBrowser->setGeometry(this->geometry());
-            mImageBrowser->open(mFilePathList,current_index);
+            mImageBrowser->openPlayer(mFilePathList,current_index);
         }
     }
 }

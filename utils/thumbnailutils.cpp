@@ -1,5 +1,6 @@
 #include "thumbnailutils.h"
 #include "utils/fileutils.h"
+#include <malloc.h>
 
 ThumbnailUtils::ThumbnailUtils() :
     mThumbSize(QSize(0,0))
@@ -56,6 +57,8 @@ void ThumbnailUtils::run()
     }
     ndata.finish = true;
     notify(ndata);
+
+    malloc_trim(0);
 }
 
 void ThumbnailUtils::setDataSource(QList<QString> files)

@@ -142,7 +142,7 @@ void VideoViewer::onItemClicked(QListWidgetItem *item)
         QString video_path = "file://"+name;
         if(mPlayer) {
             mPlayer->setGeometry(this->geometry());
-            mPlayer->open(mFilePathList,index);
+            mPlayer->openPlayer(mFilePathList,index);
         }
     }
 }

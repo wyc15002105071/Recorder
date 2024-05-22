@@ -33,9 +33,10 @@ void ListWidgetItem::setFileName(QString file_name)
 
 void ListWidgetItem::setIcon(QImage image)
 {
-    QImage icon_img(image);
+//    QImage icon_img(image);
 
-    ui->icon->setIcon(image);
+//    ui->icon->setIcon(image);
+    ui->icon->setPixmap(QPixmap::fromImage(image, Qt::ImageConversionFlag::NoFormatConversion));
 }
 
 void ListWidgetItem::setAlignment(Qt::Alignment alignment)

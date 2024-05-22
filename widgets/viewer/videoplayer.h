@@ -1,29 +1,27 @@
 #ifndef VIDEOPLAYER_H
 #define VIDEOPLAYER_H
 
-#include <QWidget>
 #include <QMediaPlayer>
 #include <memory>
 #include <QVideoWidget>
 #include "listeners/key_listener.h"
 #include "utils/videoframetoimageutils.h"
 #include <QVideoFrame>
-
+#include "listeners/key_listener.h"
+#include "widgets/basewidget.h"
 
 namespace Ui {
 class VideoPlayer;
 }
 
-class VideoPlayer : public QWidget
+class VideoPlayer : public BaseWidget
 {
     Q_OBJECT
 
 public:
     explicit VideoPlayer(QWidget *parent = nullptr);
     ~VideoPlayer();
-    virtual void showEvent(QShowEvent *event);
-    virtual void closeEvent(QCloseEvent *event);
-    void open(QList<QString> &list,int index);
+    void openPlayer(QList<QString> &list,int index);
     void playVideo(QString file_url);
 private:
     Ui::VideoPlayer *ui;
@@ -52,7 +50,8 @@ public slots:
     void Screenshot();
 
     void saveImageFinish();
-
+    virtual void onHasOpened();
+    virtual void onHasClosed();
 };
 
 #endif // VIDEOPLAYER_H

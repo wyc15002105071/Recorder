@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "media/videoinputdevice.h"
 #include <QCloseEvent>
+#include <malloc.h>
 
 namespace Ui {
 class BaseWidget;
@@ -28,10 +29,13 @@ signals:
     void onOpened();
     void onClosed();
 
-
 public slots:
     virtual void onHasOpened() {}
     virtual void onHasClosed() {}
+
+    void malloc_retrieve() {
+        malloc_trim(0);
+    }
 };
 
 #endif // BASEWIDGET_H

@@ -13,7 +13,6 @@ static const char *progress_high = "QProgressBar::chunk"
 
 BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mDiskSelectionWidget(sp<DiskSelectionWidget>(new DiskSelectionWidget))
-    ,mProgressViewer(sp<ProgressViewer>(new ProgressViewer))
     ,mFileUtils(sp<FileUtils>(new FileUtils))
     ,mThumbnail(sp<ThumbnailUtils>(new ThumbnailUtils))
     ,mStorageUtils(StorageUtils::get_instance())
@@ -28,6 +27,7 @@ BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mlabel(sp<QLabel>(new QLabel("未插入外部存储")))
 {
     setWindowState(Qt::WindowFullScreen);
+    mProgressViewer = sp<ProgressViewer>(new ProgressViewer(this));
     mFileUtils->attach(mProgressViewer.get());
     mThumbnail->attach(mProgressViewer.get());
     //mHotplugListener->attach(this);

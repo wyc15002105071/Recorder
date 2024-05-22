@@ -8,6 +8,8 @@ BaseWidget::BaseWidget(QWidget *parent) :
     ui->setupUi(this);
     connect(this,SIGNAL(onOpened()),this,SLOT(onHasOpened()),Qt::UniqueConnection);
     connect(this,SIGNAL(onClosed()),this,SLOT(onHasClosed()),Qt::UniqueConnection);
+
+    connect(this,SIGNAL(onClosed()),this,SLOT(malloc_retrieve()),Qt::UniqueConnection);
 }
 
 void BaseWidget::closeEvent(QCloseEvent *event)
