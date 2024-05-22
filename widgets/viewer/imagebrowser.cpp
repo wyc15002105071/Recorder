@@ -5,7 +5,7 @@
 #define MODULE_TAG "ImageBrowser"
 
 ImageBrowser::ImageBrowser(QWidget *parent)
-    : QWidget(parent)
+    : BaseWidget(parent)
     , ui(new Ui::ImageBrowser)
     , mCurrentIndex(0)
     , mKeyListener(KeyListener::get_instance())
@@ -23,21 +23,6 @@ ImageBrowser::~ImageBrowser()
     delete ui;
 }
 
-void ImageBrowser::showEvent(QShowEvent *event)
-{
-    if(mUrls.count() <= 0 || mCurrentIndex < 0)
-        return;
-    showImage(mUrls.at(mCurrentIndex));
-}
-
-void ImageBrowser::closeEvent(QCloseEvent *event)
-{
-    if(mUrls.count() > 0)
-        mUrls.clear();
-    mCurrentIndex = 0;
-    ui->image_container->clear();
-}
-
 void ImageBrowser::resizeEvent(QResizeEvent *event)
 {
     if(mUrls.count() <= 0 || mCurrentIndex < 0)
@@ -45,19 +30,34 @@ void ImageBrowser::resizeEvent(QResizeEvent *event)
     showImage(mUrls.at(mCurrentIndex));
 }
 
-void ImageBrowser::open(QList<QString> &list, int index)
+void ImageBrowser::openPlayer(QList<QString> &list, int index)
 {
     this->mUrls = list;
     this->mCurrentIndex = index;
 
     if(index < 0)
         return;
-    this->show();
+    this->open();
 }
 
 QString ImageBrowser::getCurrentIndex()
 {
     return mUrls.at(mCurrentIndex);
+}
+
+void ImageBrowser::onHasOpened()
+{
+    if(mUrls.count() <= 0 || mCurrentIndex < 0)
+        return;
+    showImage(mUrls.at(mCurrentIndex));
+}
+
+void ImageBrowser::onHasClosed()
+{
+    if(mUrls.count() > 0)
+        mUrls.clear();
+    mCurrentIndex = 0;
+    ui->image_container->clear();
 }
 
 void ImageBrowser::showImage(QString path)

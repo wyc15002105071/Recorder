@@ -4,23 +4,26 @@
 #include <QWidget>
 #include <QList>
 #include "listeners/key_listener.h"
+#include "widgets/basewidget.h"
 
 namespace Ui {
 class ImageBrowser;
 }
 
-class ImageBrowser : public QWidget
+class ImageBrowser : public BaseWidget
 {
     Q_OBJECT
 
 public:
     explicit ImageBrowser(QWidget *parent = nullptr);
     ~ImageBrowser();
-    virtual void showEvent(QShowEvent *event);
-    virtual void closeEvent(QCloseEvent *event);
+
     virtual void resizeEvent(QResizeEvent *event);
-    void open(QList<QString> &list,int index);
+    void openPlayer(QList<QString> &list,int index);
     QString getCurrentIndex();
+
+    virtual void onHasOpened();
+    virtual void onHasClosed();
 private:
     Ui::ImageBrowser *ui;
 

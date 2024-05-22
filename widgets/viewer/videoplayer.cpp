@@ -12,7 +12,7 @@
 using namespace std;
 
 VideoPlayer::VideoPlayer(QWidget *parent)
-   : QWidget(parent)
+   : BaseWidget(parent)
    , ui(new Ui::VideoPlayer)
    , mPlayer(sp<QMediaPlayer>(new QMediaPlayer))
    , mKeyListener(KeyListener::get_instance())
@@ -47,30 +47,14 @@ VideoPlayer::~VideoPlayer()
     RLOGD("destructor level");
 }
 
-void VideoPlayer::showEvent(QShowEvent *event)
-{
-    if(mUrls.count() <= 0 || mCurrentIndex < 0)
-        return;
-    playVideo(mUrls.at(mCurrentIndex));
-}
-
-void VideoPlayer::closeEvent(QCloseEvent *event)
-{
-    if(mPlayer.get()) {
-        mPlayer->stop();
-    }
-    mUrls.clear();
-    mCurrentIndex = 0;
-}
-
-void VideoPlayer::open(QList<QString> &list, int index)
+void VideoPlayer::openPlayer(QList<QString> &list, int index)
 {
     this->mUrls = list;
     this->mCurrentIndex = index;
 
     if(index < 0)
         return;
-    this->show();
+    this->open();
 }
 
 void VideoPlayer::playVideo(QString file_url)
@@ -222,4 +206,20 @@ void VideoPlayer::Screenshot()
     if(!isFirst)
         if(VideoFrameToImageUtils::videoFrameToImage(frame).save(MediaPathUtils::get_instance()->getImagePath()))
             ToastUtils::instance().show(ToastUtils::INFO,"截图成功!");
+}
+
+void VideoPlayer::onHasOpened()
+{
+    if(mUrls.count() <= 0 || mCurrentIndex < 0)
+        return;
+    playVideo(mUrls.at(mCurrentIndex));
+}
+
+void VideoPlayer::onHasClosed()
+{
+    if(mPlayer.get()) {
+        mPlayer->stop();
+    }
+    mUrls.clear();
+    mCurrentIndex = 0;
 }

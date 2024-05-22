@@ -1,5 +1,5 @@
 #include "main_widget.h"
-
+#include <malloc.h>
 #include <QApplication>
 #include "utils/configutils.h"
 
@@ -22,6 +22,7 @@ bool checkOnly() {
 
 int main(int argc, char *argv[])
 {
+    mallopt(M_ARENA_MAX,1);
     QApplication a(argc, argv);
 
     if (!checkOnly()) return 0;
