@@ -1,6 +1,8 @@
 #include "pushstreamwidget.h"
 #include "ui_pushstreamwidget.h"
 #include <QTimer>
+#include <QDebug>
+#include "utils/toastutils.h"
 
 PushStreamWidget::PushStreamWidget(QWidget *parent) :
     BaseWidget(parent),
@@ -21,6 +23,7 @@ PushStreamWidget::PushStreamWidget(QWidget *parent,VideoInputDevice *video_input
     ui->setupUi(this);
     udp->startTask();
     //connect(this,SIGNAL(onClosed()),this,SLOT(onStopPush()));
+    connect(this,SIGNAL(doStopPush()),this,SLOT(onStopPush()));
 }
 
 PushStreamWidget::~PushStreamWidget()
@@ -38,7 +41,14 @@ void PushStreamWidget::onPushToggled(bool toggled)
 
             QTimer::singleShot(2000,this,[=]{
                 if(udp)udp->setPlay(true);
-                ui->url->setText(QString::fromStdString(mVideoInputDevice->getPushUrl()));
+                //qDebug()<<QString::fromStdString(mVideoInputDevice->getPushUrl());
+                std::string url = mVideoInputDevice->getPushUrl();
+                if(url.find("rtsp://192.")!=0){
+                    doStopPush();
+                    ToastUtils::instance().show(ToastUtils::INFO,"局域网IP获取异常!");
+                }else{
+                    ui->url->setText(QString::fromStdString(url));
+                }
             });
         }
     } else {

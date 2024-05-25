@@ -17,7 +17,6 @@ VideoPlayer::VideoPlayer(QWidget *parent)
    , frameUtils(sp<VideoFrameToImageUtils>(new VideoFrameToImageUtils))
 {
     ui->setupUi(this);
-
     connect(frameUtils.get(),SIGNAL(saveImageFinish()),this,SLOT(saveImageFinish()),Qt::UniqueConnection);
 
     QVideoProbe *videoProbe = new QVideoProbe;

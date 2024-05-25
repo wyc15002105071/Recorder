@@ -24,7 +24,8 @@ private:
     Ui::PushStreamWidget *ui;
     VideoInputDevice *mVideoInputDevice;
     UdpListener *udp;
-
+signals:
+    void doStopPush();
 public slots:
     void onPushToggled(bool toggled);
     void onStopPush();

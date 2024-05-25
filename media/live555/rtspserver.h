@@ -52,6 +52,7 @@ private:
     RKHWEncApi mVideoEncoder;
     bool mStart;
     bool initOther(MetaInfo *meta);
+    char* url = "";
 };
 
 int init_rtsp(const char* video_dev, int width, int height);

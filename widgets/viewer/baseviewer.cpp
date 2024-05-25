@@ -27,9 +27,6 @@ BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mlabel(sp<QLabel>(new QLabel("未插入外部存储")))
 {
     setWindowState(Qt::WindowFullScreen);
-    mProgressViewer = sp<ProgressViewer>(new ProgressViewer(this));
-    mFileUtils->attach(mProgressViewer.get());
-    mThumbnail->attach(mProgressViewer.get());
     //mHotplugListener->attach(this);
     mCapacityListenerTimer->setInterval(2000);
     mlabel->setAlignment(Qt::AlignCenter);

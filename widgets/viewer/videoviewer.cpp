@@ -18,6 +18,11 @@ VideoViewer::VideoViewer(QWidget *parent) :
    , mIconHasUpdated(0)
 {
     ui->setupUi(this);
+
+    mProgressViewer = sp<ProgressViewer>(new ProgressViewer(this));
+    mFileUtils->attach(mProgressViewer.get());
+    mThumbnail->attach(mProgressViewer.get());
+
     mPlayer = sp<VideoPlayer>(new VideoPlayer());
     mPlayer->close();
 

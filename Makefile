@@ -6095,6 +6095,269 @@ moc_imagebrowser.cpp: widgets/viewer/imagebrowser.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
+		widgets/basewidget.h \
+		media/videoinputdevice.h \
+		media/mediautils.h \
+		widgets/videowidget.h \
+		allocators/allocator_service.h \
+		allocators/drm_allocator.h \
+		allocators/allocator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QOpenGLWidget \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qopenglwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QSurfaceFormat \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qsurfaceformat.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qt_windows.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengles2ext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QOpenGLFunctions \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglcontext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QScopedPointer \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglversionfunctions.h \
+		media/mediarecorder.h \
+		media/rkmpp_enc_api.h \
+		third-party/headers/mpp/rk_mpi.h \
+		third-party/headers/mpp/rk_mpi_cmd.h \
+		third-party/headers/mpp/rk_vdec_cmd.h \
+		third-party/headers/mpp/rk_type.h \
+		third-party/headers/mpp/mpp_err.h \
+		third-party/headers/mpp/rk_vdec_cfg.h \
+		third-party/headers/mpp/rk_venc_cmd.h \
+		third-party/headers/mpp/mpp_frame.h \
+		third-party/headers/mpp/mpp_buffer.h \
+		third-party/headers/mpp/mpp_meta.h \
+		third-party/headers/mpp/mpp_packet.h \
+		third-party/headers/mpp/rk_venc_rc.h \
+		third-party/headers/mpp/rk_venc_cfg.h \
+		third-party/headers/mpp/rk_venc_ref.h \
+		third-party/headers/mpp/mpp_task.h \
+		third-party/headers/mpp/mpp_mem.h \
+		third-party/headers/mpp/mpp_log.h \
+		third-party/headers/mpp/mpp_log_def.h \
+		third-party/headers/mpp/mpp_env.h \
+		media/mediamuxer.h \
+		third-party/headers/ffmpeg/libavcodec/avcodec.h \
+		third-party/headers/ffmpeg/libavutil/samplefmt.h \
+		third-party/headers/ffmpeg/libavutil/avutil.h \
+		third-party/headers/ffmpeg/libavutil/common.h \
+		third-party/headers/ffmpeg/libavutil/attributes.h \
+		third-party/headers/ffmpeg/libavutil/macros.h \
+		third-party/headers/ffmpeg/libavutil/version.h \
+		third-party/headers/ffmpeg/libavutil/avconfig.h \
+		third-party/headers/ffmpeg/libavutil/mem.h \
+		third-party/headers/ffmpeg/libavutil/error.h \
+		third-party/headers/ffmpeg/libavutil/rational.h \
+		third-party/headers/ffmpeg/libavutil/mathematics.h \
+		third-party/headers/ffmpeg/libavutil/intfloat.h \
+		third-party/headers/ffmpeg/libavutil/log.h \
+		third-party/headers/ffmpeg/libavutil/pixfmt.h \
+		third-party/headers/ffmpeg/libavutil/buffer.h \
+		third-party/headers/ffmpeg/libavutil/cpu.h \
+		third-party/headers/ffmpeg/libavutil/channel_layout.h \
+		third-party/headers/ffmpeg/libavutil/dict.h \
+		third-party/headers/ffmpeg/libavutil/frame.h \
+		third-party/headers/ffmpeg/libavutil/hwcontext.h \
+		third-party/headers/ffmpeg/libavcodec/bsf.h \
+		third-party/headers/ffmpeg/libavcodec/codec_id.h \
+		third-party/headers/ffmpeg/libavcodec/codec_par.h \
+		third-party/headers/ffmpeg/libavcodec/packet.h \
+		third-party/headers/ffmpeg/libavcodec/version.h \
+		third-party/headers/ffmpeg/libavcodec/codec.h \
+		third-party/headers/ffmpeg/libavcodec/codec_desc.h \
+		third-party/headers/ffmpeg/libavformat/avformat.h \
+		third-party/headers/ffmpeg/libavformat/avio.h \
+		third-party/headers/ffmpeg/libavformat/version.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QPixmap \
+		media/streampusher.h \
+		media/live555/rtspserver.h \
+		third-party/headers/live555/liveMedia/liveMedia.hh \
+		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MultiFramedRTPSource.hh \
+		third-party/headers/live555/liveMedia/RTPSource.hh \
+		third-party/headers/live555/liveMedia/FramedSource.hh \
+		third-party/headers/live555/groupsock/NetCommon.h \
+		third-party/headers/live555/liveMedia/MediaSource.hh \
+		third-party/headers/live555/liveMedia/Media.hh \
+		third-party/headers/live555/liveMedia/liveMedia_version.hh \
+		third-party/headers/live555/UsageEnvironment/HashTable.hh \
+		third-party/headers/live555/UsageEnvironment/Boolean.hh \
+		third-party/headers/live555/UsageEnvironment/UsageEnvironment.hh \
+		third-party/headers/live555/UsageEnvironment/UsageEnvironment_version.hh \
+		third-party/headers/live555/UsageEnvironment/strDup.hh \
+		third-party/headers/live555/liveMedia/RTPInterface.hh \
+		third-party/headers/live555/groupsock/Groupsock.hh \
+		third-party/headers/live555/groupsock/groupsock_version.hh \
+		third-party/headers/live555/groupsock/NetInterface.hh \
+		third-party/headers/live555/groupsock/NetAddress.hh \
+		third-party/headers/live555/groupsock/GroupEId.hh \
+		third-party/headers/live555/liveMedia/SRTPCryptographicContext.hh \
+		third-party/headers/live555/liveMedia/MIKEY.hh \
+		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MultiFramedRTPSink.hh \
+		third-party/headers/live555/liveMedia/RTPSink.hh \
+		third-party/headers/live555/liveMedia/MediaSink.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/MP3ADURTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileSink.hh \
+		third-party/headers/live555/liveMedia/FileSink.hh \
+		third-party/headers/live555/liveMedia/H264VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/H265VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/OggFileSink.hh \
+		third-party/headers/live555/liveMedia/BasicUDPSink.hh \
+		third-party/headers/live555/liveMedia/GSMAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/H264VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/FramedFilter.hh \
+		third-party/headers/live555/liveMedia/H265VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/DVVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/DVVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/DVVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/MPEGVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H265VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H265VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/SimpleRTPSink.hh \
+		third-party/headers/live555/liveMedia/uLawAudioFilter.hh \
+		third-party/headers/live555/liveMedia/MPEG2IndexFromTransportStream.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamTrickModeFilter.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamIndexFile.hh \
+		third-party/headers/live555/liveMedia/ByteStreamMultiFileSource.hh \
+		third-party/headers/live555/liveMedia/ByteStreamFileSource.hh \
+		third-party/headers/live555/liveMedia/FramedFileSource.hh \
+		third-party/headers/live555/liveMedia/ByteStreamMemoryBufferSource.hh \
+		third-party/headers/live555/liveMedia/BasicUDPSource.hh \
+		third-party/headers/live555/liveMedia/SimpleRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4GenericRTPSource.hh \
+		third-party/headers/live555/liveMedia/MP3ADURTPSource.hh \
+		third-party/headers/live555/liveMedia/QCELPAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioSource.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoSource.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VorbisAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/TheoraVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VP8VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VP9VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/RawVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromPESSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamMultiplexor.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2Demux.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2DemuxedElementaryStream.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromESSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFramer.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H261VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H264VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H265VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MP3FileSource.hh \
+		third-party/headers/live555/liveMedia/MP3ADU.hh \
+		third-party/headers/live555/liveMedia/MP3ADUinterleaving.hh \
+		third-party/headers/live555/liveMedia/MP3Transcoder.hh \
+		third-party/headers/live555/liveMedia/MP3ADUTranscoder.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/AC3AudioStreamFramer.hh \
+		third-party/headers/live555/liveMedia/AC3AudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AC3AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/VorbisAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/TheoraVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VP8VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VP9VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4GenericRTPSink.hh \
+		third-party/headers/live555/liveMedia/RawVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/RawVideoFrameParameters.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/DeviceSource.hh \
+		third-party/headers/live555/liveMedia/AudioInputDevice.hh \
+		third-party/headers/live555/liveMedia/WAVAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/StreamReplicator.hh \
+		third-party/headers/live555/liveMedia/RTSPRegisterSender.hh \
+		third-party/headers/live555/liveMedia/RTSPClient.hh \
+		third-party/headers/live555/liveMedia/MediaSession.hh \
+		third-party/headers/live555/liveMedia/RTCP.hh \
+		third-party/headers/live555/liveMedia/DigestAuthentication.hh \
+		third-party/headers/live555/liveMedia/TLSState.hh \
+		third-party/headers/live555/liveMedia/RTSPServer.hh \
+		third-party/headers/live555/liveMedia/GenericMediaServer.hh \
+		third-party/headers/live555/liveMedia/ServerMediaSession.hh \
+		third-party/headers/live555/liveMedia/SIPClient.hh \
+		third-party/headers/live555/liveMedia/QuickTimeFileSink.hh \
+		third-party/headers/live555/liveMedia/QuickTimeGenericRTPSource.hh \
+		third-party/headers/live555/liveMedia/AVIFileSink.hh \
+		third-party/headers/live555/liveMedia/PassiveServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/FileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/OnDemandServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H264VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H265VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/WAVAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/T140TextRTPSink.hh \
+		third-party/headers/live555/liveMedia/TextRTPSink.hh \
+		third-party/headers/live555/liveMedia/MP3AudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2FileServerDemux.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/DVVideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AC3AudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportUDPServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MatroskaFileServerDemux.hh \
+		third-party/headers/live555/liveMedia/MatroskaFile.hh \
+		third-party/headers/live555/liveMedia/OggFileServerDemux.hh \
+		third-party/headers/live555/liveMedia/OggFile.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamDemux.hh \
+		third-party/headers/live555/liveMedia/ProxyServerMediaSession.hh \
+		third-party/headers/live555/liveMedia/MediaTranscodingTable.hh \
+		third-party/headers/live555/liveMedia/HLSSegmenter.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamAccumulator.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment0.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
+		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
+		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
 	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/imagebrowser.h -o moc_imagebrowser.cpp
@@ -8238,9 +8501,9 @@ moc_setfpsview.cpp: widgets/viewer/setfpsview.h \
 	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/setfpsview.h -o moc_setfpsview.cpp
 
 moc_videoplayer.cpp: widgets/viewer/videoplayer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgetsglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QMediaPlayer \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaplayer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimediaglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtguiglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
@@ -8264,13 +8527,12 @@ moc_videoplayer.cpp: widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtgui-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgets-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimedia-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaobject.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs_impl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs_win.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
@@ -8298,6 +8560,41 @@ moc_videoplayer.cpp: widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvarlengtharray.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainerfwd.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmultimedia.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediacontent.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qshareddata.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhash.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaresource.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmap.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdebug.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtextstream.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiodevice.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlocale.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvariant.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qset.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontiguouscache.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qnetworkrequest.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetworkglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetwork-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QSharedDataPointer \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QUrl \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurlquery.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaenumdebug.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetaobject.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qaudio.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qnetworkconfiguration.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/QVideoWidget \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qvideowidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgetsglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgets-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs_win.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmargins.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpaintdevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrect.h \
@@ -8311,16 +8608,11 @@ moc_videoplayer.cpp: widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpolygon.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qregion.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdatastream.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiodevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qline.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtransform.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimage.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpixelformat.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpixmap.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qshareddata.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhash.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qfont.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qfontmetrics.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qfontinfo.h \
@@ -8328,40 +8620,10 @@ moc_videoplayer.cpp: widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qcursor.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qkeysequence.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qevent.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvariant.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmap.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdebug.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtextstream.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlocale.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qset.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontiguouscache.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurlquery.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfile.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfiledevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QMediaPlayer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaplayer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimediaglobal.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimedia-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaobject.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmultimedia.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediacontent.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaresource.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qnetworkrequest.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetworkglobal.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetwork-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QSharedDataPointer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QUrl \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaenumdebug.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetaobject.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qaudio.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qnetworkconfiguration.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/QVideoWidget \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qvideowidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediabindableinterface.h \
 		listeners/key_listener.h \
@@ -8385,6 +8647,267 @@ moc_videoplayer.cpp: widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qvideoframe.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qabstractvideobuffer.h \
+		widgets/basewidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
+		media/videoinputdevice.h \
+		media/mediautils.h \
+		widgets/videowidget.h \
+		allocators/allocator_service.h \
+		allocators/drm_allocator.h \
+		allocators/allocator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QOpenGLWidget \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qopenglwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QSurfaceFormat \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qsurfaceformat.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qt_windows.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengles2ext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QOpenGLFunctions \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglcontext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QScopedPointer \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglversionfunctions.h \
+		media/mediarecorder.h \
+		media/rkmpp_enc_api.h \
+		third-party/headers/mpp/rk_mpi.h \
+		third-party/headers/mpp/rk_mpi_cmd.h \
+		third-party/headers/mpp/rk_vdec_cmd.h \
+		third-party/headers/mpp/rk_type.h \
+		third-party/headers/mpp/mpp_err.h \
+		third-party/headers/mpp/rk_vdec_cfg.h \
+		third-party/headers/mpp/rk_venc_cmd.h \
+		third-party/headers/mpp/mpp_frame.h \
+		third-party/headers/mpp/mpp_buffer.h \
+		third-party/headers/mpp/mpp_meta.h \
+		third-party/headers/mpp/mpp_packet.h \
+		third-party/headers/mpp/rk_venc_rc.h \
+		third-party/headers/mpp/rk_venc_cfg.h \
+		third-party/headers/mpp/rk_venc_ref.h \
+		third-party/headers/mpp/mpp_task.h \
+		third-party/headers/mpp/mpp_mem.h \
+		third-party/headers/mpp/mpp_log.h \
+		third-party/headers/mpp/mpp_log_def.h \
+		third-party/headers/mpp/mpp_env.h \
+		media/mediamuxer.h \
+		third-party/headers/ffmpeg/libavcodec/avcodec.h \
+		third-party/headers/ffmpeg/libavutil/samplefmt.h \
+		third-party/headers/ffmpeg/libavutil/avutil.h \
+		third-party/headers/ffmpeg/libavutil/common.h \
+		third-party/headers/ffmpeg/libavutil/attributes.h \
+		third-party/headers/ffmpeg/libavutil/macros.h \
+		third-party/headers/ffmpeg/libavutil/version.h \
+		third-party/headers/ffmpeg/libavutil/avconfig.h \
+		third-party/headers/ffmpeg/libavutil/mem.h \
+		third-party/headers/ffmpeg/libavutil/error.h \
+		third-party/headers/ffmpeg/libavutil/rational.h \
+		third-party/headers/ffmpeg/libavutil/mathematics.h \
+		third-party/headers/ffmpeg/libavutil/intfloat.h \
+		third-party/headers/ffmpeg/libavutil/log.h \
+		third-party/headers/ffmpeg/libavutil/pixfmt.h \
+		third-party/headers/ffmpeg/libavutil/buffer.h \
+		third-party/headers/ffmpeg/libavutil/cpu.h \
+		third-party/headers/ffmpeg/libavutil/channel_layout.h \
+		third-party/headers/ffmpeg/libavutil/dict.h \
+		third-party/headers/ffmpeg/libavutil/frame.h \
+		third-party/headers/ffmpeg/libavutil/hwcontext.h \
+		third-party/headers/ffmpeg/libavcodec/bsf.h \
+		third-party/headers/ffmpeg/libavcodec/codec_id.h \
+		third-party/headers/ffmpeg/libavcodec/codec_par.h \
+		third-party/headers/ffmpeg/libavcodec/packet.h \
+		third-party/headers/ffmpeg/libavcodec/version.h \
+		third-party/headers/ffmpeg/libavcodec/codec.h \
+		third-party/headers/ffmpeg/libavcodec/codec_desc.h \
+		third-party/headers/ffmpeg/libavformat/avformat.h \
+		third-party/headers/ffmpeg/libavformat/avio.h \
+		third-party/headers/ffmpeg/libavformat/version.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QPixmap \
+		media/streampusher.h \
+		media/live555/rtspserver.h \
+		third-party/headers/live555/liveMedia/liveMedia.hh \
+		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MultiFramedRTPSource.hh \
+		third-party/headers/live555/liveMedia/RTPSource.hh \
+		third-party/headers/live555/liveMedia/FramedSource.hh \
+		third-party/headers/live555/groupsock/NetCommon.h \
+		third-party/headers/live555/liveMedia/MediaSource.hh \
+		third-party/headers/live555/liveMedia/Media.hh \
+		third-party/headers/live555/liveMedia/liveMedia_version.hh \
+		third-party/headers/live555/UsageEnvironment/HashTable.hh \
+		third-party/headers/live555/UsageEnvironment/Boolean.hh \
+		third-party/headers/live555/UsageEnvironment/UsageEnvironment.hh \
+		third-party/headers/live555/UsageEnvironment/UsageEnvironment_version.hh \
+		third-party/headers/live555/UsageEnvironment/strDup.hh \
+		third-party/headers/live555/liveMedia/RTPInterface.hh \
+		third-party/headers/live555/groupsock/Groupsock.hh \
+		third-party/headers/live555/groupsock/groupsock_version.hh \
+		third-party/headers/live555/groupsock/NetInterface.hh \
+		third-party/headers/live555/groupsock/NetAddress.hh \
+		third-party/headers/live555/groupsock/GroupEId.hh \
+		third-party/headers/live555/liveMedia/SRTPCryptographicContext.hh \
+		third-party/headers/live555/liveMedia/MIKEY.hh \
+		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MultiFramedRTPSink.hh \
+		third-party/headers/live555/liveMedia/RTPSink.hh \
+		third-party/headers/live555/liveMedia/MediaSink.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/MP3ADURTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileSink.hh \
+		third-party/headers/live555/liveMedia/FileSink.hh \
+		third-party/headers/live555/liveMedia/H264VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/H265VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/OggFileSink.hh \
+		third-party/headers/live555/liveMedia/BasicUDPSink.hh \
+		third-party/headers/live555/liveMedia/GSMAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/H264VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/FramedFilter.hh \
+		third-party/headers/live555/liveMedia/H265VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/DVVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/DVVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/DVVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/MPEGVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H265VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H265VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/SimpleRTPSink.hh \
+		third-party/headers/live555/liveMedia/uLawAudioFilter.hh \
+		third-party/headers/live555/liveMedia/MPEG2IndexFromTransportStream.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamTrickModeFilter.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamIndexFile.hh \
+		third-party/headers/live555/liveMedia/ByteStreamMultiFileSource.hh \
+		third-party/headers/live555/liveMedia/ByteStreamFileSource.hh \
+		third-party/headers/live555/liveMedia/FramedFileSource.hh \
+		third-party/headers/live555/liveMedia/ByteStreamMemoryBufferSource.hh \
+		third-party/headers/live555/liveMedia/BasicUDPSource.hh \
+		third-party/headers/live555/liveMedia/SimpleRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4GenericRTPSource.hh \
+		third-party/headers/live555/liveMedia/MP3ADURTPSource.hh \
+		third-party/headers/live555/liveMedia/QCELPAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioSource.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoSource.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VorbisAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/TheoraVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VP8VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VP9VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/RawVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromPESSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamMultiplexor.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2Demux.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2DemuxedElementaryStream.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromESSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFramer.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H261VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H264VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H265VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MP3FileSource.hh \
+		third-party/headers/live555/liveMedia/MP3ADU.hh \
+		third-party/headers/live555/liveMedia/MP3ADUinterleaving.hh \
+		third-party/headers/live555/liveMedia/MP3Transcoder.hh \
+		third-party/headers/live555/liveMedia/MP3ADUTranscoder.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/AC3AudioStreamFramer.hh \
+		third-party/headers/live555/liveMedia/AC3AudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AC3AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/VorbisAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/TheoraVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VP8VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VP9VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4GenericRTPSink.hh \
+		third-party/headers/live555/liveMedia/RawVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/RawVideoFrameParameters.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/DeviceSource.hh \
+		third-party/headers/live555/liveMedia/AudioInputDevice.hh \
+		third-party/headers/live555/liveMedia/WAVAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/StreamReplicator.hh \
+		third-party/headers/live555/liveMedia/RTSPRegisterSender.hh \
+		third-party/headers/live555/liveMedia/RTSPClient.hh \
+		third-party/headers/live555/liveMedia/MediaSession.hh \
+		third-party/headers/live555/liveMedia/RTCP.hh \
+		third-party/headers/live555/liveMedia/DigestAuthentication.hh \
+		third-party/headers/live555/liveMedia/TLSState.hh \
+		third-party/headers/live555/liveMedia/RTSPServer.hh \
+		third-party/headers/live555/liveMedia/GenericMediaServer.hh \
+		third-party/headers/live555/liveMedia/ServerMediaSession.hh \
+		third-party/headers/live555/liveMedia/SIPClient.hh \
+		third-party/headers/live555/liveMedia/QuickTimeFileSink.hh \
+		third-party/headers/live555/liveMedia/QuickTimeGenericRTPSource.hh \
+		third-party/headers/live555/liveMedia/AVIFileSink.hh \
+		third-party/headers/live555/liveMedia/PassiveServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/FileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/OnDemandServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H264VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H265VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/WAVAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/T140TextRTPSink.hh \
+		third-party/headers/live555/liveMedia/TextRTPSink.hh \
+		third-party/headers/live555/liveMedia/MP3AudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2FileServerDemux.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/DVVideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AC3AudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportUDPServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MatroskaFileServerDemux.hh \
+		third-party/headers/live555/liveMedia/MatroskaFile.hh \
+		third-party/headers/live555/liveMedia/OggFileServerDemux.hh \
+		third-party/headers/live555/liveMedia/OggFile.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamDemux.hh \
+		third-party/headers/live555/liveMedia/ProxyServerMediaSession.hh \
+		third-party/headers/live555/liveMedia/MediaTranscodingTable.hh \
+		third-party/headers/live555/liveMedia/HLSSegmenter.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamAccumulator.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment0.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
+		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
+		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		moc_predefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc
 	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/moc $(DEFINES) --include /home/linux/make/Recorder/moc_predefs.h -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/mkspecs/devices/linux-buildroot-g++ -I/home/linux/make/Recorder -I/home/linux/make/Recorder/common -I/home/linux/make/Recorder/media -I/home/linux/make/Recorder/third-party/headers/mpp -I/home/linux/make/Recorder/third-party/headers/drm -I/home/linux/make/Recorder/third-party/headers/ffmpeg -I/home/linux/make/Recorder/third-party/headers/rga -I/home/linux/make/Recorder/third-party/headers/linux -I/home/linux/make/Recorder/third-party/headers -I/home/linux/make/Recorder/third-party/headers/live555 -I/home/linux/make/Recorder/third-party/headers/live555/liveMedia -I/home/linux/make/Recorder/third-party/headers/live555/BasicUsageEnvironment -I/home/linux/make/Recorder/third-party/headers/live555/groupsock -I/home/linux/make/Recorder/third-party/headers/live555/UsageEnvironment -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0 -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/aarch64-buildroot-linux-gnu -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include/c++/10.3.0/backward -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/lib/gcc/aarch64-buildroot-linux-gnu/10.3.0/include-fixed -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/include -I/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include widgets/viewer/videoplayer.h -o moc_videoplayer.cpp
@@ -9136,390 +9659,7 @@ ui_recordtimerwidget.h: widgets/recordtimerwidget.ui \
 	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/uic widgets/recordtimerwidget.ui -o ui_recordtimerwidget.h
 
 ui_listwidgetitem.h: widgets/viewer/listwidgetitem.ui \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/uic \
-		widgets/viewer/listwidgetitem.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgetsglobal.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtguiglobal.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtcore-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsystemdetection.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qprocessordetection.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcompilerdetection.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtypeinfo.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsysinfo.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlogging.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qflags.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasicatomic.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_bootstrap.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qgenericatomic.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_cxx11.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qatomic_msvc.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobalstatic.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmutex.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtgui-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgets-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs_impl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs_win.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrefcount.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qarraydata.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringliteral.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringalgorithms.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringview.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringbuilder.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlist.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qalgorithms.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiterator.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhashfunctions.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpair.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvector.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainertools_impl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpoint.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearraylist.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringlist.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qregexp.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstringmatcher.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreevent.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qscopedpointer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetatype.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvarlengtharray.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainerfwd.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject_impl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmargins.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpaintdevice.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrect.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsize.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpalette.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qcolor.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qrgb.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qrgba64.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qbrush.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qmatrix.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpolygon.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qregion.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdatastream.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiodevice.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qline.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtransform.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimage.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpixelformat.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpixmap.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qshareddata.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhash.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qfont.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qfontmetrics.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qfontinfo.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qsizepolicy.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qcursor.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qkeysequence.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qevent.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvariant.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmap.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdebug.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtextstream.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlocale.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qset.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontiguouscache.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurlquery.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfile.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfiledevice.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
-		widgets/viewer/selectionicon.h \
-		widgets/basewidget.h \
-		media/videoinputdevice.h \
-		media/mediautils.h \
-		common/rthread.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QThread \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qthread.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdeadlinetimer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qelapsedtimer.h \
-		common/Mutex.h \
-		widgets/videowidget.h \
-		allocators/allocator_service.h \
-		allocators/drm_allocator.h \
-		allocators/allocator.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QOpenGLWidget \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qopenglwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QSurfaceFormat \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qsurfaceformat.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qt_windows.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengles2ext.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglext.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QOpenGLFunctions \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglfunctions.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglcontext.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QScopedPointer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglversionfunctions.h \
-		media/mediarecorder.h \
-		common/common.h \
-		common/log.h \
-		media/rkmpp_enc_api.h \
-		third-party/headers/mpp/rk_mpi.h \
-		third-party/headers/mpp/rk_mpi_cmd.h \
-		third-party/headers/mpp/rk_vdec_cmd.h \
-		third-party/headers/mpp/rk_type.h \
-		third-party/headers/mpp/mpp_err.h \
-		third-party/headers/mpp/rk_vdec_cfg.h \
-		third-party/headers/mpp/rk_venc_cmd.h \
-		third-party/headers/mpp/mpp_frame.h \
-		third-party/headers/mpp/mpp_buffer.h \
-		third-party/headers/mpp/mpp_meta.h \
-		third-party/headers/mpp/mpp_packet.h \
-		third-party/headers/mpp/rk_venc_rc.h \
-		third-party/headers/mpp/rk_venc_cfg.h \
-		third-party/headers/mpp/rk_venc_ref.h \
-		third-party/headers/mpp/mpp_task.h \
-		third-party/headers/mpp/mpp_mem.h \
-		third-party/headers/mpp/mpp_log.h \
-		third-party/headers/mpp/mpp_log_def.h \
-		third-party/headers/mpp/mpp_env.h \
-		media/mediamuxer.h \
-		third-party/headers/ffmpeg/libavcodec/avcodec.h \
-		third-party/headers/ffmpeg/libavutil/samplefmt.h \
-		third-party/headers/ffmpeg/libavutil/avutil.h \
-		third-party/headers/ffmpeg/libavutil/common.h \
-		third-party/headers/ffmpeg/libavutil/attributes.h \
-		third-party/headers/ffmpeg/libavutil/macros.h \
-		third-party/headers/ffmpeg/libavutil/version.h \
-		third-party/headers/ffmpeg/libavutil/avconfig.h \
-		third-party/headers/ffmpeg/libavutil/mem.h \
-		third-party/headers/ffmpeg/libavutil/error.h \
-		third-party/headers/ffmpeg/libavutil/rational.h \
-		third-party/headers/ffmpeg/libavutil/mathematics.h \
-		third-party/headers/ffmpeg/libavutil/intfloat.h \
-		third-party/headers/ffmpeg/libavutil/log.h \
-		third-party/headers/ffmpeg/libavutil/pixfmt.h \
-		third-party/headers/ffmpeg/libavutil/buffer.h \
-		third-party/headers/ffmpeg/libavutil/cpu.h \
-		third-party/headers/ffmpeg/libavutil/channel_layout.h \
-		third-party/headers/ffmpeg/libavutil/dict.h \
-		third-party/headers/ffmpeg/libavutil/frame.h \
-		third-party/headers/ffmpeg/libavutil/hwcontext.h \
-		third-party/headers/ffmpeg/libavcodec/bsf.h \
-		third-party/headers/ffmpeg/libavcodec/codec_id.h \
-		third-party/headers/ffmpeg/libavcodec/codec_par.h \
-		third-party/headers/ffmpeg/libavcodec/packet.h \
-		third-party/headers/ffmpeg/libavcodec/version.h \
-		third-party/headers/ffmpeg/libavcodec/codec.h \
-		third-party/headers/ffmpeg/libavcodec/codec_desc.h \
-		third-party/headers/ffmpeg/libavformat/avformat.h \
-		third-party/headers/ffmpeg/libavformat/avio.h \
-		third-party/headers/ffmpeg/libavformat/version.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QPixmap \
-		media/streampusher.h \
-		media/live555/rtspserver.h \
-		third-party/headers/live555/liveMedia/liveMedia.hh \
-		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/MultiFramedRTPSource.hh \
-		third-party/headers/live555/liveMedia/RTPSource.hh \
-		third-party/headers/live555/liveMedia/FramedSource.hh \
-		third-party/headers/live555/groupsock/NetCommon.h \
-		third-party/headers/live555/liveMedia/MediaSource.hh \
-		third-party/headers/live555/liveMedia/Media.hh \
-		third-party/headers/live555/liveMedia/liveMedia_version.hh \
-		third-party/headers/live555/UsageEnvironment/HashTable.hh \
-		third-party/headers/live555/UsageEnvironment/Boolean.hh \
-		third-party/headers/live555/UsageEnvironment/UsageEnvironment.hh \
-		third-party/headers/live555/UsageEnvironment/UsageEnvironment_version.hh \
-		third-party/headers/live555/UsageEnvironment/strDup.hh \
-		third-party/headers/live555/liveMedia/RTPInterface.hh \
-		third-party/headers/live555/groupsock/Groupsock.hh \
-		third-party/headers/live555/groupsock/groupsock_version.hh \
-		third-party/headers/live555/groupsock/NetInterface.hh \
-		third-party/headers/live555/groupsock/NetAddress.hh \
-		third-party/headers/live555/groupsock/GroupEId.hh \
-		third-party/headers/live555/liveMedia/SRTPCryptographicContext.hh \
-		third-party/headers/live555/liveMedia/MIKEY.hh \
-		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/VideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/MultiFramedRTPSink.hh \
-		third-party/headers/live555/liveMedia/RTPSink.hh \
-		third-party/headers/live555/liveMedia/MediaSink.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSink.hh \
-		third-party/headers/live555/liveMedia/AudioRTPSink.hh \
-		third-party/headers/live555/liveMedia/MP3ADURTPSink.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/AMRAudioFileSink.hh \
-		third-party/headers/live555/liveMedia/FileSink.hh \
-		third-party/headers/live555/liveMedia/H264VideoFileSink.hh \
-		third-party/headers/live555/liveMedia/H264or5VideoFileSink.hh \
-		third-party/headers/live555/liveMedia/H265VideoFileSink.hh \
-		third-party/headers/live555/liveMedia/OggFileSink.hh \
-		third-party/headers/live555/liveMedia/BasicUDPSink.hh \
-		third-party/headers/live555/liveMedia/GSMAudioRTPSink.hh \
-		third-party/headers/live555/liveMedia/H263plusVideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/H264VideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/H264or5VideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/FramedFilter.hh \
-		third-party/headers/live555/liveMedia/H265VideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/DVVideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/DVVideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/DVVideoStreamFramer.hh \
-		third-party/headers/live555/liveMedia/H264VideoStreamFramer.hh \
-		third-party/headers/live555/liveMedia/H264or5VideoStreamFramer.hh \
-		third-party/headers/live555/liveMedia/MPEGVideoStreamFramer.hh \
-		third-party/headers/live555/liveMedia/H265VideoStreamFramer.hh \
-		third-party/headers/live555/liveMedia/H264VideoStreamDiscreteFramer.hh \
-		third-party/headers/live555/liveMedia/H264or5VideoStreamDiscreteFramer.hh \
-		third-party/headers/live555/liveMedia/H265VideoStreamDiscreteFramer.hh \
-		third-party/headers/live555/liveMedia/JPEGVideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/SimpleRTPSink.hh \
-		third-party/headers/live555/liveMedia/uLawAudioFilter.hh \
-		third-party/headers/live555/liveMedia/MPEG2IndexFromTransportStream.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportStreamTrickModeFilter.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportStreamIndexFile.hh \
-		third-party/headers/live555/liveMedia/ByteStreamMultiFileSource.hh \
-		third-party/headers/live555/liveMedia/ByteStreamFileSource.hh \
-		third-party/headers/live555/liveMedia/FramedFileSource.hh \
-		third-party/headers/live555/liveMedia/ByteStreamMemoryBufferSource.hh \
-		third-party/headers/live555/liveMedia/BasicUDPSource.hh \
-		third-party/headers/live555/liveMedia/SimpleRTPSource.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSource.hh \
-		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSource.hh \
-		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSink.hh \
-		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/MPEG4GenericRTPSource.hh \
-		third-party/headers/live555/liveMedia/MP3ADURTPSource.hh \
-		third-party/headers/live555/liveMedia/QCELPAudioRTPSource.hh \
-		third-party/headers/live555/liveMedia/AMRAudioRTPSource.hh \
-		third-party/headers/live555/liveMedia/AMRAudioSource.hh \
-		third-party/headers/live555/liveMedia/JPEGVideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/JPEGVideoSource.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/VorbisAudioRTPSource.hh \
-		third-party/headers/live555/liveMedia/TheoraVideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/VP8VideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/VP9VideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/RawVideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromPESSource.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportStreamMultiplexor.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2Demux.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2DemuxedElementaryStream.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromESSource.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportStreamFramer.hh \
-		third-party/headers/live555/liveMedia/ADTSAudioFileSource.hh \
-		third-party/headers/live555/liveMedia/ADTSAudioStreamDiscreteFramer.hh \
-		third-party/headers/live555/liveMedia/H261VideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/H263plusVideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/H264VideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/H265VideoRTPSource.hh \
-		third-party/headers/live555/liveMedia/MP3FileSource.hh \
-		third-party/headers/live555/liveMedia/MP3ADU.hh \
-		third-party/headers/live555/liveMedia/MP3ADUinterleaving.hh \
-		third-party/headers/live555/liveMedia/MP3Transcoder.hh \
-		third-party/headers/live555/liveMedia/MP3ADUTranscoder.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2AudioStreamFramer.hh \
-		third-party/headers/live555/liveMedia/H263plusVideoStreamFramer.hh \
-		third-party/headers/live555/liveMedia/AC3AudioStreamFramer.hh \
-		third-party/headers/live555/liveMedia/AC3AudioRTPSource.hh \
-		third-party/headers/live555/liveMedia/AC3AudioRTPSink.hh \
-		third-party/headers/live555/liveMedia/VorbisAudioRTPSink.hh \
-		third-party/headers/live555/liveMedia/TheoraVideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/VP8VideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/VP9VideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/MPEG4GenericRTPSink.hh \
-		third-party/headers/live555/liveMedia/RawVideoRTPSink.hh \
-		third-party/headers/live555/liveMedia/RawVideoFrameParameters.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamDiscreteFramer.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamFramer.hh \
-		third-party/headers/live555/liveMedia/MPEG4VideoStreamDiscreteFramer.hh \
-		third-party/headers/live555/liveMedia/MPEG4VideoStreamFramer.hh \
-		third-party/headers/live555/liveMedia/DeviceSource.hh \
-		third-party/headers/live555/liveMedia/AudioInputDevice.hh \
-		third-party/headers/live555/liveMedia/WAVAudioFileSource.hh \
-		third-party/headers/live555/liveMedia/StreamReplicator.hh \
-		third-party/headers/live555/liveMedia/RTSPRegisterSender.hh \
-		third-party/headers/live555/liveMedia/RTSPClient.hh \
-		third-party/headers/live555/liveMedia/MediaSession.hh \
-		third-party/headers/live555/liveMedia/RTCP.hh \
-		third-party/headers/live555/liveMedia/DigestAuthentication.hh \
-		third-party/headers/live555/liveMedia/TLSState.hh \
-		third-party/headers/live555/liveMedia/RTSPServer.hh \
-		third-party/headers/live555/liveMedia/GenericMediaServer.hh \
-		third-party/headers/live555/liveMedia/ServerMediaSession.hh \
-		third-party/headers/live555/liveMedia/SIPClient.hh \
-		third-party/headers/live555/liveMedia/QuickTimeFileSink.hh \
-		third-party/headers/live555/liveMedia/QuickTimeGenericRTPSource.hh \
-		third-party/headers/live555/liveMedia/AVIFileSink.hh \
-		third-party/headers/live555/liveMedia/PassiveServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/MPEG4VideoFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/FileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/OnDemandServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/H264VideoFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/H265VideoFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/WAVAudioFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/AMRAudioFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/AMRAudioFileSource.hh \
-		third-party/headers/live555/liveMedia/AMRAudioRTPSink.hh \
-		third-party/headers/live555/liveMedia/T140TextRTPSink.hh \
-		third-party/headers/live555/liveMedia/TextRTPSink.hh \
-		third-party/headers/live555/liveMedia/MP3AudioFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2VideoFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/MPEG1or2FileServerDemux.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/H263plusVideoFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/ADTSAudioFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/DVVideoFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/AC3AudioFileServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportUDPServerMediaSubsession.hh \
-		third-party/headers/live555/liveMedia/MatroskaFileServerDemux.hh \
-		third-party/headers/live555/liveMedia/MatroskaFile.hh \
-		third-party/headers/live555/liveMedia/OggFileServerDemux.hh \
-		third-party/headers/live555/liveMedia/OggFile.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportStreamDemux.hh \
-		third-party/headers/live555/liveMedia/ProxyServerMediaSession.hh \
-		third-party/headers/live555/liveMedia/MediaTranscodingTable.hh \
-		third-party/headers/live555/liveMedia/HLSSegmenter.hh \
-		third-party/headers/live555/liveMedia/MPEG2TransportStreamAccumulator.hh \
-		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment.hh \
-		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment0.hh \
-		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
-		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
-		third-party/headers/live555/groupsock/GroupsockHelper.hh \
-		media/audiorender.h \
-		media/audiodevice.h \
-		media/CaptureHelper.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
-		media/imageconvert.h \
-		utils/mediapathutils.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
-		utils/configutils.h \
-		media/rkrgadef.h \
-		third-party/headers/rga/RockchipRga.h \
-		third-party/headers/rga/drmrga.h \
-		third-party/headers/rga/rga.h \
-		third-party/headers/rga/GrallocOps.h \
-		third-party/headers/rga/RgaUtils.h \
-		third-party/headers/rga/RgaSingleton.h \
-		third-party/headers/rga/RgaMutex.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QPainter \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpainter.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtextoption.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpen.h
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/uic
 	/home/linux/rk3288/rk3588/buildroot/output/rockchip_rk3588/host/bin/uic widgets/viewer/listwidgetitem.ui -o ui_listwidgetitem.h
 
 ui_osdview.h: widgets/viewer/osdview.ui \
@@ -10951,6 +11091,19 @@ main_widget.o: main_widget.cpp main_widget.h \
 		listeners/diskcapacitylistener.h \
 		listeners/hotpluglistener.h \
 		ui_mainwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
 		third-party/headers/mpp/mpp_common.h \
 		widgets/powoffwidget.h \
 		utils/toastutils.h \
@@ -13961,7 +14114,15 @@ basewidget.o: widgets/basewidget.cpp widgets/basewidget.h \
 		third-party/headers/rga/RgaSingleton.h \
 		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
-		ui_basewidget.h
+		ui_basewidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o basewidget.o widgets/basewidget.cpp
 
 confirmdialog.o: widgets/confirmdialog.cpp widgets/confirmdialog.h \
@@ -14083,7 +14244,29 @@ confirmdialog.o: widgets/confirmdialog.cpp widgets/confirmdialog.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
-		ui_confirmdialog.h
+		ui_confirmdialog.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o confirmdialog.o widgets/confirmdialog.cpp
 
 menuwidget.o: widgets/menuwidget.cpp widgets/menuwidget.h \
@@ -14464,7 +14647,24 @@ menuwidget.o: widgets/menuwidget.cpp widgets/menuwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h \
-		ui_menuwidget.h
+		ui_menuwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menuwidget.o widgets/menuwidget.cpp
 
 powoffwidget.o: widgets/powoffwidget.cpp widgets/powoffwidget.h \
@@ -14571,7 +14771,24 @@ powoffwidget.o: widgets/powoffwidget.cpp widgets/powoffwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfiledevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
-		ui_powoffwidget.h
+		ui_powoffwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o powoffwidget.o widgets/powoffwidget.cpp
 
 pushstreamwidget.o: widgets/pushstreamwidget.cpp widgets/pushstreamwidget.h \
@@ -14958,9 +15175,33 @@ pushstreamwidget.o: widgets/pushstreamwidget.cpp widgets/pushstreamwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qhostaddress.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
 		ui_pushstreamwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QDebug \
+		utils/toastutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QRect
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pushstreamwidget.o widgets/pushstreamwidget.cpp
 
 recordwidget.o: widgets/recordwidget.cpp widgets/recordwidget.h \
@@ -15348,7 +15589,33 @@ recordwidget.o: widgets/recordwidget.cpp widgets/recordwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
-		ui_recordwidget.h
+		ui_recordwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QGridLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		widgets/record_timer_widget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o recordwidget.o widgets/recordwidget.cpp
 
 setting_widget.o: widgets/setting_widget.cpp widgets/setting_widget.h \
@@ -15455,7 +15722,32 @@ setting_widget.o: widgets/setting_widget.cpp widgets/setting_widget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfiledevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
-		ui_settingwidget.h
+		ui_settingwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QGridLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QGroupBox \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgroupbox.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QRadioButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qradiobutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o setting_widget.o widgets/setting_widget.cpp
 
 suredialog.o: widgets/suredialog.cpp widgets/suredialog.h \
@@ -15577,7 +15869,28 @@ suredialog.o: widgets/suredialog.cpp widgets/suredialog.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
-		ui_suredialog.h
+		ui_suredialog.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o suredialog.o widgets/suredialog.cpp
 
 usersetwidget.o: widgets/usersetwidget.cpp widgets/usersetwidget.h \
@@ -15964,7 +16277,26 @@ usersetwidget.o: widgets/usersetwidget.cpp widgets/usersetwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
 		utils/storageutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVector \
-		ui_usersetwidget.h
+		ui_usersetwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QGridLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o usersetwidget.o widgets/usersetwidget.cpp
 
 baseviewer.o: widgets/viewer/baseviewer.cpp widgets/viewer/baseviewer.h \
@@ -16513,7 +16845,24 @@ diskselectionitem.o: widgets/viewer/diskselectionitem.cpp widgets/viewer/disksel
 		utils/storageutils.h \
 		common/common.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVector \
-		ui_diskselectionitem.h
+		ui_diskselectionitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o diskselectionitem.o widgets/viewer/diskselectionitem.cpp
 
 diskselectionwidget.o: widgets/viewer/diskselectionwidget.cpp widgets/viewer/diskselectionwidget.h \
@@ -16914,7 +17263,26 @@ diskselectionwidget.o: widgets/viewer/diskselectionwidget.cpp widgets/viewer/dis
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtabbar.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtabwidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qrubberband.h \
-		ui_diskselectionwidget.h
+		ui_diskselectionwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o diskselectionwidget.o widgets/viewer/diskselectionwidget.cpp
 
 extstorageitem.o: widgets/viewer/extstorageitem.cpp widgets/viewer/extstorageitem.h \
@@ -17027,7 +17395,20 @@ extstorageitem.o: widgets/viewer/extstorageitem.cpp widgets/viewer/extstorageite
 		common/common.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
-		ui_extstorageitem.h
+		ui_extstorageitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o extstorageitem.o widgets/viewer/extstorageitem.cpp
 
 imagebrowser.o: widgets/viewer/imagebrowser.cpp widgets/viewer/imagebrowser.h \
@@ -17148,7 +17529,292 @@ imagebrowser.o: widgets/viewer/imagebrowser.cpp widgets/viewer/imagebrowser.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/QSerialPort \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialport.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
-		ui_imagebrowser.h
+		widgets/basewidget.h \
+		media/videoinputdevice.h \
+		media/mediautils.h \
+		widgets/videowidget.h \
+		allocators/allocator_service.h \
+		allocators/drm_allocator.h \
+		allocators/allocator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QOpenGLWidget \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qopenglwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QSurfaceFormat \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qsurfaceformat.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qt_windows.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengles2ext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QOpenGLFunctions \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglcontext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QObject \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QScopedPointer \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglversionfunctions.h \
+		media/mediarecorder.h \
+		media/rkmpp_enc_api.h \
+		third-party/headers/mpp/rk_mpi.h \
+		third-party/headers/mpp/rk_mpi_cmd.h \
+		third-party/headers/mpp/rk_vdec_cmd.h \
+		third-party/headers/mpp/rk_type.h \
+		third-party/headers/mpp/mpp_err.h \
+		third-party/headers/mpp/rk_vdec_cfg.h \
+		third-party/headers/mpp/rk_venc_cmd.h \
+		third-party/headers/mpp/mpp_frame.h \
+		third-party/headers/mpp/mpp_buffer.h \
+		third-party/headers/mpp/mpp_meta.h \
+		third-party/headers/mpp/mpp_packet.h \
+		third-party/headers/mpp/rk_venc_rc.h \
+		third-party/headers/mpp/rk_venc_cfg.h \
+		third-party/headers/mpp/rk_venc_ref.h \
+		third-party/headers/mpp/mpp_task.h \
+		third-party/headers/mpp/mpp_mem.h \
+		third-party/headers/mpp/mpp_log.h \
+		third-party/headers/mpp/mpp_log_def.h \
+		third-party/headers/mpp/mpp_env.h \
+		media/mediamuxer.h \
+		third-party/headers/ffmpeg/libavcodec/avcodec.h \
+		third-party/headers/ffmpeg/libavutil/samplefmt.h \
+		third-party/headers/ffmpeg/libavutil/avutil.h \
+		third-party/headers/ffmpeg/libavutil/common.h \
+		third-party/headers/ffmpeg/libavutil/attributes.h \
+		third-party/headers/ffmpeg/libavutil/macros.h \
+		third-party/headers/ffmpeg/libavutil/version.h \
+		third-party/headers/ffmpeg/libavutil/avconfig.h \
+		third-party/headers/ffmpeg/libavutil/mem.h \
+		third-party/headers/ffmpeg/libavutil/error.h \
+		third-party/headers/ffmpeg/libavutil/rational.h \
+		third-party/headers/ffmpeg/libavutil/mathematics.h \
+		third-party/headers/ffmpeg/libavutil/intfloat.h \
+		third-party/headers/ffmpeg/libavutil/log.h \
+		third-party/headers/ffmpeg/libavutil/pixfmt.h \
+		third-party/headers/ffmpeg/libavutil/buffer.h \
+		third-party/headers/ffmpeg/libavutil/cpu.h \
+		third-party/headers/ffmpeg/libavutil/channel_layout.h \
+		third-party/headers/ffmpeg/libavutil/dict.h \
+		third-party/headers/ffmpeg/libavutil/frame.h \
+		third-party/headers/ffmpeg/libavutil/hwcontext.h \
+		third-party/headers/ffmpeg/libavcodec/bsf.h \
+		third-party/headers/ffmpeg/libavcodec/codec_id.h \
+		third-party/headers/ffmpeg/libavcodec/codec_par.h \
+		third-party/headers/ffmpeg/libavcodec/packet.h \
+		third-party/headers/ffmpeg/libavcodec/version.h \
+		third-party/headers/ffmpeg/libavcodec/codec.h \
+		third-party/headers/ffmpeg/libavcodec/codec_desc.h \
+		third-party/headers/ffmpeg/libavformat/avformat.h \
+		third-party/headers/ffmpeg/libavformat/avio.h \
+		third-party/headers/ffmpeg/libavformat/version.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QPixmap \
+		media/streampusher.h \
+		media/live555/rtspserver.h \
+		third-party/headers/live555/liveMedia/liveMedia.hh \
+		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MultiFramedRTPSource.hh \
+		third-party/headers/live555/liveMedia/RTPSource.hh \
+		third-party/headers/live555/liveMedia/FramedSource.hh \
+		third-party/headers/live555/groupsock/NetCommon.h \
+		third-party/headers/live555/liveMedia/MediaSource.hh \
+		third-party/headers/live555/liveMedia/Media.hh \
+		third-party/headers/live555/liveMedia/liveMedia_version.hh \
+		third-party/headers/live555/UsageEnvironment/HashTable.hh \
+		third-party/headers/live555/UsageEnvironment/Boolean.hh \
+		third-party/headers/live555/UsageEnvironment/UsageEnvironment.hh \
+		third-party/headers/live555/UsageEnvironment/UsageEnvironment_version.hh \
+		third-party/headers/live555/UsageEnvironment/strDup.hh \
+		third-party/headers/live555/liveMedia/RTPInterface.hh \
+		third-party/headers/live555/groupsock/Groupsock.hh \
+		third-party/headers/live555/groupsock/groupsock_version.hh \
+		third-party/headers/live555/groupsock/NetInterface.hh \
+		third-party/headers/live555/groupsock/NetAddress.hh \
+		third-party/headers/live555/groupsock/GroupEId.hh \
+		third-party/headers/live555/liveMedia/SRTPCryptographicContext.hh \
+		third-party/headers/live555/liveMedia/MIKEY.hh \
+		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MultiFramedRTPSink.hh \
+		third-party/headers/live555/liveMedia/RTPSink.hh \
+		third-party/headers/live555/liveMedia/MediaSink.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/MP3ADURTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileSink.hh \
+		third-party/headers/live555/liveMedia/FileSink.hh \
+		third-party/headers/live555/liveMedia/H264VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/H265VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/OggFileSink.hh \
+		third-party/headers/live555/liveMedia/BasicUDPSink.hh \
+		third-party/headers/live555/liveMedia/GSMAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/H264VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/FramedFilter.hh \
+		third-party/headers/live555/liveMedia/H265VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/DVVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/DVVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/DVVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/MPEGVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H265VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H265VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/SimpleRTPSink.hh \
+		third-party/headers/live555/liveMedia/uLawAudioFilter.hh \
+		third-party/headers/live555/liveMedia/MPEG2IndexFromTransportStream.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamTrickModeFilter.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamIndexFile.hh \
+		third-party/headers/live555/liveMedia/ByteStreamMultiFileSource.hh \
+		third-party/headers/live555/liveMedia/ByteStreamFileSource.hh \
+		third-party/headers/live555/liveMedia/FramedFileSource.hh \
+		third-party/headers/live555/liveMedia/ByteStreamMemoryBufferSource.hh \
+		third-party/headers/live555/liveMedia/BasicUDPSource.hh \
+		third-party/headers/live555/liveMedia/SimpleRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4GenericRTPSource.hh \
+		third-party/headers/live555/liveMedia/MP3ADURTPSource.hh \
+		third-party/headers/live555/liveMedia/QCELPAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioSource.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoSource.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VorbisAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/TheoraVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VP8VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VP9VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/RawVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromPESSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamMultiplexor.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2Demux.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2DemuxedElementaryStream.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromESSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFramer.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H261VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H264VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H265VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MP3FileSource.hh \
+		third-party/headers/live555/liveMedia/MP3ADU.hh \
+		third-party/headers/live555/liveMedia/MP3ADUinterleaving.hh \
+		third-party/headers/live555/liveMedia/MP3Transcoder.hh \
+		third-party/headers/live555/liveMedia/MP3ADUTranscoder.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/AC3AudioStreamFramer.hh \
+		third-party/headers/live555/liveMedia/AC3AudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AC3AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/VorbisAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/TheoraVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VP8VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VP9VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4GenericRTPSink.hh \
+		third-party/headers/live555/liveMedia/RawVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/RawVideoFrameParameters.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/DeviceSource.hh \
+		third-party/headers/live555/liveMedia/AudioInputDevice.hh \
+		third-party/headers/live555/liveMedia/WAVAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/StreamReplicator.hh \
+		third-party/headers/live555/liveMedia/RTSPRegisterSender.hh \
+		third-party/headers/live555/liveMedia/RTSPClient.hh \
+		third-party/headers/live555/liveMedia/MediaSession.hh \
+		third-party/headers/live555/liveMedia/RTCP.hh \
+		third-party/headers/live555/liveMedia/DigestAuthentication.hh \
+		third-party/headers/live555/liveMedia/TLSState.hh \
+		third-party/headers/live555/liveMedia/RTSPServer.hh \
+		third-party/headers/live555/liveMedia/GenericMediaServer.hh \
+		third-party/headers/live555/liveMedia/ServerMediaSession.hh \
+		third-party/headers/live555/liveMedia/SIPClient.hh \
+		third-party/headers/live555/liveMedia/QuickTimeFileSink.hh \
+		third-party/headers/live555/liveMedia/QuickTimeGenericRTPSource.hh \
+		third-party/headers/live555/liveMedia/AVIFileSink.hh \
+		third-party/headers/live555/liveMedia/PassiveServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/FileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/OnDemandServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H264VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H265VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/WAVAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/T140TextRTPSink.hh \
+		third-party/headers/live555/liveMedia/TextRTPSink.hh \
+		third-party/headers/live555/liveMedia/MP3AudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2FileServerDemux.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/DVVideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AC3AudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportUDPServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MatroskaFileServerDemux.hh \
+		third-party/headers/live555/liveMedia/MatroskaFile.hh \
+		third-party/headers/live555/liveMedia/OggFileServerDemux.hh \
+		third-party/headers/live555/liveMedia/OggFile.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamDemux.hh \
+		third-party/headers/live555/liveMedia/ProxyServerMediaSession.hh \
+		third-party/headers/live555/liveMedia/MediaTranscodingTable.hh \
+		third-party/headers/live555/liveMedia/HLSSegmenter.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamAccumulator.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment0.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
+		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
+		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QImage \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
+		ui_imagebrowser.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o imagebrowser.o widgets/viewer/imagebrowser.cpp
 
 imageviewer.o: widgets/viewer/imageviewer.cpp widgets/viewer/imageviewer.h \
@@ -17575,6 +18241,25 @@ imageviewer.o: widgets/viewer/imageviewer.cpp widgets/viewer/imageviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtSerialPort/qserialportglobal.h \
 		widgets/viewer/imagebrowser.h \
 		ui_imageviewer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QListWidget \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
 		widgets/viewer/listwidgetitem.h \
 		widgets/viewer/selectionicon.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QPainter \
@@ -17587,7 +18272,6 @@ imageviewer.o: widgets/viewer/imageviewer.cpp widgets/viewer/imageviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QScrollerProperties \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qscrollerproperties.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMetaType \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QScrollBar \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qscrollbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o imageviewer.o widgets/viewer/imageviewer.cpp
@@ -17700,6 +18384,23 @@ record_timer_widget.o: widgets/record_timer_widget.cpp widgets/record_timer_widg
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h \
 		ui_recordtimerwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
 		common/log.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o record_timer_widget.o widgets/record_timer_widget.cpp
 
@@ -18217,7 +18918,20 @@ listwidgetitem.o: widgets/viewer/listwidgetitem.cpp widgets/viewer/listwidgetite
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpainter.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtextoption.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpen.h \
-		ui_listwidgetitem.h
+		ui_listwidgetitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listwidgetitem.o widgets/viewer/listwidgetitem.cpp
 
 osdview.o: widgets/viewer/osdview.cpp widgets/viewer/osdview.h \
@@ -18325,6 +19039,32 @@ osdview.o: widgets/viewer/osdview.cpp widgets/viewer/osdview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
 		ui_osdview.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLineEdit \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlineedit.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtextcursor.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtextformat.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpen.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtextoption.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
 		utils/configutils.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o osdview.o widgets/viewer/osdview.cpp
@@ -18816,6 +19556,25 @@ progressviewer.o: widgets/viewer/progressviewer.cpp widgets/viewer/progressviewe
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
 		common/observer.h \
 		ui_progressviewer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QProgressBar \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qprogressbar.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QTimer \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtimer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbasictimer.h
@@ -19196,7 +19955,24 @@ selectionicon.o: widgets/viewer/selectionicon.cpp widgets/viewer/selectionicon.h
 		third-party/headers/rga/RgaSingleton.h \
 		third-party/headers/rga/RgaMutex.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
-		ui_selectionicon.h
+		ui_selectionicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o selectionicon.o widgets/viewer/selectionicon.cpp
 
 selectview.o: widgets/viewer/selectview.cpp widgets/viewer/selectview.h \
@@ -19307,7 +20083,22 @@ selectview.o: widgets/viewer/selectview.cpp widgets/viewer/selectview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
-		ui_selectview.h
+		ui_selectview.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o selectview.o widgets/viewer/selectview.cpp
 
 setfpsview.o: widgets/viewer/setfpsview.cpp widgets/viewer/setfpsview.h \
@@ -19414,13 +20205,32 @@ setfpsview.o: widgets/viewer/setfpsview.cpp widgets/viewer/setfpsview.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfiledevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
-		ui_setfpsview.h
+		ui_setfpsview.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o setfpsview.o widgets/viewer/setfpsview.cpp
 
 videoplayer.o: widgets/viewer/videoplayer.cpp widgets/viewer/videoplayer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qwidget.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgetsglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QMediaPlayer \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaplayer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimediaglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtguiglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qglobal.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qconfig-bootstrapped.h \
@@ -19444,13 +20254,12 @@ videoplayer.o: widgets/viewer/videoplayer.cpp widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnumeric.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qversiontagging.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtgui-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgets-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimedia-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaobject.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qnamespace.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobjectdefs_impl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs_win.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qstring.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qchar.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qbytearray.h \
@@ -19478,6 +20287,41 @@ videoplayer.o: widgets/viewer/videoplayer.cpp widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvarlengtharray.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontainerfwd.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qobject_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmultimedia.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediacontent.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qshareddata.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhash.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaresource.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmap.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdebug.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtextstream.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiodevice.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlocale.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvariant.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qset.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontiguouscache.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qnetworkrequest.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetworkglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetwork-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QSharedDataPointer \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QUrl \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurlquery.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaenumdebug.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetaobject.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qaudio.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qnetworkconfiguration.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/QVideoWidget \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qvideowidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgetsglobal.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qtwidgets-config.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qwindowdefs_win.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmargins.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpaintdevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qrect.h \
@@ -19491,16 +20335,11 @@ videoplayer.o: widgets/viewer/videoplayer.cpp widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpolygon.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qregion.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdatastream.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qiodevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qline.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtransform.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimage.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpixelformat.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qpixmap.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qshareddata.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qhash.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qsharedpointer_impl.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qfont.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qfontmetrics.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qfontinfo.h \
@@ -19508,40 +20347,10 @@ videoplayer.o: widgets/viewer/videoplayer.cpp widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qcursor.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qkeysequence.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qevent.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qvariant.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmap.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qdebug.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qtextstream.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qlocale.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qset.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcontiguouscache.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurl.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qurlquery.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfile.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qfiledevice.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qvector2d.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qtouchdevice.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QMediaPlayer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaplayer.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimediaglobal.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qtmultimedia-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaobject.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmultimedia.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediacontent.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaresource.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qnetworkrequest.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetworkglobal.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qtnetwork-config.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QSharedDataPointer \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QString \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QUrl \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QVariant \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediaenumdebug.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qmetaobject.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qaudio.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtNetwork/qnetworkconfiguration.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/QVideoWidget \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qvideowidget.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qmediabindableinterface.h \
 		listeners/key_listener.h \
@@ -19565,8 +20374,294 @@ videoplayer.o: widgets/viewer/videoplayer.cpp widgets/viewer/videoplayer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qvideoframe.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qabstractvideobuffer.h \
-		ui_videoplayer.h \
+		widgets/basewidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QWidget \
+		media/videoinputdevice.h \
 		media/mediautils.h \
+		widgets/videowidget.h \
+		allocators/allocator_service.h \
+		allocators/drm_allocator.h \
+		allocators/allocator.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QOpenGLWidget \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qopenglwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QSurfaceFormat \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qsurfaceformat.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengl.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qt_windows.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopengles2ext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QOpenGLFunctions \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglfunctions.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglcontext.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QScopedPointer \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qopenglversionfunctions.h \
+		media/mediarecorder.h \
+		media/rkmpp_enc_api.h \
+		third-party/headers/mpp/rk_mpi.h \
+		third-party/headers/mpp/rk_mpi_cmd.h \
+		third-party/headers/mpp/rk_vdec_cmd.h \
+		third-party/headers/mpp/rk_type.h \
+		third-party/headers/mpp/mpp_err.h \
+		third-party/headers/mpp/rk_vdec_cfg.h \
+		third-party/headers/mpp/rk_venc_cmd.h \
+		third-party/headers/mpp/mpp_frame.h \
+		third-party/headers/mpp/mpp_buffer.h \
+		third-party/headers/mpp/mpp_meta.h \
+		third-party/headers/mpp/mpp_packet.h \
+		third-party/headers/mpp/rk_venc_rc.h \
+		third-party/headers/mpp/rk_venc_cfg.h \
+		third-party/headers/mpp/rk_venc_ref.h \
+		third-party/headers/mpp/mpp_task.h \
+		third-party/headers/mpp/mpp_mem.h \
+		third-party/headers/mpp/mpp_log.h \
+		third-party/headers/mpp/mpp_log_def.h \
+		third-party/headers/mpp/mpp_env.h \
+		media/mediamuxer.h \
+		third-party/headers/ffmpeg/libavcodec/avcodec.h \
+		third-party/headers/ffmpeg/libavutil/samplefmt.h \
+		third-party/headers/ffmpeg/libavutil/avutil.h \
+		third-party/headers/ffmpeg/libavutil/common.h \
+		third-party/headers/ffmpeg/libavutil/attributes.h \
+		third-party/headers/ffmpeg/libavutil/macros.h \
+		third-party/headers/ffmpeg/libavutil/version.h \
+		third-party/headers/ffmpeg/libavutil/avconfig.h \
+		third-party/headers/ffmpeg/libavutil/mem.h \
+		third-party/headers/ffmpeg/libavutil/error.h \
+		third-party/headers/ffmpeg/libavutil/rational.h \
+		third-party/headers/ffmpeg/libavutil/mathematics.h \
+		third-party/headers/ffmpeg/libavutil/intfloat.h \
+		third-party/headers/ffmpeg/libavutil/log.h \
+		third-party/headers/ffmpeg/libavutil/pixfmt.h \
+		third-party/headers/ffmpeg/libavutil/buffer.h \
+		third-party/headers/ffmpeg/libavutil/cpu.h \
+		third-party/headers/ffmpeg/libavutil/channel_layout.h \
+		third-party/headers/ffmpeg/libavutil/dict.h \
+		third-party/headers/ffmpeg/libavutil/frame.h \
+		third-party/headers/ffmpeg/libavutil/hwcontext.h \
+		third-party/headers/ffmpeg/libavcodec/bsf.h \
+		third-party/headers/ffmpeg/libavcodec/codec_id.h \
+		third-party/headers/ffmpeg/libavcodec/codec_par.h \
+		third-party/headers/ffmpeg/libavcodec/packet.h \
+		third-party/headers/ffmpeg/libavcodec/version.h \
+		third-party/headers/ffmpeg/libavcodec/codec.h \
+		third-party/headers/ffmpeg/libavcodec/codec_desc.h \
+		third-party/headers/ffmpeg/libavformat/avformat.h \
+		third-party/headers/ffmpeg/libavformat/avio.h \
+		third-party/headers/ffmpeg/libavformat/version.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QPixmap \
+		media/streampusher.h \
+		media/live555/rtspserver.h \
+		third-party/headers/live555/liveMedia/liveMedia.hh \
+		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MultiFramedRTPSource.hh \
+		third-party/headers/live555/liveMedia/RTPSource.hh \
+		third-party/headers/live555/liveMedia/FramedSource.hh \
+		third-party/headers/live555/groupsock/NetCommon.h \
+		third-party/headers/live555/liveMedia/MediaSource.hh \
+		third-party/headers/live555/liveMedia/Media.hh \
+		third-party/headers/live555/liveMedia/liveMedia_version.hh \
+		third-party/headers/live555/UsageEnvironment/HashTable.hh \
+		third-party/headers/live555/UsageEnvironment/Boolean.hh \
+		third-party/headers/live555/UsageEnvironment/UsageEnvironment.hh \
+		third-party/headers/live555/UsageEnvironment/UsageEnvironment_version.hh \
+		third-party/headers/live555/UsageEnvironment/strDup.hh \
+		third-party/headers/live555/liveMedia/RTPInterface.hh \
+		third-party/headers/live555/groupsock/Groupsock.hh \
+		third-party/headers/live555/groupsock/groupsock_version.hh \
+		third-party/headers/live555/groupsock/NetInterface.hh \
+		third-party/headers/live555/groupsock/NetAddress.hh \
+		third-party/headers/live555/groupsock/GroupEId.hh \
+		third-party/headers/live555/liveMedia/SRTPCryptographicContext.hh \
+		third-party/headers/live555/liveMedia/MIKEY.hh \
+		third-party/headers/live555/liveMedia/JPEG2000VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MultiFramedRTPSink.hh \
+		third-party/headers/live555/liveMedia/RTPSink.hh \
+		third-party/headers/live555/liveMedia/MediaSink.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/MP3ADURTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileSink.hh \
+		third-party/headers/live555/liveMedia/FileSink.hh \
+		third-party/headers/live555/liveMedia/H264VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/H265VideoFileSink.hh \
+		third-party/headers/live555/liveMedia/OggFileSink.hh \
+		third-party/headers/live555/liveMedia/BasicUDPSink.hh \
+		third-party/headers/live555/liveMedia/GSMAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/H264VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/FramedFilter.hh \
+		third-party/headers/live555/liveMedia/H265VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/DVVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/DVVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/DVVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/MPEGVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H265VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H264VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H264or5VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H265VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/SimpleRTPSink.hh \
+		third-party/headers/live555/liveMedia/uLawAudioFilter.hh \
+		third-party/headers/live555/liveMedia/MPEG2IndexFromTransportStream.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamTrickModeFilter.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamIndexFile.hh \
+		third-party/headers/live555/liveMedia/ByteStreamMultiFileSource.hh \
+		third-party/headers/live555/liveMedia/ByteStreamFileSource.hh \
+		third-party/headers/live555/liveMedia/FramedFileSource.hh \
+		third-party/headers/live555/liveMedia/ByteStreamMemoryBufferSource.hh \
+		third-party/headers/live555/liveMedia/BasicUDPSource.hh \
+		third-party/headers/live555/liveMedia/SimpleRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4LATMAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4ESVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG4GenericRTPSource.hh \
+		third-party/headers/live555/liveMedia/MP3ADURTPSource.hh \
+		third-party/headers/live555/liveMedia/QCELPAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioSource.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/JPEGVideoSource.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VorbisAudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/TheoraVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VP8VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/VP9VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/RawVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromPESSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamMultiplexor.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2Demux.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2DemuxedElementaryStream.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFromESSource.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamFramer.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/H261VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H264VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/H265VideoRTPSource.hh \
+		third-party/headers/live555/liveMedia/MP3FileSource.hh \
+		third-party/headers/live555/liveMedia/MP3ADU.hh \
+		third-party/headers/live555/liveMedia/MP3ADUinterleaving.hh \
+		third-party/headers/live555/liveMedia/MP3Transcoder.hh \
+		third-party/headers/live555/liveMedia/MP3ADUTranscoder.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2AudioStreamFramer.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/AC3AudioStreamFramer.hh \
+		third-party/headers/live555/liveMedia/AC3AudioRTPSource.hh \
+		third-party/headers/live555/liveMedia/AC3AudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/VorbisAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/TheoraVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VP8VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/VP9VideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/MPEG4GenericRTPSink.hh \
+		third-party/headers/live555/liveMedia/RawVideoRTPSink.hh \
+		third-party/headers/live555/liveMedia/RawVideoFrameParameters.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoStreamDiscreteFramer.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoStreamFramer.hh \
+		third-party/headers/live555/liveMedia/DeviceSource.hh \
+		third-party/headers/live555/liveMedia/AudioInputDevice.hh \
+		third-party/headers/live555/liveMedia/WAVAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/StreamReplicator.hh \
+		third-party/headers/live555/liveMedia/RTSPRegisterSender.hh \
+		third-party/headers/live555/liveMedia/RTSPClient.hh \
+		third-party/headers/live555/liveMedia/MediaSession.hh \
+		third-party/headers/live555/liveMedia/RTCP.hh \
+		third-party/headers/live555/liveMedia/DigestAuthentication.hh \
+		third-party/headers/live555/liveMedia/TLSState.hh \
+		third-party/headers/live555/liveMedia/RTSPServer.hh \
+		third-party/headers/live555/liveMedia/GenericMediaServer.hh \
+		third-party/headers/live555/liveMedia/ServerMediaSession.hh \
+		third-party/headers/live555/liveMedia/SIPClient.hh \
+		third-party/headers/live555/liveMedia/QuickTimeFileSink.hh \
+		third-party/headers/live555/liveMedia/QuickTimeGenericRTPSource.hh \
+		third-party/headers/live555/liveMedia/AVIFileSink.hh \
+		third-party/headers/live555/liveMedia/PassiveServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG4VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/FileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/OnDemandServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H264VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H265VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/WAVAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AMRAudioFileSource.hh \
+		third-party/headers/live555/liveMedia/AMRAudioRTPSink.hh \
+		third-party/headers/live555/liveMedia/T140TextRTPSink.hh \
+		third-party/headers/live555/liveMedia/TextRTPSink.hh \
+		third-party/headers/live555/liveMedia/MP3AudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2VideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG1or2FileServerDemux.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/H263plusVideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/ADTSAudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/DVVideoFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/AC3AudioFileServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportUDPServerMediaSubsession.hh \
+		third-party/headers/live555/liveMedia/MatroskaFileServerDemux.hh \
+		third-party/headers/live555/liveMedia/MatroskaFile.hh \
+		third-party/headers/live555/liveMedia/OggFileServerDemux.hh \
+		third-party/headers/live555/liveMedia/OggFile.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamDemux.hh \
+		third-party/headers/live555/liveMedia/ProxyServerMediaSession.hh \
+		third-party/headers/live555/liveMedia/MediaTranscodingTable.hh \
+		third-party/headers/live555/liveMedia/HLSSegmenter.hh \
+		third-party/headers/live555/liveMedia/MPEG2TransportStreamAccumulator.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment0.hh \
+		third-party/headers/live555/BasicUsageEnvironment/BasicUsageEnvironment_version.hh \
+		third-party/headers/live555/BasicUsageEnvironment/DelayQueue.hh \
+		third-party/headers/live555/groupsock/GroupsockHelper.hh \
+		media/audiorender.h \
+		media/audiodevice.h \
+		media/CaptureHelper.h \
+		media/imageconvert.h \
+		utils/mediapathutils.h \
+		utils/configutils.h \
+		media/rkrgadef.h \
+		third-party/headers/rga/RockchipRga.h \
+		third-party/headers/rga/drmrga.h \
+		third-party/headers/rga/rga.h \
+		third-party/headers/rga/GrallocOps.h \
+		third-party/headers/rga/RgaUtils.h \
+		third-party/headers/rga/RgaSingleton.h \
+		third-party/headers/rga/RgaMutex.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QCloseEvent \
+		ui_videoplayer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QLabel \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlabel.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qframe.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qicon.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
+		widgets/viewer/positionslider.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSlider \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qslider.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractslider.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QMouseEvent \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoProbe \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/qvideoprobe.h \
 		utils/toastutils.h \
@@ -20028,11 +21123,26 @@ videoviewer.o: widgets/viewer/videoviewer.cpp widgets/viewer/videoviewer.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/QMutex \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtMultimedia/QVideoFrame \
 		ui_videoviewer.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QApplication \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qguiapplication.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qinputmethod.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QHBoxLayout \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qboxlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qgridlayout.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QPushButton \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qpushbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QSpacerItem \
+		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtWidgets/QVBoxLayout \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/QMovie \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qmovie.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimagereader.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qcoreapplication.h \
-		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qeventloop.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtGui/qimageiohandler.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qplugin.h \
 		../../rk3288/rk3588/buildroot/output/rockchip_rk3588/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/qt5/QtCore/qpointer.h \

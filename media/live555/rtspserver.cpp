@@ -39,7 +39,7 @@ bool RtspServer::prepare(RtspServer::MetaInfo *meta)
     cfg.format = meta->format;
     cfg.type = meta->type;
     if(meta->width>1920||meta->height>1080){
-        cfg.bitRate = cfg.width * cfg.height / 30 * 30;
+        cfg.bitRate = cfg.width * cfg.height / 30 * 15;
     }else{
         cfg.bitRate = cfg.width * cfg.height / 30 * 60;
     }
@@ -111,9 +111,9 @@ bool RtspServer::start()
     OutPacketBuffer::maxSize = 1920*1080*2;;
     mRtspServer->addServerMediaSession(mSms);
 
-    char* url = mRtspServer->rtspURL(mSms);
+    url = mRtspServer->rtspURL(mSms);
     RLOGD("Play this stream using the URL: %s", url);
-    delete[] url;
+    //delete[] url;
 
     mStart = true;
     return true;
@@ -122,6 +122,7 @@ bool RtspServer::start()
 bool RtspServer::stop()
 {
     RLOGD("Stop streaming... Exit scheduler eventLoop\n");
+    url = "";
     setDoneFlag();
 
     RLOGD("Exit procThread\n");
@@ -157,7 +158,8 @@ void RtspServer::getData(DmaBufferObject &dmabo)
 std::string RtspServer::getUrl()
 {
     if(mStart)
-        return mRtspServer->rtspURL(mSms);
+        return url;
+        //return mRtspServer->rtspURL(mSms);
     else
         return "";
 }

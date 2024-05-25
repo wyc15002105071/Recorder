@@ -10,6 +10,10 @@ ImageViewer::ImageViewer(QWidget *parent) : BaseViewer(parent)
     , ui(new Ui::ImageViewer)
 {
     ui->setupUi(this);
+    mProgressViewer = sp<ProgressViewer>(new ProgressViewer(this));
+    mFileUtils->attach(mProgressViewer.get());
+    mThumbnail->attach(mProgressViewer.get());
+
     mImageBrowser = sp<ImageBrowser>(new ImageBrowser(this));
     mFileType     = FILE_TYPE_IMAGE;
     mListViewer   = ui->image_list;

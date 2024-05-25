@@ -23,7 +23,7 @@ void UdpListener::run()
             //将数据报内容显示出来
             RLOGD("udp data %s",datagram);
             //判断数据是否完整
-            if(QString(datagram).contains("searchKlj:"))
+            if(QString(datagram).contains("searchKlj:")&&isPlay)
             {
                 qDebug() <<receiver->writeDatagram(QString("qyyy:"+isPlay?"start":"stop").toUtf8(),address,8888);
             }
