@@ -2,6 +2,8 @@
 #include "ui_recordwidget.h"
 #include "common/log.h"
 #include "utils/configutils.h"
+#include "utils/toastutils.h"
+#include <QTimer>
 
 RecordWidget::RecordWidget(QWidget *parent) :
     BaseWidget(parent),
@@ -44,13 +46,25 @@ void RecordWidget::onRecordBtnToggled(bool toggled)
         ui->record_timer_widget->stop();
         if(mVideoInputDevice) {
             mVideoInputDevice->stopRecord();
-            if(ConfigUtils::isUsbMedia)
-                system("sync");
-            if(!ConfigUtils::isPowOff){
-                //mSureDialog->exec();
-                mSureDialog->setText("视屏录制完成");
-                mSureDialog->showFullScreen();
+            if(ConfigUtils::isUsbMedia){
+                ToastUtils::instance().show(ToastUtils::INFO,"正在保存到移动设备。。。");
+                QTimer::singleShot(500,[=]{
+                    system("sync");
+                    if(!ConfigUtils::isPowOff){
+                        //mSureDialog->exec();
+                        mSureDialog->setText("视屏录制完成");
+                        mSureDialog->showFullScreen();
+                    }
+                });
+
+            }else{
+                if(!ConfigUtils::isPowOff){
+                    //mSureDialog->exec();
+                    mSureDialog->setText("视屏录制完成");
+                    mSureDialog->showFullScreen();
+                }
             }
+
         }
         this->close();
     }

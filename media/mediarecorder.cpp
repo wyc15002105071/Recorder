@@ -273,7 +273,8 @@ bool MediaRecorder::initVideoRecorder(int width, int height, __u32 format, int f
         break;
     }
 
-    OSDUtils::createOSD(mOsd,"清阅技术");
+    //OSDUtils::createOSD(mOsd,"清阅技术");
+    OSDUtils::createOSD(mOsd,ConfigUtils::ost_txt.isEmpty()?"清阅技术":ConfigUtils::ost_txt);
 
     RKHWEncApi::OSD_t osd_t;
     osd_t.data     = mOsd.toImage().bits();

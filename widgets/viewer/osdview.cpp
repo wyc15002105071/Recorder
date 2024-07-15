@@ -23,7 +23,8 @@ void OsdView::open()
 void OsdView::doSure()
 {
     QString s = ui->lineEdit->text();
-    if(s.simplified().isEmpty()){
+    //if(s.simplified().isEmpty()){
+    if(s.isEmpty()){
         return;
     }
     ConfigUtils::ost_txt = s;

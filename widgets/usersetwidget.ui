@@ -53,7 +53,9 @@ border-bottom: 1px solid rgb(59, 63, 75);
 }
 #back_btn{
 	background: rgba(39, 42, 51, 1);
-   image: url(:/resources/icons/back.png);
+    background-image: url(:/resources/icons/back.png);
+	background-position: left;
+	background-repeat: no-rep
 }
 QPushButton {
 	font: 14pt &quot;Ubuntu&quot;;
@@ -82,14 +84,14 @@ QPushButton::pressed{
         </property>
         <property name="minimumSize">
          <size>
-          <width>80</width>
-          <height>60</height>
+          <width>180</width>
+          <height>80</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>80</width>
-          <height>60</height>
+          <width>180</width>
+          <height>80</height>
          </size>
         </property>
         <property name="text">
@@ -145,8 +147,11 @@ text-align: left;
 vertical-align: top;
 }
 #pBtn_osd{
-	border-image: url(:/resources/icons/icon_setting_item.png);
-	border-bottom: 1px solid rgb(110, 110, 110);
+	background-color:rgba(57, 63, 77, 1);
+	background-image: url(:/resources/icons/icon_setting_item.png);
+    background-position: right;
+    background-repeat: no-repeat;
+	border:none;
 }
 #pBtn_fps,#pBtn_time,#pBtn_dizhi{
 font-size: 36px;
@@ -190,11 +195,23 @@ text-align: right;
           <property name="leftMargin">
            <number>40</number>
           </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
           <property name="rightMargin">
            <number>40</number>
           </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
           <item>
            <widget class="QLabel" name="lb_title_fps">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>码率设置</string>
             </property>
@@ -203,7 +220,7 @@ text-align: right;
           <item>
            <widget class="QPushButton" name="pBtn_fps">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -231,8 +248,14 @@ text-align: right;
           <property name="leftMargin">
            <number>40</number>
           </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
           <property name="rightMargin">
            <number>40</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
           </property>
           <item>
            <widget class="QLabel" name="lb_title_ods">
@@ -243,17 +266,11 @@ text-align: right;
           </item>
           <item>
            <widget class="QPushButton" name="pBtn_osd">
-            <property name="minimumSize">
-             <size>
-              <width>40</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>40</width>
-              <height>40</height>
-             </size>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
             </property>
             <property name="text">
              <string/>
@@ -269,11 +286,23 @@ text-align: right;
           <property name="leftMargin">
            <number>40</number>
           </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
           <property name="rightMargin">
            <number>40</number>
           </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
           <item>
            <widget class="QLabel" name="lb_title_time">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>录制分段时长</string>
             </property>
@@ -282,7 +311,7 @@ text-align: right;
           <item>
            <widget class="QPushButton" name="pBtn_time">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -307,11 +336,23 @@ text-align: right;
           <property name="leftMargin">
            <number>40</number>
           </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
           <property name="rightMargin">
            <number>40</number>
           </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
           <item>
            <widget class="QLabel" name="lb_title_dizhi">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>储存位置</string>
             </property>
@@ -320,7 +361,7 @@ text-align: right;
           <item>
            <widget class="QPushButton" name="pBtn_dizhi">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -372,8 +413,14 @@ text-align: right;
           <property name="leftMargin">
            <number>40</number>
           </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
           <property name="rightMargin">
            <number>40</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
           </property>
           <item>
            <widget class="QLabel" name="lb_title_vision">

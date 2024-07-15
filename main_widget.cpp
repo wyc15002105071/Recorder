@@ -294,8 +294,8 @@ void MainWidget::onCreateTask()
     }
 
     {
-        mAudioRender.setOutVolume(0.5f);
-        mAudioRender.startTask();
+        //mAudioRender.setOutVolume(0.5f);
+        //mAudioRender.startTask();
     }
 
     if(mKeyListener) {
