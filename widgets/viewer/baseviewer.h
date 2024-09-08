@@ -14,6 +14,7 @@
 #include "extstorageitem.h"
 //#include "listeners/hotpluglistener.h"
 #include "widgets/confirmdialog.h"
+#include "widgets/viewer/qfilelistview.h"
 
 class BaseViewer : public BaseWidget ,public Observer
 {
@@ -59,6 +60,8 @@ protected:
     QProgressBar    *mCapacityBar;
     QWidget         *mExtStorageWidget;
     StorageUtils    *mStorageUtils;
+    QFileListView   *mFileListView;
+
     QVector<StorageUtils::ExternalStorageInfo> mExternalStorageInfo;
     QVector<sp<ExtStorageItem>> mitemVector;
 

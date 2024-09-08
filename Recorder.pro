@@ -73,14 +73,17 @@ SOURCES += \
     widgets/viewer/diskselectionitem.cpp \
     widgets/viewer/diskselectionwidget.cpp \
     widgets/viewer/extstorageitem.cpp \
+    widgets/viewer/filebrowser.cpp \
     widgets/viewer/imagebrowser.cpp \
     widgets/viewer/imageviewer.cpp \
     widgets/record_timer_widget.cpp \
     widgets/videowidget.cpp \
+    widgets/viewer/listview.cpp \
     widgets/viewer/listwidgetitem.cpp \
     widgets/viewer/osdview.cpp \
     widgets/viewer/positionslider.cpp \
     widgets/viewer/progressviewer.cpp \
+    widgets/viewer/qfilelistview.cpp \
     widgets/viewer/selectionicon.cpp \
     widgets/viewer/selectview.cpp \
     widgets/viewer/setfpsview.cpp \
@@ -142,14 +145,17 @@ HEADERS += \
     widgets/viewer/diskselectionitem.h \
     widgets/viewer/diskselectionwidget.h \
     widgets/viewer/extstorageitem.h \
+    widgets/viewer/filebrowser.h \
     widgets/viewer/imagebrowser.h \
     widgets/viewer/imageviewer.h \
     widgets/record_timer_widget.h \
     widgets/videowidget.h \
+    widgets/viewer/listview.h \
     widgets/viewer/listwidgetitem.h \
     widgets/viewer/osdview.h \
     widgets/viewer/positionslider.h \
     widgets/viewer/progressviewer.h \
+    widgets/viewer/qfilelistview.h \
     widgets/viewer/selectionicon.h \
     widgets/viewer/selectview.h \
     widgets/viewer/setfpsview.h \
@@ -170,12 +176,15 @@ FORMS += \
     widgets/viewer/diskselectionitem.ui \
     widgets/viewer/diskselectionwidget.ui \
     widgets/viewer/extstorageitem.ui \
+    widgets/viewer/filebrowser.ui \
     widgets/viewer/imagebrowser.ui \
     widgets/viewer/imageviewer.ui \
     widgets/recordtimerwidget.ui \
+    widgets/viewer/listview.ui \
     widgets/viewer/listwidgetitem.ui \
     widgets/viewer/osdview.ui \
     widgets/viewer/progressviewer.ui \
+    widgets/viewer/qfilelistview.ui \
     widgets/viewer/selectionicon.ui \
     widgets/viewer/selectview.ui \
     widgets/viewer/setfpsview.ui \

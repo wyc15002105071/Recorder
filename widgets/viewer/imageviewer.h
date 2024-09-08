@@ -30,7 +30,7 @@ public slots:
     void onCopyCurrent();
     void onDelSelectClicked();
     void onDelAllClicked();
-
+    void onBackClicked();
 public slots:
     void onDelSelect();
     void onDelAll();

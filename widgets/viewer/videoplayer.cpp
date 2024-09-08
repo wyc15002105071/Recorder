@@ -54,14 +54,17 @@ void VideoPlayer::openPlayer(QList<QString> &list, int index)
 
     if(index < 0)
         return;
+	
     this->open();
 }
 
 void VideoPlayer::playVideo(QString file_url)
 {
     mPlayer->stop();
-    if(!mVideoWidget.get() || mUrls.count() <= 0 || mCurrentIndex < 0)
+    if(!mVideoWidget.get() || mUrls.count() <= 0 || mCurrentIndex < 0) {
+		RLOGE("failed to playe video...");
         return;
+    }
     mPlayer->setVideoOutput(mVideoWidget.get());
 
     char num_str[20] = {0};
@@ -210,8 +213,10 @@ void VideoPlayer::Screenshot()
 
 void VideoPlayer::onHasOpened()
 {
-    if(mUrls.count() <= 0 || mCurrentIndex < 0)
+    if(mUrls.count() <= 0 || mCurrentIndex < 0) {
+		RLOGE("url list is empty or current index is < 0");
         return;
+    }
     playVideo(mUrls.at(mCurrentIndex));
 }
 

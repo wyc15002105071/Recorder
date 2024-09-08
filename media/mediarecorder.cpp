@@ -4,6 +4,7 @@
 #include "utils/storageutils.h"
 #include "utils/configutils.h"
 #include "utils/mediapathutils.h"
+#include "utils/fileutils.h"
 
 #define MODULE_TAG "MediaRecorder"
 
@@ -35,6 +36,7 @@ void MediaRecorder::run()
     int video_num = 0;
     const char *suffix;
     char time_str[100] = {0};
+    char date_str[100] = {0};
     char url[100] = {0};
     MediaMuxer::MediaInfo info;
 
@@ -77,8 +79,13 @@ void MediaRecorder::run()
 
         suffix = getSuffix(info.suffix_type);
         getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S");
+        getCurrentDate(date_str, "%Y-%m-%d");
+
+        char dir[100] = {0};
+        sprintf(dir, "%s/%s", MediaPathUtils::get_instance()->getRootVideoPath().toStdString().c_str() ,date_str);
+        FileUtils::mkdirIfNotExit(QString(dir));
         //sprintf(url,"%s/%s_[%d].%s",VIDEOS_SAVE_DIR,time_str,video_num,suffix);
-        sprintf(url,"%s/%s_[%d].%s",MediaPathUtils::get_instance()->getRootVideoPath().toStdString().c_str(),time_str,video_num,suffix);
+        sprintf(url,"%s/%s/%s_[%d].%s",MediaPathUtils::get_instance()->getRootVideoPath().toStdString().c_str() ,date_str, time_str,video_num,suffix);
 
         info.file_path = url;
 

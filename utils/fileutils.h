@@ -23,10 +23,13 @@ public:
     virtual void stopTask();
     static const char *getFileSuffix(QString file_path);
     static const char *pathToName(QString path);
+    static const char *pathToDirPath(QString path);
+    static void mkdirIfNotExit(QString dir);
     void startCopy(QList<QString> &filesPath,QString dst_dir);
     void startDelete(QList<QString> &filesPath);
     long long getFileSize(QString filePath);
     long long getFilesSize(QList<QString> fileslist);
+	long long getDirSize(QString dirPath);
 private:
 #define BUFFER_SIZE 4096
     QList<QString> mSrcFilesPath;

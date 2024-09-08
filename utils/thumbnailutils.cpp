@@ -106,7 +106,8 @@ void ThumbnailUtils::getThumbnail(QString file_path, ThumbnailUtils::Type type)
         AVCodecID codecid = AV_CODEC_ID_NONE;
         RKHWDecApi::DecCfgInfo info;
         RKHWDecApi::OutputFrame out_frame;
-        const char *file_p = file_path.toLatin1().data();
+        char file_p[100] = {0};
+		strcpy(file_p, file_path.toLatin1().data());
         RLOGD("file path is %s",file_p);
         if (avformat_open_input(&mFormatCtx, file_p, NULL, NULL) != 0) {
             RLOGE("Failed to open input file:%s",file_p);

@@ -350,89 +350,12 @@ QPushButton::pressed{
     </widget>
    </item>
    <item>
-    <widget class="QListWidget" name="image_list">
-     <property name="styleSheet">
-      <string notr="true">QScrollBar {
-  background: rgb(29,32,41,1);
-  padding-top:18px;
-  padding-bottom:18px;
-  width:20px;
-}
-
-QScrollBar::handle:vertical {
-	background-color: rgba(225, 227, 240, 1);
-	      border-radius:4px;
-	      padding-bottom:18px;
-	      padding-top:18px;
-}
-
- QScrollBar::add-line:vertical {
-      background: rgb(29,32,41,1);
-	  border:1px
-  }
-
-QScrollBar::sub-line:vertical {
-      background: rgb(29,32,41,1);
-
-  }
-
-
-QScrollBar::add-page:vertical
-{
-  background-color:rgba(29,32,41,1);
-}
-
-QScrollBar::sub-page:vertical 
-{
-    background-color:rgb(29,32,41,1); 
-}
-
-QScrollBar::up-arrow:vertical
-{
-  border-image: url(:/resources/icons/up.png);
-  height:10px;
-  subcontrol-position:top
-}
-QScrollBar::down-arrow:vertical
-{
-	border-image: url(:/resources/icons/down.png);
-   height:10px;
-   subcontrol-position:bottom
-}
-</string>
-     </property>
-     <property name="sizeAdjustPolicy">
-      <enum>QAbstractScrollArea::AdjustToContents</enum>
-     </property>
-     <property name="autoScrollMargin">
-      <number>16</number>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::SingleSelection</enum>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>300</width>
-       <height>300</height>
-      </size>
-     </property>
-     <property name="movement">
-      <enum>QListView::Static</enum>
-     </property>
-     <property name="resizeMode">
-      <enum>QListView::Adjust</enum>
-     </property>
-     <property name="spacing">
-      <number>30</number>
-     </property>
-     <property name="viewMode">
-      <enum>QListView::IconMode</enum>
-     </property>
-     <property name="batchSize">
-      <number>101</number>
-     </property>
-     <property name="itemAlignment">
-      <set>Qt::AlignHCenter</set>
+    <widget class="QFileListView" name="image_list" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
     </widget>
    </item>
@@ -544,40 +467,16 @@ background-color:rgba(39, 42, 51, 1);
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QFileListView</class>
+   <extends>QWidget</extends>
+   <header>widgets/viewer/qfilelistview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
-  <connection>
-   <sender>back_btn</sender>
-   <signal>clicked()</signal>
-   <receiver>ImageViewer</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>47</x>
-     <y>59</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>0</x>
-     <y>55</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>image_list</sender>
-   <signal>itemClicked(QListWidgetItem*)</signal>
-   <receiver>ImageViewer</receiver>
-   <slot>onItemClicked(QListWidgetItem*)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>331</x>
-     <y>293</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>923</x>
-     <y>318</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>selectMode_btn</sender>
    <signal>toggled(bool)</signal>
@@ -585,8 +484,8 @@ background-color:rgba(39, 42, 51, 1);
    <slot>onSelectModeToggled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>743</x>
-     <y>44</y>
+     <x>923</x>
+     <y>49</y>
     </hint>
     <hint type="destinationlabel">
      <x>861</x>
@@ -601,8 +500,8 @@ background-color:rgba(39, 42, 51, 1);
    <slot>onCopyAllClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>290</x>
-     <y>49</y>
+     <x>434</x>
+     <y>54</y>
     </hint>
     <hint type="destinationlabel">
      <x>273</x>
@@ -633,8 +532,8 @@ background-color:rgba(39, 42, 51, 1);
    <slot>onDelAllClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>603</x>
-     <y>38</y>
+     <x>741</x>
+     <y>43</y>
     </hint>
     <hint type="destinationlabel">
      <x>582</x>
@@ -658,6 +557,22 @@ background-color:rgba(39, 42, 51, 1);
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>back_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>ImageViewer</receiver>
+   <slot>onBackClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>65</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-74</x>
+     <y>89</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onItemClicked(QListWidgetItem*)</slot>
@@ -666,5 +581,6 @@ background-color:rgba(39, 42, 51, 1);
   <slot>onCopyAllClicked()</slot>
   <slot>onDelSelectClicked()</slot>
   <slot>onDelAllClicked()</slot>
+  <slot>onBackClicked()</slot>
  </slots>
 </ui>

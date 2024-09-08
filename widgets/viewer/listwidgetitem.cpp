@@ -71,6 +71,11 @@ bool ListWidgetItem::isSelected()
     return false;
 }
 
+QString ListWidgetItem::fileName()
+{
+    return ui->file_name->text();
+}
+
 void ListWidgetItem::setSelected(bool selected)
 {
     if(mSelectionIcon) {

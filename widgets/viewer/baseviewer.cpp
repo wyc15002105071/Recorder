@@ -16,6 +16,7 @@ BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mFileUtils(sp<FileUtils>(new FileUtils))
     ,mThumbnail(sp<ThumbnailUtils>(new ThumbnailUtils))
     ,mStorageUtils(StorageUtils::get_instance())
+    ,mFileListView(nullptr)
     ,mSelectMode(false)
     ,mOperation(FileUtils::COPY)
     ,mLoadNum(0)
@@ -27,7 +28,7 @@ BaseViewer::BaseViewer(QWidget *parent) : BaseWidget(parent)
     ,mlabel(sp<QLabel>(new QLabel("未插入外部存储")))
 {
     setWindowState(Qt::WindowFullScreen);
-    mProgressViewer = sp<ProgressViewer>(new ProgressViewer(this));
+    mProgressViewer = sp<ProgressViewer>(new ProgressViewer(mFileListView));
     mFileUtils->attach(mProgressViewer.get());
     mThumbnail->attach(mProgressViewer.get());
     //mHotplugListener->attach(this);

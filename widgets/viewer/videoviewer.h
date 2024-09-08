@@ -35,6 +35,7 @@ public slots:
     void onDelAll();
     void onDiskItemClicked(int index);
     void onKeyEventHandler(KeyListener::EventType type);
+	void onBackClicked();
 private:
     Ui::VideoViewer  *ui;
     VideoFrameReader *mVideoFrameReader;

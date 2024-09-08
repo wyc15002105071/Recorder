@@ -348,86 +348,12 @@ QPushButton::pressed{
     </widget>
    </item>
    <item>
-    <widget class="QListWidget" name="video_list">
-     <property name="styleSheet">
-      <string notr="true">QScrollBar {
-  background: rgb(29,32,41,1);
-  padding-top:18px;
-  padding-bottom:18px;
-  width:20px;
-}
-
-QScrollBar::handle:vertical {
-	background-color: rgba(225, 227, 240, 1);
-	      border-radius:4px;
-	      padding-bottom:18px;
-	      padding-top:18px;
-}
-
- QScrollBar::add-line:vertical {
-      background: rgb(29,32,41,1);
-	  border:1px
-  }
-
-QScrollBar::sub-line:vertical {
-      background: rgb(29,32,41,1);
-
-  }
-
-
-QScrollBar::add-page:vertical
-{
-  background-color:rgba(29,32,41,1);
-}
-
-QScrollBar::sub-page:vertical 
-{
-    background-color:rgb(29,32,41,1); 
-}
-
-QScrollBar::up-arrow:vertical
-{
-  border-image: url(:/resources/icons/up.png);
-  height:10px;
-  subcontrol-position:top
-}
-QScrollBar::down-arrow:vertical
-{
-	border-image: url(:/resources/icons/down.png);
-   height:10px;
-   subcontrol-position:bottom
-}
-</string>
-     </property>
-     <property name="sizeAdjustPolicy">
-      <enum>QAbstractScrollArea::AdjustToContents</enum>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::SingleSelection</enum>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>300</width>
-       <height>300</height>
-      </size>
-     </property>
-     <property name="movement">
-      <enum>QListView::Static</enum>
-     </property>
-     <property name="resizeMode">
-      <enum>QListView::Adjust</enum>
-     </property>
-     <property name="spacing">
-      <number>30</number>
-     </property>
-     <property name="viewMode">
-      <enum>QListView::IconMode</enum>
-     </property>
-     <property name="batchSize">
-      <number>101</number>
-     </property>
-     <property name="itemAlignment">
-      <set>Qt::AlignHCenter</set>
+    <widget class="QFileListView" name="video_list" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
     </widget>
    </item>
@@ -541,6 +467,13 @@ QLabel {
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QFileListView</class>
+   <extends>QWidget</extends>
+   <header>widgets/viewer/qfilelistview.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
@@ -563,7 +496,7 @@ QLabel {
    <sender>back_btn</sender>
    <signal>clicked()</signal>
    <receiver>VideoViewer</receiver>
-   <slot>close()</slot>
+   <slot>onBackClicked()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>43</x>

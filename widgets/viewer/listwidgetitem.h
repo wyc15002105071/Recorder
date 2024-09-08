@@ -56,17 +56,28 @@ public:
     virtual void resizeEvent(QResizeEvent *event);
     ~ListWidgetItem();
     void setFileName(QString file_name);
+    void setDirPath(QString dir_path) { mDirPath = dir_path;}
+	void setAbsolutePath(QString absolute_path) { mAbsolutePath = absolute_path;}
     void setIcon(QImage image);
     void setAlignment(Qt::Alignment alignment);
     void setMovie(QMovie *movie);
     void setSelectable(bool selectable);
     void setSelected(bool selected);
     bool isSelected();
+	
+	
+    QString fileName();
+    QString dirPath() { return mDirPath; }
+	QString absolutePath() { return mAbsolutePath; }
 private:
     Ui::ListWidgetItem *ui;
 
     sp<SelectionIcon> mSelectionIcon;
     bool mSelectable;
+
+    QString mDirPath;
+
+	QString mAbsolutePath;
 };
 
 #endif // LISTWIDGETITEM_H

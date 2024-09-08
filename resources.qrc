@@ -37,5 +37,6 @@
         <file>resources/icons/top_right_check.png</file>
         <file>resources/icons/icon_setting_item.png</file>
         <file>resources/icons/userSet.png</file>
+        <file>resources/icons/dir.png</file>
     </qresource>
 </RCC>

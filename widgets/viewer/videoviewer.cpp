@@ -18,18 +18,23 @@ VideoViewer::VideoViewer(QWidget *parent) :
    , mIconHasUpdated(0)
 {
     ui->setupUi(this);
-    mPlayer = sp<VideoPlayer>(new VideoPlayer());
-    mPlayer->close();
+    //mPlayer = sp<VideoPlayer>(new VideoPlayer());
+    //mPlayer->close();
 
     mFileType    = FILE_TYPE_VIDEO;
-    mListViewer  = ui->video_list;
+	
+    mFileListView = ui->video_list;
+    mFileListView->setPath(VIDEOS_SAVE_DIR);
+    mFileListView->setIconSize(mIconWidth, mIconHeight);
+	mFileListView->setFileType(QFileListView::File_TypeVideo);
+	
     mCapacityBar = ui->capacity;
     mExtStorageWidget = ui->extStorageWidget;
 
-    mListViewer->setAttribute(Qt::WA_AcceptTouchEvents,true);
-    mListViewer->verticalScrollBar()->setStyleSheet(mListViewer->styleSheet());
-    QScroller::grabGesture(mListViewer,QScroller::TouchGesture);
-    connect(mThumbnail.get(),SIGNAL(onGetOneImage(QImage,QString)),this,SLOT(onLoadThumbnail(QImage,QString)));
+    //mListViewer->setAttribute(Qt::WA_AcceptTouchEvents,true);
+    //mListViewer->verticalScrollBar()->setStyleSheet(mListViewer->styleSheet());
+    //QScroller::grabGesture(mListViewer,QScroller::TouchGesture);
+    //connect(mThumbnail.get(),SIGNAL(onGetOneImage(QImage,QString)),this,SLOT(onLoadThumbnail(QImage,QString)));
     connect(mKeyListener,SIGNAL(onPressed(KeyListener::EventType)),this,SLOT(onKeyEventHandler(KeyListener::EventType)));
     connect(mDiskSelectionWidget.get(),SIGNAL(itemClicked(int)),this,SLOT(onDiskItemClicked(int)));
 }
@@ -47,7 +52,9 @@ VideoViewer::~VideoViewer()
 
 void VideoViewer::onHasOpened()
 {
-    mListViewer->clear();
+    //mListViewer->clear();
+    RLOGD("---video view has opened---");
+    mFileListView->updateDirView();
     mIconHasUpdated = 0;
 //    static QMovie movie(":/resources/icons/loading.gif");
 
@@ -65,15 +72,18 @@ void VideoViewer::onHasOpened()
     //        movie.start();
     //    }
 
-    if(mThumbnail) {
-        mThumbnail->setThumbSize(mIconWidth - X_OFFSET,mIconHeight - Y_OFFSET);
-        mThumbnail->setDataSource(mFilePathList);
-        mThumbnail->startTask();
-    }
+	if(mThumbnail.get()) {
+		mThumbnail->setThumbSize(mIconWidth - X_OFFSET,mIconHeight - Y_OFFSET);
+		mThumbnail->setDataSource(mFilePathList);
+		mThumbnail->startTask();
+	}
 
-    if(mProgressViewer) {
+
+    if(mProgressViewer.get()) {
+        mProgressViewer->move(this->width()/2-mProgressViewer->width()/2,this->height()-mProgressViewer->height()-20);
         mProgressViewer->close();
     }
+
 
     if(mCapacityListenerTimer) {
         mCapacityListenerTimer->start();
@@ -111,12 +121,24 @@ void VideoViewer::onHasClosed()
     //}
 }
 
+void VideoViewer::onBackClicked()
+{
+    int page = mFileListView->getCurrentPage();
+    if(page > 0) {
+        mFileListView->setCurrentPage(page - 1);
+		ui->selectMode_btn->setChecked(false);
+    } else {
+        this->close();
+    }
+}
+
+
 void VideoViewer::open()
 {
     if(mProgressViewer){
         mProgressViewer->setOperation(2);
     }
-    findAllFiles(VIDEOS_SAVE_DIR);
+    //findAllFiles(VIDEOS_SAVE_DIR);
     show();
 }
 
@@ -128,6 +150,7 @@ bool VideoViewer::isPlay()
 void VideoViewer::onItemClicked(QListWidgetItem *item)
 {
     QScroller *scroller = QScroller::scroller(mListViewer);
+
     if(scroller && scroller->state() != QScroller::Inactive)
         return;
     if(mSelectMode) {
@@ -137,70 +160,51 @@ void VideoViewer::onItemClicked(QListWidgetItem *item)
         bool is_selected = item_widget->isSelected();
         item_widget->setSelected(!is_selected);
     } else {
-        int index = mListViewer->currentRow();
-        QString name = mFilePathList.at(index);
-        QString video_path = "file://"+name;
+        int current_index = mListViewer->currentRow();
         if(mPlayer) {
             mPlayer->setGeometry(this->geometry());
-            mPlayer->openPlayer(mFilePathList,index);
+            mPlayer->openPlayer(mFilePathList,current_index);
         }
     }
+
 }
 
 void VideoViewer::onSelectModeToggled(bool toggled)
 {
-    mSelectionlist.clear();
-    int count = mListViewer->count();
-    if(count <= 0)
-        return;
-    mSelectMode = toggled;
-    for(int i = 0;i < count;i++) {
-        QListWidgetItem *item = mListViewer->item(i);
-        if(!item)
-            continue;
-        ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
-        item_widget->setSelectable(toggled);
-    }
+    mFileListView->setSelectionMode(toggled);
 }
 
 void VideoViewer::onCopySelectedClicked()
 {
     mSelectionlist.clear();
+    mOperation = FileUtils::COPY;
+    mSelectionlist = mFileListView->getSelectedPathOfItems();
 
-    for(int i = 0;i<mListViewer->count();i++) {
-        QListWidgetItem *item = mListViewer->item(i);
-        ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
-
-        if(!item_widget)
-            continue;
-        if(item_widget->isSelected()) {
-            mSelectionlist.push_back(mFilePathList.at(i));
-        }
-    }
-    //RLOGD("",1);
     if (mSelectionlist.count() == 0) {
         mProgressViewer->showWarning("未选中对象...");
         if(mDiskSelectionWidget)
             mDiskSelectionWidget->close();
         return;
     }
-    mOperation = FileUtils::COPY;
+
+    RLOGD("mSelectionlist count is %d, %s",mSelectionlist.count(), mSelectionlist.at(0).toLatin1().data());
+	
     openDiskSelection();
+
 }
 
 void VideoViewer::onCopyAllClicked()
 {
     mSelectionlist.clear();
     mOperation = FileUtils::COPY;
-    mSelectionlist = mFilePathList;
-
+    mSelectionlist = mFileListView->getAllPathOfItems();;
     if (mSelectionlist.count() == 0) {
         mProgressViewer->showWarning("未选中对象...");
         if(mDiskSelectionWidget)
             mDiskSelectionWidget->close();
         return;
     }
-
+	
     openDiskSelection();
 }
 
@@ -215,17 +219,8 @@ void VideoViewer::onDelSelectClicked()
     if(mProgressViewer) {
         mProgressViewer->setOperation(mOperation);
     }
-    for(int i = 0;i<mListViewer->count();i++) {
-        QListWidgetItem *item = mListViewer->item(i);
-        ListWidgetItem *item_widget = (ListWidgetItem *)mListViewer->itemWidget(item);
-
-        if(!item_widget)
-            continue;
-        if(item_widget->isSelected()) {
-            mSelectionlist.push_back(mFilePathList.at(i));
-            del_list.push_back(item);
-        }
-    }
+	
+    mSelectionlist = mFileListView->getSelectedPathOfItems();
 
     if (mSelectionlist.count() == 0) {
         mProgressViewer->showWarning("未选中对象...");
@@ -268,7 +263,8 @@ void VideoViewer::onDelSelectClicked()
 void VideoViewer::onDelAllClicked()
 {
     isDeleteAll = true;
-    if (mFilePathList.count() == 0) {
+	mSelectionlist = mFileListView->getAllPathOfItems();
+    if (mSelectionlist.count() == 0) {
         mProgressViewer->showWarning("未选中对象...");
         if(mDiskSelectionWidget)
             mDiskSelectionWidget->close();
@@ -305,22 +301,11 @@ void VideoViewer::onDelAllClicked()
 void VideoViewer::onDelSelect()
 {
     if(isDeleteAll)return;
-    while(del_list.count() > 0) {
-        QListWidgetItem *item = del_list.front();
 
-        int row = mListViewer->row(item);
-        mListViewer->removeItemWidget(item);
-        mListViewer->takeItem(row);
-        del_list.pop_front();
-
-        mFilePathList.removeAt(row);
-        mFileNameList.removeAt(row);
-
-        //mConfirmDialog->deleteLater();
-        //mConfirmDialog = nullptr;
-    }
+	mFileListView->delSelected();
 
     mFileUtils->startDelete(mSelectionlist);
+
 }
 
 void VideoViewer::onDelAll()
@@ -331,11 +316,12 @@ void VideoViewer::onDelAll()
     if(mProgressViewer) {
         mProgressViewer->setOperation(mOperation);
     }
-
-    mListViewer->clear();
+	
+	mFileListView->delAll();
+    //mListViewer->clear();
     mFileUtils->startDelete(mFilePathList);
-    mFilePathList.clear();
-    mFileNameList.clear();
+    //mFilePathList.clear();
+    //mFileNameList.clear();
 }
 
 void VideoViewer::onDiskItemClicked(int index)

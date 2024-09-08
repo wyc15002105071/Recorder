@@ -194,3 +194,19 @@ const char *getSuffix(Suffix_t suffix)
         return "mp4";
     }
 }
+
+void getCurrentDate(char *str, const char *format)
+{
+    struct timeval current_time;
+    char temp_str[50];
+    char usec_str[50];
+    char *str_fmt = "%Y-%m-%d";
+    if(format)
+        str_fmt = (char *)format;
+
+    gettimeofday(&current_time, NULL);
+
+    strftime(temp_str, sizeof(temp_str), str_fmt, localtime(&current_time.tv_sec));
+
+    strcpy(str,temp_str);
+}

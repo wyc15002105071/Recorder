@@ -3,6 +3,8 @@
 #include <mntent.h>
 #include <QDir>
 #include "common/log.h"
+#include "utils/fileutils.h"
+
 QString MediaPathUtils::getRootPath()
 {
     if(!ConfigUtils::isUsbMedia)
@@ -59,14 +61,22 @@ QString MediaPathUtils::getRootImagePath()
 QString MediaPathUtils::getImagePath()
 {
     char time_str[100] = {0};
-    getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S",true);
     char file_name[100] = {0};
     char file_save_path[100] = {0};
+    char date_str[100] = {0};
+
+    getCurentTime(time_str,"%Y-%m-%d_%H-%M-%S",true);
+    getCurrentDate(date_str, "%Y-%m-%d");
+    char dir[100] = {0};
 
     QString path = getRootImagePath();
     RLOGD(path.toStdString().c_str());
+    sprintf(dir, "%s/%s", path.toStdString().c_str() ,date_str);
+
+    FileUtils::mkdirIfNotExit(QString(dir));
+
     sprintf(file_name,"%s.jpg",time_str);
-    sprintf(file_save_path,"%s/%s",path.toStdString().c_str(),file_name);
+    sprintf(file_save_path,"%s/%s/%s",path.toStdString().c_str(), date_str, file_name);
     RLOGD("capture file path is %s",file_save_path);
     return QString(file_save_path);
 }
@@ -75,6 +85,7 @@ MediaPathUtils::MediaPathUtils()
 {
 
 }
+
 const char *MediaPathUtils::getMountPath(const char *node_path)
 {
     FILE *mounts;

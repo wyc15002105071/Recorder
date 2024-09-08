@@ -73,6 +73,7 @@ int  getVideoNodesCount(const char* directory);
 void getVideoNodesInfo(std::vector<VideoNodeInfo> &infos);
 int  printFps(const char *TAG);
 void getCurentTime(char *str,const char *format, bool usec = false);
+void getCurrentDate(char *str,const char *format);
 std::string fcc2s(__u32 val);
 std::string convertSecondToTime(int64_t seconds);
 std::string convertMillisecondsToTime(long long milliseconds);
