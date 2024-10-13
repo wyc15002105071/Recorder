@@ -5,12 +5,16 @@
 #include "utils/configutils.h"
 #include "utils/mediapathutils.h"
 #include "utils/fileutils.h"
+#include "mpp_common.h"
 
 #define MODULE_TAG "MediaRecorder"
 
 MediaRecorder::MediaRecorder()
     : mVideoEncoder(sp<RKHWEncApi>(new RKHWEncApi))
     , mMediaMuxer(sp<MediaMuxer>(new MediaMuxer))
+#if RECORD_OTHER
+    , mMediaMuxerOther(sp<MediaMuxer>(new MediaMuxer))
+#endif
     , mRecordState(REC_STATE_UNINITIALIZED)
     , mVideoIndex(0)
     , mRecordEosFlag(false)
@@ -104,12 +108,34 @@ void MediaRecorder::run()
             break;
         }
 
+        info.save_dir = VIDEOS_SAVE_DIR;
         ret = mMediaMuxer->prepare(info);
         if(ret < 0) {
             mpp_packet_deinit(&hdr_pkt);
             RLOGE("mediamuxer prepare failed");
             goto EXIT;
         }
+
+#if RECORD_OTHER
+        char save_dir[100] = {0};
+        sprintf(save_dir, "%s/%s", VIDEOS_INTERNAL_SAVE_DIR, date_str);
+        sprintf(url,"%s/%s/%s_[%d].%s",VIDEOS_INTERNAL_SAVE_DIR ,date_str, time_str,video_num,suffix);
+
+        if (access(save_dir, F_OK)) {
+            mkdir(save_dir);
+        }
+
+        info.save_dir = save_dir;
+        info.file_path = url;
+        ret = mMediaMuxerOther->prepare(info);
+        if(ret < 0) {
+            mpp_packet_deinit(&hdr_pkt);
+            RLOGE("mediamuxer prepare failed");
+            goto EXIT;
+        }
+        mMediaMuxerOther->startTask();
+#endif
+
         mpp_packet_deinit(&hdr_pkt);
     	mMediaMuxer->startTask();
     }
@@ -197,12 +223,29 @@ void MediaRecorder::run()
                     }
                     usleep(1*1000);
                     mMediaMuxer->startTask();
+
+#if RECORD_OTHER
+                    mMediaMuxerOther->stopTask();
+                    mMediaMuxerOther->wait();
+                    ret = mMediaMuxerOther->prepare(info);
+                    if(ret < 0) {
+                        RLOGE("mediamuxer prepare failed:%d",ret);
+                        encOut.release();
+                        goto EXIT;
+                    }
+                    usleep(1*1000);
+                    mMediaMuxerOther->startTask();
+#endif
                 }
                 //RLOGD("IDR frame produced");
                 packet.flags |= MediaMuxer::FLAG_OUTPUT_INTRA;
             }
 
             mMediaMuxer->writeData(&packet);
+#if RECORD_OTHER
+            mMediaMuxerOther->writeData(&packet);
+#endif
+
             encOut.release();
         }
 
@@ -212,6 +255,12 @@ void MediaRecorder::run()
     packet.flags |= MediaMuxer::FLAG_END_OF_STREAM;
     mMediaMuxer->writeData(&packet);
     mMediaMuxer->stopTask();
+
+#if RECORD_OTHER
+    mMediaMuxerOther->writeData(&packet);
+    mMediaMuxerOther->stopTask();
+#endif
+
 EXIT:
     if(mBufferlist.size() > 0)
         mBufferlist.clear();

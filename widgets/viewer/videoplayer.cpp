@@ -213,6 +213,7 @@ void VideoPlayer::Screenshot()
 
 void VideoPlayer::onHasOpened()
 {
+    RLOGD("on videoplayer opened");
     if(mUrls.count() <= 0 || mCurrentIndex < 0) {
 		RLOGE("url list is empty or current index is < 0");
         return;
@@ -222,6 +223,7 @@ void VideoPlayer::onHasOpened()
 
 void VideoPlayer::onHasClosed()
 {
+    RLOGD("on videoplayer closed");
     if(mPlayer.get()) {
         mPlayer->stop();
     }

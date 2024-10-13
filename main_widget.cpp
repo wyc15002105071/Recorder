@@ -123,6 +123,10 @@ void MainWidget::initWidgets()
         mkdir(VIDEOS_SAVE_DIR);
     }
 
+    if (access(VIDEOS_INTERNAL_SAVE_DIR, F_OK)) {
+        mkdir(VIDEOS_INTERNAL_SAVE_DIR);
+    }
+
     ui->NoSignalWidget->resize(this->size());
     ui->NoSignalWidget->move(0,0);
 

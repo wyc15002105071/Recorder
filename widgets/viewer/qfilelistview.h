@@ -79,6 +79,7 @@ private:
 
 	QListWidget *getCurrentPageOfListWidget();
 	QList<QListWidgetItem*> getSelectedItems();
+    QList<QListWidgetItem*> getAllItems();
     QStringList findAllFiles(QString dir);
 	
 };

@@ -214,7 +214,6 @@ void VideoViewer::onDelSelectClicked()
     mOperation = FileUtils::DELETE;
     mSelectionlist.clear();
 
-
     del_list.clear();
     if(mProgressViewer) {
         mProgressViewer->setOperation(mOperation);
@@ -318,10 +317,7 @@ void VideoViewer::onDelAll()
     }
 	
 	mFileListView->delAll();
-    //mListViewer->clear();
-    mFileUtils->startDelete(mFilePathList);
-    //mFilePathList.clear();
-    //mFileNameList.clear();
+    mFileUtils->startDelete(mSelectionlist);
 }
 
 void VideoViewer::onDiskItemClicked(int index)

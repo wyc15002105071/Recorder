@@ -32,12 +32,18 @@ void ImageBrowser::resizeEvent(QResizeEvent *event)
 
 void ImageBrowser::openPlayer(QList<QString> &list, int index)
 {
-    this->mUrls = list;
+    RLOGD("openPlayer index is %d", index);
+    this->mUrls = std::move(list);
     this->mCurrentIndex = index;
 
     if(index < 0)
         return;
+
     this->open();
+
+    // if(mUrls.count() <= 0 || mCurrentIndex < 0)
+    //     return;
+    // showImage(mUrls.at(mCurrentIndex));
 }
 
 QString ImageBrowser::getCurrentIndex()
@@ -47,13 +53,17 @@ QString ImageBrowser::getCurrentIndex()
 
 void ImageBrowser::onHasOpened()
 {
-    if(mUrls.count() <= 0 || mCurrentIndex < 0)
+    RLOGD("on image browser opened");
+    if(mUrls.count() <= 0 || mCurrentIndex < 0) {
+        RLOGD("urls count is %d, index is %d", mUrls.count(), mCurrentIndex);
         return;
+    }
     showImage(mUrls.at(mCurrentIndex));
 }
 
 void ImageBrowser::onHasClosed()
 {
+    RLOGD("on image browser closed");
     if(mUrls.count() > 0)
         mUrls.clear();
     mCurrentIndex = 0;
@@ -62,6 +72,7 @@ void ImageBrowser::onHasClosed()
 
 void ImageBrowser::showImage(QString path)
 {
+    RLOGD("show image is %s", path.toLatin1().data());
     char num_str[20] = {0};
     int count = mUrls.count();
     sprintf(num_str,"%d/%d",mCurrentIndex+1,count);

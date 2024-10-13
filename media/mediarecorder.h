@@ -9,6 +9,8 @@
 #include "mediamuxer.h"
 #include <QPixmap>
 
+#define RECORD_OTHER 1
+
 class MediaRecorder : public RThread
 {
 public:
@@ -48,7 +50,9 @@ private:
     sp<RKHWEncApi> mVideoEncoder;
     RKHWEncApi::EncCfgInfo mVideoCfg;
     sp<MediaMuxer> mMediaMuxer;
-
+#if RECORD_OTHER
+    sp<MediaMuxer> mMediaMuxerOther;
+#endif
     RecordState    mRecordState;
 
     FILE *test_file = nullptr;

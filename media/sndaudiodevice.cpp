@@ -106,7 +106,7 @@ int SNDAudioDevice::read(void *buf)
         size = snd_pcm_readi(mHandle, buf, avail);
     }
     if(size <= 0) {
-        RLOGE("read err ocur %s",strerror(errno));
+        //RLOGE("read err ocur %s",strerror(errno));
         if(size == -EPIPE) {
             snd_pcm_prepare(mHandle);
             size = snd_pcm_readi(mHandle, buf, avail);

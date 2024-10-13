@@ -63,6 +63,7 @@ void ImageViewer::onItemClicked(QListWidgetItem *item)
         item_widget->setSelected(!is_selected);
     } else {
         int current_index = mListViewer->currentRow();
+        RLOGD("current index is %d");
         if(mImageBrowser) {
             mImageBrowser->setGeometry(this->geometry());
             mImageBrowser->openPlayer(mFilePathList,current_index);

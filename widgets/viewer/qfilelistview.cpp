@@ -176,7 +176,19 @@ void QFileListView::delSelected()
 
 void QFileListView::delAll()
 {
-	QListWidget *list = getCurrentPageOfListWidget();
+    QList<QListWidgetItem*> del_list = getAllItems();
+    QListWidget *list = getCurrentPageOfListWidget();
+
+    RLOGD("del list is %d", del_list.count());
+    while(del_list.count() > 0) {
+        QListWidgetItem *item = del_list.front();
+
+        int row = list->row(item);
+        list->removeItemWidget(item);
+        list->takeItem(row);
+        del_list.pop_front();
+    }
+
 	list->clear();
 }
 
@@ -215,6 +227,28 @@ QList<QListWidgetItem*> QFileListView::getSelectedItems()
 
 	return item_list;
 
+}
+
+QList<QListWidgetItem *> QFileListView::getAllItems()
+{
+    QList<QListWidgetItem*> item_list;
+
+    int page = getCurrentPage();
+    QListWidget *list = getCurrentPageOfListWidget();
+
+    int count = list->count();
+    if(count <= 0)
+        return QList<QListWidgetItem*>();
+
+    for(int i = 0;i < count;i++) {
+        QListWidgetItem *item = list->item(i);
+        if(!item)
+            continue;
+        ListWidgetItem *item_widget = (ListWidgetItem *)list->itemWidget(item);
+        item_list.push_back(item);
+    }
+
+    return item_list;
 }
 
 
@@ -304,8 +338,9 @@ void QFileListView::onFileItemClicked(QListWidgetItem *item)
 		QStringList file_list = findAllFiles(dir_path);
 		if(mFileType == File_TypeImage) {
 	        if(mImageBrowser) {
+                RLOGD("show image player index %d...", current_index);
+                mImageBrowser->openPlayer(file_list,current_index);
 	            mImageBrowser->showFullScreen();
-	            mImageBrowser->openPlayer(file_list,current_index);
 	        }
 		} else if(mFileType == File_TypeVideo) {
 			 if(mVideoPlayer) {
@@ -314,8 +349,6 @@ void QFileListView::onFileItemClicked(QListWidgetItem *item)
 			 	mVideoPlayer->showFullScreen();
 	        }
 		}
-		
-
     }
 }
 
@@ -341,7 +374,7 @@ QStringList QFileListView::findAllFiles(QString dir)
     list.clear();
     for(auto file:file_dir.entryList(nameFilter))
     {
-	if(file == "." || file == "..") continue;
+        if(file == "." || file == "..") continue;
         list.append(QString(dir)+"/"+file);
 //        mFileNameList.append(file);
         RLOGD(" file %s ", file.toLatin1().data());

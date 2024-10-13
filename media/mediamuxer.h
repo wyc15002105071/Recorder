@@ -27,6 +27,7 @@ public:
         bool          push_stream;
         Push_t        push_type;
         std::string   file_path;
+        std::string   save_dir;
         Video_CodingType  coding_type;
     } MediaInfo_t;
 
